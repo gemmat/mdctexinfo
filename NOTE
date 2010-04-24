@@ -1,0 +1,15 @@
+#make download list
+find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.1 developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh main.scm -l | sort | uniq > hoge
+#download pass.1
+wget -p --convert-links -nc -i hoge
+#remove *.1
+find developer.mozilla.org | fgrep ".1" | xargs rm
+#download pass.2
+wget -p --convert-links -nc -i hoge
+#find directory-page to the "dp" file.
+find developer.mozilla.org | fgrep ".1" | sed "s/^/https:\/\//g" | sed "s/\.1$//g" | sort | uniq >> dp
+#process
+find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.1 developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh main.scm -p out -v
+
+#try this.
+wget -p --convert-links -nc -r --html-extension -i hoge
