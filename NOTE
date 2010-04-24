@@ -1,3 +1,13 @@
+https://developer.mozilla.org/Special:Sitemap?language=ja
+var arr = $x('/html/body/div/div[2]/div/div[3]/div[2]/div/ul/li/ul/li[2]/ul/li[79]')[0].getElementsByTagName("a");
+var df = document.createDocumentFragment();
+for (var i = 0; i < arr.length; i++) {
+  var p = document.createElement("p");
+  p.appendChild(document.createTextNode(arr[i].href));
+  df.appendChild(p);
+}
+document.body.appendChild(df);
+
 #make download list
 find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.1 developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh main.scm -l | sort | uniq > hoge
 #download pass.1

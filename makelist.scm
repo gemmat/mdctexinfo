@@ -285,7 +285,7 @@
                ,(sxpath '(// (xhtml:div (@ (equal? (id "popupMask"))))))
                ,(sxpath '(// (xhtml:div (@ (equal? (id "popupContainer"))))))
                ,(sxpath '(// (xhtml:div (@ (equal? (id "page-tags"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "page-files"))))))               
+               ,(sxpath '(// (xhtml:div (@ (equal? (id "page-files"))))))
                ,(sxpath '(// (xhtml:div (@ (equal? (id "MTMessage"))))))
                ,(sxpath '(// (xhtml:div (@ (equal? (class "siteNav"))))))
                ,(sxpath '(// (xhtml:div (@ (equal? (class "siteSearch"))))))
@@ -301,23 +301,17 @@
 
 (define (resolve-uri root uri)
   (receive (scheme _ host _ path query fragment) (uri-parse uri)
-    (print "root:" root)
-    (print "href:" uri)
-    (print "path:" path)    
     (and-let* ((path)
                (path (regexp-replace-all #/%3a/ path "/"))
                (rslv-path (if (relative-path? path)
                             (simplify-path (build-path root path))
-                            path))
-               (rslv-uri  (uri-compose
-                           :scheme   (or scheme "https")
-                           :host     (or host "developer.mozilla.org")
-                           :path     rslv-path
-                           :query    query
-                           :fragment fragment)))
-      (print "rslv:" rslv-uri)
-      (newline)
-      rslv-uri)))
+                            path)))
+      (uri-compose
+       :scheme   (or scheme "https")
+       :host     (or host "developer.mozilla.org")
+       :path     rslv-path
+       :query    query
+       :fragment fragment))))
 
 (define (process-links! root sxml)
   (for-each (lambda (obj)
@@ -356,7 +350,7 @@
 (define (process! path)
   (when verbose (print path))
   (let1 sxml (MDC-xhtml->sxml path)
-    (remove-useless-elements! sxml)    
+    (remove-useless-elements! sxml)
     (process-links! (sys-dirname (regexp-replace #/^developer\.mozilla\.org/ path "")) sxml)
     (expand-div! sxml)
     (let* ((tmp (call-with-output-string (cut srl:sxml->html sxml <>)))
@@ -380,49 +374,22 @@
             (lambda (in)
               (copy-port in out))))))))
 
-(define (listup! path)
-  (let1 sxml (MDC-xhtml->sxml path)
-    (for-each (lambda (href)
-                (and-let* ((rslv-uri (resolve-uri root href)))
-                  (receive (scheme _ host _ path query fragment) (uri-parse rslv-uri)
-                    (and-let* (((and scheme host))
-                               ((string=? scheme "https"))
-                               ((string=? host   "developer.mozilla.org")))
-                      (rxmatch-if (#/\/([^\/]+)\/(.+)/ path)
-                          (#f lang rest)
-                          (let ((lang (string-downcase lang)))
-                            (when (equal? lang "ja")
-                              (print (uri-compose
-                                      :scheme   scheme
-                                      :host     host
-                                      :path     (string-append lang "/" rest)
-                                      :query    query
-                                      :fragment #f))))
-                          #f)))))
-              ((sxpath '(// xhtml:a @ href *text*)) sxml))))
-
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
-       (listup "l|listup")
        (p      "p|prefix=s" "out")
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! verbose v)
     (set! prefix  p)
     (set! myhost (build-path (current-directory) prefix "developer.mozilla.org"))
-    (cond
-     (listup
-      (for-each listup! (filter file-is-regular? restargs)))
-     (else
-      (for-each (cut hash-table-put! directory-page <> #t)
-                (file->string-list "./dp"))
-      (for-each process! (filter file-is-regular? restargs)))))
+    (for-each (cut hash-table-put! directory-page <> #t)
+              (file->string-list "./dp"))
+    (for-each process! (filter file-is-regular? restargs)))
   0)
 
 (define (show-help prog-name)
   (format #t "usage: gosh main.scm [OPTIONS]... \n")
   (format #t " -v, --verbose     verbose.\n")
-  (format #t " -d, --document    document id.\n")
   (format #t " -h, --help        print this documentation.\n")
   #t)
