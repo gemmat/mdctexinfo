@@ -267,8 +267,6 @@
 
 (define verbose  #f)
 (define prefix   #f)
-(define directory-page (make-hash-table 'string=?))
-(define myhost   #f)
 
 (define (remove-useless-elements! sxml)
   (for-each (lambda (obj)
@@ -277,20 +275,21 @@
               (sxml:change-attrlist! obj `()))
             (append-map (cut <> sxml)
              `(,(sxpath '(// (or@ xhtml:script xhtml:iframe)))
-               ,(sxpath '(// (xhtml:ul  (@ (equal? (id "nav-access"))))))
-               ,(sxpath '(// (xhtml:ul  (@ (equal? (id "sitetools"))))))
-               ,(sxpath '(// (xhtml:ul  (@ (equal? (class "page-anchors"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "deki-page-alerts"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "popupMessage"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "popupMask"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "popupContainer"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "page-tags"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "page-files"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (id "MTMessage"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (class "siteNav"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (class "siteSearch"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (class "pageBar"))))))
-               ,(sxpath '(// (xhtml:div (@ (equal? (class "suggestchannels"))))))))))
+               ,(sxpath '(// (xhtml:link (@ type  (equal? "application/rss+xml")))))
+               ,(sxpath '(// (xhtml:ul   (@ id    (equal? "nav-access")))))
+               ,(sxpath '(// (xhtml:ul   (@ id    (equal? "sitetools")))))
+               ,(sxpath '(// (xhtml:ul   (@ class (equal? "page-anchors")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "deki-page-alerts")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "popupMessage")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "popupMask")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "popupContainer")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "page-tags")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "page-files")))))
+               ,(sxpath '(// (xhtml:div  (@ id    (equal? "MTMessage")))))
+               ,(sxpath '(// (xhtml:div  (@ class (equal? "siteNav")))))
+               ,(sxpath '(// (xhtml:div  (@ class (equal? "siteSearch")))))
+               ,(sxpath '(// (xhtml:div  (@ class (equal? "pageBar")))))
+               ,(sxpath '(// (xhtml:div  (@ class (equal? "suggestchannels")))))))))
 
 (define (expand-div! sxml)
   (for-each (lambda (obj)
@@ -299,12 +298,12 @@
                 (sxml:change-content! obj '(""))))
             ((sxpath '(// xhtml:div)) sxml)))
 
-(define (resolve-uri root uri)
+(define (resolve-uri base uri)
   (receive (scheme _ host _ path query fragment) (uri-parse uri)
     (and-let* ((path)
                (path (regexp-replace-all #/%3a/ path "/"))
                (rslv-path (if (relative-path? path)
-                            (simplify-path (build-path root path))
+                            (simplify-path (build-path base path))
                             path)))
       (uri-compose
        :scheme   (or scheme "https")
@@ -313,24 +312,26 @@
        :query    query
        :fragment fragment))))
 
-(define (process-links! root sxml)
+(define (process-links! base sxml)
+  (define (append-extension path)
+    (if (path-extension path)
+      path
+      (path-swap-extension path "html")))
+  (define myhost (build-path prefix "developer.mozilla.org"))
   (for-each (lambda (obj)
-              (and-let* ((rslv-uri (resolve-uri root (sxml:string-value obj))))
+              (and-let* ((rslv-uri (resolve-uri base (sxml:string-value obj))))
                 (receive (scheme _ host _ path query fragment) (uri-parse rslv-uri)
                   (and-let* (((and scheme host))
                              ((string=? scheme "https"))
-                             ((string=? host   "developer.mozilla.org"))
-                             (new-path (if (hash-table-exists? directory-page rslv-uri)
-                                         (string-append path ".1")
-                                         path))
-                             (internal-link
-                              (uri-compose
-                               :scheme   "file"
-                               :host     myhost
-                               :path     new-path
-                               :query    query
-                               :fragment fragment)))
-                    (sxml:change-content! obj `(,internal-link))))))
+                             ((string=? host   "developer.mozilla.org")))
+                    (sxml:change-content!
+                     obj
+                     `(,(uri-compose
+                         :scheme   "file"
+                         :host     myhost
+                         :path     (append-extension path)
+                         :query    query
+                         :fragment fragment)))))))
             ((sxpath '(// @ href)) sxml)))
 
 (define (MDC-xhtml->sxml path)
@@ -348,48 +349,54 @@
         (ssax:xml->sxml in '((xhtml . "http://www.w3.org/1999/xhtml")))))))
 
 (define (process! path)
+  (define (format-sxml-to-string sxml)
+    (regexp-replace-all*
+     (call-with-output-string (cut srl:sxml->html sxml <>))
+     #/<xhtml:/ 
+     "<"
+     #/<\/xhtml:/
+     "</"
+     #/xmlns:xhtml/ 
+     "xmlns"
+     #/<useless\/>/
+     ""
+     ))
+  (define (save-to path)
+    (let* ((save-path (build-path prefix path)))
+      (receive (save-dir _ _) (decompose-path save-path)
+        (values save-dir save-path))))
+  (define base (rxmatch-if (#/developer\.mozilla\.org(.*)/ path)
+                   (#f x)
+                   (sys-dirname x)
+                   #f))
+
   (when verbose (print path))
   (let1 sxml (MDC-xhtml->sxml path)
     (remove-useless-elements! sxml)
-    (process-links! (sys-dirname (regexp-replace #/^developer\.mozilla\.org/ path "")) sxml)
+    (process-links! base sxml)
     (expand-div! sxml)
-    (let* ((tmp (call-with-output-string (cut srl:sxml->html sxml <>)))
-           (newsrc (regexp-replace-all*
-                    tmp
-                    #/<xhtml:/ 
-                    "<"
-                    #/<\/xhtml:/
-                    "</"
-                    #/xmlns:xhtml/ 
-                    "xmlns"
-                    #/<useless\/>/
-                    ""
-                    ))
-           (save (build-path (current-directory) prefix path)))
-      (receive (d f e) (decompose-path save)
-        (create-directory* d))
-      (call-with-output-file save
+    (receive (save-dir save-path) (save-to path)
+      (create-directory* save-dir)
+      (call-with-output-file save-path
         (lambda (out)
-          (call-with-input-string newsrc
+          (call-with-input-string (format-sxml-to-string sxml)
             (lambda (in)
               (copy-port in out))))))))
 
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
-       (p      "p|prefix=s" "out")
+       (p      "p|prefix=s" (build-path (current-directory) "out"))
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! verbose v)
     (set! prefix  p)
-    (set! myhost (build-path (current-directory) prefix "developer.mozilla.org"))
-    (for-each (cut hash-table-put! directory-page <> #t)
-              (file->string-list "./dp"))
     (for-each process! (filter file-is-regular? restargs)))
   0)
 
 (define (show-help prog-name)
   (format #t "usage: gosh main.scm [OPTIONS]... \n")
   (format #t " -v, --verbose     verbose.\n")
+  (format #t " -p, --prefix=s    save to.\n")
   (format #t " -h, --help        print this documentation.\n")
   #t)
