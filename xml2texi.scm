@@ -1,5 +1,6 @@
 (use srfi-1)
 (use srfi-13)
+(use util.list) ;;alist->hash-table
 (use file.util)
 (use gauche.parseopt)
 (use sxml.ssax)
@@ -141,9 +142,11 @@
 (define (file-path->texinfo-node path)
   (define (check str)
     (if (hash-table-exists? notfound str)
-      #f
+      (let1 value (hash-table-get notfound str)
+        (if (string=? value "")
+          "Top"
+          value))
       str))
-
   (define (capitalize str)
     (string-join (map (lambda (x)
                         (if (string=? x "ja")
@@ -210,7 +213,7 @@
                     (write debug-sxml out)))))))))))
 
 (define verbose #f)
-(define notfound (make-hash-table 'string=?))
+(define notfound #f)
 
 (define (main args)
   (let-args (cdr args)
@@ -219,9 +222,7 @@
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! verbose v)
-    (for-each (lambda (x)
-                (hash-table-put! notfound x #t))
-              (file->string-list "./notfound"))
+    (set! notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
     (for-each (cut process <> p) restargs))
   0)
 
