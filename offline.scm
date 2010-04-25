@@ -2,7 +2,6 @@
 (use srfi-13)
 (use file.util)
 (use rfc.uri)
-(use gauche.process)
 (use gauche.parseopt)
 (use sxml.sxpath)
 (use sxml.ssax)

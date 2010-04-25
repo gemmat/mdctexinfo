@@ -1,3 +1,4 @@
+#make download list
 https://developer.mozilla.org/Special:Sitemap?language=ja
 var arr = $x('/html/body/div/div[2]/div/div[3]/div[2]/div/ul/li/ul/li[2]/ul/li[79]')[0].getElementsByTagName("a");
 var df = document.createDocumentFragment();
@@ -8,18 +9,11 @@ for (var i = 0; i < arr.length; i++) {
 }
 document.body.appendChild(df);
 
-#make download list
-find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.1 developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh main.scm -l | sort | uniq > hoge
-#download pass.1
-wget -p --convert-links -nc -i hoge
-#remove *.1
-find developer.mozilla.org | fgrep ".1" | xargs rm
-#download pass.2
-wget -p --convert-links -nc -i hoge
-#find directory-page to the "dp" file.
-find developer.mozilla.org | fgrep ".1" | sed "s/^/https:\/\//g" | sed "s/\.1$//g" | sort | uniq >> dp
-#process
-find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.1 developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh main.scm -p out -v
+#download them
+wget -p --convert-links -nc --html-extension -i jsref.list
 
-#try this.
-wget -p --convert-links -nc -r --html-extension -i hoge
+#process 1
+find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.html developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh offline.scm
+
+#process 2
+find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.html developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh xml2texi.scm
