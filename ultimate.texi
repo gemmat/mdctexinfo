@@ -1,0 +1,317 @@
+\input texinfo  @c -*-texinfo-*-
+@comment %**start of header
+@setfilename ultimate.info
+@settitle Mozilla Developer Center Ultimate Collection
+@documentencoding utf-8
+
+@comment %**end of header
+
+@iftex
+@finalout
+@parskip 4pt plus 1pt
+@end iftex
+
+@titlepage
+@title Mozilla Developer Center Ultimate Collection
+@subtitle version 1.0
+@author Mozilla Developer Center (http://developer.mozilla.org/)
+
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.org/)
+
+@end titlepage
+
+@node Top, ja/Core_Javascript_1.5_Reference, (dir), (dir)
+@top Mozilla Developer Center Ultimate Collection
+
+@menu
+* ja/Core_Javascript_1.5_Reference::
+@end menu
+
+@contents
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/About.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/About/Formatting_Conventions.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/concat.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/every.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/filter.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/forEach.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/index.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/indexOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/input.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/join.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/lastIndexOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/length.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/map.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/pop.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/prototype.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/push.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/reverse.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/shift.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/slice.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/some.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/sort.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/splice.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/toSource.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/toString.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Array/unshift.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Boolean.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Boolean/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Boolean/prototype.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Boolean/toSource.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Boolean/toString.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Boolean/valueOf.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/UTC.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/getDate.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/getDay.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/getFullYear.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/getHours.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/getMilliseconds.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/parse.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Date/prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Error.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Error/Prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/EvalError.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/EvalError/Prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Function.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Function/prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/E.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/LN10.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/LN2.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/LOG10E.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/LOG2E.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/PI.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/SQRT1_2.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/SQRT2.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/abs.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/acos.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/asin.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/atan.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/atan2.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/ceil.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/cos.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/exp.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/floor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/log.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/max.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/min.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/pow.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/random.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/round.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/sin.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/sqrt.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Math/tan.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/MAX_VALUE.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/MIN_VALUE.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/NEGATIVE_INFINITY.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/NaN.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/POSITIVE_INFINITY.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/prototype.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/toExponential.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/toFixed.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/toPrecision.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/toSource.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/toString.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Number/valueOf.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/GetPrototypeOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/defineGetter.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/defineSetter.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/eval.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/hasOwnProperty.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/isPrototypeOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/lookupGetter.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/lookupSetter.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/noSuchMethod.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/propertyIsEnumerable.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/prototype.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/toLocaleString.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/toSource.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/toString.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/unwatch.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/valueOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/Object/watch.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RangeError.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RangeError/Prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/ReferenceError.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/ReferenceError/Prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/exec.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/global.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/ignoreCase.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/lastIndex.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/multiline.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/prototype.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/source.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/test.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/toSource.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/RegExp/toString.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/Trim.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/TrimLeft.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/TrimRight.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/anchor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/big.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/blink.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/bold.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/charAt.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/charCodeAt.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/concat.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/constructor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/fixed.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/fontcolor.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/fontsize.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/fromCharCode.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/indexOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/italics.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/lastIndexOf.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/length.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/link.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/match.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/prototype.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/replace.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/search.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/slice.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/small.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/split.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/strike.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/sub.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/substr.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/substring.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/sup.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/toLowerCase.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/toSource.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/toString.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/toUpperCase.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/String/valueOf.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/SyntaxError.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/SyntaxError/Prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/TypeError.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/TypeError/Prototype.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/URIError.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Objects/URIError/Prototype.texi
+@raisesections
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Objects.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Objects/Number.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Objects/Array.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Objects/Array/Reduce.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Objects/Array/Reduceright.texi
+@raisesections
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Properties.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Properties/Infinity.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Properties/NaN.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Properties/undefined.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/Eval.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/decodeURI.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/decodeURIComponent.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/encodeURI.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/encodeURIComponent.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/isFinite.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/isNaN.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/parseFloat.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Global_Functions/parseInt.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Functions.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Functions/arguments.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Functions/arguments/callee.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Functions/arguments/caller.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Functions/arguments/length.texi
+@raisesections
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/block.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/break.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/const.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/continue.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/do...while.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/export.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/for...in.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/for.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/for_each...in.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/function.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/if...else.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/import.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/label.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/return.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/switch.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/throw.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/try...catch.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/var.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/while.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Statements/with.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Arithmetic_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Logical_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Member_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Operator_Precedence.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Special_Operators.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Special_Operators/Comma_Operator.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Special_Operators/function_Operator.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Special_Operators/new_Operator.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Operators/Special_Operators/this_Operator.texi
+@raisesections
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Reserved_Words.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Deprecated_Features.texi
+@bye

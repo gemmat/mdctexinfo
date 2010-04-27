@@ -165,6 +165,26 @@
       (check (capitalize node)))
      (else #f))))
 
+(define (file-path-up path)
+  (string-append (sys-dirname path) ".html"))
+
+(define (texinfo-menu path)
+  (or (and-let* ((dir (path-sans-extension path))
+                 ((file-is-directory? dir)))
+        `("@menu"
+          ,@(map (lambda (path)
+                   (string-append "* " (file-path->texinfo-node path) " ::"))
+                 (directory-list
+                  dir
+                  :children? #t
+                  :add-path? #t
+                  :filter (lambda (path)
+                            (and (file-is-regular? path)
+                                 (string=? "html" (path-extension path))))
+                  :filter-add-path? #t))
+          "@end menu"))
+      ()))
+
 (define (process path prefix)
   (define (save-to path)
     (define aaa (rxmatch-if (#/(developer\.mozilla\.org\/.*)/ path)
@@ -183,8 +203,9 @@
       (with-output-to-file save-file
         (lambda ()
           (let ((sxml (load-xml path)))
-            (print "@node " (file-path->texinfo-node path) ",,,Top")
+            (print "@node " (file-path->texinfo-node path) ",,," (or (file-path->texinfo-node (file-path-up path)) "Top"))
             (print "@section " (sxml:string-value (getElementById "title" sxml)))
+            (for-each print (texinfo-menu path))
             (let1 debug-sxml
                 (pre-post-order
                  (pre-post-order
@@ -213,7 +234,7 @@
                     (write debug-sxml out)))))))))))
 
 (define verbose #f)
-(define notfound #f)
+(define notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
 
 (define (main args)
   (let-args (cdr args)
@@ -222,7 +243,6 @@
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! verbose v)
-    (set! notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
     (for-each (cut process <> p) restargs))
   0)
 
