@@ -27,9 +27,9 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 
 @menu
 * ja/Core_Javascript_1.5_Reference::
+* ja/Core_Javascript_1.5_Reference Index::
 @end menu
 
-@contents
 @raisesections
 @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.texi
 @lowersections
@@ -314,4 +314,9 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 @raisesections
 @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Reserved_Words.texi
 @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/Deprecated_Features.texi
+
+@node ja/Core_Javascript_1.5_Reference Index,,,Top
+@appendix 索引
+@printindex fn
+@contents
 @bye

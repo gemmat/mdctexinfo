@@ -25,16 +25,16 @@
                        "@}"))
 
 (define (h2 node)
-  `(texinfo "@heading " ,(sxml:string-value node)))
+  `(texinfo "@heading " ,(sxml:string-value node) "\n"))
 
 (define (h3 node)
-  `(texinfo "@subheading " ,(sxml:string-value node)))
+  `(texinfo "@subheading " ,(sxml:string-value node) "\n"))
 
 (define (h4 node)
-  `(texinfo "@subsubheading " ,(sxml:string-value node)))
+  `(texinfo "@subsubheading " ,(sxml:string-value node) "\n"))
 
 (define (h5 node)
-  `(texinfo "@subsubheading " ,(sxml:string-value node)))
+  `(texinfo "@subsubheading " ,(sxml:string-value node) "\n"))
 
 (define (para node)
   `(texinfo ,(sxml:string-value node)))
@@ -117,14 +117,14 @@
                     (else
                      'external)))
            (cmd (case bound
-                  ((internal) "@xref{")
+                  ((internal) "@ref{")
                   ((external) "@uref{")))
            (link (case bound
                    ((internal) (or (file-path->texinfo-node href) "Top"))
                    ((external) href)))
            (brace (case bound
-                    ((internal) "}. ")
-                    ((external) "} "))))
+                    ((internal) "}")
+                    ((external) "}"))))
       (cond
        ((and href body)
         `(texinfo ,cmd ,link "," ,body ,brace))
@@ -205,6 +205,7 @@
           (let ((sxml (load-xml path)))
             (print "@node " (file-path->texinfo-node path) ",,," (or (file-path->texinfo-node (file-path-up path)) "Top"))
             (print "@section " (sxml:string-value (getElementById "title" sxml)))
+            (print "@findex " (sxml:string-value (getElementById "title" sxml)))
             (for-each print (texinfo-menu path))
             (let1 debug-sxml
                 (pre-post-order
