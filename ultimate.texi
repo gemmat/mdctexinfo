@@ -22,12 +22,12 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 
 @end titlepage
 
-@node Top, ja/core_javascript_1.5_reference, (dir), (dir)
+@node Top, , (dir), (dir)
 @top Mozilla Developer Center Ultimate Collection
 
 @menu
-* ja/core_javascript_1.5_reference::
-@c * ja/Core_JavaScript_1.5_Guide::
+* ja/core_javascript_1.5_reference ::
+* ja/core_javascript_1.5_guide ::
 * Ultimate Index::
 @end menu
 
@@ -427,123 +427,123 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 
 @c Core_JavaScript_1.5_Guide
 
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/About.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Block_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Calling_Functions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Class-Based_vs._Prototype-Based_Languages.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Comments.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Conditional_Statements.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Constants.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Core_Language_Features.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Getters_and_Setters.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Methods.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Properties_for_an_Object_Type.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Deleting_Properties.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Indexing_Object_Properties.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_Object_Initializers.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_a_Constructor_Function.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_this_for_Object_References.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_a_Regular_Expression.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Defining_Functions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Details_of_the_Object_Model.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Exception_Handling_Statements.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Exception_Handling_Statements/throw_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Exception_Handling_Statements/try...catch_Statement.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Expressions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Expressions_and_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Functions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/JavaScript_Overview.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Literals.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions/JavaScript_to_Java_Conversions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions/Java_to_JavaScript_Conversions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/JavaScript_to_Java_Communication.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Java_to_JavaScript_Communication.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Java_to_JavaScript_Communication/Using_the_LiveConnect_Classes.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Working_with_Wrappers.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/break_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/continue_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/do...while_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/for_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/label_Statement.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/while_Statement.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Object_Manipulation_Statements.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Objects_and_Properties.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Arithmetic_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Assignment_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Bitwise_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Comparison_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Logical_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Special_Operators.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/String_Operators.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Array_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Boolean_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Date_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Function_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Math_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Number_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/RegExp_Object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/String_Object.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/Number_and_String_Functions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/escape_and_unescape_Functions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/eval_Function.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/isFinite_Function.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/isNaN_Function.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/parseInt_and_parseFloat_Functions.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Processing_XML_with_E4X.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Determining_Instance_Relationships.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Global_Information_in_Constructors.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Local_versus_Inherited_Values.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/No_Multiple_Inheritance.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Regular_Expressions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Statements.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Creating_the_Hierarchy.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/More_Flexible_Constructors.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties/Adding_Properties.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties/Inheriting_Properties.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Unicode.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Using_the_arguments_object.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Values.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Variables.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Closures.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Objects.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions.texi
-@c @lowersections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Advanced_Searching_With_Flags.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Examples_of_Regular_Expressions.texi
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Using_Parenthesized_Substring_Matches.texi
-@c @raisesections
-@c @include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Writing_a_Regular_Expression_Pattern.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/About.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Block_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Calling_Functions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Class-Based_vs._Prototype-Based_Languages.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Comments.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Conditional_Statements.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Constants.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Core_Language_Features.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Getters_and_Setters.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Methods.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Defining_Properties_for_an_Object_Type.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Deleting_Properties.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Indexing_Object_Properties.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_Object_Initializers.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_a_Constructor_Function.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_New_Objects/Using_this_for_Object_References.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Creating_a_Regular_Expression.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Defining_Functions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Details_of_the_Object_Model.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Exception_Handling_Statements.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Exception_Handling_Statements/throw_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Exception_Handling_Statements/try...catch_Statement.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Expressions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Expressions_and_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Functions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/JavaScript_Overview.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Literals.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions/JavaScript_to_Java_Conversions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Data_Type_Conversions/Java_to_JavaScript_Conversions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/JavaScript_to_Java_Communication.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Java_to_JavaScript_Communication.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Java_to_JavaScript_Communication/Using_the_LiveConnect_Classes.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/LiveConnect_Overview/Working_with_Wrappers.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/break_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/continue_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/do...while_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/for_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/label_Statement.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Loop_Statements/while_Statement.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Object_Manipulation_Statements.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Objects_and_Properties.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Arithmetic_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Assignment_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Bitwise_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Comparison_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Logical_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/Special_Operators.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Operators/String_Operators.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Array_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Boolean_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Date_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Function_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Math_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/Number_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/RegExp_Object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Core_Objects/String_Object.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/Number_and_String_Functions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/escape_and_unescape_Functions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/eval_Function.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/isFinite_Function.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/isNaN_Function.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Predefined_Functions/parseInt_and_parseFloat_Functions.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Processing_XML_with_E4X.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Determining_Instance_Relationships.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Global_Information_in_Constructors.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/Local_versus_Inherited_Values.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Property_Inheritance_Revisited/No_Multiple_Inheritance.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Regular_Expressions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Statements.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Creating_the_Hierarchy.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/More_Flexible_Constructors.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties/Adding_Properties.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/The_Employee_Example/Object_Properties/Inheriting_Properties.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Unicode.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Using_the_arguments_object.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Values.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Variables.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Closures.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Objects.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions.texi
+@lowersections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Advanced_Searching_With_Flags.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Examples_of_Regular_Expressions.texi
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Working_with_Regular_Expressions/Using_Parenthesized_Substring_Matches.texi
+@raisesections
+@include texi/developer.mozilla.org/ja/Core_JavaScript_1.5_Guide/Writing_a_Regular_Expression_Pattern.texi
 
 @node Ultimate Index,,,Top
 @appendix 索引

@@ -1,4 +1,6 @@
 (
+ ("ja" .
+  "Top")
  ("en/core_javascript_1.5_reference/global_objects/function/prototype" .
   "")
  ("en/core_javascript_1.5_reference/global_objects/regexp/sticky" .
@@ -8,24 +10,6 @@
  ("en/new_in_javascript_1.8" .
   "")
  ("ja/components.stack" .
-  "")
- ("ja/core_javascript_1.5_guide" .
-  "")
- ("ja/core_javascript_1.5_guide/class-based_vs._prototype-based_languages" .
-  "")
- ("ja/core_javascript_1.5_guide/constants" .
-  "")
- ("ja/core_javascript_1.5_guide/creating_new_objects/defining_getters_and_setters" .
-  "")
- ("ja/core_javascript_1.5_guide/exception_handling_statements" .
-  "")
- ("ja/core_javascript_1.5_guide/predefined_core_objects/array_object" .
-  "")
- ("ja/core_javascript_1.5_guide/regular_expressions" .
-  "")
- ("ja/core_javascript_1.5_guide/unicode" .
-  "")
- ("ja/core_javascript_1.5_guide/working_with_objects" .
   "")
  ("ja/core_javascript_1.5_reference%2f%2freorg" .
   "ja/core_javascript_1.5_reference")
@@ -186,6 +170,52 @@
  ("ja/core_javascript_1.5_reference/operators/special_operators/let_operator" .
   "")
  ("ja/core_javascript_1.5_reference/operators/special_operators/yield_operator" .
+  "")
+ ("ja/core_javascript_1.5_guide/domexception" .
+  "")
+ ("ja/core_javascript_1.5_guide/error" .
+  "")
+ ("ja/core_javascript_1.5_guide/evalerror" .
+  "")
+ ("ja/core_javascript_1.5_guide/eventexception" .
+  "")
+ ("ja/core_javascript_1.5_guide/iterators_and_generators" .
+  "")
+ ("ja/core_javascript_1.5_guide/rangeerror" .
+  "")
+ ("ja/core_javascript_1.5_guide/rangeexception" .
+  "")
+ ("ja/core_javascript_1.5_guide/referenceerror" .
+  "")
+ ("ja/core_javascript_1.5_guide/syntaxerror" .
+  "")
+ ("ja/core_javascript_1.5_guide/typeerror" .
+  "")
+ ("ja/core_javascript_1.5_guide/urierror" .
+  "")
+ ("ja/core_javascript_1.5_guide/working_with_arrays" .
+  "")
+ ("ja/dom/window" .
+  "")
+ ("ja/e4x" .
+  "")
+ ("ja/firefox_1.5_for_developers" .
+  "")
+ ("ja/firefox_2_for_developers" .
+  "")
+ ("ja/international_characters_in_xul_javascript" .
+  "")
+ ("ja/introduction_to_the_javascript_shell" .
+  "")
+ ("ja/new_in_javascript_1.5" .
+  "")
+ ("ja/nsixpcexception" .
+  "")
+ ("ja/sharp_variables_in_javascript" .
+  "")
+ ("ja/xpconnect" .
+  "")
+ ("talk:en/core_javascript_1.5_guide/operators" .
   "")
  ("ja/dom" .
   "")
