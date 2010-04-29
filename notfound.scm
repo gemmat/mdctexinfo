@@ -1,23 +1,10 @@
 (
+ ("ja" .
+  "Top")
  ("ja/Core_Javascript_1.5_Reference%2F%2Freorg" .
   "")
- ("ja/Core_Javascript_1.5_Reference/About.Html#.E3.81.93.E3.81.Ae.E3.83.Aa.E3.83.Aa.E3.83.Bc.E3.82.B9.E3.81.Ab.E3.81.8A.E3.81.91.E3.82.8B.E6.96.B0.E6.A9.9F.E8.83.Bd" .
-  "ja/Core_Javascript_1.5_Reference/About")
- ("ja/Core_Javascript_1.5_Reference/About.Html#.E8.Aa.Ad.E8.80.85.E3.81.8C.E7.9F.A5.E3.81.A3.E3.81.A6.E3.81.8A.E3.81.8F.E3.81.B9.E3.81.8D.E3.81.93.E3.81.A8" .
-  "ja/Core_Javascript_1.5_Reference/About")
- ("ja/Core_Javascript_1.5_Reference/About.Html#Javascript_.E3.81.Ae.E3.83.90.E3.83.Bc.E3.82.B8.E3.83.A7.E3.83.B3" .
-  "ja/Core_Javascript_1.5_Reference/About")
- ("ja/Core_Javascript_1.5_Reference/About.Html#Javascript_.E3.81.Ae.E6.83.85.E5.A0.B1.E3.81.Ae.E6.89.80.E5.9C.A8" . 
-  "ja/Core_Javascript_1.5_Reference/About")
- ("ja/Core_Javascript_1.5_Reference/About.Html#What_You_Should_Already_Know" . "")
  ("ja/Core_Javascript_1.5_Reference/Comments/Comment" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Deprecated_Features.Html" .
-  "ja/Core_Javascript_1.5_Reference/Deprecated_Features")
- ("ja/Core_Javascript_1.5_Reference/Deprecated_Features.Html#Regexp_Methods" .
-  "ja/Core_Javascript_1.5_Reference/Deprecated_Features")
- ("ja/Core_Javascript_1.5_Reference/Deprecated_Features.Html#Regexp_Properties" .
-  "ja/Core_Javascript_1.5_Reference/Deprecated_Features")
  ("ja/Core_Javascript_1.5_Reference/Global_Functions/Array" .
   "ja/Core_Javascript_1.5_Reference/Global_Objects/Array")
  ("ja/Core_Javascript_1.5_Reference/Global_Functions/Boolean" .
@@ -220,8 +207,6 @@
   "")
  ("ja/Core_Javascript_1.5_Reference/Global_Objects/Referenceerror/Name" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Regexp.Html#Regexp_Instances" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Regexp")
  ("ja/Core_Javascript_1.5_Reference/Global_Objects/String/Localecompare" .
   "")
  ("ja/Core_Javascript_1.5_Reference/Global_Objects/String/Quote" .
@@ -252,15 +237,11 @@
   "")
  ("ja/Core_Javascript_1.5_Reference/Objects/Function/Length" .
   "")
- ("https://developer.mozilla.org/ja/Core_Javascript_1.5_Reference/Operators/Assignment_Operators" .
-  "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Assignment_Operators" .
   "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Bitwise_Operators" .
   "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Comparison_Operators" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Comparison_Operators.Html#Using_The_Equality_Operators" .
   "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Conditional_Operator" .
   "")
@@ -278,8 +259,6 @@
   "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Set_Operator" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/This_Operator.Html#Method_Binding" .
-  "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Typeof_Operator" .
   "")
  ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Void_Operator" .
@@ -288,8 +267,158 @@
   "")
  ("ja/Core_Javascript_1.5_Reference/Operators/String_Operators" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Statements/For...In.Html#Description" .
-  "ja/Core_Javascript_1.5_Reference/Statements/For...In")
  ("ja/Core_Javascript_1.5_Reference/Statements/Let" .
   "")
-)
+ ("ja/Firefox_3_For_Developers" .
+  "")
+ ("ja/Introduction_To_The_Javascript_Shell" .
+  "")
+ ("ja/Sharp_Variables_In_Javascript" .
+  "")
+ ("ja/Dom/Window" .
+  "")
+ ("ja/International_Characters_In_Xul_Javascript" .
+  "")
+ ("ja/Gecko" .
+  "")
+ ("ja/Xpconnect" .
+  "")
+ ("ja/Nsixpcexception" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Rangeexception" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Eventexception" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Domexception" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Urierror" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Typeerror" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Syntaxerror" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Referenceerror" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Rangeerror" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Evalerror" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Error" .
+  "")
+ ("ja/New_In_Javascript_1.6" .
+  "")
+ ("ja/Firefox_3_For_Developers" .
+  "")
+ ("ja/E4X" .
+  "")
+ ("ja/New_In_Javascript_1.6" .
+  "")
+ ("Talk:En/Core_Javascript_1.5_Guide/Operators" .
+  "")
+ ("ja/New_In_Javascript_1.5" .
+  "")
+ ("ja/Firefox_1.5_For_Developers" .
+  "")
+ ("ja/Firefox_2_For_Developers" .
+  "")
+ ("ja/New_In_Javascript_1.7" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Iterators_And_Generators" .
+  "")
+ ("ja/New_In_Javascript_1.8" .
+  "")
+ ("ja/Liveconnect" .
+  "")
+ ("ja/Html" .
+  "")
+ ("ja/Core_Javascript_1.5_Guide/Working_With_Arrays" .
+  "")
+ ("ja/Js/Glossary" .
+  "")
+ ("ja/New_In_Javascript_1.8.1" .
+  "")
+ ("ja/Dom/Event" .
+  "")
+ ("ja/Dom/Document.Links" .
+  "")
+ ("en/Core_Javascript_1.5_Reference/Global_Objects/Regexp/Sticky" .
+  "")
+ ("ja/Rhino" .
+  "")
+ ("en/Core_Javascript_1.5_Reference/Global_Objects/Function/Prototype" .
+  "")
+ ("ja/Venkman" .
+  "")
+ ("en/New_In_Javascript_1.6" .
+  "")
+ ("en/New_In_Javascript_1.8" .
+  "")
+ ("ja/Dom" .
+  "")
+ ("ja/Dom/Document.Write" .
+  "")
+ ("ja/The_Dom_And_Javascript" .
+  "")
+ ("ja/Core_Javascript_1.5_Reference/Objects/Function" .
+  "ja/Core_Javascript_1.5_Reference/Global_Objects/Function")
+ ("ja/Firefox_3.5_For_Developers" .
+  "")
+ ("ja/Ecmascript" .
+  "")
+ ("ja/Spidermonkey" .
+  "")
+ ("ja/Ecmascript_Dontenum_Attribute" .
+  "")
+ ("ja/Downloading_Json_And_Javascript_In_Extensions" .
+  "")
+ ("ja/Web_Standards" .
+  "")
+ ("ja/Gecko_Dom_Reference" .
+  "")
+ ("ja/Javascript" .
+  "")
+ ("ja/Dom/Element.Innerhtml" .
+  "")
+ ("ja/New_In_Javascript_1.8.1" .
+  "")
+ ("ja/Dom/Event" .
+  "")
+ ("ja/Dom/Document.Links" .
+  "")
+ ("en/Core_Javascript_1.5_Reference/Global_Objects/Regexp/Sticky" .
+  "")
+ ("ja/Rhino" .
+  "")
+ ("en/Core_Javascript_1.5_Reference/Global_Objects/Function/Prototype" .
+  "")
+ ("ja/Venkman" .
+  "")
+ ("en/New_In_Javascript_1.6" .
+  "")
+ ("en/New_In_Javascript_1.8" .
+  "")
+ ("ja/Dom" .
+  "")
+ ("ja/Dom/Document.Write" .
+  "")
+ ("ja/The_Dom_And_Javascript" .
+  "")
+ ("ja/Firefox_3.5_For_Developers" .
+  "")
+ ("ja/Ecmascript" .
+  "")
+ ("ja/Spidermonkey" .
+  "")
+ ("ja/Ecmascript_Dontenum_Attribute" .
+  "")
+ ("ja/Downloading_Json_And_Javascript_In_Extensions" .
+  "")
+ ("ja/Web_Standards" .
+  "")
+ ("ja/Gecko_Dom_Reference" .
+  "")
+ ("ja/Javascript" .
+  "")
+ ("ja/Dom/Element.Innerhtml" .
+  "")
+ )

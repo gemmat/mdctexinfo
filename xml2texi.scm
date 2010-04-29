@@ -25,16 +25,16 @@
                        "@}"))
 
 (define (h2 node)
-  `(texinfo "@heading " ,(sxml:string-value node) "\n"))
+  `(texinfo "\n@heading " ,(sxml:string-value node) "\n"))
 
 (define (h3 node)
-  `(texinfo "@subheading " ,(sxml:string-value node) "\n"))
+  `(texinfo "\n@subheading " ,(sxml:string-value node) "\n"))
 
 (define (h4 node)
-  `(texinfo "@subsubheading " ,(sxml:string-value node) "\n"))
+  `(texinfo "\n@subsubheading " ,(sxml:string-value node) "\n"))
 
 (define (h5 node)
-  `(texinfo "@subsubheading " ,(sxml:string-value node) "\n"))
+  `(texinfo "\n@subsubheading " ,(sxml:string-value node) "\n"))
 
 (define (para node)
   `(texinfo ,(sxml:string-value node)))
@@ -104,40 +104,42 @@
   `(texinfo "@code{" ,(sxml:string-value node) "}"))
 
 (define (ahref node)
+  (define (trim-fragment path)
+    (or (string-scan path "#" 'before) path))
+
   (let ((href ((if-car-sxpath '(@ href *text*)) node))
         (body ((if-car-sxpath '(*text*)) node))
         (rel  (or ((if-car-sxpath '(@ rel *text*)) node) "external")))
-    (let* ((bound (rxmatch-cond
-                    ((#/internal/ rel)
-                     (#f)
-                     'internal)
-                    ((#/external/ rel)
-                     (#f)
-                     'external)
-                    (else
-                     'external)))
-           (cmd (case bound
-                  ((internal) "@ref{")
-                  ((external) "@uref{")))
-           (link (case bound
-                   ((internal) (or (file-path->texinfo-node href) "Top"))
-                   ((external) href)))
-           (brace (case bound
-                    ((internal) "}")
-                    ((external) "}"))))
-      (cond
-       ((and href body)
-        `(texinfo ,cmd ,link "," ,body ,brace))
-       (href
-        `(texinfo ,cmd ,link ,brace))
-       (else
-        ())))))
+    (if href
+      (let* ((bound (rxmatch-cond
+                      ((#/internal/ rel)
+                       (#f)
+                       'internal)
+                      ((#/external/ rel)
+                       (#f)
+                       'external)
+                      ((#/custom nofollow/ rel)
+                       (#f)
+                       'internal)
+                      (else
+                       'external)))
+             (cmd (case bound
+                    ((internal) "@ref")
+                    ((external) "@uref")))
+             (link (case bound
+                     ((internal) (or (file-path->texinfo-node (trim-fragment href)) "Top"))
+                     ((external) href))))
+        (if body
+          `(texinfo ,cmd "{" ,link "," ,body "}")
+          `(texinfo ,cmd "{" ,link "}")))
+      ())))
 
 (define (div node)
   (or (and-let* ((class (sxml:attr node 'class))
                  ((string=? class "note")))
         `(texinfo "@footnote{" ,(sxml:string-value node) "}\n"))
       node))
+
 
 (define (file-path->texinfo-node path)
   (define (check str)
@@ -149,31 +151,31 @@
       str))
   (define (capitalize str)
     (string-join (map (lambda (x)
-                        (if (string=? x "ja")
+                        (if (or (string=? x "ja")
+                                (string=? x "en"))
                           x
                           (string-titlecase x)))
                       (string-split str "/"))
                  "/"))
-  (and
-   (string-scan path "developer.mozilla.org/ja/Core_JavaScript_1.5_Reference")
-   (rxmatch-cond
-     ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
-      (#f node)
-      (check (capitalize node)))
-     ((#/developer\.mozilla\.org\/(.*)/ path)
-      (#f node)
-      (check (capitalize node)))
-     (else #f))))
+  (rxmatch-cond
+    ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
+     (#f node)
+     (check (capitalize node)))
+    ((#/developer\.mozilla\.org\/(.*)/ path)
+     (#f node)
+     (check (capitalize node)))
+    (else #f)))
 
 (define (file-path-up path)
   (string-append (sys-dirname path) ".html"))
+
 
 (define (texinfo-menu path)
   (or (and-let* ((dir (path-sans-extension path))
                  ((file-is-directory? dir)))
         `("@menu"
-          ,@(map (lambda (path)
-                   (string-append "* " (file-path->texinfo-node path) " ::"))
+          ,@(map (lambda (x)
+                   (string-append "* " (file-path->texinfo-node x) " ::"))
                  (directory-list
                   dir
                   :children? #t
@@ -197,7 +199,9 @@
               (build-path prefix (path-swap-extension aaa "scm")))))
 
   (when (file-is-regular? path)
-    (when verbose (print path))
+    (when verbose 
+      (display path (current-error-port))
+      (newline (current-error-port)))
     (receive (save-dir save-file debug-file) (save-to path)
       (create-directory* save-dir)
       (with-output-to-file save-file

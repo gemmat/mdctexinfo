@@ -1,0 +1,15 @@
+(use file.util)
+
+(define ht (make-hash-table 'string=?))
+
+(define (main args)
+  (for-each (lambda (line)
+                   (rxmatch-if (#/`([^']+)/ line)
+                       (#f out)
+                       (hash-table-put! ht out #t)
+                       #f))
+            (file->string-list (cadr args)))
+  (hash-table-for-each ht (lambda (key _)
+                            (print " (\"" key "\" .")
+                            (print "  \"\")")))
+  0)

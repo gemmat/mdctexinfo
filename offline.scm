@@ -316,6 +316,16 @@
     (if (path-extension path)
       path
       (path-swap-extension path "html")))
+  (define (lower-case-lang path)
+    (rxmatch-cond
+      ((#/^\/Ja\/(.*)/ path)
+       (#f after)
+       (string-append "/ja/" after))
+      ((#/^\/En\/(.*)/ path)
+       (#f after)
+       (string-append "/en/" after))
+      (else path)))
+
   (define myhost (build-path prefix "developer.mozilla.org"))
   (for-each (lambda (obj)
               (and-let* ((rslv-uri (resolve-uri base (sxml:string-value obj))))
@@ -328,7 +338,7 @@
                      `(,(uri-compose
                          :scheme   "file"
                          :host     myhost
-                         :path     (append-extension path)
+                         :path     (append-extension (lower-case-lang path))
                          :query    query
                          :fragment fragment)))))))
             ((sxpath '(// @ href)) sxml)))
