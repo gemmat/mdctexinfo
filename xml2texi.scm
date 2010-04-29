@@ -55,7 +55,9 @@
                     (case (sxml:name elt)
                       ((xhtml:dt) `("@item " ,(sxml:string-value elt) "\n"))
                       ((xhtml:dd) `(,(sxml:string-value elt) "\n"))
-                      (else       `("warning:" ,(sxml:string-value elt)))))
+                      (else
+                       (format (current-error-port) "warning:~a\n" (sxml:string-value elt))
+                       `("warning:" ,(sxml:string-value elt)))))
                   (sxml:child-elements node))
     "\n@end table\n"))
 
@@ -140,7 +142,6 @@
         `(texinfo "@footnote{" ,(sxml:string-value node) "}\n"))
       node))
 
-
 (define (file-path->texinfo-node path)
   (define (check str)
     (if (hash-table-exists? notfound str)
@@ -149,21 +150,13 @@
           "Top"
           value))
       str))
-  (define (capitalize str)
-    (string-join (map (lambda (x)
-                        (if (or (string=? x "ja")
-                                (string=? x "en"))
-                          x
-                          (string-titlecase x)))
-                      (string-split str "/"))
-                 "/"))
   (rxmatch-cond
     ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
      (#f node)
-     (check (capitalize node)))
+     (check (string-downcase node)))
     ((#/developer\.mozilla\.org\/(.*)/ path)
      (#f node)
-     (check (capitalize node)))
+     (check (string-downcase node)))
     (else #f)))
 
 (define (file-path-up path)

@@ -1,424 +1,242 @@
 (
- ("ja" .
-  "Top")
- ("ja/Core_Javascript_1.5_Reference%2F%2Freorg" .
+ ("en/core_javascript_1.5_reference/global_objects/function/prototype" .
+  "")
+ ("en/core_javascript_1.5_reference/global_objects/regexp/sticky" .
+  "")
+ ("en/new_in_javascript_1.6" .
+  "")
+ ("en/new_in_javascript_1.8" .
+  "")
+ ("ja/components.stack" .
+  "")
+ ("ja/core_javascript_1.5_guide" .
+  "")
+ ("ja/core_javascript_1.5_guide/class-based_vs._prototype-based_languages" .
+  "")
+ ("ja/core_javascript_1.5_guide/constants" .
+  "")
+ ("ja/core_javascript_1.5_guide/creating_new_objects/defining_getters_and_setters" .
+  "")
+ ("ja/core_javascript_1.5_guide/exception_handling_statements" .
+  "")
+ ("ja/core_javascript_1.5_guide/predefined_core_objects/array_object" .
+  "")
+ ("ja/core_javascript_1.5_guide/regular_expressions" .
+  "")
+ ("ja/core_javascript_1.5_guide/unicode" .
+  "")
+ ("ja/core_javascript_1.5_guide/working_with_objects" .
+  "")
+ ("ja/core_javascript_1.5_reference%2f%2freorg" .
+  "ja/core_javascript_1.5_reference")
+ ("ja/core_javascript_1.5_reference/functions_and_function_scope/arguments" .
+  "")
+ ("ja/core_javascript_1.5_reference/global_functions/array" .
+  "ja/core_javascript_1.5_reference/global_objects/array")
+ ("ja/core_javascript_1.5_reference/global_functions/boolean" .
+  "ja/core_javascript_1.5_reference/global_objects/boolean")
+ ("ja/core_javascript_1.5_reference/global_functions/date" .
+  "ja/core_javascript_1.5_reference/global_objects/date")
+ ("ja/core_javascript_1.5_reference/global_functions/error" .
+  "ja/core_javascript_1.5_reference/global_objects/error")
+ ("ja/core_javascript_1.5_reference/global_functions/evalerror" .
+  "ja/core_javascript_1.5_reference/global_objects/evalerror")
+ ("ja/core_javascript_1.5_reference/global_functions/function" .
+  "ja/core_javascript_1.5_reference/global_objects/function")
+ ("ja/core_javascript_1.5_reference/global_functions/number" .
+  "ja/core_javascript_1.5_reference/global_objects/number")
+ ("ja/core_javascript_1.5_reference/global_functions/object" .
+  "ja/core_javascript_1.5_reference/global_objects/object")
+ ("ja/core_javascript_1.5_reference/global_functions/rangeerror" .
+  "ja/core_javascript_1.5_reference/global_objects/rangeerror")
+ ("ja/core_javascript_1.5_reference/global_functions/referenceerror" .
+  "ja/core_javascript_1.5_reference/global_objects/referenceerror")
+ ("ja/core_javascript_1.5_reference/global_functions/regexp" .
+  "ja/core_javascript_1.5_reference/global_objects/regexp")
+ ("ja/core_javascript_1.5_reference/global_functions/string" .
+  "ja/core_javascript_1.5_reference/global_objects/string")
+ ("ja/core_javascript_1.5_reference/global_functions/syntaxerror" .
+  "ja/core_javascript_1.5_reference/global_objects/syntaxerror")
+ ("ja/core_javascript_1.5_reference/global_functions/typeerror" .
+  "ja/core_javascript_1.5_reference/global_objects/typeerror")
+ ("ja/core_javascript_1.5_reference/global_functions/urierror" .
+  "ja/core_javascript_1.5_reference/global_objects/urierror")
+ ("ja/core_javascript_1.5_reference/global_objects/object/__definegetter" .
+  "ja/core_javascript_1.5_reference/global_objects/object/definegetter")
+ ("ja/core_javascript_1.5_reference/global_objects/object/__definesetter" .
+  "ja/core_javascript_1.5_reference/global_objects/object/definesetter")
+ ("ja/core_javascript_1.5_reference/global_objects/object/__lookupgetter" .
+  "ja/core_javascript_1.5_reference/global_objects/object/lookupgetter")
+ ("ja/core_javascript_1.5_reference/global_objects/object/__lookupsetter" .
+  "ja/core_javascript_1.5_reference/global_objects/object/lookupsetter")
+ ("ja/core_javascript_1.5_reference/global_objects/object/__nosuchmethod" .
+  "ja/core_javascript_1.5_reference/global_objects/object/nosuchmethod")
+ ("ja/core_javascript_1.5_reference/global_objects/packages/classname" .
+  "")
+ ("ja/core_javascript_1.5_reference/global_objects/packages/java" .
+  "ja/core_javascript_1.5_reference/global_objects/java")
+ ("ja/core_javascript_1.5_reference/global_objects/packages/netscape" .
+  "ja/core_javascript_1.5_reference/global_objects/netscape")
+ ("ja/core_javascript_1.5_reference/global_objects/packages/sun" .
+  "ja/core_javascript_1.5_reference/global_objects/sun")
+ ("ja/core_javascript_1.5_reference/objects/date" .
+  "ja/core_javascript_1.5_reference/global_objects/date")
+ ("ja/core_javascript_1.5_reference/objects/date/getdate" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getdate")
+ ("ja/core_javascript_1.5_reference/objects/date/getday" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getday")
+ ("ja/core_javascript_1.5_reference/objects/date/getfullyear" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getfullyear")
+ ("ja/core_javascript_1.5_reference/objects/date/gethours" .
+  "ja/core_javascript_1.5_reference/global_objects/date/gethours")
+ ("ja/core_javascript_1.5_reference/objects/date/getmilliseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getmilliseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/getminutes" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getminutes")
+ ("ja/core_javascript_1.5_reference/objects/date/getmonth" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getmonth")
+ ("ja/core_javascript_1.5_reference/objects/date/getseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/gettime" .
+  "ja/core_javascript_1.5_reference/global_objects/date/gettime")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcdate" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcdate")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcday" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcday")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcfullyear" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcfullyear")
+ ("ja/core_javascript_1.5_reference/objects/date/getutchours" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutchours")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcmilliseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcmilliseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcminutes" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcminutes")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcmonth" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcmonth")
+ ("ja/core_javascript_1.5_reference/objects/date/getutcseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getutcseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/getyear" .
+  "ja/core_javascript_1.5_reference/global_objects/date/getyear")
+ ("ja/core_javascript_1.5_reference/objects/date/setdate" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setdate")
+ ("ja/core_javascript_1.5_reference/objects/date/setfullyear" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setfullyear")
+ ("ja/core_javascript_1.5_reference/objects/date/sethours" .
+  "ja/core_javascript_1.5_reference/global_objects/date/sethours")
+ ("ja/core_javascript_1.5_reference/objects/date/setmilliseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setmilliseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/setminutes" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setminutes")
+ ("ja/core_javascript_1.5_reference/objects/date/setmonth" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setmonth")
+ ("ja/core_javascript_1.5_reference/objects/date/setseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/setutcdate" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutcdate")
+ ("ja/core_javascript_1.5_reference/objects/date/setutcfullyear" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutcfullyear")
+ ("ja/core_javascript_1.5_reference/objects/date/setutchours" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutchours")
+ ("ja/core_javascript_1.5_reference/objects/date/setutcmilliseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutcmilliseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/setutcminutes" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutcminutes")
+ ("ja/core_javascript_1.5_reference/objects/date/setutcmonth" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutcmonth")
+ ("ja/core_javascript_1.5_reference/objects/date/setutcseconds" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setutcseconds")
+ ("ja/core_javascript_1.5_reference/objects/date/setyear" .
+  "ja/core_javascript_1.5_reference/global_objects/date/setyear")
+ ("ja/core_javascript_1.5_reference/objects/function" .
+  "ja/core_javascript_1.5_reference/global_objects/function")
+ ("ja/core_javascript_1.5_reference/objects/function/arguments/length" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Comments/Comment" .
+ ("ja/core_javascript_1.5_reference/objects/function/length" .
+  "ja/core_javascript_1.5_reference/objects/function/length")
+ ("ja/core_javascript_1.5_reference/objects/function/tostring" .
+  "ja/core_javascript_1.5_reference/global_objects/function/tostring")
+ ("ja/core_javascript_1.5_reference/objects/javaarray" .
+  "ja/core_javascript_1.5_reference/global_objects/javaarray")
+ ("ja/core_javascript_1.5_reference/objects/object/constructor" .
+  "ja/core_javascript_1.5_reference/global_objects/object/constructor")
+ ("ja/core_javascript_1.5_reference/objects/object/valueof" .
+  "ja/core_javascript_1.5_reference/global_objects/object/valueof")
+ ("ja/core_javascript_1.5_reference/operators/special_operators/function_call" .
+  "ja/core_javascript_1.5_reference/operators/special_operators/function_call")
+ ("ja/core_javascript_1.5_reference/operators/special_operators/let_operator" .
+  "ja/core_javascript_1.5_reference/operators/special_operators/let_operator")
+ ("ja/core_javascript_1.5_reference/operators/special_operators/yield_operator" .
+  "ja/core_javascript_1.5_reference/operators/special_operators/yield_operator")
+ ("ja/core_javascript_1.5_reference/global_objects/error/description" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Array" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Array")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Boolean" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Boolean")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Date" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Date")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Error" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Error")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Evalerror" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Evalerror")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Function" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Function")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Number" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Number")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Object" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Number")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Rangeerror" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Rangeerror")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Referenceerror" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Referenceerror")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Regexp" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Regexp")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/String" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/String")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Syntaxerror" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Syntaxerror")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Typeerror" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Typeerror")
- ("ja/Core_Javascript_1.5_Reference/Global_Functions/Urierror" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Urierror")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getminutes" .
+ ("ja/core_javascript_1.5_reference/global_objects/error/filename" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getmonth" .
+ ("ja/core_javascript_1.5_reference/global_objects/error/linenumber" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getseconds" .
+ ("ja/core_javascript_1.5_reference/global_objects/error/number" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Gettime" .
+ ("ja/core_javascript_1.5_reference/global_objects/javaarray/length" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Gettimezoneoffset" .
+ ("ja/core_javascript_1.5_reference/global_objects/math/tosource" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcdate" .
+ ("ja/core_javascript_1.5_reference/objects/function/length" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcday" .
+ ("ja/core_javascript_1.5_reference/operators/special_operators/function_call" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcfullyear" .
+ ("ja/core_javascript_1.5_reference/operators/special_operators/let_operator" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutchours" .
+ ("ja/core_javascript_1.5_reference/operators/special_operators/yield_operator" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcmilliseconds" .
+ ("ja/dom" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcminutes" .
+ ("ja/dom/document.links" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcmonth" .
+ ("ja/dom/document.write" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getutcseconds" .
+ ("ja/dom/element.innerhtml" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Getyear" .
+ ("ja/dom/event" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Now" .
+ ("ja/downloading_json_and_javascript_in_extensions" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setdate" .
+ ("ja/ecma-262" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setfullyear" .
+ ("ja/ecmascript" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Sethours" .
+ ("ja/ecmascript_dontenum_attribute" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setmilliseconds" .
+ ("ja/firefox_3.5_for_developers" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setminutes" .
+ ("ja/firefox_3_for_developers" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setmonth" .
+ ("ja/gecko" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setseconds" .
+ ("ja/gecko_dom_reference" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Settime" .
+ ("ja/html" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutcdate" .
+ ("ja/javascript" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutcfullyear" .
+ ("ja/js/glossary" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutchours" .
+ ("ja/liveconnect" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutcmilliseconds" .
+ ("ja/new_in_javascript_1.6" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutcminutes" .
+ ("ja/new_in_javascript_1.7" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutcmonth" .
+ ("ja/new_in_javascript_1.8" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setutcseconds" .
+ ("ja/new_in_javascript_1.8.1" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Setyear" .
+ ("ja/rhino" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Todatestring" .
+ ("ja/spidermonkey" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Togmtstring" .
+ ("ja/the_dom_and_javascript" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Tolocaledatestring" .
+ ("ja/venkman" .
   "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Tolocaleformat" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Tolocalestring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Tolocaletimestring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Tosource" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Tostring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Totimestring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Toutcstring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Date/Valueof" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Description" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Filename" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Linenumber" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Message" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Number" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Stack" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Tosource" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Error/Tostring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Evalerror/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Evalerror/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Apply" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Arguments" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Arity" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Call" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Caller" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Length" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Tosource" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Tostring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Function/Valueof" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Java" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Javaarray" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Javaarray/Tostring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Javaclass" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Javaobject" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Javapackage" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Math/Tosource" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Netscape" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Number/Tolocalestring" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/Parent" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/Proto" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/__Definegetter" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/__Definesetter" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/__Lookupgetter" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/__Lookupsetter" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Object/__Nosuchmethod" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Packages" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Rangeerror/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Rangeerror/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Referenceerror/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Referenceerror/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/String/Localecompare" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/String/Quote" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/String/Tolocalelowercase" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/String/Tolocaleuppercase" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Sun" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Syntaxerror/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Syntaxerror/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Typeerror/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Typeerror/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Urierror/Constructor" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Global_Objects/Urierror/Name" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Liveconnect" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Liveconnect/Jsexception" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Liveconnect/Jsobject" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Objects/Function/Length" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Assignment_Operators" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Bitwise_Operators" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Comparison_Operators" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Conditional_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Delete_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Function_Call" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Get_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/In_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Instanceof_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Let_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Set_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Typeof_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Void_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/Special_Operators/Yield_Operator" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Operators/String_Operators" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Statements/Let" .
-  "")
- ("ja/Firefox_3_For_Developers" .
-  "")
- ("ja/Introduction_To_The_Javascript_Shell" .
-  "")
- ("ja/Sharp_Variables_In_Javascript" .
-  "")
- ("ja/Dom/Window" .
-  "")
- ("ja/International_Characters_In_Xul_Javascript" .
-  "")
- ("ja/Gecko" .
-  "")
- ("ja/Xpconnect" .
-  "")
- ("ja/Nsixpcexception" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Rangeexception" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Eventexception" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Domexception" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Urierror" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Typeerror" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Syntaxerror" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Referenceerror" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Rangeerror" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Evalerror" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Error" .
-  "")
- ("ja/New_In_Javascript_1.6" .
-  "")
- ("ja/Firefox_3_For_Developers" .
-  "")
- ("ja/E4X" .
-  "")
- ("ja/New_In_Javascript_1.6" .
-  "")
- ("Talk:En/Core_Javascript_1.5_Guide/Operators" .
-  "")
- ("ja/New_In_Javascript_1.5" .
-  "")
- ("ja/Firefox_1.5_For_Developers" .
-  "")
- ("ja/Firefox_2_For_Developers" .
-  "")
- ("ja/New_In_Javascript_1.7" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Iterators_And_Generators" .
-  "")
- ("ja/New_In_Javascript_1.8" .
-  "")
- ("ja/Liveconnect" .
-  "")
- ("ja/Html" .
-  "")
- ("ja/Core_Javascript_1.5_Guide/Working_With_Arrays" .
-  "")
- ("ja/Js/Glossary" .
-  "")
- ("ja/New_In_Javascript_1.8.1" .
-  "")
- ("ja/Dom/Event" .
-  "")
- ("ja/Dom/Document.Links" .
-  "")
- ("en/Core_Javascript_1.5_Reference/Global_Objects/Regexp/Sticky" .
-  "")
- ("ja/Rhino" .
-  "")
- ("en/Core_Javascript_1.5_Reference/Global_Objects/Function/Prototype" .
-  "")
- ("ja/Venkman" .
-  "")
- ("en/New_In_Javascript_1.6" .
-  "")
- ("en/New_In_Javascript_1.8" .
-  "")
- ("ja/Dom" .
-  "")
- ("ja/Dom/Document.Write" .
-  "")
- ("ja/The_Dom_And_Javascript" .
-  "")
- ("ja/Core_Javascript_1.5_Reference/Objects/Function" .
-  "ja/Core_Javascript_1.5_Reference/Global_Objects/Function")
- ("ja/Firefox_3.5_For_Developers" .
-  "")
- ("ja/Ecmascript" .
-  "")
- ("ja/Spidermonkey" .
-  "")
- ("ja/Ecmascript_Dontenum_Attribute" .
-  "")
- ("ja/Downloading_Json_And_Javascript_In_Extensions" .
-  "")
- ("ja/Web_Standards" .
-  "")
- ("ja/Gecko_Dom_Reference" .
-  "")
- ("ja/Javascript" .
-  "")
- ("ja/Dom/Element.Innerhtml" .
-  "")
- ("ja/New_In_Javascript_1.8.1" .
-  "")
- ("ja/Dom/Event" .
-  "")
- ("ja/Dom/Document.Links" .
-  "")
- ("en/Core_Javascript_1.5_Reference/Global_Objects/Regexp/Sticky" .
-  "")
- ("ja/Rhino" .
-  "")
- ("en/Core_Javascript_1.5_Reference/Global_Objects/Function/Prototype" .
-  "")
- ("ja/Venkman" .
-  "")
- ("en/New_In_Javascript_1.6" .
-  "")
- ("en/New_In_Javascript_1.8" .
-  "")
- ("ja/Dom" .
-  "")
- ("ja/Dom/Document.Write" .
-  "")
- ("ja/The_Dom_And_Javascript" .
-  "")
- ("ja/Firefox_3.5_For_Developers" .
-  "")
- ("ja/Ecmascript" .
-  "")
- ("ja/Spidermonkey" .
-  "")
- ("ja/Ecmascript_Dontenum_Attribute" .
-  "")
- ("ja/Downloading_Json_And_Javascript_In_Extensions" .
-  "")
- ("ja/Web_Standards" .
-  "")
- ("ja/Gecko_Dom_Reference" .
-  "")
- ("ja/Javascript" .
-  "")
- ("ja/Dom/Element.Innerhtml" .
+ ("ja/web_standards" .
   "")
  )
