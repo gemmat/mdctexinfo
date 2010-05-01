@@ -101,11 +101,12 @@
     `(texinfo
       "\n@multitable @columnfractions " ,fractions "\n"
       ,@(append-map (lambda (tr)
-                      (cons "@item "
-                            (cdr
-                             (append-map (lambda (td)
-                                           `("@tab " ,(sxml:string-value td) "\n"))
-                                         ((sxpath '(// (or@ xhtml:td xhtml:th))) tr)))))
+                      (or (and-let* ((tdths ((if-sxpath '(// (or@ xhtml:td xhtml:th))) tr)))
+                            (cons "@item "
+                                  (cdr (append-map (lambda (td)
+                                                     `("@tab " ,(sxml:string-value td) "\n"))
+                                                   tdths))))
+                          ()))
                     ((sxpath '(// xhtml:tr)) node))
       "\n@end multitable\n")))
 
@@ -136,11 +137,11 @@
                     ((internal) "@ref")
                     ((external) "@uref")))
              (link (case bound
-                     ((internal) (or (file-path->texinfo-node (trim-fragment href)) "Top"))
+                     ((internal) (file-path->texinfo-node (trim-fragment href)))
                      ((external) href))))
         (if body
-          `(texinfo ,cmd "{" ,link "," ,body "}")
-          `(texinfo ,cmd "{" ,link "}")))
+          `(texinfo ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "}")
+          `(texinfo ,cmd "{" ,(or link "Top") "}")))
       ())))
 
 (define (div node)
@@ -152,23 +153,22 @@
 (define (file-path->texinfo-node path)
   (define (check str)
     (if (hash-table-exists? notfound str)
-      (let1 value (hash-table-get notfound str)
-        (if (string=? value "")
-          "Top"
-          value))
+      (hash-table-get notfound str)
       str))
+  (define (replace-comma str)
+    (regexp-replace-all #/,/ str "_"))
+
   (rxmatch-cond
     ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
      (#f node)
-     (check (string-downcase node)))
+     (check (replace-comma node)))
     ((#/developer\.mozilla\.org\/(.*)/ path)
      (#f node)
-     (check (string-downcase node)))
+     (check (replace-comma node)))
     (else #f)))
 
 (define (file-path-up path)
   (string-append (sys-dirname path) ".html"))
-
 
 (define (texinfo-menu path)
   (or (and-let* ((dir (path-sans-extension path))

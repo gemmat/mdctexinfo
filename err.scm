@@ -16,6 +16,6 @@
     (for-each (lambda (key)
                 (if add
                   (print " (\"" key "\" .\n  \"" key "\")")
-                  (print " (\"" key "\" .\n  \"\")")))
+                  (print " (\"" key "\" .\n  #f)")))
               (sort (hash-table-keys ht))))
   0)

@@ -288,7 +288,9 @@
                ,(sxpath '(// (xhtml:div  (@ class (equal? "siteNav")))))
                ,(sxpath '(// (xhtml:div  (@ class (equal? "siteSearch")))))
                ,(sxpath '(// (xhtml:div  (@ class (equal? "pageBar")))))
-               ,(sxpath '(// (xhtml:div  (@ class (equal? "suggestchannels")))))))))
+               ,(sxpath '(// (xhtml:div  (@ class (equal? "suggestchannels")))))
+               ,(sxpath '(// (xhtml:div  (@ style (equal? "background-color:red; color:white; text-align:center;")))))
+               ))))
 
 (define (expand-div! sxml)
   (for-each (lambda (obj)
@@ -316,15 +318,6 @@
     (if (path-extension path)
       path
       (path-swap-extension path "html")))
-  (define (lower-case-lang path)
-    (rxmatch-cond
-      ((#/^\/Ja\/(.*)/ path)
-       (#f after)
-       (string-append "/ja/" after))
-      ((#/^\/En\/(.*)/ path)
-       (#f after)
-       (string-append "/en/" after))
-      (else path)))
 
   (define myhost (build-path prefix "developer.mozilla.org"))
   (for-each (lambda (obj)
@@ -338,7 +331,7 @@
                      `(,(uri-compose
                          :scheme   "file"
                          :host     myhost
-                         :path     (append-extension (lower-case-lang path))
+                         :path     (string-downcase (append-extension path))
                          :query    query
                          :fragment fragment)))))))
             ((sxpath '(// @ href)) sxml)))
@@ -352,7 +345,8 @@
                        #/onclick=\"[^\"]+\"/
                        ""
                        #/&&/
-                       "&amp;&amp;")))
+                       "&amp;&amp;"
+                       )))
     (call-with-input-string cleaned
       (lambda (in)
         (ssax:xml->sxml in '((xhtml . "http://www.w3.org/1999/xhtml")))))))
@@ -361,17 +355,19 @@
   (define (format-sxml-to-string sxml)
     (regexp-replace-all*
      (call-with-output-string (cut srl:sxml->html sxml <>))
-     #/<xhtml:/ 
+     #/<xhtml:/
      "<"
      #/<\/xhtml:/
      "</"
-     #/xmlns:xhtml/ 
+     #/xmlns:xhtml/
      "xmlns"
+     #/<td nowrap>/
+     "<td nowrap=\"nowrap\">"
      #/<useless\/>/
      ""
      ))
   (define (save-to path)
-    (let* ((save-path (build-path prefix path)))
+    (let1 save-path (string-downcase (build-path prefix path))
       (receive (save-dir _ _) (decompose-path save-path)
         (values save-dir save-path))))
   (define base (rxmatch-if (#/developer\.mozilla\.org(.*)/ path)
