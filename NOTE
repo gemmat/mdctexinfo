@@ -17,3 +17,6 @@ find developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.html developer.mozil
 
 #process 2
 find out/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference.html out/developer.mozilla.org/ja/Core_JavaScript_1.5_Reference/ | xargs gosh xml2texi.scm
+
+E4X Tutorial En
+HTML/Element En

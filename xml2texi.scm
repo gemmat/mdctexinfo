@@ -48,6 +48,13 @@
     ,(sxml:string-value node)
     "@end example\n"))
 
+(define (img node)
+  (or (and-let* ((src (sxml:attr node 'src))
+                 ((not (string-scan src "@@api")))
+                 (file (path-sans-extension (sxml:string-value src))))
+        `(texinfo "@image{" ,file  "}"))
+      ()))
+
 (define (dl node)
   `(texinfo
     "\n@table @code\n"
@@ -213,6 +220,7 @@
                     (xhtml:b     . ,(lambda x (bold  x)))
                     (xhtml:code  . ,(lambda x (code  x)))
                     (xhtml:pre   . ,(lambda x (pre   x)))
+                    (xhtml:img   . ,(lambda x (img   x)))
                     (xhtml:h2    . ,(lambda x (h2    x)))
                     (xhtml:h3    . ,(lambda x (h3    x)))
                     (xhtml:h4    . ,(lambda x (h4    x)))
