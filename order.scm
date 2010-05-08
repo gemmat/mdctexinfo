@@ -1,1556 +1,1441 @@
-(chapter
- "texi/developer.mozilla.org/ja/core_javascript_1.5_guide.texi"
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/about.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/block_statement.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/calling_functions.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/class-based_vs._prototype-based_languages.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/comments.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/conditional_statements.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/constants.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/core_language_features.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_a_regular_expression.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/defining_getters_and_setters.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/defining_methods.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/defining_properties_for_an_object_type.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/deleting_properties.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/indexing_object_properties.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/using_a_constructor_function.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/using_object_initializers.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/creating_new_objects/using_this_for_object_references.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/defining_functions.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/details_of_the_object_model.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/domexception.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/error.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/evalerror.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/exception_handling_statements.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/exception_handling_statements/throw_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/exception_handling_statements/try...catch_statement.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/expressions.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/expressions_and_operators.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/functions.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/inheritance.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/iterators_and_generators.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/javascript_overview.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/literals.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/data_type_conversions.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/data_type_conversions/java_to_javascript_conversions.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/data_type_conversions/javascript_to_java_conversions.texi"
+(*TOP*
+ (item "Top")
+ (chapter
+  (item "ja/core_javascript_1.5_guide")
+  (section
+   (item "ja/core_javascript_1.5_guide/about")
+   (item "ja/core_javascript_1.5_guide/block_statement")
+   (item "ja/core_javascript_1.5_guide/calling_functions")
+   (item "ja/core_javascript_1.5_guide/class-based_vs._prototype-based_languages")
+   (item "ja/core_javascript_1.5_guide/comments")
+   (item "ja/core_javascript_1.5_guide/conditional_statements")
+   (item "ja/core_javascript_1.5_guide/constants")
+   (item "ja/core_javascript_1.5_guide/core_language_features")
+   (item "ja/core_javascript_1.5_guide/creating_a_regular_expression")
+   (item "ja/core_javascript_1.5_guide/creating_new_objects")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/defining_getters_and_setters")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/defining_methods")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/defining_properties_for_an_object_type")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/deleting_properties")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/indexing_object_properties")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/using_a_constructor_function")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/using_object_initializers")
+    (item "ja/core_javascript_1.5_guide/creating_new_objects/using_this_for_object_references")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/java_to_javascript_communication.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/java_to_javascript_communication/using_the_liveconnect_classes.texi"
+   (item "ja/core_javascript_1.5_guide/defining_functions")
+   (item "ja/core_javascript_1.5_guide/details_of_the_object_model")
+   (item "ja/core_javascript_1.5_guide/domexception")
+   (item "ja/core_javascript_1.5_guide/error")
+   (item "ja/core_javascript_1.5_guide/evalerror")
+   (item "ja/core_javascript_1.5_guide/exception_handling_statements")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/exception_handling_statements/throw_statement")
+    (item "ja/core_javascript_1.5_guide/exception_handling_statements/try...catch_statement")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/javascript_to_java_communication.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/liveconnect_overview/working_with_wrappers.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements/break_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements/continue_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements/do...while_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements/for_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements/label_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/loop_statements/while_statement.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/object_manipulation_statements.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/objects_and_properties.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/block_statement.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/calling_functions.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/class-based_vs._prototype-based_languages.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/comments.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/conditional_statements.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/constants.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_a_regular_expression.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/defining_getters_and_setters.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/defining_methods.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/defining_properties_for_an_object_type.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/deleting_properties.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/indexing_object_properties.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/using_a_constructor_function.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/using_object_initializers.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/using_this_for_object_references.texi"
+   (item "ja/core_javascript_1.5_guide/expressions")
+   (item "ja/core_javascript_1.5_guide/expressions_and_operators")
+   (item "ja/core_javascript_1.5_guide/functions")
+   (item "ja/core_javascript_1.5_guide/inheritance")
+   (item "ja/core_javascript_1.5_guide/iterators_and_generators")
+   (item "ja/core_javascript_1.5_guide/javascript_overview")
+   (item "ja/core_javascript_1.5_guide/literals")
+   (item "ja/core_javascript_1.5_guide/liveconnect_overview")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/liveconnect_overview/data_type_conversions")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/liveconnect_overview/data_type_conversions/java_to_javascript_conversions")
+     (item "ja/core_javascript_1.5_guide/liveconnect_overview/data_type_conversions/javascript_to_java_conversions")
+     )
+    (item "ja/core_javascript_1.5_guide/liveconnect_overview/java_to_javascript_communication")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/liveconnect_overview/java_to_javascript_communication/using_the_liveconnect_classes")
+     )
+    (item "ja/core_javascript_1.5_guide/liveconnect_overview/javascript_to_java_communication")
+    (item "ja/core_javascript_1.5_guide/liveconnect_overview/working_with_wrappers")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/data_type_conversions.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/data_type_conversions/java_to_javascript_conversions.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/data_type_conversions/javascript_to_java_conversions.texi"
+   (item "ja/core_javascript_1.5_guide/loop_statements")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/loop_statements/break_statement")
+    (item "ja/core_javascript_1.5_guide/loop_statements/continue_statement")
+    (item "ja/core_javascript_1.5_guide/loop_statements/do...while_statement")
+    (item "ja/core_javascript_1.5_guide/loop_statements/for_statement")
+    (item "ja/core_javascript_1.5_guide/loop_statements/label_statement")
+    (item "ja/core_javascript_1.5_guide/loop_statements/while_statement")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/defining_functions.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/exception_handling_statements.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/exception_handling_statements/throw_statement.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/exception_handling_statements/try...catch_statement.texi"
+   (item "ja/core_javascript_1.5_guide/object_manipulation_statements")
+   (item "ja/core_javascript_1.5_guide/objects_and_properties")
+   (item "ja/core_javascript_1.5_guide/obsolete_pages")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/block_statement")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/calling_functions")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/class-based_vs._prototype-based_languages")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/comments")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/conditional_statements")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/constants")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_a_regular_expression")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/defining_getters_and_setters")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/defining_methods")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/defining_properties_for_an_object_type")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/deleting_properties")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/indexing_object_properties")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/using_a_constructor_function")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/using_object_initializers")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/creating_new_objects/using_this_for_object_references")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/data_type_conversions")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/data_type_conversions/java_to_javascript_conversions")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/data_type_conversions/javascript_to_java_conversions")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/defining_functions")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/exception_handling_statements")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/exception_handling_statements/throw_statement")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/exception_handling_statements/try...catch_statement")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/expressions")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/java_to_javascript_communication")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/java_to_javascript_communication/using_the_liveconnect_classes")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/javascript_to_java_communication")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/literals")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/break_statement")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/continue_statement")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/do...while_statement")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/for_statement")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/label_statement")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/while_statement")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/object_manipulation_statements")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/objects_and_properties")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/operators")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/arithmetic_operators")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/assignment_operators")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/bitwise_operators")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/comparison_operators")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/logical_operators")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/special_operators")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/operators/string_operators")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/array_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/boolean_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/date_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/function_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/math_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/number_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/regexp_object")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/string_object")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/escape_and_unescape_functions")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/eval_function")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/isfinite_function")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/isnan_function")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/number_and_string_functions")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/parseint_and_parsefloat_functions")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/determining_instance_relationships")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/global_information_in_constructors")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/local_versus_inherited_values")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/no_multiple_inheritance")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/creating_the_hierarchy")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/more_flexible_constructors")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/object_properties")
+     (subsubsubsection
+      (item "ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/object_properties/adding_properties")
+      (item "ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/object_properties/inheriting_properties")
+      )
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/unicode")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/using_the_arguments_object")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/values")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/variables")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions/advanced_searching_with_flags")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions/examples_of_regular_expressions")
+     (item "ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions/using_parenthesized_substring_matches")
+     )
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/working_with_wrappers")
+    (item "ja/core_javascript_1.5_guide/obsolete_pages/writing_a_regular_expression_pattern")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/expressions.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/java_to_javascript_communication.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/java_to_javascript_communication/using_the_liveconnect_classes.texi"
+   (item "ja/core_javascript_1.5_guide/operators")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/operators/arithmetic_operators")
+    (item "ja/core_javascript_1.5_guide/operators/assignment_operators")
+    (item "ja/core_javascript_1.5_guide/operators/bitwise_operators")
+    (item "ja/core_javascript_1.5_guide/operators/comparison_operators")
+    (item "ja/core_javascript_1.5_guide/operators/logical_operators")
+    (item "ja/core_javascript_1.5_guide/operators/special_operators")
+    (item "ja/core_javascript_1.5_guide/operators/string_operators")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/javascript_to_java_communication.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/literals.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/break_statement.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/continue_statement.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/do...while_statement.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/for_statement.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/label_statement.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/loop_statements/while_statement.texi"
+   (item "ja/core_javascript_1.5_guide/predefined_core_objects")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/array_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/boolean_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/date_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/function_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/math_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/number_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/regexp_object")
+    (item "ja/core_javascript_1.5_guide/predefined_core_objects/string_object")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/object_manipulation_statements.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/objects_and_properties.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/arithmetic_operators.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/assignment_operators.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/bitwise_operators.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/comparison_operators.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/logical_operators.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/special_operators.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/operators/string_operators.texi"
+   (item "ja/core_javascript_1.5_guide/predefined_functions")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/predefined_functions/escape_and_unescape_functions")
+    (item "ja/core_javascript_1.5_guide/predefined_functions/eval_function")
+    (item "ja/core_javascript_1.5_guide/predefined_functions/isfinite_function")
+    (item "ja/core_javascript_1.5_guide/predefined_functions/isnan_function")
+    (item "ja/core_javascript_1.5_guide/predefined_functions/number_and_string_functions")
+    (item "ja/core_javascript_1.5_guide/predefined_functions/parseint_and_parsefloat_functions")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/array_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/boolean_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/date_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/function_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/math_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/number_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/regexp_object.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_core_objects/string_object.texi"
+   (item "ja/core_javascript_1.5_guide/processing_xml_with_e4x")
+   (item "ja/core_javascript_1.5_guide/property_inheritance_revisited")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/property_inheritance_revisited/determining_instance_relationships")
+    (item "ja/core_javascript_1.5_guide/property_inheritance_revisited/global_information_in_constructors")
+    (item "ja/core_javascript_1.5_guide/property_inheritance_revisited/local_versus_inherited_values")
+    (item "ja/core_javascript_1.5_guide/property_inheritance_revisited/no_multiple_inheritance")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/escape_and_unescape_functions.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/eval_function.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/isfinite_function.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/isnan_function.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/number_and_string_functions.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/predefined_functions/parseint_and_parsefloat_functions.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/determining_instance_relationships.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/global_information_in_constructors.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/local_versus_inherited_values.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/property_inheritance_revisited/no_multiple_inheritance.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/creating_the_hierarchy.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/more_flexible_constructors.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/object_properties.texi"
-    (subsubsubsection
-     "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/object_properties/adding_properties.texi"
-     "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/the_employee_example/object_properties/inheriting_properties.texi"
+   (item "ja/core_javascript_1.5_guide/regular_expressions")
+   (item "ja/core_javascript_1.5_guide/statements")
+   (item "ja/core_javascript_1.5_guide/syntaxerror")
+   (item "ja/core_javascript_1.5_guide/table_of_contents_1.0")
+   (item "ja/core_javascript_1.5_guide/table_of_contents_2.0")
+   (item "ja/core_javascript_1.5_guide/the_employee_example")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/the_employee_example/creating_the_hierarchy")
+    (item "ja/core_javascript_1.5_guide/the_employee_example/more_flexible_constructors")
+    (item "ja/core_javascript_1.5_guide/the_employee_example/object_properties")
+    (subsubsection
+     (item "ja/core_javascript_1.5_guide/the_employee_example/object_properties/adding_properties")
+     (item "ja/core_javascript_1.5_guide/the_employee_example/object_properties/inheriting_properties")
      )
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/unicode.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/using_the_arguments_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/values.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/variables.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions/advanced_searching_with_flags.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions/examples_of_regular_expressions.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/working_with_regular_expressions/using_parenthesized_substring_matches.texi"
+   (item "ja/core_javascript_1.5_guide/typeerror")
+   (item "ja/core_javascript_1.5_guide/unicode")
+   (item "ja/core_javascript_1.5_guide/using_the_arguments_object")
+   (item "ja/core_javascript_1.5_guide/values__variables__and_literals")
+   (item "ja/core_javascript_1.5_guide/values")
+   (item "ja/core_javascript_1.5_guide/variables")
+   (item "ja/core_javascript_1.5_guide/working_with_arrays")
+   (item "ja/core_javascript_1.5_guide/working_with_closures")
+   (item "ja/core_javascript_1.5_guide/working_with_objects")
+   (item "ja/core_javascript_1.5_guide/working_with_regular_expressions")
+   (subsection
+    (item "ja/core_javascript_1.5_guide/working_with_regular_expressions/advanced_searching_with_flags")
+    (item "ja/core_javascript_1.5_guide/working_with_regular_expressions/examples_of_regular_expressions")
+    (item "ja/core_javascript_1.5_guide/working_with_regular_expressions/using_parenthesized_substring_matches")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/working_with_wrappers.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/obsolete_pages/writing_a_regular_expression_pattern.texi"
+   (item "ja/core_javascript_1.5_guide/writing_a_regular_expression_pattern")
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/arithmetic_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/assignment_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/bitwise_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/comparison_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/logical_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/special_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/operators/string_operators.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/array_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/boolean_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/date_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/function_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/math_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/number_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/regexp_object.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_core_objects/string_object.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions/escape_and_unescape_functions.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions/eval_function.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions/isfinite_function.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions/isnan_function.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions/number_and_string_functions.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/predefined_functions/parseint_and_parsefloat_functions.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/processing_xml_with_e4x.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/property_inheritance_revisited.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/property_inheritance_revisited/determining_instance_relationships.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/property_inheritance_revisited/global_information_in_constructors.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/property_inheritance_revisited/local_versus_inherited_values.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/property_inheritance_revisited/no_multiple_inheritance.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/regular_expressions.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/statements.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/syntaxerror.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/table_of_contents_1.0.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/table_of_contents_2.0.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/the_employee_example.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/the_employee_example/creating_the_hierarchy.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/the_employee_example/more_flexible_constructors.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/the_employee_example/object_properties.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/the_employee_example/object_properties/adding_properties.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/the_employee_example/object_properties/inheriting_properties.texi"
+ (chapter
+  (item "ja/core_javascript_1.5_reference")
+  (section
+   (item "ja/core_javascript_1.5_reference%2f%2freorg")
+   (item "ja/core_javascript_1.5_reference/about")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/about/formatting_conventions")
     )
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/typeerror.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/unicode.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/using_the_arguments_object.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/values,_variables,_and_literals.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/values.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/variables.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_arrays.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_closures.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_objects.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_regular_expressions.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_regular_expressions/advanced_searching_with_flags.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_regular_expressions/examples_of_regular_expressions.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/working_with_regular_expressions/using_parenthesized_substring_matches.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_guide/writing_a_regular_expression_pattern.texi"
-  )
- )
-(chapter
- "texi/developer.mozilla.org/ja/core_javascript_1.5_reference%2f%2freorg.texi"
- "texi/developer.mozilla.org/ja/core_javascript_1.5_reference.texi"
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/about.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/about/formatting_conventions.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/deprecated_features.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions/arguments.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions/arguments/callee.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions/arguments/caller.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions/arguments/length.texi"
+   (item "ja/core_javascript_1.5_reference/deprecated_features")
+   (item "ja/core_javascript_1.5_reference/functions")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/functions/arguments")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/functions/arguments/callee")
+     (item "ja/core_javascript_1.5_reference/functions/arguments/caller")
+     (item "ja/core_javascript_1.5_reference/functions/arguments/length")
+     )
     )
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions_and_function_scope.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions_and_function_scope/arguments.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/callee.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/caller.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/length.texi"
+   (item "ja/core_javascript_1.5_reference/functions_and_function_scope")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/functions_and_function_scope/arguments")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/callee")
+     (item "ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/caller")
+     (item "ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/length")
+     )
     )
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/decodeuri.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/decodeuricomponent.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/encodeuri.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/encodeuricomponent.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/eval.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/isfinite.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/isnan.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/parsefloat.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_functions/parseint.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/concat.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/every.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/filter.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/foreach.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/index.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/indexof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/input.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/join.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/lastindexof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/length.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/map.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/pop.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/push.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/reduce.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/reduceright.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/reverse.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/shift.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/slice.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/some.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/sort.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/splice.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/array/unshift.texi"
+   (item "ja/core_javascript_1.5_reference/global_functions")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/global_functions/decodeuri")
+    (item "ja/core_javascript_1.5_reference/global_functions/decodeuricomponent")
+    (item "ja/core_javascript_1.5_reference/global_functions/encodeuri")
+    (item "ja/core_javascript_1.5_reference/global_functions/encodeuricomponent")
+    (item "ja/core_javascript_1.5_reference/global_functions/eval")
+    (item "ja/core_javascript_1.5_reference/global_functions/isfinite")
+    (item "ja/core_javascript_1.5_reference/global_functions/isnan")
+    (item "ja/core_javascript_1.5_reference/global_functions/parsefloat")
+    (item "ja/core_javascript_1.5_reference/global_functions/parseint")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/boolean.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/boolean/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/boolean/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/boolean/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/boolean/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/boolean/valueof.texi"
+   (item "ja/core_javascript_1.5_reference/global_objects")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/global_objects/array")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/array/concat")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/every")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/filter")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/foreach")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/index")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/indexof")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/input")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/join")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/lastindexof")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/length")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/map")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/pop")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/push")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/reduce")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/reduceright")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/reverse")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/shift")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/slice")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/some")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/sort")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/splice")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/array/unshift")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/boolean")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/boolean/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/boolean/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/boolean/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/boolean/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/boolean/valueof")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/date")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/date/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getdate")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getday")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getfullyear")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/gethours")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getmilliseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getminutes")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getmonth")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/gettime")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/gettimezoneoffset")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcdate")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcday")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcfullyear")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutchours")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcmilliseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcminutes")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcmonth")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getutcseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/getyear")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/now")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/parse")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setdate")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setfullyear")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/sethours")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setmilliseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setminutes")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setmonth")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/settime")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutcdate")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutcfullyear")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutchours")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutcmilliseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutcminutes")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutcmonth")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setutcseconds")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/setyear")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/todatestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/togmtstring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/tolocaledatestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/tolocaleformat")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/tolocalestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/tolocaletimestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/totimestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/toutcstring")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/utc")
+     (item "ja/core_javascript_1.5_reference/global_objects/date/valueof")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/error")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/error/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/error/message")
+     (item "ja/core_javascript_1.5_reference/global_objects/error/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/error/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/error/stack")
+     (item "ja/core_javascript_1.5_reference/global_objects/error/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/error/tostring")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/evalerror")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/evalerror/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/evalerror/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/evalerror/prototype")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/function")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/function/apply")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/arguments")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/arity")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/call")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/caller")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/length")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/function/valueof")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/java")
+    (item "ja/core_javascript_1.5_reference/global_objects/javaarray")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/javaarray/length")
+     (item "ja/core_javascript_1.5_reference/global_objects/javaarray/tostring")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/javaclass")
+    (item "ja/core_javascript_1.5_reference/global_objects/javaobject")
+    (item "ja/core_javascript_1.5_reference/global_objects/javapackage")
+    (item "ja/core_javascript_1.5_reference/global_objects/math")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/math/abs")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/acos")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/asin")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/atan")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/atan2")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/ceil")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/cos")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/e")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/exp")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/floor")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/ln10")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/ln2")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/log")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/log10e")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/log2e")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/max")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/min")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/pi")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/pow")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/random")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/round")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/sin")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/sqrt")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/sqrt1_2")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/sqrt2")
+     (item "ja/core_javascript_1.5_reference/global_objects/math/tan")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/netscape")
+    (item "ja/core_javascript_1.5_reference/global_objects/number")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/number/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/max_value")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/min_value")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/nan")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/negative_infinity")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/positive_infinity")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/toexponential")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/tofixed")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/tolocalestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/toprecision")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/number/valueof")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/object")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/object/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/create")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/definegetter")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/defineproperties")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/defineproperty")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/definesetter")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/eval")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/getownpropertydescriptor")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/getprototypeof")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/hasownproperty")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/isprototypeof")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/keys")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/lookupgetter")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/lookupsetter")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/nosuchmethod")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/parent")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/propertyisenumerable")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/proto")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/temp")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/tolocalestring")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/unwatch")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/valueof")
+     (item "ja/core_javascript_1.5_reference/global_objects/object/watch")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/packages")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/packages/classname")
+     (item "ja/core_javascript_1.5_reference/global_objects/packages/java")
+     (item "ja/core_javascript_1.5_reference/global_objects/packages/netscape")
+     (item "ja/core_javascript_1.5_reference/global_objects/packages/sun")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/range")
+    (item "ja/core_javascript_1.5_reference/global_objects/rangeerror")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/rangeerror/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/rangeerror/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/rangeerror/prototype")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/referenceerror")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/referenceerror/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/referenceerror/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/referenceerror/prototype")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/regexp")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/exec")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/global")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/ignorecase")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/lastindex")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/multiline")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/source")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/test")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/regexp/tostring")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/string")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/string/anchor")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/big")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/blink")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/bold")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/charat")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/charcodeat")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/concat")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/fixed")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/fontcolor")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/fontsize")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/fromcharcode")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/indexof")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/italics")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/lastindexof")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/length")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/link")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/localecompare")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/match")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/prototype")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/quote")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/replace")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/search")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/slice")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/small")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/split")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/strike")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/sub")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/substr")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/substring")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/sup")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/tolocalelowercase")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/tolocaleuppercase")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/tolowercase")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/tosource")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/tostring")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/touppercase")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/trim")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/trimleft")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/trimright")
+     (item "ja/core_javascript_1.5_reference/global_objects/string/valueof")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/sun")
+    (item "ja/core_javascript_1.5_reference/global_objects/syntaxerror")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/syntaxerror/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/syntaxerror/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/syntaxerror/prototype")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/typeerror")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/typeerror/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/typeerror/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/typeerror/prototype")
+     )
+    (item "ja/core_javascript_1.5_reference/global_objects/urierror")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/global_objects/urierror/constructor")
+     (item "ja/core_javascript_1.5_reference/global_objects/urierror/name")
+     (item "ja/core_javascript_1.5_reference/global_objects/urierror/prototype")
+     )
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getdate.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getday.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getfullyear.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/gethours.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getmilliseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getminutes.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getmonth.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/gettime.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/gettimezoneoffset.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcdate.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcday.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcfullyear.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutchours.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcmilliseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcminutes.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcmonth.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getutcseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/getyear.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/now.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/parse.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setdate.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setfullyear.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/sethours.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setmilliseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setminutes.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setmonth.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/settime.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutcdate.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutcfullyear.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutchours.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutcmilliseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutcminutes.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutcmonth.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setutcseconds.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/setyear.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/todatestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/togmtstring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/tolocaledatestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/tolocaleformat.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/tolocalestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/tolocaletimestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/totimestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/toutcstring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/utc.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/date/valueof.texi"
+   (item "ja/core_javascript_1.5_reference/global_properties")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/global_properties/infinity")
+    (item "ja/core_javascript_1.5_reference/global_properties/nan")
+    (item "ja/core_javascript_1.5_reference/global_properties/undefined")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/message.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/stack.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/error/tostring.texi"
+   (item "ja/core_javascript_1.5_reference/liveconnect")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/liveconnect/jsexception")
+    (item "ja/core_javascript_1.5_reference/liveconnect/jsobject")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/evalerror.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/evalerror/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/evalerror/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/evalerror/prototype.texi"
+   (item "ja/core_javascript_1.5_reference/objects")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/objects/array")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/objects/array/reduce")
+     (item "ja/core_javascript_1.5_reference/objects/array/reduceright")
+     )
+    (item "ja/core_javascript_1.5_reference/objects/number")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/apply.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/arguments.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/arity.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/call.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/caller.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/length.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/function/valueof.texi"
+   (item "ja/core_javascript_1.5_reference/operators")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/operators/arithmetic_operators")
+    (item "ja/core_javascript_1.5_reference/operators/assignment_operators")
+    (item "ja/core_javascript_1.5_reference/operators/bitwise_operators")
+    (item "ja/core_javascript_1.5_reference/operators/comparison_operators")
+    (item "ja/core_javascript_1.5_reference/operators/logical_operators")
+    (item "ja/core_javascript_1.5_reference/operators/member_operators")
+    (item "ja/core_javascript_1.5_reference/operators/operator_precedence")
+    (item "ja/core_javascript_1.5_reference/operators/special_operators")
+    (subsubsection
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/comma_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/conditional_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/delete_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/function_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/get_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/in_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/instanceof_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/new_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/set_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/this_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/typeof_operator")
+     (item "ja/core_javascript_1.5_reference/operators/special_operators/void_operator")
+     )
+    (item "ja/core_javascript_1.5_reference/operators/string_operators")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/java.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/javaarray.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/javaarray/length.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/javaarray/tostring.texi"
+   (item "ja/core_javascript_1.5_reference/reserved_words")
+   (item "ja/core_javascript_1.5_reference/statements")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/statements/block")
+    (item "ja/core_javascript_1.5_reference/statements/break")
+    (item "ja/core_javascript_1.5_reference/statements/const")
+    (item "ja/core_javascript_1.5_reference/statements/continue")
+    (item "ja/core_javascript_1.5_reference/statements/do...while")
+    (item "ja/core_javascript_1.5_reference/statements/export")
+    (item "ja/core_javascript_1.5_reference/statements/for...in")
+    (item "ja/core_javascript_1.5_reference/statements/for")
+    (item "ja/core_javascript_1.5_reference/statements/for_each...in")
+    (item "ja/core_javascript_1.5_reference/statements/function")
+    (item "ja/core_javascript_1.5_reference/statements/if...else")
+    (item "ja/core_javascript_1.5_reference/statements/import")
+    (item "ja/core_javascript_1.5_reference/statements/label")
+    (item "ja/core_javascript_1.5_reference/statements/let")
+    (item "ja/core_javascript_1.5_reference/statements/return")
+    (item "ja/core_javascript_1.5_reference/statements/switch")
+    (item "ja/core_javascript_1.5_reference/statements/throw")
+    (item "ja/core_javascript_1.5_reference/statements/try...catch")
+    (item "ja/core_javascript_1.5_reference/statements/var")
+    (item "ja/core_javascript_1.5_reference/statements/while")
+    (item "ja/core_javascript_1.5_reference/statements/with")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/javaclass.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/javaobject.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/javapackage.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/abs.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/acos.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/asin.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/atan.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/atan2.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/ceil.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/cos.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/e.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/exp.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/floor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/ln10.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/ln2.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/log.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/log10e.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/log2e.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/max.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/min.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/pi.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/pow.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/random.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/round.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/sin.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/sqrt.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/sqrt1_2.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/sqrt2.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/math/tan.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/netscape.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/max_value.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/min_value.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/nan.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/negative_infinity.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/positive_infinity.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/toexponential.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/tofixed.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/tolocalestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/toprecision.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/number/valueof.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/create.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/definegetter.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/defineproperties.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/defineproperty.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/definesetter.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/eval.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/getownpropertydescriptor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/getprototypeof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/hasownproperty.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/isprototypeof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/keys.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/lookupgetter.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/lookupsetter.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/nosuchmethod.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/parent.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/propertyisenumerable.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/proto.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/temp.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/tolocalestring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/unwatch.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/valueof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/object/watch.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/packages.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/packages/classname.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/packages/java.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/packages/netscape.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/packages/sun.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/range.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/rangeerror.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/rangeerror/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/rangeerror/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/rangeerror/prototype.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/referenceerror.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/referenceerror/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/referenceerror/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/referenceerror/prototype.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/exec.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/global.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/ignorecase.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/lastindex.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/multiline.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/source.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/test.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/regexp/tostring.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/anchor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/big.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/blink.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/bold.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/charat.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/charcodeat.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/concat.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/fixed.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/fontcolor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/fontsize.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/fromcharcode.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/indexof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/italics.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/lastindexof.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/length.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/link.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/localecompare.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/match.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/prototype.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/quote.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/replace.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/search.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/slice.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/small.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/split.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/strike.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/sub.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/substr.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/substring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/sup.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/tolocalelowercase.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/tolocaleuppercase.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/tolowercase.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/tosource.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/tostring.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/touppercase.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/trim.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/trimleft.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/trimright.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/string/valueof.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/sun.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/syntaxerror.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/syntaxerror/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/syntaxerror/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/syntaxerror/prototype.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/typeerror.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/typeerror/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/typeerror/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/typeerror/prototype.texi"
-    )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/urierror.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/urierror/constructor.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/urierror/name.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_objects/urierror/prototype.texi"
+   (item "ja/core_javascript_1.5_reference/symbols")
+   (subsection
+    (item "ja/core_javascript_1.5_reference/symbols/page_title")
     )
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_properties.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_properties/infinity.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_properties/nan.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/global_properties/undefined.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/liveconnect.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/liveconnect/jsexception.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/liveconnect/jsobject.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/objects.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/objects/array.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/objects/array/reduce.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/objects/array/reduceright.texi"
+ (chapter
+  (item "ja/dom")
+  (section
+   (item "ja/dom/attr")
+   (item "ja/dom/base")
+   (item "ja/dom/cdatasection")
+   (item "ja/dom/characterdata")
+   (item "ja/dom/comment")
+   (item "ja/dom/css")
+   (subsection
+    (item "ja/dom/css/background")
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/objects/number.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/arithmetic_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/assignment_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/bitwise_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/comparison_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/logical_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/member_operators.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/operator_precedence.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/comma_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/conditional_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/delete_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/function_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/get_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/in_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/instanceof_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/new_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/set_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/this_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/typeof_operator.texi"
-    "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/special_operators/void_operator.texi"
+   (item "ja/dom/cssrule.csstext")
+   (item "ja/dom/cssrule.parentstylesheet")
+   (item "ja/dom/cssrule.selectortext")
+   (item "ja/dom/cssrule.style")
+   (item "ja/dom/cssrule")
+   (item "ja/dom/cssstyledeclaration")
+   (item "ja/dom/detecting_document_width_and_height_changes")
+   (item "ja/dom/dispatchevent_example")
+   (item "ja/dom/document.activeelement")
+   (item "ja/dom/document.adoptnode")
+   (item "ja/dom/document.alinkcolor")
+   (item "ja/dom/document.anchors")
+   (item "ja/dom/document.applets")
+   (item "ja/dom/document.async")
+   (item "ja/dom/document.baseuriobject")
+   (item "ja/dom/document.bgcolor")
+   (item "ja/dom/document.body")
+   (item "ja/dom/document.characterset")
+   (item "ja/dom/document.clear")
+   (item "ja/dom/document.close")
+   (item "ja/dom/document.compatmode")
+   (item "ja/dom/document.contenttype")
+   (item "ja/dom/document.cookie")
+   (item "ja/dom/document.createattribute")
+   (item "ja/dom/document.createcdatasection")
+   (item "ja/dom/document.createcomment")
+   (item "ja/dom/document.createdocumentfragment")
+   (item "ja/dom/document.createelement")
+   (item "ja/dom/document.createelementns")
+   (item "ja/dom/document.createentityreference")
+   (item "ja/dom/document.createevent")
+   (item "ja/dom/document.createexpression")
+   (item "ja/dom/document.createnodeiterator")
+   (item "ja/dom/document.creatensresolver")
+   (item "ja/dom/document.createprocessinginstruction")
+   (item "ja/dom/document.createrange")
+   (item "ja/dom/document.createtextnode")
+   (item "ja/dom/document.createtreewalker")
+   (item "ja/dom/document.defaultview")
+   (item "ja/dom/document.designmode")
+   (item "ja/dom/document.dir")
+   (item "ja/dom/document.doctype")
+   (item "ja/dom/document.documentelement")
+   (item "ja/dom/document.documenturi")
+   (item "ja/dom/document.documenturiobject")
+   (item "ja/dom/document.domain")
+   (item "ja/dom/document.domconfig")
+   (item "ja/dom/document.elementfrompoint")
+   (item "ja/dom/document.embeds")
+   (item "ja/dom/document.evaluate")
+   (item "ja/dom/document.fgcolor")
+   (item "ja/dom/document.firstchild")
+   (item "ja/dom/document.forms")
+   (item "ja/dom/document.getboxobjectfor")
+   (item "ja/dom/document.getelementbyid")
+   (item "ja/dom/document.getelementsbyclassname")
+   (item "ja/dom/document.getelementsbyname")
+   (item "ja/dom/document.getelementsbytagname")
+   (item "ja/dom/document.getelementsbytagnamens")
+   (item "ja/dom/document.hasfocus")
+   (item "ja/dom/document.height")
+   (item "ja/dom/document.images")
+   (item "ja/dom/document.implementation")
+   (item "ja/dom/document.importnode")
+   (item "ja/dom/document.inputencoding")
+   (item "ja/dom/document.lastmodified")
+   (item "ja/dom/document.linkcolor")
+   (item "ja/dom/document.links")
+   (item "ja/dom/document.load")
+   (item "ja/dom/document.loadoverlay")
+   (item "ja/dom/document.location")
+   (item "ja/dom/document.namespaceuri")
+   (item "ja/dom/document.nodeprincipal")
+   (item "ja/dom/document.onreadystatechange")
+   (item "ja/dom/document.open")
+   (item "ja/dom/document.plugins")
+   (item "ja/dom/document.popupnode")
+   (item "ja/dom/document.queryselector")
+   (item "ja/dom/document.queryselectorall")
+   (item "ja/dom/document.readystate")
+   (item "ja/dom/document.referrer")
+   (item "ja/dom/document.stylesheets")
+   (item "ja/dom/document")
+   (item "ja/dom/document.textcontent")
+   (item "ja/dom/document.title")
+   (item "ja/dom/document.tooltipnode")
+   (item "ja/dom/document.url")
+   (item "ja/dom/document.vlinkcolor")
+   (item "ja/dom/document.width")
+   (item "ja/dom/document.write")
+   (item "ja/dom/document.writeln")
+   (item "ja/dom/document.xmlencoding")
+   (item "ja/dom/document.xmlversion")
+   (item "ja/dom/documentfragment")
+   (item "ja/dom/documenttype")
+   (item "ja/dom/domconfiguration")
+   (item "ja/dom/domerror")
+   (item "ja/dom/domerrorhandler")
+   (item "ja/dom/domexception")
+   (item "ja/dom/domimplementation.createdocument")
+   (item "ja/dom/domimplementation.createdocumenttype")
+   (item "ja/dom/domimplementation")
+   (item "ja/dom/domimplementationlist")
+   (item "ja/dom/domimplementationregistry")
+   (item "ja/dom/domimplementationsource")
+   (item "ja/dom/domlocator")
+   (item "ja/dom/domobject")
+   (item "ja/dom/domstring")
+   (item "ja/dom/domstringlist")
+   (item "ja/dom/domtimestamp")
+   (item "ja/dom/domtokenlist")
+   (item "ja/dom/domuserdata")
+   (item "ja/dom/element.addeventlistener")
+   (item "ja/dom/element.appendchild")
+   (item "ja/dom/element.attributes")
+   (item "ja/dom/element.baseuriobject")
+   (item "ja/dom/element.blur")
+   (item "ja/dom/element.childelementcount")
+   (item "ja/dom/element.childnodes")
+   (item "ja/dom/element.children")
+   (item "ja/dom/element.classlist")
+   (item "ja/dom/element.classname")
+   (item "ja/dom/element.click")
+   (item "ja/dom/element.clientheight")
+   (item "ja/dom/element.clientleft")
+   (item "ja/dom/element.clienttop")
+   (item "ja/dom/element.clientwidth")
+   (item "ja/dom/element.contenteditable")
+   (item "ja/dom/element.dir")
+   (item "ja/dom/element.dispatchevent")
+   (item "ja/dom/element.firstchild")
+   (item "ja/dom/element.firstelementchild")
+   (item "ja/dom/element.focus")
+   (item "ja/dom/element.getattribute")
+   (item "ja/dom/element.getattributenode")
+   (item "ja/dom/element.getattributenodens")
+   (item "ja/dom/element.getattributens")
+   (item "ja/dom/element.getboundingclientrect")
+   (item "ja/dom/element.getclientrects")
+   (item "ja/dom/element.getelementsbyclassname")
+   (item "ja/dom/element.getelementsbytagname")
+   (item "ja/dom/element.getelementsbytagnamens")
+   (item "ja/dom/element.hasattribute")
+   (item "ja/dom/element.hasattributens")
+   (item "ja/dom/element.hasattributes")
+   (item "ja/dom/element.haschildnodes")
+   (item "ja/dom/element.id")
+   (item "ja/dom/element.innerhtml")
+   (item "ja/dom/element.insertbefore")
+   (item "ja/dom/element.iscontenteditable")
+   (item "ja/dom/element.issupported")
+   (item "ja/dom/element.item")
+   (item "ja/dom/element.lang")
+   (item "ja/dom/element.lastchild")
+   (item "ja/dom/element.lastelementchild")
+   (item "ja/dom/element.length")
+   (item "ja/dom/element.localname")
+   (item "ja/dom/element.name")
+   (item "ja/dom/element.namespaceuri")
+   (item "ja/dom/element.nextelementsibling")
+   (item "ja/dom/element.nextsibling")
+   (item "ja/dom/element.nodename")
+   (item "ja/dom/element.nodetype")
+   (item "ja/dom/element.normalize")
+   (item "ja/dom/element.offsetheight")
+   (item "ja/dom/element.offsetleft")
+   (item "ja/dom/element.offsetparent")
+   (item "ja/dom/element.offsettop")
+   (item "ja/dom/element.offsetwidth")
+   (item "ja/dom/element.onblur")
+   (item "ja/dom/element.onchange")
+   (item "ja/dom/element.onclick")
+   (item "ja/dom/element.oncopy")
+   (item "ja/dom/element.oncut")
+   (item "ja/dom/element.ondblclick")
+   (item "ja/dom/element.onfocus")
+   (item "ja/dom/element.onkeydown")
+   (item "ja/dom/element.onkeypress")
+   (item "ja/dom/element.onkeyup")
+   (item "ja/dom/element.onmousedown")
+   (item "ja/dom/element.onmousemove")
+   (item "ja/dom/element.onmouseout")
+   (item "ja/dom/element.onmouseover")
+   (item "ja/dom/element.onmouseup")
+   (item "ja/dom/element.onpaste")
+   (item "ja/dom/element.onresize")
+   (item "ja/dom/element.onscroll")
+   (item "ja/dom/element.ownerdocument")
+   (item "ja/dom/element.parentnode")
+   (item "ja/dom/element.prefix")
+   (item "ja/dom/element.previouselementsibling")
+   (item "ja/dom/element.previoussibling")
+   (item "ja/dom/element.queryselector")
+   (item "ja/dom/element.queryselectorall")
+   (item "ja/dom/element.removeattribute")
+   (item "ja/dom/element.removeattributenode")
+   (item "ja/dom/element.removeattributens")
+   (item "ja/dom/element.removechild")
+   (item "ja/dom/element.removeeventlistener")
+   (item "ja/dom/element.replacechild")
+   (item "ja/dom/element.scrollheight")
+   (item "ja/dom/element.scrollintoview")
+   (item "ja/dom/element.scrollleft")
+   (item "ja/dom/element.scrolltop")
+   (item "ja/dom/element.scrollwidth")
+   (item "ja/dom/element.setattribute")
+   (item "ja/dom/element.setattributenode")
+   (item "ja/dom/element.setattributenodens")
+   (item "ja/dom/element.setattributens")
+   (item "ja/dom/element.style")
+   (item "ja/dom/element.supports")
+   (item "ja/dom/element.tabindex")
+   (item "ja/dom/element.tagname")
+   (item "ja/dom/element")
+   (item "ja/dom/element.title")
+   (item "ja/dom/entity")
+   (item "ja/dom/entityreference")
+   (item "ja/dom/event.altkey")
+   (item "ja/dom/event.bubbles")
+   (item "ja/dom/event.button")
+   (item "ja/dom/event.cancelable")
+   (item "ja/dom/event.cancelbubble")
+   (item "ja/dom/event.charcode")
+   (item "ja/dom/event.clientx")
+   (item "ja/dom/event.clienty")
+   (item "ja/dom/event.ctrlkey")
+   (item "ja/dom/event.currenttarget")
+   (item "ja/dom/event.detail")
+   (item "ja/dom/event.eventphase")
+   (item "ja/dom/event.explicitoriginaltarget")
+   (item "ja/dom/event.initevent")
+   (item "ja/dom/event.initkeyevent")
+   (item "ja/dom/event.initmouseevent")
+   (item "ja/dom/event.inituievent")
+   (item "ja/dom/event.ischar")
+   (item "ja/dom/event.keycode")
+   (item "ja/dom/event.layerx")
+   (item "ja/dom/event.layery")
+   (item "ja/dom/event.metakey")
+   (item "ja/dom/event.originaltarget")
+   (item "ja/dom/event.pagex")
+   (item "ja/dom/event.pagey")
+   (item "ja/dom/event.preventdefault")
+   (item "ja/dom/event.relatedtarget")
+   (item "ja/dom/event.screenx")
+   (item "ja/dom/event.screeny")
+   (item "ja/dom/event.shiftkey")
+   (item "ja/dom/event.stoppropagation")
+   (item "ja/dom/event.target")
+   (item "ja/dom/event")
+   (item "ja/dom/event.timestamp")
+   (item "ja/dom/event.type")
+   (item "ja/dom/event.view")
+   (item "ja/dom/event.which")
+   (subsection
+    (item "ja/dom/event/comparison_of_event_targets")
+    (item "ja/dom/event/uievent")
+    (subsubsection
+     (item "ja/dom/event/uievent/keyevent")
+     )
     )
-   )
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/operators/string_operators.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/reserved_words.texi"
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/block.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/break.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/const.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/continue.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/do...while.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/export.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/for...in.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/for.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/for_each...in.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/function.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/if...else.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/import.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/label.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/let.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/return.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/switch.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/throw.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/try...catch.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/var.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/while.texi"
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/statements/with.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/symbols.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/core_javascript_1.5_reference/symbols/page_title.texi"
-   )
-  )
- )
-(chapter
- "texi/developer.mozilla.org/ja/dom.texi"
- (section
-  "texi/developer.mozilla.org/ja/dom/attr.texi"
-  "texi/developer.mozilla.org/ja/dom/base.texi"
-  "texi/developer.mozilla.org/ja/dom/cdatasection.texi"
-  "texi/developer.mozilla.org/ja/dom/characterdata.texi"
-  "texi/developer.mozilla.org/ja/dom/comment.texi"
-  "texi/developer.mozilla.org/ja/dom/css.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/dom/css/background.texi"
-   )
-  )
- (section
-  "texi/developer.mozilla.org/ja/dom/cssrule.csstext.texi"
-  "texi/developer.mozilla.org/ja/dom/cssrule.parentstylesheet.texi"
-  "texi/developer.mozilla.org/ja/dom/cssrule.selectortext.texi"
-  "texi/developer.mozilla.org/ja/dom/cssrule.style.texi"
-  "texi/developer.mozilla.org/ja/dom/cssrule.texi"
-  "texi/developer.mozilla.org/ja/dom/cssstyledeclaration.texi"
-  "texi/developer.mozilla.org/ja/dom/detecting_document_width_and_height_changes.texi"
-  "texi/developer.mozilla.org/ja/dom/dispatchevent_example.texi"
-  "texi/developer.mozilla.org/ja/dom/document.activeelement.texi"
-  "texi/developer.mozilla.org/ja/dom/document.adoptnode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.alinkcolor.texi"
-  "texi/developer.mozilla.org/ja/dom/document.anchors.texi"
-  "texi/developer.mozilla.org/ja/dom/document.applets.texi"
-  "texi/developer.mozilla.org/ja/dom/document.async.texi"
-  "texi/developer.mozilla.org/ja/dom/document.baseuriobject.texi"
-  "texi/developer.mozilla.org/ja/dom/document.bgcolor.texi"
-  "texi/developer.mozilla.org/ja/dom/document.body.texi"
-  "texi/developer.mozilla.org/ja/dom/document.characterset.texi"
-  "texi/developer.mozilla.org/ja/dom/document.clear.texi"
-  "texi/developer.mozilla.org/ja/dom/document.close.texi"
-  "texi/developer.mozilla.org/ja/dom/document.compatmode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.contenttype.texi"
-  "texi/developer.mozilla.org/ja/dom/document.cookie.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createattribute.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createcdatasection.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createcomment.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createdocumentfragment.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createelement.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createelementns.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createentityreference.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createevent.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createexpression.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createnodeiterator.texi"
-  "texi/developer.mozilla.org/ja/dom/document.creatensresolver.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createprocessinginstruction.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createrange.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createtextnode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.createtreewalker.texi"
-  "texi/developer.mozilla.org/ja/dom/document.defaultview.texi"
-  "texi/developer.mozilla.org/ja/dom/document.designmode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.dir.texi"
-  "texi/developer.mozilla.org/ja/dom/document.doctype.texi"
-  "texi/developer.mozilla.org/ja/dom/document.documentelement.texi"
-  "texi/developer.mozilla.org/ja/dom/document.documenturi.texi"
-  "texi/developer.mozilla.org/ja/dom/document.documenturiobject.texi"
-  "texi/developer.mozilla.org/ja/dom/document.domain.texi"
-  "texi/developer.mozilla.org/ja/dom/document.domconfig.texi"
-  "texi/developer.mozilla.org/ja/dom/document.elementfrompoint.texi"
-  "texi/developer.mozilla.org/ja/dom/document.embeds.texi"
-  "texi/developer.mozilla.org/ja/dom/document.evaluate.texi"
-  "texi/developer.mozilla.org/ja/dom/document.fgcolor.texi"
-  "texi/developer.mozilla.org/ja/dom/document.firstchild.texi"
-  "texi/developer.mozilla.org/ja/dom/document.forms.texi"
-  "texi/developer.mozilla.org/ja/dom/document.getboxobjectfor.texi"
-  "texi/developer.mozilla.org/ja/dom/document.getelementbyid.texi"
-  "texi/developer.mozilla.org/ja/dom/document.getelementsbyclassname.texi"
-  "texi/developer.mozilla.org/ja/dom/document.getelementsbyname.texi"
-  "texi/developer.mozilla.org/ja/dom/document.getelementsbytagname.texi"
-  "texi/developer.mozilla.org/ja/dom/document.getelementsbytagnamens.texi"
-  "texi/developer.mozilla.org/ja/dom/document.hasfocus.texi"
-  "texi/developer.mozilla.org/ja/dom/document.height.texi"
-  "texi/developer.mozilla.org/ja/dom/document.images.texi"
-  "texi/developer.mozilla.org/ja/dom/document.implementation.texi"
-  "texi/developer.mozilla.org/ja/dom/document.importnode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.inputencoding.texi"
-  "texi/developer.mozilla.org/ja/dom/document.lastmodified.texi"
-  "texi/developer.mozilla.org/ja/dom/document.linkcolor.texi"
-  "texi/developer.mozilla.org/ja/dom/document.links.texi"
-  "texi/developer.mozilla.org/ja/dom/document.load.texi"
-  "texi/developer.mozilla.org/ja/dom/document.loadoverlay.texi"
-  "texi/developer.mozilla.org/ja/dom/document.location.texi"
-  "texi/developer.mozilla.org/ja/dom/document.namespaceuri.texi"
-  "texi/developer.mozilla.org/ja/dom/document.nodeprincipal.texi"
-  "texi/developer.mozilla.org/ja/dom/document.onreadystatechange.texi"
-  "texi/developer.mozilla.org/ja/dom/document.open.texi"
-  "texi/developer.mozilla.org/ja/dom/document.plugins.texi"
-  "texi/developer.mozilla.org/ja/dom/document.popupnode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.queryselector.texi"
-  "texi/developer.mozilla.org/ja/dom/document.queryselectorall.texi"
-  "texi/developer.mozilla.org/ja/dom/document.readystate.texi"
-  "texi/developer.mozilla.org/ja/dom/document.referrer.texi"
-  "texi/developer.mozilla.org/ja/dom/document.stylesheets.texi"
-  "texi/developer.mozilla.org/ja/dom/document.texi"
-  "texi/developer.mozilla.org/ja/dom/document.textcontent.texi"
-  "texi/developer.mozilla.org/ja/dom/document.title.texi"
-  "texi/developer.mozilla.org/ja/dom/document.tooltipnode.texi"
-  "texi/developer.mozilla.org/ja/dom/document.url.texi"
-  "texi/developer.mozilla.org/ja/dom/document.vlinkcolor.texi"
-  "texi/developer.mozilla.org/ja/dom/document.width.texi"
-  "texi/developer.mozilla.org/ja/dom/document.write.texi"
-  "texi/developer.mozilla.org/ja/dom/document.writeln.texi"
-  "texi/developer.mozilla.org/ja/dom/document.xmlencoding.texi"
-  "texi/developer.mozilla.org/ja/dom/document.xmlversion.texi"
-  "texi/developer.mozilla.org/ja/dom/documentfragment.texi"
-  "texi/developer.mozilla.org/ja/dom/documenttype.texi"
-  "texi/developer.mozilla.org/ja/dom/domconfiguration.texi"
-  "texi/developer.mozilla.org/ja/dom/domerror.texi"
-  "texi/developer.mozilla.org/ja/dom/domerrorhandler.texi"
-  "texi/developer.mozilla.org/ja/dom/domexception.texi"
-  "texi/developer.mozilla.org/ja/dom/domimplementation.createdocument.texi"
-  "texi/developer.mozilla.org/ja/dom/domimplementation.createdocumenttype.texi"
-  "texi/developer.mozilla.org/ja/dom/domimplementation.texi"
-  "texi/developer.mozilla.org/ja/dom/domimplementationlist.texi"
-  "texi/developer.mozilla.org/ja/dom/domimplementationregistry.texi"
-  "texi/developer.mozilla.org/ja/dom/domimplementationsource.texi"
-  "texi/developer.mozilla.org/ja/dom/domlocator.texi"
-  "texi/developer.mozilla.org/ja/dom/domobject.texi"
-  "texi/developer.mozilla.org/ja/dom/domstring.texi"
-  "texi/developer.mozilla.org/ja/dom/domstringlist.texi"
-  "texi/developer.mozilla.org/ja/dom/domtimestamp.texi"
-  "texi/developer.mozilla.org/ja/dom/domtokenlist.texi"
-  "texi/developer.mozilla.org/ja/dom/domuserdata.texi"
-  "texi/developer.mozilla.org/ja/dom/element.addeventlistener.texi"
-  "texi/developer.mozilla.org/ja/dom/element.appendchild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.attributes.texi"
-  "texi/developer.mozilla.org/ja/dom/element.baseuriobject.texi"
-  "texi/developer.mozilla.org/ja/dom/element.blur.texi"
-  "texi/developer.mozilla.org/ja/dom/element.childelementcount.texi"
-  "texi/developer.mozilla.org/ja/dom/element.childnodes.texi"
-  "texi/developer.mozilla.org/ja/dom/element.children.texi"
-  "texi/developer.mozilla.org/ja/dom/element.classlist.texi"
-  "texi/developer.mozilla.org/ja/dom/element.classname.texi"
-  "texi/developer.mozilla.org/ja/dom/element.click.texi"
-  "texi/developer.mozilla.org/ja/dom/element.clientheight.texi"
-  "texi/developer.mozilla.org/ja/dom/element.clientleft.texi"
-  "texi/developer.mozilla.org/ja/dom/element.clienttop.texi"
-  "texi/developer.mozilla.org/ja/dom/element.clientwidth.texi"
-  "texi/developer.mozilla.org/ja/dom/element.contenteditable.texi"
-  "texi/developer.mozilla.org/ja/dom/element.dir.texi"
-  "texi/developer.mozilla.org/ja/dom/element.dispatchevent.texi"
-  "texi/developer.mozilla.org/ja/dom/element.firstchild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.firstelementchild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.focus.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getattribute.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getattributenode.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getattributenodens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getattributens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getboundingclientrect.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getclientrects.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getelementsbyclassname.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getelementsbytagname.texi"
-  "texi/developer.mozilla.org/ja/dom/element.getelementsbytagnamens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.hasattribute.texi"
-  "texi/developer.mozilla.org/ja/dom/element.hasattributens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.hasattributes.texi"
-  "texi/developer.mozilla.org/ja/dom/element.haschildnodes.texi"
-  "texi/developer.mozilla.org/ja/dom/element.id.texi"
-  "texi/developer.mozilla.org/ja/dom/element.innerhtml.texi"
-  "texi/developer.mozilla.org/ja/dom/element.insertbefore.texi"
-  "texi/developer.mozilla.org/ja/dom/element.iscontenteditable.texi"
-  "texi/developer.mozilla.org/ja/dom/element.issupported.texi"
-  "texi/developer.mozilla.org/ja/dom/element.item.texi"
-  "texi/developer.mozilla.org/ja/dom/element.lang.texi"
-  "texi/developer.mozilla.org/ja/dom/element.lastchild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.lastelementchild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.length.texi"
-  "texi/developer.mozilla.org/ja/dom/element.localname.texi"
-  "texi/developer.mozilla.org/ja/dom/element.name.texi"
-  "texi/developer.mozilla.org/ja/dom/element.namespaceuri.texi"
-  "texi/developer.mozilla.org/ja/dom/element.nextelementsibling.texi"
-  "texi/developer.mozilla.org/ja/dom/element.nextsibling.texi"
-  "texi/developer.mozilla.org/ja/dom/element.nodename.texi"
-  "texi/developer.mozilla.org/ja/dom/element.nodetype.texi"
-  "texi/developer.mozilla.org/ja/dom/element.normalize.texi"
-  "texi/developer.mozilla.org/ja/dom/element.offsetheight.texi"
-  "texi/developer.mozilla.org/ja/dom/element.offsetleft.texi"
-  "texi/developer.mozilla.org/ja/dom/element.offsetparent.texi"
-  "texi/developer.mozilla.org/ja/dom/element.offsettop.texi"
-  "texi/developer.mozilla.org/ja/dom/element.offsetwidth.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onblur.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onchange.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onclick.texi"
-  "texi/developer.mozilla.org/ja/dom/element.oncopy.texi"
-  "texi/developer.mozilla.org/ja/dom/element.oncut.texi"
-  "texi/developer.mozilla.org/ja/dom/element.ondblclick.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onfocus.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onkeydown.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onkeypress.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onkeyup.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onmousedown.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onmousemove.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onmouseout.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onmouseover.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onmouseup.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onpaste.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onresize.texi"
-  "texi/developer.mozilla.org/ja/dom/element.onscroll.texi"
-  "texi/developer.mozilla.org/ja/dom/element.ownerdocument.texi"
-  "texi/developer.mozilla.org/ja/dom/element.parentnode.texi"
-  "texi/developer.mozilla.org/ja/dom/element.prefix.texi"
-  "texi/developer.mozilla.org/ja/dom/element.previouselementsibling.texi"
-  "texi/developer.mozilla.org/ja/dom/element.previoussibling.texi"
-  "texi/developer.mozilla.org/ja/dom/element.queryselector.texi"
-  "texi/developer.mozilla.org/ja/dom/element.queryselectorall.texi"
-  "texi/developer.mozilla.org/ja/dom/element.removeattribute.texi"
-  "texi/developer.mozilla.org/ja/dom/element.removeattributenode.texi"
-  "texi/developer.mozilla.org/ja/dom/element.removeattributens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.removechild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.removeeventlistener.texi"
-  "texi/developer.mozilla.org/ja/dom/element.replacechild.texi"
-  "texi/developer.mozilla.org/ja/dom/element.scrollheight.texi"
-  "texi/developer.mozilla.org/ja/dom/element.scrollintoview.texi"
-  "texi/developer.mozilla.org/ja/dom/element.scrollleft.texi"
-  "texi/developer.mozilla.org/ja/dom/element.scrolltop.texi"
-  "texi/developer.mozilla.org/ja/dom/element.scrollwidth.texi"
-  "texi/developer.mozilla.org/ja/dom/element.setattribute.texi"
-  "texi/developer.mozilla.org/ja/dom/element.setattributenode.texi"
-  "texi/developer.mozilla.org/ja/dom/element.setattributenodens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.setattributens.texi"
-  "texi/developer.mozilla.org/ja/dom/element.style.texi"
-  "texi/developer.mozilla.org/ja/dom/element.supports.texi"
-  "texi/developer.mozilla.org/ja/dom/element.tabindex.texi"
-  "texi/developer.mozilla.org/ja/dom/element.tagname.texi"
-  "texi/developer.mozilla.org/ja/dom/element.texi"
-  "texi/developer.mozilla.org/ja/dom/element.title.texi"
-  "texi/developer.mozilla.org/ja/dom/entity.texi"
-  "texi/developer.mozilla.org/ja/dom/entityreference.texi"
-  "texi/developer.mozilla.org/ja/dom/event.altkey.texi"
-  "texi/developer.mozilla.org/ja/dom/event.bubbles.texi"
-  "texi/developer.mozilla.org/ja/dom/event.button.texi"
-  "texi/developer.mozilla.org/ja/dom/event.cancelable.texi"
-  "texi/developer.mozilla.org/ja/dom/event.cancelbubble.texi"
-  "texi/developer.mozilla.org/ja/dom/event.charcode.texi"
-  "texi/developer.mozilla.org/ja/dom/event.clientx.texi"
-  "texi/developer.mozilla.org/ja/dom/event.clienty.texi"
-  "texi/developer.mozilla.org/ja/dom/event.ctrlkey.texi"
-  "texi/developer.mozilla.org/ja/dom/event.currenttarget.texi"
-  "texi/developer.mozilla.org/ja/dom/event.detail.texi"
-  "texi/developer.mozilla.org/ja/dom/event.eventphase.texi"
-  "texi/developer.mozilla.org/ja/dom/event.explicitoriginaltarget.texi"
-  "texi/developer.mozilla.org/ja/dom/event.initevent.texi"
-  "texi/developer.mozilla.org/ja/dom/event.initkeyevent.texi"
-  "texi/developer.mozilla.org/ja/dom/event.initmouseevent.texi"
-  "texi/developer.mozilla.org/ja/dom/event.inituievent.texi"
-  "texi/developer.mozilla.org/ja/dom/event.ischar.texi"
-  "texi/developer.mozilla.org/ja/dom/event.keycode.texi"
-  "texi/developer.mozilla.org/ja/dom/event.layerx.texi"
-  "texi/developer.mozilla.org/ja/dom/event.layery.texi"
-  "texi/developer.mozilla.org/ja/dom/event.metakey.texi"
-  "texi/developer.mozilla.org/ja/dom/event.originaltarget.texi"
-  "texi/developer.mozilla.org/ja/dom/event.pagex.texi"
-  "texi/developer.mozilla.org/ja/dom/event.pagey.texi"
-  "texi/developer.mozilla.org/ja/dom/event.preventdefault.texi"
-  "texi/developer.mozilla.org/ja/dom/event.relatedtarget.texi"
-  "texi/developer.mozilla.org/ja/dom/event.screenx.texi"
-  "texi/developer.mozilla.org/ja/dom/event.screeny.texi"
-  "texi/developer.mozilla.org/ja/dom/event.shiftkey.texi"
-  "texi/developer.mozilla.org/ja/dom/event.stoppropagation.texi"
-  "texi/developer.mozilla.org/ja/dom/event.target.texi"
-  "texi/developer.mozilla.org/ja/dom/event.texi"
-  "texi/developer.mozilla.org/ja/dom/event.timestamp.texi"
-  "texi/developer.mozilla.org/ja/dom/event.type.texi"
-  "texi/developer.mozilla.org/ja/dom/event.view.texi"
-  "texi/developer.mozilla.org/ja/dom/event.which.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/dom/event/comparison_of_event_targets.texi"
-   "texi/developer.mozilla.org/ja/dom/event/uievent.texi"
-   (subsubsection
-    "texi/developer.mozilla.org/ja/dom/event/uievent/keyevent.texi"
+   (item "ja/dom/eventtarget")
+   (item "ja/dom/file.filename")
+   (item "ja/dom/file.filesize")
+   (item "ja/dom/file.getasbinary")
+   (item "ja/dom/file.getasdataurl")
+   (item "ja/dom/file.getastext")
+   (item "ja/dom/file.name")
+   (item "ja/dom/file.size")
+   (item "ja/dom/file")
+   (item "ja/dom/file.type")
+   (item "ja/dom/fileerror")
+   (item "ja/dom/filelist")
+   (item "ja/dom/filereader")
+   (item "ja/dom/form.acceptcharset")
+   (item "ja/dom/form.action")
+   (item "ja/dom/form.elements")
+   (item "ja/dom/form.encoding")
+   (item "ja/dom/form.enctype")
+   (item "ja/dom/form.length")
+   (item "ja/dom/form.method")
+   (item "ja/dom/form.name")
+   (item "ja/dom/form.reset")
+   (item "ja/dom/form.submit")
+   (item "ja/dom/form.target")
+   (item "ja/dom/form")
+   (item "ja/dom/head")
+   (item "ja/dom/html")
+   (item "ja/dom/html.version")
+   (item "ja/dom/htmlbodyelement")
+   (item "ja/dom/htmlcollection")
+   (item "ja/dom/htmloptionscollection")
+   (item "ja/dom/image")
+   (item "ja/dom/input.mozgetfilenamearray")
+   (item "ja/dom/input.mozsetfilenamearray")
+   (item "ja/dom/input.multiple")
+   (item "ja/dom/input")
+   (item "ja/dom/link")
+   (item "ja/dom/locating_dom_elements_using_selectors")
+   (item "ja/dom/manipulating_the_browser_history")
+   (item "ja/dom/meta")
+   (item "ja/dom/mouse_gesture_events")
+   (item "ja/dom/namednodemap")
+   (item "ja/dom/namelist")
+   (item "ja/dom/node.appendchild")
+   (item "ja/dom/node.attributes")
+   (item "ja/dom/node.childnodes")
+   (item "ja/dom/node.clonenode")
+   (item "ja/dom/node.comparedocumentposition")
+   (item "ja/dom/node.firstchild")
+   (item "ja/dom/node.getuserdata")
+   (item "ja/dom/node.hasattributes")
+   (item "ja/dom/node.haschildnodes")
+   (item "ja/dom/node.insertbefore")
+   (item "ja/dom/node.isdefaultnamespace")
+   (item "ja/dom/node.issupported")
+   (item "ja/dom/node.lastchild")
+   (item "ja/dom/node.localname")
+   (item "ja/dom/node.lookupnamespaceuri")
+   (item "ja/dom/node.lookupprefix")
+   (item "ja/dom/node.mozmatchesselector")
+   (item "ja/dom/node.namespaceuri")
+   (item "ja/dom/node.nextsibling")
+   (item "ja/dom/node.nodename")
+   (item "ja/dom/node.nodeprincipal")
+   (item "ja/dom/node.nodetype")
+   (item "ja/dom/node.nodevalue")
+   (item "ja/dom/node.normalize")
+   (item "ja/dom/node.ownerdocument")
+   (item "ja/dom/node.parentnode")
+   (item "ja/dom/node.prefix")
+   (item "ja/dom/node.previoussibling")
+   (item "ja/dom/node.removechild")
+   (item "ja/dom/node.replacechild")
+   (item "ja/dom/node.setuserdata")
+   (item "ja/dom/node")
+   (item "ja/dom/node.textcontent")
+   (subsection
+    (item "ja/dom/node/appendchild")
+    (item "ja/dom/node/attributes")
+    (item "ja/dom/node/childnodes")
+    (item "ja/dom/node/clonenode")
+    (item "ja/dom/node/comparedocumentposition")
+    (item "ja/dom/node/firstchild")
+    (item "ja/dom/node/hasattributes")
+    (item "ja/dom/node/haschildnodes")
+    (item "ja/dom/node/insertbefore")
+    (item "ja/dom/node/issupported")
+    (item "ja/dom/node/lastchild")
+    (item "ja/dom/node/localname")
+    (item "ja/dom/node/namespaceuri")
+    (item "ja/dom/node/nextsibling")
+    (item "ja/dom/node/nodename")
+    (item "ja/dom/node/nodeprincipal")
+    (item "ja/dom/node/nodetype")
+    (item "ja/dom/node/nodevalue")
+    (item "ja/dom/node/normalize")
+    (item "ja/dom/node/ownerdocument")
+    (item "ja/dom/node/parentnode")
+    (item "ja/dom/node/prefix")
+    (item "ja/dom/node/previoussibling")
+    (item "ja/dom/node/replacechild")
+    (item "ja/dom/node/textcontent")
     )
+   (item "ja/dom/nodeiterator.detach")
+   (item "ja/dom/nodeiterator.expandentityreferences")
+   (item "ja/dom/nodeiterator.filter")
+   (item "ja/dom/nodeiterator.nextnode")
+   (item "ja/dom/nodeiterator.pointerbeforereferencenode")
+   (item "ja/dom/nodeiterator.previousnode")
+   (item "ja/dom/nodeiterator.referencenode")
+   (item "ja/dom/nodeiterator.root")
+   (item "ja/dom/nodeiterator")
+   (item "ja/dom/nodeiterator.whattoshow")
+   (item "ja/dom/nodelist")
+   (item "ja/dom/notation")
+   (item "ja/dom/processinginstruction")
+   (item "ja/dom/range.clonecontents")
+   (item "ja/dom/range.clonerange")
+   (item "ja/dom/range.collapse")
+   (item "ja/dom/range.collapsed")
+   (item "ja/dom/range.commonancestorcontainer")
+   (item "ja/dom/range.compareboundarypoints")
+   (item "ja/dom/range.comparenode")
+   (item "ja/dom/range.comparepoint")
+   (item "ja/dom/range.createcontextualfragment")
+   (item "ja/dom/range.deletecontents")
+   (item "ja/dom/range.detach")
+   (item "ja/dom/range.endcontainer")
+   (item "ja/dom/range.endoffset")
+   (item "ja/dom/range.extractcontents")
+   (item "ja/dom/range.insertnode")
+   (item "ja/dom/range.intersectsnode")
+   (item "ja/dom/range.ispointinrange")
+   (item "ja/dom/range.selectnode")
+   (item "ja/dom/range.selectnodecontents")
+   (item "ja/dom/range.setend")
+   (item "ja/dom/range.setendafter")
+   (item "ja/dom/range.setendbefore")
+   (item "ja/dom/range.setstart")
+   (item "ja/dom/range.setstartafter")
+   (item "ja/dom/range.setstartbefore")
+   (item "ja/dom/range.startcontainer")
+   (item "ja/dom/range.startoffset")
+   (item "ja/dom/range.surroundcontents")
+   (item "ja/dom/range")
+   (item "ja/dom/range.tostring")
+   (item "ja/dom/select.add")
+   (item "ja/dom/select.remove")
+   (item "ja/dom/select")
+   (item "ja/dom/select.type")
+   (item "ja/dom/selection")
+   (subsection
+    (item "ja/dom/selection/addrange")
+    (item "ja/dom/selection/anchornode")
+    (item "ja/dom/selection/anchoroffset")
+    (item "ja/dom/selection/collapse")
+    (item "ja/dom/selection/collapsetoend")
+    (item "ja/dom/selection/collapsetostart")
+    (item "ja/dom/selection/containsnode")
+    (item "ja/dom/selection/deletefromdocument")
+    (item "ja/dom/selection/extend")
+    (item "ja/dom/selection/focusnode")
+    (item "ja/dom/selection/focusoffset")
+    (item "ja/dom/selection/getrangeat")
+    (item "ja/dom/selection/iscollapsed")
+    (item "ja/dom/selection/rangecount")
+    (item "ja/dom/selection/removeallranges")
+    (item "ja/dom/selection/removerange")
+    (item "ja/dom/selection/selectallchildren")
+    (item "ja/dom/selection/tostring")
+    )
+   (item "ja/dom/sharedworker")
+   (item "ja/dom/storage")
+   (item "ja/dom/style.media")
+   (item "ja/dom/style")
+   (item "ja/dom/style.type")
+   (item "ja/dom/stylesheet.cssrules")
+   (item "ja/dom/stylesheet.deleterule")
+   (item "ja/dom/stylesheet.disabled")
+   (item "ja/dom/stylesheet.href")
+   (item "ja/dom/stylesheet.insertrule")
+   (item "ja/dom/stylesheet.media")
+   (item "ja/dom/stylesheet.ownernode")
+   (item "ja/dom/stylesheet.ownerrule")
+   (item "ja/dom/stylesheet.parentstylesheet")
+   (item "ja/dom/stylesheet")
+   (item "ja/dom/stylesheet.title")
+   (item "ja/dom/stylesheet.type")
+   (item "ja/dom/table.align")
+   (item "ja/dom/table.bgcolor")
+   (item "ja/dom/table.border")
+   (item "ja/dom/table.caption")
+   (item "ja/dom/table.cellpadding")
+   (item "ja/dom/table.cellspacing")
+   (item "ja/dom/table.createcaption")
+   (item "ja/dom/table.createtfoot")
+   (item "ja/dom/table.createthead")
+   (item "ja/dom/table.deletecaption")
+   (item "ja/dom/table.deleterow")
+   (item "ja/dom/table.deletetfoot")
+   (item "ja/dom/table.deletethead")
+   (item "ja/dom/table.frame")
+   (item "ja/dom/table.insertrow")
+   (item "ja/dom/table.rows")
+   (item "ja/dom/table.rules")
+   (item "ja/dom/table.summary")
+   (item "ja/dom/table.tbodies")
+   (item "ja/dom/table")
+   (item "ja/dom/table.tfoot")
+   (item "ja/dom/table.thead")
+   (item "ja/dom/table.width")
+   (item "ja/dom/tablerow.insertcell")
+   (item "ja/dom/tablerow")
+   (item "ja/dom/text.iselementcontentwhitespace")
+   (item "ja/dom/text.replacewholetext")
+   (item "ja/dom/text.splittext")
+   (item "ja/dom/text")
+   (item "ja/dom/text.wholetext")
+   (item "ja/dom/textarea")
+   (item "ja/dom/title")
+   (item "ja/dom/treewalker.filter")
+   (item "ja/dom/treewalker.root")
+   (item "ja/dom/treewalker")
+   (item "ja/dom/treewalker.whattoshow")
+   (item "ja/dom/typeinfo")
+   (item "ja/dom/userdatahandler")
+   (item "ja/dom/using_dynamic_styling_information")
+   (item "ja/dom/whitespace_template")
+   (item "ja/dom/window.alert")
+   (item "ja/dom/window.applicationcache")
+   (item "ja/dom/window.atob")
+   (item "ja/dom/window.back")
+   (item "ja/dom/window.blur")
+   (item "ja/dom/window.btoa")
+   (item "ja/dom/window.captureevents")
+   (item "ja/dom/window.clearinterval")
+   (item "ja/dom/window.cleartimeout")
+   (item "ja/dom/window.close")
+   (item "ja/dom/window.closed")
+   (item "ja/dom/window.confirm")
+   (item "ja/dom/window.content")
+   (item "ja/dom/window.controllers")
+   (item "ja/dom/window.crypto")
+   (item "ja/dom/window.defaultstatus")
+   (item "ja/dom/window.dialogarguments")
+   (item "ja/dom/window.directories")
+   (item "ja/dom/window.dispatchevent")
+   (item "ja/dom/window.document")
+   (item "ja/dom/window.dump")
+   (item "ja/dom/window.escape")
+   (item "ja/dom/window.find")
+   (item "ja/dom/window.focus")
+   (item "ja/dom/window.forward")
+   (item "ja/dom/window.frameelement")
+   (item "ja/dom/window.frames")
+   (item "ja/dom/window.fullscreen")
+   (item "ja/dom/window.geckoactivexobject")
+   (item "ja/dom/window.getattention")
+   (item "ja/dom/window.getcomputedstyle")
+   (item "ja/dom/window.getselection")
+   (item "ja/dom/window.history")
+   (item "ja/dom/window.home")
+   (item "ja/dom/window.importdialog")
+   (item "ja/dom/window.innerheight")
+   (item "ja/dom/window.innerwidth")
+   (item "ja/dom/window.length")
+   (item "ja/dom/window.location")
+   (item "ja/dom/window.locationbar")
+   (item "ja/dom/window.menubar")
+   (item "ja/dom/window.moveby")
+   (item "ja/dom/window.moveto")
+   (item "ja/dom/window.mozinnerscreenx")
+   (item "ja/dom/window.mozinnerscreeny")
+   (item "ja/dom/window.mozscreenpixelspercsspixel")
+   (item "ja/dom/window.name")
+   (item "ja/dom/window.navigator.appcodename")
+   (item "ja/dom/window.navigator.appname")
+   (item "ja/dom/window.navigator.appversion")
+   (item "ja/dom/window.navigator.buildid")
+   (item "ja/dom/window.navigator.cookieenabled")
+   (item "ja/dom/window.navigator.javaenabled")
+   (item "ja/dom/window.navigator.language")
+   (item "ja/dom/window.navigator.mimetypes")
+   (item "ja/dom/window.navigator.mozislocallyavailable")
+   (item "ja/dom/window.navigator.online")
+   (item "ja/dom/window.navigator.oscpu")
+   (item "ja/dom/window.navigator.platform")
+   (item "ja/dom/window.navigator.plugins")
+   (item "ja/dom/window.navigator.product")
+   (item "ja/dom/window.navigator.productsub")
+   (item "ja/dom/window.navigator.registercontenthandler")
+   (item "ja/dom/window.navigator.registerprotocolhandler")
+   (item "ja/dom/window.navigator")
+   (item "ja/dom/window.navigator.useragent")
+   (item "ja/dom/window.navigator.vendor")
+   (item "ja/dom/window.navigator.vendorsub")
+   (item "ja/dom/window.onabort")
+   (item "ja/dom/window.onbeforeunload")
+   (item "ja/dom/window.onblur")
+   (item "ja/dom/window.onchange")
+   (item "ja/dom/window.onclick")
+   (item "ja/dom/window.onclose")
+   (item "ja/dom/window.oncontextmenu")
+   (item "ja/dom/window.ondragdrop")
+   (item "ja/dom/window.onerror")
+   (item "ja/dom/window.onfocus")
+   (item "ja/dom/window.onhashchange")
+   (item "ja/dom/window.onkeydown")
+   (item "ja/dom/window.onkeypress")
+   (item "ja/dom/window.onkeyup")
+   (item "ja/dom/window.onload")
+   (item "ja/dom/window.onmousedown")
+   (item "ja/dom/window.onmousemove")
+   (item "ja/dom/window.onmouseout")
+   (item "ja/dom/window.onmouseover")
+   (item "ja/dom/window.onmouseup")
+   (item "ja/dom/window.onmozorientation")
+   (item "ja/dom/window.onpaint")
+   (item "ja/dom/window.onpopstate")
+   (item "ja/dom/window.onreset")
+   (item "ja/dom/window.onresize")
+   (item "ja/dom/window.onscroll")
+   (item "ja/dom/window.onselect")
+   (item "ja/dom/window.onsubmit")
+   (item "ja/dom/window.onunload")
+   (item "ja/dom/window.open")
+   (item "ja/dom/window.opendialog")
+   (item "ja/dom/window.opener")
+   (item "ja/dom/window.outerheight")
+   (item "ja/dom/window.outerwidth")
+   (item "ja/dom/window.parent")
+   (item "ja/dom/window.personalbar")
+   (item "ja/dom/window.pkcs11")
+   (item "ja/dom/window.postmessage")
+   (item "ja/dom/window.print")
+   (item "ja/dom/window.prompt")
+   (item "ja/dom/window.prompter")
+   (item "ja/dom/window.queryinterface")
+   (item "ja/dom/window.releaseevents")
+   (item "ja/dom/window.resizeby")
+   (item "ja/dom/window.resizeto")
+   (item "ja/dom/window.routeevent")
+   (item "ja/dom/window.screen.availheight")
+   (item "ja/dom/window.screen.availleft")
+   (item "ja/dom/window.screen.availtop")
+   (item "ja/dom/window.screen.availwidth")
+   (item "ja/dom/window.screen.colordepth")
+   (item "ja/dom/window.screen.height")
+   (item "ja/dom/window.screen.left")
+   (item "ja/dom/window.screen.pixeldepth")
+   (item "ja/dom/window.screen")
+   (item "ja/dom/window.screen.top")
+   (item "ja/dom/window.screen.width")
+   (item "ja/dom/window.screenx")
+   (item "ja/dom/window.screeny")
+   (item "ja/dom/window.scroll")
+   (item "ja/dom/window.scrollbars")
+   (item "ja/dom/window.scrollby")
+   (item "ja/dom/window.scrollbylines")
+   (item "ja/dom/window.scrollbypages")
+   (item "ja/dom/window.scrollmaxx")
+   (item "ja/dom/window.scrollmaxy")
+   (item "ja/dom/window.scrollto")
+   (item "ja/dom/window.scrollx")
+   (item "ja/dom/window.scrolly")
+   (item "ja/dom/window.self")
+   (item "ja/dom/window.setcursor")
+   (item "ja/dom/window.setinterval")
+   (item "ja/dom/window.settimeout")
+   (item "ja/dom/window.showmodaldialog")
+   (item "ja/dom/window.sidebar")
+   (item "ja/dom/window.sizetocontent")
+   (item "ja/dom/window.status")
+   (item "ja/dom/window.statusbar")
+   (item "ja/dom/window.stop")
+   (item "ja/dom/window")
+   (item "ja/dom/window.toolbar")
+   (item "ja/dom/window.top")
+   (item "ja/dom/window.unescape")
+   (item "ja/dom/window.updatecommands")
+   (item "ja/dom/window.window")
+   (item "ja/dom/window.xpcsafejsobjectwrapper")
+   (item "ja/dom/worker")
+   (item "ja/dom/wrong_document_err_note")
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/dom/eventtarget.texi"
-  "texi/developer.mozilla.org/ja/dom/file.filename.texi"
-  "texi/developer.mozilla.org/ja/dom/file.filesize.texi"
-  "texi/developer.mozilla.org/ja/dom/file.getasbinary.texi"
-  "texi/developer.mozilla.org/ja/dom/file.getasdataurl.texi"
-  "texi/developer.mozilla.org/ja/dom/file.getastext.texi"
-  "texi/developer.mozilla.org/ja/dom/file.name.texi"
-  "texi/developer.mozilla.org/ja/dom/file.size.texi"
-  "texi/developer.mozilla.org/ja/dom/file.texi"
-  "texi/developer.mozilla.org/ja/dom/file.type.texi"
-  "texi/developer.mozilla.org/ja/dom/fileerror.texi"
-  "texi/developer.mozilla.org/ja/dom/filelist.texi"
-  "texi/developer.mozilla.org/ja/dom/filereader.texi"
-  "texi/developer.mozilla.org/ja/dom/form.acceptcharset.texi"
-  "texi/developer.mozilla.org/ja/dom/form.action.texi"
-  "texi/developer.mozilla.org/ja/dom/form.elements.texi"
-  "texi/developer.mozilla.org/ja/dom/form.encoding.texi"
-  "texi/developer.mozilla.org/ja/dom/form.enctype.texi"
-  "texi/developer.mozilla.org/ja/dom/form.length.texi"
-  "texi/developer.mozilla.org/ja/dom/form.method.texi"
-  "texi/developer.mozilla.org/ja/dom/form.name.texi"
-  "texi/developer.mozilla.org/ja/dom/form.reset.texi"
-  "texi/developer.mozilla.org/ja/dom/form.submit.texi"
-  "texi/developer.mozilla.org/ja/dom/form.target.texi"
-  "texi/developer.mozilla.org/ja/dom/form.texi"
-  "texi/developer.mozilla.org/ja/dom/head.texi"
-  "texi/developer.mozilla.org/ja/dom/html.texi"
-  "texi/developer.mozilla.org/ja/dom/html.version.texi"
-  "texi/developer.mozilla.org/ja/dom/htmlbodyelement.texi"
-  "texi/developer.mozilla.org/ja/dom/htmlcollection.texi"
-  "texi/developer.mozilla.org/ja/dom/htmloptionscollection.texi"
-  "texi/developer.mozilla.org/ja/dom/image.texi"
-  "texi/developer.mozilla.org/ja/dom/input.mozgetfilenamearray.texi"
-  "texi/developer.mozilla.org/ja/dom/input.mozsetfilenamearray.texi"
-  "texi/developer.mozilla.org/ja/dom/input.multiple.texi"
-  "texi/developer.mozilla.org/ja/dom/input.texi"
-  "texi/developer.mozilla.org/ja/dom/link.texi"
-  "texi/developer.mozilla.org/ja/dom/locating_dom_elements_using_selectors.texi"
-  "texi/developer.mozilla.org/ja/dom/manipulating_the_browser_history.texi"
-  "texi/developer.mozilla.org/ja/dom/meta.texi"
-  "texi/developer.mozilla.org/ja/dom/mouse_gesture_events.texi"
-  "texi/developer.mozilla.org/ja/dom/namednodemap.texi"
-  "texi/developer.mozilla.org/ja/dom/namelist.texi"
-  "texi/developer.mozilla.org/ja/dom/node.appendchild.texi"
-  "texi/developer.mozilla.org/ja/dom/node.attributes.texi"
-  "texi/developer.mozilla.org/ja/dom/node.childnodes.texi"
-  "texi/developer.mozilla.org/ja/dom/node.clonenode.texi"
-  "texi/developer.mozilla.org/ja/dom/node.comparedocumentposition.texi"
-  "texi/developer.mozilla.org/ja/dom/node.firstchild.texi"
-  "texi/developer.mozilla.org/ja/dom/node.getuserdata.texi"
-  "texi/developer.mozilla.org/ja/dom/node.hasattributes.texi"
-  "texi/developer.mozilla.org/ja/dom/node.haschildnodes.texi"
-  "texi/developer.mozilla.org/ja/dom/node.insertbefore.texi"
-  "texi/developer.mozilla.org/ja/dom/node.isdefaultnamespace.texi"
-  "texi/developer.mozilla.org/ja/dom/node.issupported.texi"
-  "texi/developer.mozilla.org/ja/dom/node.lastchild.texi"
-  "texi/developer.mozilla.org/ja/dom/node.localname.texi"
-  "texi/developer.mozilla.org/ja/dom/node.lookupnamespaceuri.texi"
-  "texi/developer.mozilla.org/ja/dom/node.lookupprefix.texi"
-  "texi/developer.mozilla.org/ja/dom/node.mozmatchesselector.texi"
-  "texi/developer.mozilla.org/ja/dom/node.namespaceuri.texi"
-  "texi/developer.mozilla.org/ja/dom/node.nextsibling.texi"
-  "texi/developer.mozilla.org/ja/dom/node.nodename.texi"
-  "texi/developer.mozilla.org/ja/dom/node.nodeprincipal.texi"
-  "texi/developer.mozilla.org/ja/dom/node.nodetype.texi"
-  "texi/developer.mozilla.org/ja/dom/node.nodevalue.texi"
-  "texi/developer.mozilla.org/ja/dom/node.normalize.texi"
-  "texi/developer.mozilla.org/ja/dom/node.ownerdocument.texi"
-  "texi/developer.mozilla.org/ja/dom/node.parentnode.texi"
-  "texi/developer.mozilla.org/ja/dom/node.prefix.texi"
-  "texi/developer.mozilla.org/ja/dom/node.previoussibling.texi"
-  "texi/developer.mozilla.org/ja/dom/node.removechild.texi"
-  "texi/developer.mozilla.org/ja/dom/node.replacechild.texi"
-  "texi/developer.mozilla.org/ja/dom/node.setuserdata.texi"
-  "texi/developer.mozilla.org/ja/dom/node.texi"
-  "texi/developer.mozilla.org/ja/dom/node.textcontent.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/dom/node/appendchild.texi"
-   "texi/developer.mozilla.org/ja/dom/node/attributes.texi"
-   "texi/developer.mozilla.org/ja/dom/node/childnodes.texi"
-   "texi/developer.mozilla.org/ja/dom/node/clonenode.texi"
-   "texi/developer.mozilla.org/ja/dom/node/comparedocumentposition.texi"
-   "texi/developer.mozilla.org/ja/dom/node/firstchild.texi"
-   "texi/developer.mozilla.org/ja/dom/node/hasattributes.texi"
-   "texi/developer.mozilla.org/ja/dom/node/haschildnodes.texi"
-   "texi/developer.mozilla.org/ja/dom/node/insertbefore.texi"
-   "texi/developer.mozilla.org/ja/dom/node/issupported.texi"
-   "texi/developer.mozilla.org/ja/dom/node/lastchild.texi"
-   "texi/developer.mozilla.org/ja/dom/node/localname.texi"
-   "texi/developer.mozilla.org/ja/dom/node/namespaceuri.texi"
-   "texi/developer.mozilla.org/ja/dom/node/nextsibling.texi"
-   "texi/developer.mozilla.org/ja/dom/node/nodename.texi"
-   "texi/developer.mozilla.org/ja/dom/node/nodeprincipal.texi"
-   "texi/developer.mozilla.org/ja/dom/node/nodetype.texi"
-   "texi/developer.mozilla.org/ja/dom/node/nodevalue.texi"
-   "texi/developer.mozilla.org/ja/dom/node/normalize.texi"
-   "texi/developer.mozilla.org/ja/dom/node/ownerdocument.texi"
-   "texi/developer.mozilla.org/ja/dom/node/parentnode.texi"
-   "texi/developer.mozilla.org/ja/dom/node/prefix.texi"
-   "texi/developer.mozilla.org/ja/dom/node/previoussibling.texi"
-   "texi/developer.mozilla.org/ja/dom/node/replacechild.texi"
-   "texi/developer.mozilla.org/ja/dom/node/textcontent.texi"
+ (chapter
+  (item "ja/e4x")
+  (section
+   (item "ja/e4x/processing_xml_with_e4x")
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.detach.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.expandentityreferences.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.filter.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.nextnode.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.pointerbeforereferencenode.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.previousnode.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.referencenode.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.root.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.texi"
-  "texi/developer.mozilla.org/ja/dom/nodeiterator.whattoshow.texi"
-  "texi/developer.mozilla.org/ja/dom/nodelist.texi"
-  "texi/developer.mozilla.org/ja/dom/notation.texi"
-  "texi/developer.mozilla.org/ja/dom/processinginstruction.texi"
-  "texi/developer.mozilla.org/ja/dom/range.clonecontents.texi"
-  "texi/developer.mozilla.org/ja/dom/range.clonerange.texi"
-  "texi/developer.mozilla.org/ja/dom/range.collapse.texi"
-  "texi/developer.mozilla.org/ja/dom/range.collapsed.texi"
-  "texi/developer.mozilla.org/ja/dom/range.commonancestorcontainer.texi"
-  "texi/developer.mozilla.org/ja/dom/range.compareboundarypoints.texi"
-  "texi/developer.mozilla.org/ja/dom/range.comparenode.texi"
-  "texi/developer.mozilla.org/ja/dom/range.comparepoint.texi"
-  "texi/developer.mozilla.org/ja/dom/range.createcontextualfragment.texi"
-  "texi/developer.mozilla.org/ja/dom/range.deletecontents.texi"
-  "texi/developer.mozilla.org/ja/dom/range.detach.texi"
-  "texi/developer.mozilla.org/ja/dom/range.endcontainer.texi"
-  "texi/developer.mozilla.org/ja/dom/range.endoffset.texi"
-  "texi/developer.mozilla.org/ja/dom/range.extractcontents.texi"
-  "texi/developer.mozilla.org/ja/dom/range.insertnode.texi"
-  "texi/developer.mozilla.org/ja/dom/range.intersectsnode.texi"
-  "texi/developer.mozilla.org/ja/dom/range.ispointinrange.texi"
-  "texi/developer.mozilla.org/ja/dom/range.selectnode.texi"
-  "texi/developer.mozilla.org/ja/dom/range.selectnodecontents.texi"
-  "texi/developer.mozilla.org/ja/dom/range.setend.texi"
-  "texi/developer.mozilla.org/ja/dom/range.setendafter.texi"
-  "texi/developer.mozilla.org/ja/dom/range.setendbefore.texi"
-  "texi/developer.mozilla.org/ja/dom/range.setstart.texi"
-  "texi/developer.mozilla.org/ja/dom/range.setstartafter.texi"
-  "texi/developer.mozilla.org/ja/dom/range.setstartbefore.texi"
-  "texi/developer.mozilla.org/ja/dom/range.startcontainer.texi"
-  "texi/developer.mozilla.org/ja/dom/range.startoffset.texi"
-  "texi/developer.mozilla.org/ja/dom/range.surroundcontents.texi"
-  "texi/developer.mozilla.org/ja/dom/range.texi"
-  "texi/developer.mozilla.org/ja/dom/range.tostring.texi"
-  "texi/developer.mozilla.org/ja/dom/select.add.texi"
-  "texi/developer.mozilla.org/ja/dom/select.remove.texi"
-  "texi/developer.mozilla.org/ja/dom/select.texi"
-  "texi/developer.mozilla.org/ja/dom/select.type.texi"
-  "texi/developer.mozilla.org/ja/dom/selection.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/dom/selection/addrange.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/anchornode.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/anchoroffset.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/collapse.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/collapsetoend.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/collapsetostart.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/containsnode.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/deletefromdocument.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/extend.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/focusnode.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/focusoffset.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/getrangeat.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/iscollapsed.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/rangecount.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/removeallranges.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/removerange.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/selectallchildren.texi"
-   "texi/developer.mozilla.org/ja/dom/selection/tostring.texi"
+ (chapter
+  (item "ja/e4x_tutorial")
+  (section
+   (item "ja/e4x_tutorial/accessing_xml_children")
+   (item "ja/e4x_tutorial/descendants_and_filters")
+   (item "ja/e4x_tutorial/introduction")
+   (item "ja/e4x_tutorial/namespaces")
+   (item "ja/e4x_tutorial/the_global_xml_object")
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/dom/sharedworker.texi"
-  "texi/developer.mozilla.org/ja/dom/storage.texi"
-  "texi/developer.mozilla.org/ja/dom/style.media.texi"
-  "texi/developer.mozilla.org/ja/dom/style.texi"
-  "texi/developer.mozilla.org/ja/dom/style.type.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.cssrules.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.deleterule.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.disabled.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.href.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.insertrule.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.media.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.ownernode.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.ownerrule.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.parentstylesheet.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.title.texi"
-  "texi/developer.mozilla.org/ja/dom/stylesheet.type.texi"
-  "texi/developer.mozilla.org/ja/dom/table.align.texi"
-  "texi/developer.mozilla.org/ja/dom/table.bgcolor.texi"
-  "texi/developer.mozilla.org/ja/dom/table.border.texi"
-  "texi/developer.mozilla.org/ja/dom/table.caption.texi"
-  "texi/developer.mozilla.org/ja/dom/table.cellpadding.texi"
-  "texi/developer.mozilla.org/ja/dom/table.cellspacing.texi"
-  "texi/developer.mozilla.org/ja/dom/table.createcaption.texi"
-  "texi/developer.mozilla.org/ja/dom/table.createtfoot.texi"
-  "texi/developer.mozilla.org/ja/dom/table.createthead.texi"
-  "texi/developer.mozilla.org/ja/dom/table.deletecaption.texi"
-  "texi/developer.mozilla.org/ja/dom/table.deleterow.texi"
-  "texi/developer.mozilla.org/ja/dom/table.deletetfoot.texi"
-  "texi/developer.mozilla.org/ja/dom/table.deletethead.texi"
-  "texi/developer.mozilla.org/ja/dom/table.frame.texi"
-  "texi/developer.mozilla.org/ja/dom/table.insertrow.texi"
-  "texi/developer.mozilla.org/ja/dom/table.rows.texi"
-  "texi/developer.mozilla.org/ja/dom/table.rules.texi"
-  "texi/developer.mozilla.org/ja/dom/table.summary.texi"
-  "texi/developer.mozilla.org/ja/dom/table.tbodies.texi"
-  "texi/developer.mozilla.org/ja/dom/table.texi"
-  "texi/developer.mozilla.org/ja/dom/table.tfoot.texi"
-  "texi/developer.mozilla.org/ja/dom/table.thead.texi"
-  "texi/developer.mozilla.org/ja/dom/table.width.texi"
-  "texi/developer.mozilla.org/ja/dom/tablerow.insertcell.texi"
-  "texi/developer.mozilla.org/ja/dom/tablerow.texi"
-  "texi/developer.mozilla.org/ja/dom/text.iselementcontentwhitespace.texi"
-  "texi/developer.mozilla.org/ja/dom/text.replacewholetext.texi"
-  "texi/developer.mozilla.org/ja/dom/text.splittext.texi"
-  "texi/developer.mozilla.org/ja/dom/text.texi"
-  "texi/developer.mozilla.org/ja/dom/text.wholetext.texi"
-  "texi/developer.mozilla.org/ja/dom/textarea.texi"
-  "texi/developer.mozilla.org/ja/dom/title.texi"
-  "texi/developer.mozilla.org/ja/dom/treewalker.filter.texi"
-  "texi/developer.mozilla.org/ja/dom/treewalker.root.texi"
-  "texi/developer.mozilla.org/ja/dom/treewalker.texi"
-  "texi/developer.mozilla.org/ja/dom/treewalker.whattoshow.texi"
-  "texi/developer.mozilla.org/ja/dom/typeinfo.texi"
-  "texi/developer.mozilla.org/ja/dom/userdatahandler.texi"
-  "texi/developer.mozilla.org/ja/dom/using_dynamic_styling_information.texi"
-  "texi/developer.mozilla.org/ja/dom/whitespace_template.texi"
-  "texi/developer.mozilla.org/ja/dom/window.alert.texi"
-  "texi/developer.mozilla.org/ja/dom/window.applicationcache.texi"
-  "texi/developer.mozilla.org/ja/dom/window.atob.texi"
-  "texi/developer.mozilla.org/ja/dom/window.back.texi"
-  "texi/developer.mozilla.org/ja/dom/window.blur.texi"
-  "texi/developer.mozilla.org/ja/dom/window.btoa.texi"
-  "texi/developer.mozilla.org/ja/dom/window.captureevents.texi"
-  "texi/developer.mozilla.org/ja/dom/window.clearinterval.texi"
-  "texi/developer.mozilla.org/ja/dom/window.cleartimeout.texi"
-  "texi/developer.mozilla.org/ja/dom/window.close.texi"
-  "texi/developer.mozilla.org/ja/dom/window.closed.texi"
-  "texi/developer.mozilla.org/ja/dom/window.confirm.texi"
-  "texi/developer.mozilla.org/ja/dom/window.content.texi"
-  "texi/developer.mozilla.org/ja/dom/window.controllers.texi"
-  "texi/developer.mozilla.org/ja/dom/window.crypto.texi"
-  "texi/developer.mozilla.org/ja/dom/window.defaultstatus.texi"
-  "texi/developer.mozilla.org/ja/dom/window.dialogarguments.texi"
-  "texi/developer.mozilla.org/ja/dom/window.directories.texi"
-  "texi/developer.mozilla.org/ja/dom/window.dispatchevent.texi"
-  "texi/developer.mozilla.org/ja/dom/window.document.texi"
-  "texi/developer.mozilla.org/ja/dom/window.dump.texi"
-  "texi/developer.mozilla.org/ja/dom/window.escape.texi"
-  "texi/developer.mozilla.org/ja/dom/window.find.texi"
-  "texi/developer.mozilla.org/ja/dom/window.focus.texi"
-  "texi/developer.mozilla.org/ja/dom/window.forward.texi"
-  "texi/developer.mozilla.org/ja/dom/window.frameelement.texi"
-  "texi/developer.mozilla.org/ja/dom/window.frames.texi"
-  "texi/developer.mozilla.org/ja/dom/window.fullscreen.texi"
-  "texi/developer.mozilla.org/ja/dom/window.geckoactivexobject.texi"
-  "texi/developer.mozilla.org/ja/dom/window.getattention.texi"
-  "texi/developer.mozilla.org/ja/dom/window.getcomputedstyle.texi"
-  "texi/developer.mozilla.org/ja/dom/window.getselection.texi"
-  "texi/developer.mozilla.org/ja/dom/window.history.texi"
-  "texi/developer.mozilla.org/ja/dom/window.home.texi"
-  "texi/developer.mozilla.org/ja/dom/window.importdialog.texi"
-  "texi/developer.mozilla.org/ja/dom/window.innerheight.texi"
-  "texi/developer.mozilla.org/ja/dom/window.innerwidth.texi"
-  "texi/developer.mozilla.org/ja/dom/window.length.texi"
-  "texi/developer.mozilla.org/ja/dom/window.location.texi"
-  "texi/developer.mozilla.org/ja/dom/window.locationbar.texi"
-  "texi/developer.mozilla.org/ja/dom/window.menubar.texi"
-  "texi/developer.mozilla.org/ja/dom/window.moveby.texi"
-  "texi/developer.mozilla.org/ja/dom/window.moveto.texi"
-  "texi/developer.mozilla.org/ja/dom/window.mozinnerscreenx.texi"
-  "texi/developer.mozilla.org/ja/dom/window.mozinnerscreeny.texi"
-  "texi/developer.mozilla.org/ja/dom/window.mozscreenpixelspercsspixel.texi"
-  "texi/developer.mozilla.org/ja/dom/window.name.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.appcodename.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.appname.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.appversion.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.buildid.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.cookieenabled.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.javaenabled.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.language.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.mimetypes.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.mozislocallyavailable.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.online.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.oscpu.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.platform.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.plugins.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.product.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.productsub.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.registercontenthandler.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.registerprotocolhandler.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.useragent.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.vendor.texi"
-  "texi/developer.mozilla.org/ja/dom/window.navigator.vendorsub.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onabort.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onbeforeunload.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onblur.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onchange.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onclick.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onclose.texi"
-  "texi/developer.mozilla.org/ja/dom/window.oncontextmenu.texi"
-  "texi/developer.mozilla.org/ja/dom/window.ondragdrop.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onerror.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onfocus.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onhashchange.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onkeydown.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onkeypress.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onkeyup.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onload.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onmousedown.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onmousemove.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onmouseout.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onmouseover.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onmouseup.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onmozorientation.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onpaint.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onpopstate.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onreset.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onresize.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onscroll.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onselect.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onsubmit.texi"
-  "texi/developer.mozilla.org/ja/dom/window.onunload.texi"
-  "texi/developer.mozilla.org/ja/dom/window.open.texi"
-  "texi/developer.mozilla.org/ja/dom/window.opendialog.texi"
-  "texi/developer.mozilla.org/ja/dom/window.opener.texi"
-  "texi/developer.mozilla.org/ja/dom/window.outerheight.texi"
-  "texi/developer.mozilla.org/ja/dom/window.outerwidth.texi"
-  "texi/developer.mozilla.org/ja/dom/window.parent.texi"
-  "texi/developer.mozilla.org/ja/dom/window.personalbar.texi"
-  "texi/developer.mozilla.org/ja/dom/window.pkcs11.texi"
-  "texi/developer.mozilla.org/ja/dom/window.postmessage.texi"
-  "texi/developer.mozilla.org/ja/dom/window.print.texi"
-  "texi/developer.mozilla.org/ja/dom/window.prompt.texi"
-  "texi/developer.mozilla.org/ja/dom/window.prompter.texi"
-  "texi/developer.mozilla.org/ja/dom/window.queryinterface.texi"
-  "texi/developer.mozilla.org/ja/dom/window.releaseevents.texi"
-  "texi/developer.mozilla.org/ja/dom/window.resizeby.texi"
-  "texi/developer.mozilla.org/ja/dom/window.resizeto.texi"
-  "texi/developer.mozilla.org/ja/dom/window.routeevent.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.availheight.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.availleft.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.availtop.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.availwidth.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.colordepth.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.height.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.left.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.pixeldepth.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.top.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screen.width.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screenx.texi"
-  "texi/developer.mozilla.org/ja/dom/window.screeny.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scroll.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollbars.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollby.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollbylines.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollbypages.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollmaxx.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollmaxy.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollto.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrollx.texi"
-  "texi/developer.mozilla.org/ja/dom/window.scrolly.texi"
-  "texi/developer.mozilla.org/ja/dom/window.self.texi"
-  "texi/developer.mozilla.org/ja/dom/window.setcursor.texi"
-  "texi/developer.mozilla.org/ja/dom/window.setinterval.texi"
-  "texi/developer.mozilla.org/ja/dom/window.settimeout.texi"
-  "texi/developer.mozilla.org/ja/dom/window.showmodaldialog.texi"
-  "texi/developer.mozilla.org/ja/dom/window.sidebar.texi"
-  "texi/developer.mozilla.org/ja/dom/window.sizetocontent.texi"
-  "texi/developer.mozilla.org/ja/dom/window.status.texi"
-  "texi/developer.mozilla.org/ja/dom/window.statusbar.texi"
-  "texi/developer.mozilla.org/ja/dom/window.stop.texi"
-  "texi/developer.mozilla.org/ja/dom/window.texi"
-  "texi/developer.mozilla.org/ja/dom/window.toolbar.texi"
-  "texi/developer.mozilla.org/ja/dom/window.top.texi"
-  "texi/developer.mozilla.org/ja/dom/window.unescape.texi"
-  "texi/developer.mozilla.org/ja/dom/window.updatecommands.texi"
-  "texi/developer.mozilla.org/ja/dom/window.window.texi"
-  "texi/developer.mozilla.org/ja/dom/window.xpcsafejsobjectwrapper.texi"
-  "texi/developer.mozilla.org/ja/dom/worker.texi"
-  "texi/developer.mozilla.org/ja/dom/wrong_document_err_note.texi"
+ (chapter
+  (item "ja/firefox_1.5_for_developers")
+  (item "ja/firefox_2_for_developers")
+  (item "ja/firefox_3.5_for_developers")
+  (item "ja/firefox_3.6_for_developers")
+  (item "ja/firefox_3_for_developers")
   )
- )
-(chapter
- "texi/developer.mozilla.org/ja/e4x.texi"
- (section
-  "texi/developer.mozilla.org/ja/e4x/processing_xml_with_e4x.texi"
-  )
- )
-(chapter
- "texi/developer.mozilla.org/ja/e4x_tutorial.texi"
- (section
-  "texi/developer.mozilla.org/ja/e4x_tutorial/accessing_xml_children.texi"
-  "texi/developer.mozilla.org/ja/e4x_tutorial/descendants_and_filters.texi"
-  "texi/developer.mozilla.org/ja/e4x_tutorial/introduction.texi"
-  "texi/developer.mozilla.org/ja/e4x_tutorial/namespaces.texi"
-  "texi/developer.mozilla.org/ja/e4x_tutorial/the_global_xml_object.texi"
-  )
- )
-(chapter
- "texi/developer.mozilla.org/ja/firefox_1.5_for_developers.texi"
- "texi/developer.mozilla.org/ja/firefox_2_for_developers.texi"
- "texi/developer.mozilla.org/ja/firefox_3.5_for_developers.texi"
- "texi/developer.mozilla.org/ja/firefox_3.6_for_developers.texi"
- "texi/developer.mozilla.org/ja/firefox_3_for_developers.texi"
-)
-(chapter
- "texi/developer.mozilla.org/ja/gecko_dom_reference.texi"
- (section
-  "texi/developer.mozilla.org/ja/gecko_dom_reference/examples.texi"
-  "texi/developer.mozilla.org/ja/gecko_dom_reference/introduction.texi"
-  "texi/developer.mozilla.org/ja/gecko_dom_reference/preface.texi"
-  )
- )
-(chapter
- "texi/developer.mozilla.org/ja/html.texi"
- (section
-  "texi/developer.mozilla.org/ja/html/block-level_elements.texi"
-  "texi/developer.mozilla.org/ja/html/canvas.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/html/canvas/pixel_manipulation_with_canvas.texi"
+ (chapter
+  (item "ja/gecko_dom_reference")
+  (section
+   (item "ja/gecko_dom_reference/examples")
+   (item "ja/gecko_dom_reference/introduction")
+   (item "ja/gecko_dom_reference/preface")
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/html/community.texi"
-  "texi/developer.mozilla.org/ja/html/element.texi"
-  (subsection
-   "texi/developer.mozilla.org/ja/html/element/a.texi"
-   "texi/developer.mozilla.org/ja/html/element/abbr.texi"
-   "texi/developer.mozilla.org/ja/html/element/acronym.texi"
-   "texi/developer.mozilla.org/ja/html/element/address.texi"
-   "texi/developer.mozilla.org/ja/html/element/applet.texi"
-   "texi/developer.mozilla.org/ja/html/element/area.texi"
-   "texi/developer.mozilla.org/ja/html/element/audio.texi"
-   "texi/developer.mozilla.org/ja/html/element/b.texi"
-   "texi/developer.mozilla.org/ja/html/element/base.texi"
-   "texi/developer.mozilla.org/ja/html/element/basefont.texi"
-   "texi/developer.mozilla.org/ja/html/element/bdo.texi"
-   "texi/developer.mozilla.org/ja/html/element/bgsound.texi"
-   "texi/developer.mozilla.org/ja/html/element/big.texi"
-   "texi/developer.mozilla.org/ja/html/element/blink.texi"
-   "texi/developer.mozilla.org/ja/html/element/blockquote.texi"
-   "texi/developer.mozilla.org/ja/html/element/br.texi"
-   "texi/developer.mozilla.org/ja/html/element/canvas.texi"
-   "texi/developer.mozilla.org/ja/html/element/center.texi"
-   "texi/developer.mozilla.org/ja/html/element/cite.texi"
-   "texi/developer.mozilla.org/ja/html/element/code.texi"
-   "texi/developer.mozilla.org/ja/html/element/col.texi"
-   "texi/developer.mozilla.org/ja/html/element/colgroup.texi"
-   "texi/developer.mozilla.org/ja/html/element/comment.texi"
-   "texi/developer.mozilla.org/ja/html/element/dd.texi"
-   "texi/developer.mozilla.org/ja/html/element/dl.texi"
-   "texi/developer.mozilla.org/ja/html/element/dt.texi"
-   "texi/developer.mozilla.org/ja/html/element/em.texi"
-   "texi/developer.mozilla.org/ja/html/element/h1,h2,h3,h4,h5,h6.texi"
-   "texi/developer.mozilla.org/ja/html/element/hr.texi"
-   "texi/developer.mozilla.org/ja/html/element/html.texi"
-   "texi/developer.mozilla.org/ja/html/element/i.texi"
-   "texi/developer.mozilla.org/ja/html/element/iframe.texi"
-   "texi/developer.mozilla.org/ja/html/element/img.texi"
-   "texi/developer.mozilla.org/ja/html/element/kbd.texi"
-   "texi/developer.mozilla.org/ja/html/element/keygen.texi"
-   "texi/developer.mozilla.org/ja/html/element/li.texi"
-   "texi/developer.mozilla.org/ja/html/element/link.texi"
-   "texi/developer.mozilla.org/ja/html/element/marquee.texi"
-   "texi/developer.mozilla.org/ja/html/element/ol.texi"
-   "texi/developer.mozilla.org/ja/html/element/p.texi"
-   "texi/developer.mozilla.org/ja/html/element/q.texi"
-   "texi/developer.mozilla.org/ja/html/element/s.texi"
-   "texi/developer.mozilla.org/ja/html/element/samp.texi"
-   "texi/developer.mozilla.org/ja/html/element/script.texi"
-   "texi/developer.mozilla.org/ja/html/element/small.texi"
-   "texi/developer.mozilla.org/ja/html/element/source.texi"
-   "texi/developer.mozilla.org/ja/html/element/strong.texi"
-   "texi/developer.mozilla.org/ja/html/element/tt.texi"
-   "texi/developer.mozilla.org/ja/html/element/ul.texi"
-   "texi/developer.mozilla.org/ja/html/element/video.texi"
+ (chapter
+  (item "ja/html")
+  (section
+   (item "ja/html/block-level_elements")
+   (item "ja/html/canvas")
+   (subsection
+    (item "ja/html/canvas/pixel_manipulation_with_canvas")
+    )
+   (item "ja/html/community")
+   (item "ja/html/element")
+   (subsection
+    (item "ja/html/element/a")
+    (item "ja/html/element/abbr")
+    (item "ja/html/element/acronym")
+    (item "ja/html/element/address")
+    (item "ja/html/element/applet")
+    (item "ja/html/element/area")
+    (item "ja/html/element/audio")
+    (item "ja/html/element/b")
+    (item "ja/html/element/base")
+    (item "ja/html/element/basefont")
+    (item "ja/html/element/bdo")
+    (item "ja/html/element/bgsound")
+    (item "ja/html/element/big")
+    (item "ja/html/element/blink")
+    (item "ja/html/element/blockquote")
+    (item "ja/html/element/br")
+    (item "ja/html/element/canvas")
+    (item "ja/html/element/center")
+    (item "ja/html/element/cite")
+    (item "ja/html/element/code")
+    (item "ja/html/element/col")
+    (item "ja/html/element/colgroup")
+    (item "ja/html/element/comment")
+    (item "ja/html/element/dd")
+    (item "ja/html/element/dl")
+    (item "ja/html/element/dt")
+    (item "ja/html/element/em")
+    (item "ja/html/element/h1_h2_h3_h4_h5_h6")
+    (item "ja/html/element/hr")
+    (item "ja/html/element/html")
+    (item "ja/html/element/i")
+    (item "ja/html/element/iframe")
+    (item "ja/html/element/img")
+    (item "ja/html/element/kbd")
+    (item "ja/html/element/keygen")
+    (item "ja/html/element/li")
+    (item "ja/html/element/link")
+    (item "ja/html/element/marquee")
+    (item "ja/html/element/ol")
+    (item "ja/html/element/p")
+    (item "ja/html/element/q")
+    (item "ja/html/element/s")
+    (item "ja/html/element/samp")
+    (item "ja/html/element/script")
+    (item "ja/html/element/small")
+    (item "ja/html/element/source")
+    (item "ja/html/element/strong")
+    (item "ja/html/element/tt")
+    (item "ja/html/element/ul")
+    (item "ja/html/element/video")
+    )
+   (item "ja/html/html5")
+   (item "ja/html/html_extensions")
+   (item "ja/html/inline_elements")
+   (item "ja/html/introduction_to_html5")
    )
   )
- (section
-  "texi/developer.mozilla.org/ja/html/html5.texi"
-  "texi/developer.mozilla.org/ja/html/html_extensions.texi"
-  "texi/developer.mozilla.org/ja/html/inline_elements.texi"
-  "texi/developer.mozilla.org/ja/html/introduction_to_html5.texi"
+ (chapter
+  (item "ja/new_in_javascript_1.1")
+  (item "ja/new_in_javascript_1.2")
+  (item "ja/new_in_javascript_1.3")
+  (item "ja/new_in_javascript_1.4")
+  (item "ja/new_in_javascript_1.5")
+  (item "ja/new_in_javascript_1.6")
+  (item "ja/new_in_javascript_1.7")
+  (item "ja/new_in_javascript_1.8.1")
+  (item "ja/new_in_javascript_1.8")
+  (item "ja/new_in_javascript_1.9")
   )
- )
-(chapter
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.1.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.2.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.3.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.4.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.5.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.6.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.7.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.8.1.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.8.texi"
-  "texi/developer.mozilla.org/ja/new_in_javascript_1.9.texi"
  )

@@ -15,7 +15,7 @@
 (define (getElementById id sxml)
   ((if-car-sxpath `(// (* (@ id (equal? ,id))))) sxml))
 
-(define (esc string)
+(define (escape-text string)
   (regexp-replace-all* string
                        #/@/
                        "@@"
@@ -167,23 +167,43 @@
      (check (replace-comma node)))
     (else #f)))
 
-(define (file-path-up path)
-  (string-append (sys-dirname path) ".html"))
+(define-class <texinfo-node> ()
+  (self next prev up (children :init-value ())))
+
+(define (make-texinfo-nodes-table)
+  (let* ((sxml (car (file->sexp-list "./order.scm")))
+         (preceding-sibling-item ((sxml:preceding-sibling (lambda (node) (eq? 'item (sxml:name node)))) sxml))
+         (ht (make-hash-table 'string=?)))
+    (let1 l ((sxpath '(// item *text*)) sxml)
+      (for-each (lambda (prev x next)
+                  (hash-table-update! ht x (lambda (value)
+                                             (let1 node (or value (make <texinfo-node>))
+                                               (slot-set! node 'self x)
+                                               (slot-set! node 'next next)
+                                               (slot-set! node 'prev prev)
+                                               node))
+                                      #f))
+                l (cdr l) (append (cddr l) '(""))))
+    (for-each (lambda (x)
+                (let ((up (sxml:string-value (car (preceding-sibling-item x))))
+                      (children ((sxpath '(item *text*)) x)))
+                  (for-each (lambda (item)
+                              (let1 node (hash-table-get ht item)
+                                (slot-set! node 'up up)))
+                            children)
+                  (unless (string=? up "Top")
+                    (let1 node-up (hash-table-get ht up)
+                      (slot-set! node-up 'children children)))))
+              ((sxpath '(// (or@ chapter section subsection subsubsection subsubsubsection))) sxml))
+    ht))
 
 (define (texinfo-menu path)
-  (or (and-let* ((dir (path-sans-extension path))
-                 ((file-is-directory? dir)))
+  (or (and-let* ((node (hash-table-get texinfo-nodes-table (file-path->texinfo-node path)))
+                 (children (slot-ref node 'children))
+                 ((not (null? children))))
         `("@menu"
-          ,@(map (lambda (x)
-                   (string-append "* " (file-path->texinfo-node x) " ::"))
-                 (directory-list
-                  dir
-                  :children? #t
-                  :add-path? #t
-                  :filter (lambda (path)
-                            (and (file-is-regular? path)
-                                 (string=? "html" (path-extension path))))
-                  :filter-add-path? #t))
+          ,@(map (cut string-append "* " <> " ::")
+                 children)
           "@end menu"))
       ()))
 
@@ -197,6 +217,11 @@
       (values (build-path prefix dir)
               (build-path prefix (path-swap-extension aaa "texi"))
               (build-path prefix (path-swap-extension aaa "scm")))))
+  (define (path->node path)
+    (let1 node (hash-table-get texinfo-nodes-table (file-path->texinfo-node path))
+      (string-join (map (cut slot-ref node <>)
+                        '(self next prev up))
+                   ",")))
 
   (when (file-is-regular? path)
     (when verbose 
@@ -207,7 +232,7 @@
       (with-output-to-file save-file
         (lambda ()
           (let ((sxml (load-xml path)))
-            (print "@node " (file-path->texinfo-node path) ",,," (or (file-path->texinfo-node (file-path-up path)) "Top"))
+            (print "@node " (path->node path))
             (print "@section " (sxml:string-value (getElementById "title" sxml)))
             (print "@findex " (sxml:string-value (getElementById "title" sxml)))
             (for-each print (texinfo-menu path))
@@ -215,7 +240,7 @@
                 (pre-post-order
                  (pre-post-order
                   (getElementById "pageText" sxml)
-                  `((*text*      . ,(lambda (tag text) (esc text)))
+                  `((*text*      . ,(lambda (tag text) (escape-text text)))
                     (xhtml:a     . ,(lambda x (ahref x)))
                     (xhtml:b     . ,(lambda x (bold  x)))
                     (xhtml:code  . ,(lambda x (code  x)))
@@ -241,6 +266,7 @@
 
 (define verbose #f)
 (define notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
+(define texinfo-nodes-table (make-texinfo-nodes-table))
 
 (define (main args)
   (let-args (cdr args)
