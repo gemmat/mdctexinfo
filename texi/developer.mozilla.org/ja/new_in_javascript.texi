@@ -1,0 +1,15 @@
+@node ja/new_in_javascript, ja/gecko_dom_reference, ja/core_javascript_1.5_reference,Top
+@section New in Javascript
+@findex New in Javascript
+@menu
+* ja/new_in_javascript_1.1 ::
+* ja/new_in_javascript_1.2 ::
+* ja/new_in_javascript_1.3 ::
+* ja/new_in_javascript_1.4 ::
+* ja/new_in_javascript_1.5 ::
+* ja/new_in_javascript_1.6 ::
+* ja/new_in_javascript_1.7 ::
+* ja/new_in_javascript_1.8 ::
+* ja/new_in_javascript_1.8.1 ::
+* ja/new_in_javascript_1.9 ::
+@end menu

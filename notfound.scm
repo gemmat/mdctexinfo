@@ -208,71 +208,71 @@
  ("ja/xulcontrollers" .
   #f)
  ("jadom/attr" .
-  #f)
+  "ja/dom/attr")
  ("jadom/cdatasection" .
-  #f)
+  "ja/dom/cdatasection")
  ("jadom/characterdata" .
-  #f)
+  "ja/dom/characterdata")
  ("jadom/comment" .
-  #f)
+  "ja/dom/comment")
  ("jadom/documentfragment" .
-  #f)
+  "ja/dom/documentfragment")
  ("jadom/documenttype" .
-  #f)
+  "ja/dom/documenttype")
  ("jadom/domconfiguration" .
-  #f)
+  "ja/dom/domconfiguration")
  ("jadom/domerror" .
-  #f)
+  "ja/dom/domerror")
  ("jadom/domerrorhandler" .
-  #f)
+  "ja/dom/domerrorhandler")
  ("jadom/domexception" .
-  #f)
+  "ja/dom/domexception")
  ("jadom/domimplementation" .
-  #f)
+  "ja/dom/domimplementation")
  ("jadom/domimplementationlist" .
-  #f)
+  "ja/dom/domimplementationlist")
  ("jadom/domimplementationregistry" .
-  #f)
+  "ja/dom/domimplementationregistry")
  ("jadom/domimplementationsource" .
-  #f)
+  "ja/dom/domimplementationsource")
  ("jadom/domlocator" .
-  #f)
+  "ja/dom/domlocator")
  ("jadom/domobject" .
-  #f)
+  "ja/dom/domobject")
  ("jadom/domstring" .
-  #f)
+  "ja/dom/domstring")
  ("jadom/domstringlist" .
-  #f)
+  "ja/dom/domstringlist")
  ("jadom/domtimestamp" .
-  #f)
+  "ja/dom/domtimestamp")
  ("jadom/domuserdata" .
-  #f)
+  "ja/dom/domuserdata")
  ("jadom/entity" .
-  #f)
+  "ja/dom/entity")
  ("jadom/entityreference" .
-  #f)
+  "ja/dom/entityreference")
  ("jadom/namednodemap" .
-  #f)
+  "ja/dom/namednodemap")
  ("jadom/namelist" .
-  #f)
+  "ja/dom/namelist")
  ("jadom/node" .
-  #f)
+  "ja/dom/node")
  ("jadom/nodelist" .
-  #f)
+  "ja/dom/nodelist")
  ("jadom/notation" .
-  #f)
+  "ja/dom/notation")
  ("jadom/processinginstruction" .
-  #f)
+  "ja/dom/processinginstruction")
  ("jadom/sharedworker" .
-  #f)
+  "ja/dom/sharedworker")
  ("jadom/text" .
-  #f)
+  "ja/dom/text")
  ("jadom/typeinfo" .
-  #f)
+  "ja/dom/typeinfo")
  ("jadom/userdatahandler" .
-  #f)
+  "ja/dom/userdatahandler")
  ("jadom/worker" .
-  #f)
+  "ja/dom/worker")
  ("jadom/workerglobalscope" .
   #f)
  ("special:tags.html?tag=dom&language=ja" .
@@ -356,6 +356,10 @@
   #f)
  ("ja/core_javascript_1.5_reference/operators/special_operators/yield_operator" .
   #f)
+ ("ja/core_javascript_1.5_reference/functions_and_function_scope/arguments" .
+  "ja/core_javascript_1.5_reference/functions/arguments")
+ ("ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/length" .
+  "ja/core_javascript_1.5_reference/functions/arguments/length")
  ("ja/creating_a_microsummary" .
   #f)
  ("ja/creating_mozsearch_plugins" .
@@ -2673,7 +2677,7 @@
  ("ja/core_javascript_1.5_reference/objects/function/apply" .
   "ja/core_javascript_1.5_reference/global_objects/function/apply")
  ("ja/core_javascript_1.5_reference/objects/function/arguments/length" .
-  "ja/core_javascript_1.5_reference/functions_and_function_scope/arguments/length")
+  "ja/core_javascript_1.5_reference/functions/arguments/length")
  ("ja/core_javascript_1.5_reference/objects/function/call" .
   "ja/core_javascript_1.5_reference/global_objects/function/call")
  ("ja/core_javascript_1.5_reference/objects/function/length" .

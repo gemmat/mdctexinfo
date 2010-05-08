@@ -1,0 +1,10 @@
+@node ja/firefox_for_developers,ja/Ultimate Index,ja/e4x_tutorial,Top
+@section Firefox for Developers
+@findex Firefox for Developers
+@menu
+* ja/firefox_1.5_for_developers ::
+* ja/firefox_2_for_developers ::
+* ja/firefox_3.5_for_developers ::
+* ja/firefox_3.6_for_developers ::
+* ja/firefox_3_for_developers ::
+@end menu
