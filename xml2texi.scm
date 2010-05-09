@@ -122,6 +122,9 @@
         (rel  (or ((if-car-sxpath '(@ rel *text*)) node) "external")))
     (if href
       (let* ((bound (rxmatch-cond
+                      ((#/^file:/ href)
+                       (#f)
+                       'internal)
                       ((#/internal/ rel)
                        (#f)
                        'internal)
