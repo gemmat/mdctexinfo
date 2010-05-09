@@ -73,8 +73,6 @@
   #f)
  ("ja/components_object" .
   #f)
- ("ja/css" .
-  #f)
  ("ja/determining_the_dimensions_of_elements" .
   #f)
  ("ja/dhtml" .
@@ -296,14 +294,6 @@
   #f)
  ("ja/building_an_extension" .
   #f)
- ("ja/canvas_tutorial" .
-  #f)
- ("ja/canvas_tutorial/applying_styles_and_colors" .
-  #f)
- ("ja/canvas_tutorial/transformations" .
-  #f)
- ("ja/canvas_tutorial/using_images" .
-  #f)
  ("ja/character_encoding" .
   #f)
  ("ja/code_snippets/canvas" .
@@ -325,7 +315,7 @@
  ("ja/controlling_spell_checking_in_html_forms" .
   #f)
  ("ja/core_javascript_1.5_guide/about/core_language_features" .
-  #f)
+  "ja/core_javascript_1.5_guide/about")
  ("ja/core_javascript_1.5_guide/eventexception" .
   #f)
  ("ja/core_javascript_1.5_guide/rangeerror" .
@@ -365,454 +355,6 @@
  ("ja/creating_mozsearch_plugins" .
   #f)
  ("ja/creating_opensearch_plugins_for_firefox" .
-  #f)
- ("ja/css/-moz-appearance" .
-  #f)
- ("ja/css/-moz-background-clip" .
-  #f)
- ("ja/css/-moz-background-inline-policy" .
-  #f)
- ("ja/css/-moz-background-origin" .
-  #f)
- ("ja/css/-moz-background-size" .
-  #f)
- ("ja/css/-moz-binding" .
-  #f)
- ("ja/css/-moz-border-bottom-colors" .
-  #f)
- ("ja/css/-moz-border-end" .
-  #f)
- ("ja/css/-moz-border-end-color" .
-  #f)
- ("ja/css/-moz-border-end-style" .
-  #f)
- ("ja/css/-moz-border-end-width" .
-  #f)
- ("ja/css/-moz-border-image" .
-  #f)
- ("ja/css/-moz-border-left-colors" .
-  #f)
- ("ja/css/-moz-border-radius" .
-  #f)
- ("ja/css/-moz-border-radius-bottomleft" .
-  #f)
- ("ja/css/-moz-border-radius-bottomright" .
-  #f)
- ("ja/css/-moz-border-radius-topleft" .
-  #f)
- ("ja/css/-moz-border-radius-topright" .
-  #f)
- ("ja/css/-moz-border-right-colors" .
-  #f)
- ("ja/css/-moz-border-start" .
-  #f)
- ("ja/css/-moz-border-start-color" .
-  #f)
- ("ja/css/-moz-border-start-style" .
-  #f)
- ("ja/css/-moz-border-start-width" .
-  #f)
- ("ja/css/-moz-border-top-colors" .
-  #f)
- ("ja/css/-moz-box-align" .
-  #f)
- ("ja/css/-moz-box-direction" .
-  #f)
- ("ja/css/-moz-box-flex" .
-  #f)
- ("ja/css/-moz-box-ordinal-group" .
-  #f)
- ("ja/css/-moz-box-orient" .
-  #f)
- ("ja/css/-moz-box-pack" .
-  #f)
- ("ja/css/-moz-box-shadow" .
-  #f)
- ("ja/css/-moz-column-count" .
-  #f)
- ("ja/css/-moz-column-gap" .
-  #f)
- ("ja/css/-moz-column-rule" .
-  #f)
- ("ja/css/-moz-column-rule-color" .
-  #f)
- ("ja/css/-moz-column-rule-style" .
-  #f)
- ("ja/css/-moz-column-rule-width" .
-  #f)
- ("ja/css/-moz-column-width" .
-  #f)
- ("ja/css/-moz-float-edge" .
-  #f)
- ("ja/css/-moz-force-broken-image-icon" .
-  #f)
- ("ja/css/-moz-image-region" .
-  #f)
- ("ja/css/-moz-linear-gradient" .
-  #f)
- ("ja/css/-moz-margin-end" .
-  #f)
- ("ja/css/-moz-margin-start" .
-  #f)
- ("ja/css/-moz-outline" .
-  #f)
- ("ja/css/-moz-outline-color" .
-  #f)
- ("ja/css/-moz-outline-offset" .
-  #f)
- ("ja/css/-moz-outline-radius" .
-  #f)
- ("ja/css/-moz-outline-radius-bottomleft" .
-  #f)
- ("ja/css/-moz-outline-radius-bottomright" .
-  #f)
- ("ja/css/-moz-outline-radius-topleft" .
-  #f)
- ("ja/css/-moz-outline-radius-topright" .
-  #f)
- ("ja/css/-moz-outline-style" .
-  #f)
- ("ja/css/-moz-outline-width" .
-  #f)
- ("ja/css/-moz-padding-end" .
-  #f)
- ("ja/css/-moz-padding-start" .
-  #f)
- ("ja/css/-moz-radial-gradient" .
-  #f)
- ("ja/css/-moz-stack-sizing" .
-  #f)
- ("ja/css/-moz-transform" .
-  #f)
- ("ja/css/-moz-transform-origin" .
-  #f)
- ("ja/css/-moz-user-focus" .
-  #f)
- ("ja/css/-moz-user-input" .
-  #f)
- ("ja/css/-moz-user-modify" .
-  #f)
- ("ja/css/-moz-user-select" .
-  #f)
- ("ja/css/-moz-window-shadow" .
-  #f)
- ("ja/css//-moz-locale-dir(ltr)" .
-  #f)
- ("ja/css//-moz-locale-dir(rtl)" .
-  #f)
- ("ja/css//-moz-system-metric(mac-graphite-theme)" .
-  #f)
- ("ja/css//active" .
-  #f)
- ("ja/css//after" .
-  #f)
- ("ja/css//before" .
-  #f)
- ("ja/css//first-of-type" .
-  #f)
- ("ja/css//focus" .
-  #f)
- ("ja/css//indeterminate" .
-  #f)
- ("ja/css//last-of-type" .
-  #f)
- ("ja/css//nth-child" .
-  #f)
- ("ja/css//nth-last-child" .
-  #f)
- ("ja/css//nth-last-of-type" .
-  #f)
- ("ja/css//nth-of-type" .
-  #f)
- ("ja/css//only-of-type" .
-  #f)
- ("ja/css//visited" .
-  #f)
- ("ja/css/@@font-face" .
-  #f)
- ("ja/css/azimuth" .
-  #f)
- ("ja/css/background" .
-  #f)
- ("ja/css/background-attachment" .
-  #f)
- ("ja/css/background-color" .
-  #f)
- ("ja/css/background-image" .
-  #f)
- ("ja/css/background-position" .
-  #f)
- ("ja/css/background-repeat" .
-  #f)
- ("ja/css/border" .
-  #f)
- ("ja/css/border-bottom" .
-  #f)
- ("ja/css/border-bottom-color" .
-  #f)
- ("ja/css/border-bottom-style" .
-  #f)
- ("ja/css/border-bottom-width" .
-  #f)
- ("ja/css/border-collapse" .
-  #f)
- ("ja/css/border-color" .
-  #f)
- ("ja/css/border-left" .
-  #f)
- ("ja/css/border-left-color" .
-  #f)
- ("ja/css/border-left-style" .
-  #f)
- ("ja/css/border-left-width" .
-  #f)
- ("ja/css/border-right" .
-  #f)
- ("ja/css/border-right-color" .
-  #f)
- ("ja/css/border-right-style" .
-  #f)
- ("ja/css/border-right-width" .
-  #f)
- ("ja/css/border-spacing" .
-  #f)
- ("ja/css/border-style" .
-  #f)
- ("ja/css/border-top" .
-  #f)
- ("ja/css/border-top-color" .
-  #f)
- ("ja/css/border-top-style" .
-  #f)
- ("ja/css/border-top-width" .
-  #f)
- ("ja/css/border-width" .
-  #f)
- ("ja/css/bottom" .
-  #f)
- ("ja/css/box-sizing" .
-  #f)
- ("ja/css/caption-side" .
-  #f)
- ("ja/css/clear" .
-  #f)
- ("ja/css/clip" .
-  #f)
- ("ja/css/color" .
-  #f)
- ("ja/css/color_value%23mozilla_extensions" .
-  #f)
- ("ja/css/content" .
-  #f)
- ("ja/css/counter-increment" .
-  #f)
- ("ja/css/counter-reset" .
-  #f)
- ("ja/css/cue" .
-  #f)
- ("ja/css/cue-after" .
-  #f)
- ("ja/css/cue-before" .
-  #f)
- ("ja/css/cursor" .
-  #f)
- ("ja/css/direction" .
-  #f)
- ("ja/css/display" .
-  #f)
- ("ja/css/elevation" .
-  #f)
- ("ja/css/emptycells" .
-  #f)
- ("ja/css/float" .
-  #f)
- ("ja/css/font" .
-  #f)
- ("ja/css/font-family" .
-  #f)
- ("ja/css/font-size" .
-  #f)
- ("ja/css/font-size-adjust" .
-  #f)
- ("ja/css/font-stretch" .
-  #f)
- ("ja/css/font-style" .
-  #f)
- ("ja/css/font-variant" .
-  #f)
- ("ja/css/font-weight" .
-  #f)
- ("ja/css/height" .
-  #f)
- ("ja/css/image-rendering" .
-  #f)
- ("ja/css/ime-mode" .
-  #f)
- ("ja/css/left" .
-  #f)
- ("ja/css/length" .
-  #f)
- ("ja/css/letter-spacing" .
-  #f)
- ("ja/css/line-height" .
-  #f)
- ("ja/css/list-style" .
-  #f)
- ("ja/css/list-style-image" .
-  #f)
- ("ja/css/list-style-position" .
-  #f)
- ("ja/css/list-style-type" .
-  #f)
- ("ja/css/margin" .
-  #f)
- ("ja/css/margin-bottom" .
-  #f)
- ("ja/css/margin-left" .
-  #f)
- ("ja/css/margin-right" .
-  #f)
- ("ja/css/margin-top" .
-  #f)
- ("ja/css/marker-offset" .
-  #f)
- ("ja/css/marks" .
-  #f)
- ("ja/css/max-height" .
-  #f)
- ("ja/css/max-width" .
-  #f)
- ("ja/css/media_queries" .
-  #f)
- ("ja/css/min-height" .
-  #f)
- ("ja/css/min-width" .
-  #f)
- ("ja/css/multiple_backgrounds" .
-  #f)
- ("ja/css/opacity" .
-  #f)
- ("ja/css/orphans" .
-  #f)
- ("ja/css/outline" .
-  #f)
- ("ja/css/outline-color" .
-  #f)
- ("ja/css/outline-offset" .
-  #f)
- ("ja/css/outline-style" .
-  #f)
- ("ja/css/outline-width" .
-  #f)
- ("ja/css/overflow" .
-  #f)
- ("ja/css/overflow-x" .
-  #f)
- ("ja/css/overflow-y" .
-  #f)
- ("ja/css/padding" .
-  #f)
- ("ja/css/padding-bottom" .
-  #f)
- ("ja/css/padding-left" .
-  #f)
- ("ja/css/padding-right" .
-  #f)
- ("ja/css/padding-top" .
-  #f)
- ("ja/css/page" .
-  #f)
- ("ja/css/page-break-after" .
-  #f)
- ("ja/css/page-break-before" .
-  #f)
- ("ja/css/page-break-inside" .
-  #f)
- ("ja/css/pause" .
-  #f)
- ("ja/css/pause-after" .
-  #f)
- ("ja/css/pause-before" .
-  #f)
- ("ja/css/pitch" .
-  #f)
- ("ja/css/pitch-range" .
-  #f)
- ("ja/css/play-during" .
-  #f)
- ("ja/css/pointer-events" .
-  #f)
- ("ja/css/position" .
-  #f)
- ("ja/css/quotes" .
-  #f)
- ("ja/css/richness" .
-  #f)
- ("ja/css/right" .
-  #f)
- ("ja/css/scaling_background_images" .
-  #f)
- ("ja/css/size" .
-  #f)
- ("ja/css/speak" .
-  #f)
- ("ja/css/speak-header" .
-  #f)
- ("ja/css/speak-numeral" .
-  #f)
- ("ja/css/speak-punctuation" .
-  #f)
- ("ja/css/speech-rate" .
-  #f)
- ("ja/css/stress" .
-  #f)
- ("ja/css/table-layout" .
-  #f)
- ("ja/css/text-align" .
-  #f)
- ("ja/css/text-decoration" .
-  #f)
- ("ja/css/text-indent" .
-  #f)
- ("ja/css/text-shadow" .
-  #f)
- ("ja/css/text-transform" .
-  #f)
- ("ja/css/top" .
-  #f)
- ("ja/css/unicode-bidi" .
-  #f)
- ("ja/css/using_css_transforms" .
-  #f)
- ("ja/css/vertical-align" .
-  #f)
- ("ja/css/visibility" .
-  #f)
- ("ja/css/voice-family" .
-  #f)
- ("ja/css/volume" .
-  #f)
- ("ja/css/white-space" .
-  #f)
- ("ja/css/widows" .
-  #f)
- ("ja/css/width" .
-  #f)
- ("ja/css/word-spacing" .
-  #f)
- ("ja/css/word-wrap" .
-  #f)
- ("ja/css/z-index" .
-  #f)
- ("ja/css3_columns" .
-  #f)
- ("ja/css_counters" .
-  #f)
- ("ja/css_improvements_in_firefox_3" .
-  #f)
- ("ja/css_reference" .
-  #f)
- ("ja/css_reference/mozilla_extensions" .
   #f)
  ("ja/data_uris" .
   #f)
@@ -2715,5 +2257,661 @@
  ("ja/gecko's_%22almost_standards%22_mode" .
   #f)
  ("ja/mozilla's_quirks_mode" .
+  #f)
+ ("_api/deki/files/2920/=google-rotated.png" .
+  #f)
+ ("_api/deki/files/2921/=rotated-google-sample" .
+  #f)
+ ("_api/deki/files/2922/=skewed-google-sample" .
+  #f)
+ ("_api/deki/files/2923/=skewed-google.png" .
+  #f)
+ ("_api/deki/files/2935/=webfont-sample" .
+  #f)
+ ("en/css/cursor" .
+  "ja/css/cursor")
+ ("en/css/using_css_transforms" .
+  "ja/css/using_css_transforms")
+ ("en/css_reference" .
+  "ja/css_reference")
+ ("en/html/element/canvas" .
+  "ja/html/element/canvas")
+ ("en/html/element/video" .
+  "ja/html/element/video")
+ ("es/css/inheritance" .
+  #f)
+ ("ja/consistent_list_indentation" .
+  #f)
+ ("ja/css/-moz-activehyperlinktext" .
+  #f)
+ ("ja/css/-moz-all" .
+  #f)
+ ("ja/css/-moz-anchor-decoration" .
+  #f)
+ ("ja/css/-moz-arabic-indic" .
+  #f)
+ ("ja/css/-moz-available" .
+  #f)
+ ("ja/css/-moz-bengali" .
+  #f)
+ ("ja/css/-moz-border-end" .
+  #f)
+ ("ja/css/-moz-border-end-color" .
+  #f)
+ ("ja/css/-moz-border-end-style" .
+  #f)
+ ("ja/css/-moz-border-end-width" .
+  #f)
+ ("ja/css/-moz-border-start" .
+  #f)
+ ("ja/css/-moz-border-start-color" .
+  #f)
+ ("ja/css/-moz-border-start-style" .
+  #f)
+ ("ja/css/-moz-border-start-width" .
+  #f)
+ ("ja/css/-moz-box" .
+  #f)
+ ("ja/css/-moz-box-flexgroup" .
+  #f)
+ ("ja/css/-moz-button" .
+  #f)
+ ("ja/css/-moz-buttondefault" .
+  #f)
+ ("ja/css/-moz-buttonhoverface" .
+  #f)
+ ("ja/css/-moz-buttonhovertext" .
+  #f)
+ ("ja/css/-moz-cellhighlight" .
+  #f)
+ ("ja/css/-moz-cellhighlighttext" .
+  #f)
+ ("ja/css/-moz-cjk-earthly-branch" .
+  #f)
+ ("ja/css/-moz-cjk-heavenly-stem" .
+  #f)
+ ("ja/css/-moz-deck" .
+  #f)
+ ("ja/css/-moz-desktop" .
+  #f)
+ ("ja/css/-moz-devanagari" .
+  #f)
+ ("ja/css/-moz-dialog" .
+  #f)
+ ("ja/css/-moz-dialogtext" .
+  #f)
+ ("ja/css/-moz-document" .
+  #f)
+ ("ja/css/-moz-dragtargetzone" .
+  #f)
+ ("ja/css/-moz-ethiopic-halehame" .
+  #f)
+ ("ja/css/-moz-ethiopic-halehame-am" .
+  #f)
+ ("ja/css/-moz-ethiopic-halehame-ti-er" .
+  #f)
+ ("ja/css/-moz-ethiopic-halehame-ti-et" .
+  #f)
+ ("ja/css/-moz-ethiopic-numeric" .
+  #f)
+ ("ja/css/-moz-field" .
+  #f)
+ ("ja/css/-moz-fieldtext" .
+  #f)
+ ("ja/css/-moz-fit-content" .
+  #f)
+ ("ja/css/-moz-fixed" .
+  #f)
+ ("ja/css/-moz-grid" .
+  #f)
+ ("ja/css/-moz-grid-group" .
+  #f)
+ ("ja/css/-moz-grid-line" .
+  #f)
+ ("ja/css/-moz-groupbox" .
+  #f)
+ ("ja/css/-moz-gujarati" .
+  #f)
+ ("ja/css/-moz-gurmukhi" .
+  #f)
+ ("ja/css/-moz-hangul" .
+  #f)
+ ("ja/css/-moz-hangul-consonant" .
+  #f)
+ ("ja/css/-moz-hidden-unscrollable" .
+  #f)
+ ("ja/css/-moz-hyperlinktext" .
+  #f)
+ ("ja/css/-moz-info" .
+  #f)
+ ("ja/css/-moz-inline-block" .
+  #f)
+ ("ja/css/-moz-inline-box" .
+  #f)
+ ("ja/css/-moz-inline-grid" .
+  #f)
+ ("ja/css/-moz-inline-stack" .
+  #f)
+ ("ja/css/-moz-inline-table" .
+  #f)
+ ("ja/css/-moz-japanese-formal" .
+  #f)
+ ("ja/css/-moz-japanese-informal" .
+  #f)
+ ("ja/css/-moz-kannada" .
+  #f)
+ ("ja/css/-moz-khmer" .
+  #f)
+ ("ja/css/-moz-lao" .
+  #f)
+ ("ja/css/-moz-list" .
+  #f)
+ ("ja/css/-moz-mac-accentdarkestshadow" .
+  #f)
+ ("ja/css/-moz-mac-accentdarkshadow" .
+  #f)
+ ("ja/css/-moz-mac-accentface" .
+  #f)
+ ("ja/css/-moz-mac-accentlightesthighlight" .
+  #f)
+ ("ja/css/-moz-mac-accentlightshadow" .
+  #f)
+ ("ja/css/-moz-mac-accentregularhighlight" .
+  #f)
+ ("ja/css/-moz-mac-accentregularshadow" .
+  #f)
+ ("ja/css/-moz-mac-chrome-active" .
+  #f)
+ ("ja/css/-moz-mac-chrome-inactive" .
+  #f)
+ ("ja/css/-moz-mac-focusring" .
+  #f)
+ ("ja/css/-moz-mac-menuselect" .
+  #f)
+ ("ja/css/-moz-mac-menushadow" .
+  #f)
+ ("ja/css/-moz-mac-menutextselect" .
+  #f)
+ ("ja/css/-moz-mac-unified-toolbar" .
+  #f)
+ ("ja/css/-moz-malayalam" .
+  #f)
+ ("ja/css/-moz-marker" .
+  #f)
+ ("ja/css/-moz-math-columnline" .
+  #f)
+ ("ja/css/-moz-math-firstcolumn" .
+  #f)
+ ("ja/css/-moz-math-firstrow" .
+  #f)
+ ("ja/css/-moz-math-font-size" .
+  #f)
+ ("ja/css/-moz-math-font-style" .
+  #f)
+ ("ja/css/-moz-math-lastcolumn" .
+  #f)
+ ("ja/css/-moz-math-lastrow" .
+  #f)
+ ("ja/css/-moz-math-rowline" .
+  #f)
+ ("ja/css/-moz-max-content" .
+  #f)
+ ("ja/css/-moz-menuhover" .
+  #f)
+ ("ja/css/-moz-menuhovertext" .
+  #f)
+ ("ja/css/-moz-min-content" .
+  #f)
+ ("ja/css/-moz-myanmar" .
+  #f)
+ ("ja/css/-moz-nativehyperlinktext" .
+  #f)
+ ("ja/css/-moz-none" .
+  #f)
+ ("ja/css/-moz-oriya" .
+  #f)
+ ("ja/css/-moz-persian" .
+  #f)
+ ("ja/css/-moz-popup" .
+  #f)
+ ("ja/css/-moz-pull-down-menu" .
+  #f)
+ ("ja/css/-moz-scrollbars-horizontal" .
+  #f)
+ ("ja/css/-moz-scrollbars-none" .
+  #f)
+ ("ja/css/-moz-scrollbars-vertical" .
+  #f)
+ ("ja/css/-moz-show-background" .
+  #f)
+ ("ja/css/-moz-simp-chinese-formal" .
+  #f)
+ ("ja/css/-moz-simp-chinese-informal" .
+  #f)
+ ("ja/css/-moz-stack" .
+  #f)
+ ("ja/css/-moz-tamil" .
+  #f)
+ ("ja/css/-moz-telugu" .
+  #f)
+ ("ja/css/-moz-thai" .
+  #f)
+ ("ja/css/-moz-trad-chinese-formal" .
+  #f)
+ ("ja/css/-moz-trad-chinese-informal" .
+  #f)
+ ("ja/css/-moz-urdu" .
+  #f)
+ ("ja/css/-moz-use-text-color" .
+  #f)
+ ("ja/css/-moz-user-modify" .
+  #f)
+ ("ja/css/-moz-visitedhyperlinktext" .
+  #f)
+ ("ja/css/-moz-win-browsertabbar-toolbox" .
+  #f)
+ ("ja/css/-moz-win-communications-toolbox" .
+  #f)
+ ("ja/css/-moz-win-communicationstext" .
+  #f)
+ ("ja/css/-moz-win-media-toolbox" .
+  #f)
+ ("ja/css/-moz-win-mediatext" .
+  #f)
+ ("ja/css/-moz-window" .
+  #f)
+ ("ja/css/-moz-workspace" .
+  #f)
+ ("ja/css//-moz-any-link" .
+  #f)
+ ("ja/css//-moz-bound-element" .
+  #f)
+ ("ja/css//-moz-locale-dir(ltr)" .
+  #f)
+ ("ja/css//-moz-locale-dir(rtl)" .
+  #f)
+ ("ja/css//-moz-lwtheme" .
+  #f)
+ ("ja/css//-moz-lwtheme-brighttext" .
+  #f)
+ ("ja/css//-moz-lwtheme-darktext" .
+  #f)
+ ("ja/css//-moz-system-metric(mac-graphite-theme)" .
+  "ja/css/_-moz-system-metric(mac-graphite-theme)")
+ ("ja/css//-moz-system-metric(maemo-classic)" .
+  #f)
+ ("ja/css//-moz-system-metric(scrollbar-end-backward)" .
+  "ja/css/_-moz-system-metric(scrollbar-end-backward)")
+ ("ja/css//-moz-system-metric(scrollbar-end-forward)" .
+  "ja/css/_-moz-system-metric(scrollbar-end-forward)")
+ ("ja/css//-moz-system-metric(scrollbar-start-backward)" .
+  "ja/css/_-moz-system-metric(scrollbar-start-backward)")
+ ("ja/css//-moz-system-metric(scrollbar-start-forward)" .
+  "ja/css/_-moz-system-metric(scrollbar-start-forward)")
+ ("ja/css//-moz-system-metric(scrollbar-thumb-proportional)" .
+  "ja/css/_-moz-system-metric(scrollbar-thumb-proportional)")
+ ("ja/css//-moz-system-metric(touch-enabled)" .
+  "ja/css/_-moz-system-metric(touch-enabled)")
+ ("ja/css//-moz-system-metric(windows-classic)" .
+  #f)
+ ("ja/css//-moz-system-metric(windows-compositor)" .
+  #f)
+ ("ja/css//-moz-tree-checkbox" .
+  #f)
+ ("ja/css//-moz-tree-image" .
+  #f)
+ ("ja/css//-moz-tree-twisty" .
+  #f)
+ ("ja/css///-moz-anonymous-block" .
+  #f)
+ ("ja/css///-moz-anonymous-positioned-block" .
+  #f)
+ ("ja/css///-moz-canvas" .
+  #f)
+ ("ja/css///-moz-cell-content" .
+  #f)
+ ("ja/css///-moz-inline-table" .
+  #f)
+ ("ja/css///-moz-page" .
+  #f)
+ ("ja/css///-moz-page-sequence" .
+  #f)
+ ("ja/css///-moz-pagebreak" .
+  #f)
+ ("ja/css///-moz-pagecontent" .
+  #f)
+ ("ja/css///-moz-scrolled-canvas" .
+  #f)
+ ("ja/css///-moz-scrolled-content" .
+  #f)
+ ("ja/css///-moz-scrolled-page-sequence" .
+  #f)
+ ("ja/css///-moz-svg-foreign-content" .
+  #f)
+ ("ja/css///-moz-table" .
+  #f)
+ ("ja/css///-moz-table-cell" .
+  #f)
+ ("ja/css///-moz-table-column" .
+  #f)
+ ("ja/css///-moz-table-column-group" .
+  #f)
+ ("ja/css///-moz-table-outer" .
+  #f)
+ ("ja/css///-moz-table-row" .
+  #f)
+ ("ja/css///-moz-table-row-group" .
+  #f)
+ ("ja/css///-moz-viewport" .
+  #f)
+ ("ja/css///-moz-viewport-scroll" .
+  #f)
+ ("ja/css///-moz-xul-anonymous-block" .
+  #f)
+ ("ja/css///first-letter" .
+  "ja/css/__first-letter")
+ ("ja/css///first-line" .
+  "ja/css/__first-line")
+ ("ja/css///selection" .
+  "ja/css/__selection")
+ ("ja/css//active" .
+  "ja/css/_active")
+ ("ja/css//after" .
+  "ja/css/_after")
+ ("ja/css//before" .
+  "ja/css/_before")
+ ("ja/css//checked" .
+  "ja/css/_checked")
+ ("ja/css//disabled" .
+  "ja/css/_disabled")
+ ("ja/css//empty" .
+  "ja/css/_empty")
+ ("ja/css//enabled" .
+  "ja/css/_enabled")
+ ("ja/css//first" .
+  #f)
+ ("ja/css//first-child" .
+  "ja/css/_first-child")
+ ("ja/css//first-of-type" .
+  "ja/css/_first-of-type")
+ ("ja/css//focus" .
+  "ja/css/_focus")
+ ("ja/css//hover" .
+  "ja/css/_hover")
+ ("ja/css//indeterminate" .
+  "ja/css/_indeterminate")
+ ("ja/css//lang" .
+  "ja/css/_lang")
+ ("ja/css//last-child" .
+  "ja/css/_last-child")
+ ("ja/css//last-of-type" .
+  "ja/css/_last-of-type")
+ ("ja/css//left" .
+  #f)
+ ("ja/css//link" .
+  "ja/css/_link")
+ ("ja/css//not" .
+  "ja/css/_not")
+ ("ja/css//nth-child" .
+  "ja/css/_nth-child")
+ ("ja/css//nth-last-child" .
+  "ja/css/_nth-last-child")
+ ("ja/css//nth-last-of-type" .
+  "ja/css/_nth-last-of-type")
+ ("ja/css//nth-of-type" .
+  "ja/css/_nth-of-type")
+ ("ja/css//only-child" .
+  #f)
+ ("ja/css//only-of-type" .
+  "ja/css/_only-of-type")
+ ("ja/css//right" .
+  #f)
+ ("ja/css//root" .
+  "ja/css/_root")
+ ("ja/css//target" .
+  "ja/css/_target")
+ ("ja/css//visited" .
+  "ja/css/_visited")
+ ("ja/css/_namespace" .
+  #f)
+ ("ja/css/actual_value" .
+  #f)
+ ("ja/css/all" .
+  #f)
+ ("ja/css/background-clip" .
+  #f)
+ ("ja/css/background-origin" .
+  #f)
+ ("ja/css/baseline" .
+  #f)
+ ("ja/css/border-radius" .
+  #f)
+ ("ja/css/color_value%23currentcolor_keyword" .
+  "ja/css/color_value")
+ ("ja/css/color_value%23mozilla_extensions" .
+  "ja/css/color_value")
+  ("ja/css/column-count" .
+  #f)
+ ("ja/css/column-gap" .
+  #f)
+ ("ja/css/column-width" .
+  #f)
+ ("ja/css/comments" .
+  #f)
+ ("ja/css/content-box" .
+  #f)
+ ("ja/css/cue" .
+  #f)
+ ("ja/css/cue-after" .
+  #f)
+ ("ja/css/cue-before" .
+  #f)
+ ("ja/css/cursor%23alias" .
+  "ja/css/cursor")
+ ("ja/css/cursor%23cell" .
+  "ja/css/cursor")
+ ("ja/css/cursor%23context-menu" .
+  "ja/css/cursor")
+ ("ja/css/cursor%23copy" .
+  "ja/css/cursor")
+ ("ja/css/cursor%23progress" .
+  "ja/css/cursor")
+ ("ja/css/default" .
+  #f)
+ ("ja/css/elevation" .
+  #f)
+ ("ja/css/emptycells" .
+  #f)
+ ("ja/css/example-property" .
+  #f)
+ ("ja/css/getting_started" .
+  #f)
+ ("ja/css/getting_started/how_css_works" .
+  #f)
+ ("ja/css/getting_started/what_is_css%3f" .
+  #f)
+ ("ja/css/getting_started/why_use_css%3f" .
+  #f)
+ ("ja/css/horizontal" .
+  #f)
+ ("ja/css/inherited_and_non-inherited_properties" .
+  #f)
+ ("ja/css/invert" .
+  #f)
+ ("ja/css/ltr" .
+  #f)
+ ("ja/css/marker-offset" .
+  #f)
+ ("ja/css/marks" .
+  #f)
+ ("ja/css/medium" .
+  #f)
+ ("ja/css/orphans" .
+  #f)
+ ("ja/css/page" .
+  #f)
+ ("ja/css/page-break-after" .
+  #f)
+ ("ja/css/page-break-before" .
+  #f)
+ ("ja/css/page-break-inside" .
+  #f)
+ ("ja/css/pause" .
+  #f)
+ ("ja/css/pause-after" .
+  #f)
+ ("ja/css/pause-before" .
+  #f)
+ ("ja/css/pitch" .
+  #f)
+ ("ja/css/pitch-range" .
+  #f)
+ ("ja/css/play-during" .
+  #f)
+ ("ja/css/pseudo-classes" .
+  #f)
+ ("ja/css/pseudo-elements" .
+  #f)
+ ("ja/css/richness" .
+  #f)
+ ("ja/css/size" .
+  #f)
+ ("ja/css/speak" .
+  #f)
+ ("ja/css/speak-header" .
+  #f)
+ ("ja/css/speak-numeral" .
+  #f)
+ ("ja/css/speak-punctuation" .
+  #f)
+ ("ja/css/specified_value" .
+  #f)
+ ("ja/css/speech-rate" .
+  #f)
+ ("ja/css/start" .
+  #f)
+ ("ja/css/stress" .
+  #f)
+ ("ja/css/stretch" .
+  #f)
+ ("ja/css/text-align%23mozilla_extensions" .
+  "ja/css/text-align")
+ ("ja/css/unicode-bidi" .
+  #f)
+ ("ja/css/used_value" .
+  #f)
+ ("ja/css/user-input" .
+  #f)
+ ("ja/css/vertical" .
+  #f)
+ ("ja/css/voice-family" .
+  #f)
+ ("ja/css/volume" .
+  #f)
+ ("ja/css/widows" .
+  #f)
+ ("ja/css/zoom" .
+  #f)
+ ("ja/css_support_charts/css1_support_chart" .
+  #f)
+ ("ja/css_support_charts/css2_selectors_support_chart" .
+  #f)
+ ("ja/css_support_charts/historical_css1_support_chart" .
+  #f)
+ ("ja/css_support_charts/table_key" .
+  #f)
+ ("ja/giving_" .
+  #f)
+ ("ja/issues_arising_from_arbitrary-element_hover" .
+  #f)
+ ("ja/making_sure_your_theme_works_with_rtl_locales" .
+  #f)
+ ("ja/themes" .
+  #f)
+ ("ja/using_the_/target_selector" .
+  #f)
+ ("ja/using_url_values_for_the_cursor_property" .
+  #f)
+ ("ja/writing_efficient_css" .
+  #f)
+ ("ja/xbl/xbl_1.0_reference/binding_attachment_and_detachment" .
+  #f)
+ ("ja/xul/attribute/disabled" .
+  #f)
+ ("ja/xul/attribute/lightweightthemes" .
+  #f)
+ ("ja/xul/attribute/orient" .
+  #f)
+ ("ja/xul/box" .
+  #f)
+ ("ja/xul/deck" .
+  #f)
+ ("ja/xul/grid" .
+  #f)
+ ("ja/xul/hbox" .
+  #f)
+ ("ja/xul/image" .
+  #f)
+ ("ja/xul/stack" .
+  #f)
+ ("ja/xul/vbox" .
+  #f)
+ ("ja/xul_tutorial/introduction_to_xbl" .
+  #f)
+ ("samples/cssref/template" .
+  #f)
+ ("samples/cssref/transitions/sample1" .
+  #f)
+ ("samples/cssref/transitions/sample1/transitions.css" .
+  #f)
+ ("samples/cssref/transitions/sample2" .
+  #f)
+ ("special_tags.html?tag=CSS&language=ja" .
+  #f)
+ ("special_tags.html?tag=CSS:Mozilla+Extensions" .
+  #f)
+ ("special_tags.html?tag=CSS:Tools&language=ja" .
+  #f)
+ ("special_tags.html?tag=Canvas_examples&language=en" .
+  #f)
+ ("special_tags.html?tag=DOM%203&language=en" .
+  #f)
+ ("special_tags.html?tag=DOM&language=ja" .
+  #f)
+ ("special_tags.html?tag=DOM:Tools&language=ja" .
+  #f)
+ ("special_tags.html?tag=E4X&language=en" .
+  #f)
+ ("special_tags.html?tag=HTML&language=en" .
+  #f)
+ ("special_tags.html?tag=HTML:Canvas&language=en" .
+  #f)
+ ("special_tags.html?tag=HTML:Tools&language=en" .
+  #f)
+ ("talk_en/core_javascript_1.5_guide/operators" .
+  #f)
+ ("talk_en/css_reference/mozilla_extensions" .
+  #f)
+ ("talk_ja/css_reference" .
+  #f)
+ ("template_xpathresultconstants" .
+  #f)
+ ("user_nickolay" .
+  #f)
+ ("web-tech/2009/02/05/a-new-checkbox-type" .
+  #f)
+ ("zh_tw/css/ime-mode" .
+  #f)
+ ("ja/giving_'cursor'_a_hand" .
+  #f)
+ ("_api/deki/files/2906/=shadowed-text" .
+  #f)
+ ("ja/a_basic_raycaster" .
+  #f)
+ ("ja/canvas_tutorial/wrapping_up" .
+  #f)
+ ("ja/insertbefore" .
+  #f)
+ ("special_tags.html?tag=Canvas_examples&language=ja" .
   #f)
  )

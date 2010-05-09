@@ -1,0 +1,31 @@
+(use file.util)
+(use sxml.tools)
+(use sxml.sxpath)
+(use gauche.parseopt)
+
+(define (print-ultimate-include sxml)
+  (define (traverse l)
+    (for-each (lambda (x)
+                (if (eq? 'item (sxml:name x))
+                  (print "@include texi/developer.mozilla.org/" (sxml:string-value x) ".texi")
+                  (begin
+                    (print "@lowersections")
+                    (traverse (sxml:child-nodes x))
+                    (print "@raisesections"))))
+              l))
+  (print "@raisesections")
+  (traverse ((sxpath '(chapter *)) sxml)))
+
+(define (print-target-files sxml)
+  (for-each (lambda (text)
+              (print "out/developer.mozilla.org/" text ".html"))
+            ((sxpath '(// item *text*)) sxml)))
+
+(define (main args)
+  (define sxml (car (file->sexp-list "./order.scm")))
+  (let-args (cdr args)
+      ((t      "t|texi")
+       . restargs)
+    (if t
+      (print-ultimate-include sxml)
+      (print-target-files sxml))))

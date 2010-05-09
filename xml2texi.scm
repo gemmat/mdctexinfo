@@ -233,8 +233,8 @@
         (lambda ()
           (let ((sxml (load-xml path)))
             (print "@node " (path->node path))
-            (print "@section " (sxml:string-value (getElementById "title" sxml)))
-            (print "@findex " (sxml:string-value (getElementById "title" sxml)))
+            (print "@section " (escape-text (sxml:string-value (getElementById "title" sxml))))
+            (print "@findex " (escape-text (sxml:string-value (getElementById "title" sxml))))
             (for-each print (texinfo-menu path))
             (let1 debug-sxml
                 (pre-post-order
@@ -259,22 +259,25 @@
                     (*default*   . ,(lambda x x))))
                  `((texinfo   . ,(lambda x (print (sxml:string-value x)) ()))
                    (*default* . ,(lambda x x))))
-              (when verbose
+              (when vverbose
                 (call-with-output-file debug-file
                   (lambda (out)
                     (write debug-sxml out)))))))))))
 
 (define verbose #f)
+(define vverbose #f)
 (define notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
 (define texinfo-nodes-table (make-texinfo-nodes-table))
 
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
+       (vv     "vv|vverbose")
        (p      "p|prefix=s" (build-path (current-directory) "texi"))
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! verbose v)
+    (set! vverbose vv)
     (for-each (cut process <> p) restargs))
   0)
 

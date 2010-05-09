@@ -32,6 +32,8 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/gecko_dom_reference ::
 * ja/dom ::
 * ja/html ::
+* ja/css ::
+* ja/canvas_tutorial ::
 * ja/e4x ::
 * ja/e4x_tutorial ::
 * ja/firefox_for_developers ::

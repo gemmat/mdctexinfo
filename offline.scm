@@ -299,19 +299,23 @@
                 (sxml:change-content! obj '(""))))
             ((sxpath '(// xhtml:div)) sxml)))
 
+;;downcase and replace characters which confuse the texinfo system.
+(define (path-filter path)
+  (regexp-replace-all* (string-downcase path)
+                       #/@|,|:/ "_"
+                       #/%3a/ "/"))
+
 (define (resolve-uri base uri)
   (receive (scheme _ host _ path query fragment) (uri-parse uri)
-    (and-let* ((path)
-               (path (regexp-replace-all #/%3a/ path "/"))
-               (rslv-path (if (relative-path? path)
-                            (simplify-path (build-path base path))
-                            path)))
-      (uri-compose
-       :scheme   (or scheme "https")
-       :host     (or host "developer.mozilla.org")
-       :path     rslv-path
-       :query    query
-       :fragment fragment))))
+    (and path
+         (uri-compose
+          :scheme   (or scheme "https")
+          :host     (or host "developer.mozilla.org")
+          :path     (path-filter (if (relative-path? path)
+                                   (simplify-path (build-path base path))
+                                   path))
+          :query    query
+          :fragment fragment))))
 
 (define (process-links! base sxml)
   (define (append-extension path)
@@ -331,7 +335,7 @@
                      `(,(uri-compose
                          :scheme   "file"
                          :host     myhost
-                         :path     (string-downcase (append-extension path))
+                         :path     (append-extension path)
                          :query    query
                          :fragment fragment)))))))
             ((sxpath '(// @ href)) sxml)))
@@ -367,7 +371,7 @@
      ""
      ))
   (define (save-to path)
-    (let1 save-path (string-downcase (build-path prefix path))
+    (let1 save-path (build-path prefix (path-filter path))
       (receive (save-dir _ _) (decompose-path save-path)
         (values save-dir save-path))))
   (define base (rxmatch-if (#/developer\.mozilla\.org(.*)/ path)

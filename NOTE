@@ -19,4 +19,14 @@ find developer.mozilla.org/en/ developer.mozilla.org/ja/ -name "*.html" | xargs 
 find out/developer.mozilla.org/en/ out/developer.mozilla.org/ja/ -name "*.html" | xargs -n 100 -P 0 gosh mergelang.scm -v 
 
 #process 3
-find out/developer.mozilla.org/ja/ | xargs -n 100 -P 0 gosh xml2texi.scm -v
+gosh includes.scm | xargs -n 100 -P 0 gosh xml2texi.scm -v
+
+#process 4
+gosh includes.scm -t > includes.texi
+
+#process 5
+makeinfo ultimate.texi 2> err
+
+#process 6 (if an 'err' file has contents)
+Read an 'err' file and edit a notfound.scm.
+Repeat from process 3.
