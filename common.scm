@@ -5,22 +5,14 @@
 (define (format-sxml-to-string sxml)
   (regexp-replace-all*
    (call-with-output-string (cut srl:sxml->html sxml <>))
+   #/<useless\/>/
+   ""
    #/<xhtml:/
    "<"
    #/<\/xhtml:/
    "</"
    #/xmlns:xhtml/
    "xmlns"
-   #/<td\snowrap([>|\s])/
-   "<td nowrap=\"nowrap\"\\1"
-   #/<span id\/>/
-   "<span id=\"id\"/>"
-   #/ controls>/
-   " controls=\"controls\">"
-   #/ border>/
-   " border=\"border\">"
-   #/<useless\/>/
-   ""
    #/<your%20language&gt\;/
    "&lt;your%20language&gt;"
    #/ id=\"operator</
