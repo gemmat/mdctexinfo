@@ -153,22 +153,26 @@
         `(texinfo "@footnote{" ,(sxml:string-value node) "}\n"))
       node))
 
+(define cache-table (make-hash-table 'string=?))
+
 (define (file-path->texinfo-node path)
   (define (check str)
     (if (hash-table-exists? notfound str)
       (hash-table-get notfound str)
       str))
-  (define (replace-comma str)
-    (regexp-replace-all #/,/ str "_"))
+  (define (cache node)
+    (hash-table-put! cache-table path node)
+    node)
 
-  (rxmatch-cond
-    ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
-     (#f node)
-     (check (replace-comma node)))
-    ((#/developer\.mozilla\.org\/(.*)/ path)
-     (#f node)
-     (check (replace-comma node)))
-    (else #f)))
+  (or (hash-table-get cache-table path #f)
+      (rxmatch-cond
+        ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
+         (#f node)
+         (cache (check node)))
+        ((#/developer\.mozilla\.org\/(.*)/ path)
+         (#f node)
+         (cache (check node)))
+        (else #f))))
 
 (define-class <texinfo-node> ()
   (self next prev up (children :init-value ())))

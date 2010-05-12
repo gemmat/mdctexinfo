@@ -24,7 +24,8 @@
 (define (ahref-change-lang node from to)
   (define (helper uri)
     (receive (scheme _ host _ path query fragment) (uri-parse uri)
-      (and (string=? scheme "file")
+      (and path
+           (string=? scheme "file")
            (uri-compose
             :scheme scheme
             :host   host

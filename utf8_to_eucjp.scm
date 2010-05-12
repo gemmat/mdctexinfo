@@ -1,14 +1,23 @@
 (use file.util)
 (use gauche.charconv)
+(use gauche.parseopt)
 
 (define (main args)
-  (for-each (lambda (path)
-              (call-with-input-file path
-                (lambda (in)
-                  (let1 dest (string-append "eucjp_" path)
-                    (create-directory* (sys-dirname dest))
-                    (call-with-output-file dest
-                      (lambda (out)
-                        (copy-port in out))
-                      :encoding 'eucjp)))))
-            (cdr args)))
+  (let-args (cdr args)
+      ((encoding "e|encoding=s" "euc_jp")
+       . restargs)
+    (unless (or (string=? encoding "euc_jp")
+                (string=? encoding "sjis"))
+      (print "only supports --encoding=euc_jp|sjis")
+      (exit 1))
+    (for-each (lambda (path)
+                (call-with-input-file path
+                  (lambda (in)
+                    (let1 dest (string-append encoding "_" path)
+                      (create-directory* (sys-dirname dest))
+                      (call-with-output-file dest
+                        (lambda (out)
+                          (copy-port in out))
+                        :encoding encoding)))))
+              restargs)
+    0))

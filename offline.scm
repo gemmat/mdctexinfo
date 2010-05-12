@@ -302,8 +302,7 @@
 ;;downcase and replace characters which confuse the texinfo system.
 (define (path-filter path)
   (regexp-replace-all* (string-downcase path)
-                       #/@|,|:/ "_"
-                       #/%3a/ "/"))
+                       #/@|,|:|\'|\"|%3a/ "_"))
 
 (define (resolve-uri base uri)
   (receive (scheme _ host _ path query fragment) (uri-parse uri)
@@ -367,8 +366,18 @@
      "xmlns"
      #/<td nowrap>/
      "<td nowrap=\"nowrap\">"
+     #/<span id\/>/
+     "<span id=\"id\"/>"
      #/<useless\/>/
      ""
+     #/<your%20language&gt\;/
+     "&lt;your%20language&gt;"
+     #/id=\"operator</
+     "id=\"operator&lt;"
+     #/Iterator<char/
+     "Iterator&lt;char"
+     #/Iterator<short/
+     "Iterator&lt;short"
      ))
   (define (save-to path)
     (let1 save-path (build-path prefix (path-filter path))
