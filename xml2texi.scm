@@ -8,9 +8,7 @@
 (use sxml.tools)
 (use sxml.tree-trans)
 
-(define (load-xml path)
-  (call-with-input-file path
-    (cut ssax:xml->sxml <> '((xhtml . "http://www.w3.org/1999/xhtml")))))
+(load "./common.scm")
 
 (define (getElementById id sxml)
   ((if-car-sxpath `(// (* (@ id (equal? ,id))))) sxml))
@@ -63,7 +61,7 @@
                       ((xhtml:dt) `("@item " ,(sxml:string-value elt) "\n"))
                       ((xhtml:dd) `(,(sxml:string-value elt) "\n"))
                       (else
-                       (format (current-error-port) "warning:~a\n" (sxml:string-value elt))
+                       ;;(format (current-error-port) "warning:~a\n" (sxml:string-value elt))
                        `("warning:" ,(sxml:string-value elt)))))
                   (sxml:child-elements node))
     "\n@end table\n"))
@@ -71,20 +69,20 @@
 (define (ul node)
   `(texinfo
     "\n@itemize @bullet\n"
-    ,@(map (lambda (elt)
-             (case (sxml:name elt)
-               ((xhtml:li) (string-append "@item " (sxml:string-value elt) "\n"))
-               (else       (string-append "warning:" (sxml:string-value elt)))))
-           (sxml:child-elements node))
+    ,@(append-map (lambda (elt)
+                    (case (sxml:name elt)
+                      ((xhtml:li) `("@item " ,(sxml:string-value elt) "\n"))
+                      (else       `("warning:" ,(sxml:string-value elt)))))
+                  (sxml:child-elements node))
     "\n@end itemize\n"))
 
 (define (ol node)
   `(texinfo
     "\n@enumerate\n"
-    ,@(map (lambda (elt)
-             (case (sxml:name elt)
-               ((xhtml:li) (string-append "@item " (sxml:string-value elt) "\n"))
-               (else       (string-append "warning:" (sxml:string-value elt)))))
+    ,@(append-map (lambda (elt)
+                    (case (sxml:name elt)
+                      ((xhtml:li) `("@item " ,(sxml:string-value elt) "\n"))
+                      (else       `("warning:" ,(sxml:string-value elt)))))
            (sxml:child-elements node))
     "\n@end enumerate\n"))
 
@@ -231,7 +229,7 @@
                    ",")))
 
   (when (file-is-regular? path)
-    (when verbose 
+    (when verbose
       (display path (current-error-port))
       (newline (current-error-port)))
     (receive (save-dir save-file debug-file) (save-to path)
@@ -282,10 +280,16 @@
        (vv     "vv|vverbose")
        (p      "p|prefix=s" (build-path (current-directory) "texi"))
        (help   "h|help" => (cut show-help (car args)))
+       (o      "o|order")
        . restargs)
     (set! verbose v)
     (set! vverbose vv)
-    (for-each (cut process <> p) restargs))
+    (if o
+      (let1 sxml (car (file->sexp-list "./order.scm"))
+        (for-each (lambda (text)
+                    (process (string-append "out/developer.mozilla.org/" text ".html") p))
+                  ((sxpath '(// item *text*)) sxml)))
+      (for-each (cut process <> p) restargs)))
   0)
 
 (define (show-help prog-name)

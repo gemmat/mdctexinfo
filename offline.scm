@@ -8,6 +8,8 @@
 (use sxml.tools)
 (use sxml.serializer)
 
+(load "./common.scm")
+
 (define xhtml-entity
   '((nbsp . "\u00a0")
     (iexcl . "\u00a1")
@@ -326,7 +328,7 @@
   (for-each (lambda (obj)
               (and-let* ((rslv-uri (resolve-uri base (sxml:string-value obj))))
                 (receive (scheme _ host _ path query fragment) (uri-parse rslv-uri)
-                  (and-let* (((and scheme host))
+                  (and-let* (((and scheme host path))
                              ((string=? scheme "https"))
                              ((string=? host   "developer.mozilla.org")))
                     (sxml:change-content!
@@ -355,30 +357,6 @@
         (ssax:xml->sxml in '((xhtml . "http://www.w3.org/1999/xhtml")))))))
 
 (define (process! path)
-  (define (format-sxml-to-string sxml)
-    (regexp-replace-all*
-     (call-with-output-string (cut srl:sxml->html sxml <>))
-     #/<xhtml:/
-     "<"
-     #/<\/xhtml:/
-     "</"
-     #/xmlns:xhtml/
-     "xmlns"
-     #/<td nowrap>/
-     "<td nowrap=\"nowrap\">"
-     #/<span id\/>/
-     "<span id=\"id\"/>"
-     #/<useless\/>/
-     ""
-     #/<your%20language&gt\;/
-     "&lt;your%20language&gt;"
-     #/id=\"operator</
-     "id=\"operator&lt;"
-     #/Iterator<char/
-     "Iterator&lt;char"
-     #/Iterator<short/
-     "Iterator&lt;short"
-     ))
   (define (save-to path)
     (let1 save-path (build-path prefix (path-filter path))
       (receive (save-dir _ _) (decompose-path save-path)

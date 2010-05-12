@@ -9,68 +9,40 @@
 (use sxml.tree-trans)
 (use sxml.serializer)
 
-(define (load-xml path)
-  (call-with-input-file path
-    (cut ssax:xml->sxml <> '((xhtml . "http://www.w3.org/1999/xhtml")))))
+(load "common.scm")
 
-(define (change-path path from to)
-  (string-join (map (lambda (x)
-                      (if (string=? x from)
-                        to
-                        x))
-                    (string-split path "/"))
-               "/"))
+(define (a-href-change-lang-from-en-to-ja node)
+  (define (f uri)
+    (rxmatch-if (#/(.*)\/developer\.mozilla\.org\/en\/(.*)/ uri)
+        (#f before after)
+        (string-append before "/developer.mozilla.org/ja/" after)
+        #f))
 
-(define (ahref-change-lang node from to)
-  (define (helper uri)
-    (receive (scheme _ host _ path query fragment) (uri-parse uri)
-      (and path
-           (string=? scheme "file")
-           (uri-compose
-            :scheme scheme
-            :host   host
-            :path   (change-path path from to)
-            :query  query
-            :fragment fragment))))
-  (or (and-let* ((href  (sxml:attr node 'href))
-                 (href-new (helper (sxml:string-value href))))
-        (sxml:change-attr node `(href ,href-new)))
-      node))
+  (and-let* ((href (sxml:attr node 'href))
+             (href (f (sxml:string-value href))))
+    (sxml:change-attr node `(href ,href))))
 
-(define (format-sxml-to-string sxml)
-  (regexp-replace-all*
-   (call-with-output-string (cut srl:sxml->html sxml <>))
-   #/<xhtml:/ 
-   "<"
-   #/<\/xhtml:/
-   "</"
-   #/xmlns:xhtml/ 
-   "xmlns"
-   ))
+(define (convert sxml)
+  (pre-post-order
+   sxml
+   `((xhtml:a     . ,(lambda x (or (a-href-change-lang-from-en-to-ja x "en" "ja") x)))
+     (*text*      . ,(lambda (tag text) text))
+     (*default*   . ,(lambda x x)))))
 
 (define (main args)
-  (define (convert sxml)
-    (pre-post-order
-     sxml
-     `((xhtml:a     . ,(lambda x (ahref-change-lang x "en" "ja")))
-       (*text*      . ,(lambda (tag text) text))
-       (*default*   . ,(lambda x x)))))
-  (define from "en")
-  (define to   "ja")
   (let-args (cdr args)
-      ((v      "v|verbose")
+      ((verbose "v|verbose")
        . restargs)
     (for-each (lambda (path)
                 (and-let* (((file-is-regular? path))
-                           (dest (change-path path from to))
-                           ((not (file-exists? dest)))
-                           (sxml-in  (load-xml path))
-                           (sxml-out (convert sxml-in)))
-                  (when v (print path))
-                  (create-directory* (sys-dirname dest))
-                  (call-with-output-file dest
+                           (dest-path (change-path path "en" "ja"))
+                           ((not (file-exists? dest-path)))
+                           (sxml  (load-xml path)))
+                  (when verbose (print path))
+                  (create-directory* (sys-dirname dest-path))
+                  (call-with-output-file dest-path
                     (lambda (out)
-                      (call-with-input-string (format-sxml-to-string sxml-out)
+                      (call-with-input-string (format-sxml-to-string (convert sxml))
                         (lambda (in)
                           (copy-port in out)
                           (display "\n<!-- not_yet_translated -->\n" out)))))))
