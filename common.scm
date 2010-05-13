@@ -1,3 +1,6 @@
+(use text.html-lite)
+(use sxml.tree-trans)
+
 (define (load-xml path)
   (call-with-input-file path
     (cut ssax:xml->sxml <> '((xhtml . "http://www.w3.org/1999/xhtml")))))
@@ -13,14 +16,4 @@
    "</"
    #/xmlns:xhtml/
    "xmlns"
-   #/<your%20language&gt\;/
-   "&lt;your%20language&gt;"
-   #/ id=\"operator</
-   " id=\"operator&lt;"
-   #/Iterator<char/
-   "Iterator&lt;char"
-   #/Iterator<short/
-   "Iterator&lt;short"
-   #/<gripper/
-   "&lt;gripper"
    ))

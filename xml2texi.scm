@@ -88,9 +88,9 @@
 
 (define (table node)
   (define (column-length node)
-    (apply max (map (lambda (tr)
-                      (length ((sxpath '(// (or@ xhtml:th xhtml:td))) tr)))
-                    ((sxpath '(// xhtml:tr)) node))))
+    (apply max (cons 1 (map (lambda (tr)
+                              (length ((sxpath '(// (or@ xhtml:th xhtml:td))) tr)))
+                            ((sxpath '(// xhtml:tr)) node)))))
 
   (let* ((col (column-length node))
          (fractions (if (= col 1)
@@ -161,7 +161,6 @@
   (define (cache node)
     (hash-table-put! cache-table path node)
     node)
-
   (or (hash-table-get cache-table path #f)
       (rxmatch-cond
         ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
@@ -212,7 +211,7 @@
           "@end menu"))
       ()))
 
-(define (process path prefix)
+(define (process path)
   (define (save-to path)
     (define aaa (rxmatch-if (#/(developer\.mozilla\.org\/.*)/ path)
                     (#f x)
@@ -234,62 +233,68 @@
       (newline (current-error-port)))
     (receive (save-dir save-file debug-file) (save-to path)
       (create-directory* save-dir)
-      (with-output-to-file save-file
-        (lambda ()
-          (let ((sxml (load-xml path)))
-            (print "@node " (path->node path))
-            (print "@section " (escape-text (sxml:string-value (getElementById "title" sxml))))
-            (print "@findex " (escape-text (sxml:string-value (getElementById "title" sxml))))
-            (for-each print (texinfo-menu path))
-            (let1 debug-sxml
-                (pre-post-order
-                 (pre-post-order
-                  (getElementById "pageText" sxml)
-                  `((*text*      . ,(lambda (tag text) (escape-text text)))
-                    (xhtml:a     . ,(lambda x (ahref x)))
-                    (xhtml:b     . ,(lambda x (bold  x)))
-                    (xhtml:code  . ,(lambda x (code  x)))
-                    (xhtml:pre   . ,(lambda x (pre   x)))
-                    (xhtml:img   . ,(lambda x (img   x)))
-                    (xhtml:h2    . ,(lambda x (h2    x)))
-                    (xhtml:h3    . ,(lambda x (h3    x)))
-                    (xhtml:h4    . ,(lambda x (h4    x)))
-                    (xhtml:h5    . ,(lambda x (h5    x)))
-                    (xhtml:p     . ,(lambda x (para  x)))
-                    (xhtml:dl    . ,(lambda x (dl    x)))
-                    (xhtml:ul    . ,(lambda x (ul    x)))
-                    (xhtml:ol    . ,(lambda x (ol    x)))
-                    (xhtml:table . ,(lambda x (table x)))
-                    (xhtml:div   . ,(lambda x (div   x)))
-                    (*default*   . ,(lambda x x))))
-                 `((texinfo   . ,(lambda x (print (sxml:string-value x)) ()))
-                   (*default* . ,(lambda x x))))
-              (when vverbose
-                (call-with-output-file debug-file
-                  (lambda (out)
-                    (write debug-sxml out)))))))))))
+      (unless (and debug (file-exists? save-file))
+        (with-output-to-file save-file
+          (lambda ()
+            (let ((sxml (load-xml path)))
+              (print "@node " (path->node path))
+              (print "@section " (escape-text (sxml:string-value (getElementById "title" sxml))))
+              (print "@findex " (escape-text (sxml:string-value (getElementById "title" sxml))))
+              (for-each print (texinfo-menu path))
+              (let1 debug-sxml
+                  (pre-post-order
+                   (pre-post-order
+                    (getElementById "pageText" sxml)
+                    `((*text*      . ,(lambda (tag text) (escape-text text)))
+                      (xhtml:a     . ,(lambda x (ahref x)))
+                      (xhtml:b     . ,(lambda x (bold  x)))
+                      (xhtml:code  . ,(lambda x (code  x)))
+                      (xhtml:pre   . ,(lambda x (pre   x)))
+                      (xhtml:img   . ,(lambda x (img   x)))
+                      (xhtml:h2    . ,(lambda x (h2    x)))
+                      (xhtml:h3    . ,(lambda x (h3    x)))
+                      (xhtml:h4    . ,(lambda x (h4    x)))
+                      (xhtml:h5    . ,(lambda x (h5    x)))
+                      (xhtml:p     . ,(lambda x (para  x)))
+                      (xhtml:dl    . ,(lambda x (dl    x)))
+                      (xhtml:ul    . ,(lambda x (ul    x)))
+                      (xhtml:ol    . ,(lambda x (ol    x)))
+                      (xhtml:table . ,(lambda x (table x)))
+                      (xhtml:div   . ,(lambda x (div   x)))
+                      (*default*   . ,(lambda x x))))
+                   `((texinfo   . ,(lambda x (print (sxml:string-value x)) ()))
+                     (*default* . ,(lambda x x))))
+                (when vverbose
+                  (call-with-output-file debug-file
+                    (lambda (out)
+                      (write debug-sxml out))))))))))))
 
+(define prefix #f)
 (define verbose #f)
 (define vverbose #f)
+(define debug #f)
 (define notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
 (define texinfo-nodes-table (make-texinfo-nodes-table))
+
 
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
        (vv     "vv|vverbose")
+       (d      "debug")
        (p      "p|prefix=s" (build-path (current-directory) "texi"))
        (help   "h|help" => (cut show-help (car args)))
-       (o      "o|order")
        . restargs)
+    (set! prefix p)
     (set! verbose v)
     (set! vverbose vv)
-    (if o
+    (set! debug d)
+    (if debug
       (let1 sxml (car (file->sexp-list "./order.scm"))
         (for-each (lambda (text)
-                    (process (string-append "out/developer.mozilla.org/" text ".html") p))
+                    (process (string-append "out/developer.mozilla.org/" text ".html")))
                   ((sxpath '(// item *text*)) sxml)))
-      (for-each (cut process <> p) restargs)))
+      (for-each process restargs)))
   0)
 
 (define (show-help prog-name)

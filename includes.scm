@@ -21,11 +21,18 @@
               (print "out/developer.mozilla.org/" text ".html"))
             ((sxpath '(// item *text*)) sxml)))
 
+(define (print-ultimate-menu sxml)
+  (for-each (lambda (text)
+              (print "* " text " ::"))
+            ((sxpath '(// chapter item *text*)) sxml)))
+
 (define (main args)
   (define sxml (car (file->sexp-list "./order.scm")))
   (let-args (cdr args)
       ((t      "t|texi")
+       (m      "m|menu")
        . restargs)
-    (if t
-      (print-ultimate-include sxml)
-      (print-target-files sxml))))
+    (cond
+     (t (print-ultimate-include sxml))
+     (m (print-ultimate-menu sxml))
+     (else (print-target-files sxml)))))

@@ -8,24 +8,25 @@
 (use sxml.tools)
 (use sxml.tree-trans)
 (use sxml.serializer)
+(use text.html-lite)
 
-(load "common.scm")
+(load "./common.scm")
 
-(define (a-href-change-lang-from-en-to-ja node)
-  (define (f uri)
-    (rxmatch-if (#/(.*)\/developer\.mozilla\.org\/en\/(.*)/ uri)
-        (#f before after)
-        (string-append before "/developer.mozilla.org/ja/" after)
-        #f))
+(define (change-lang-from-en-to-ja str)
+  (rxmatch-if (#/(.*)\/developer\.mozilla\.org\/en\/(.*)/ str)
+      (#f before after)
+      (string-append before "/developer.mozilla.org/ja/" after)
+      #f))
 
+(define (ahref node)
   (and-let* ((href (sxml:attr node 'href))
-             (href (f (sxml:string-value href))))
+             (href (change-lang-from-en-to-ja (sxml:string-value href))))
     (sxml:change-attr node `(href ,href))))
 
 (define (convert sxml)
   (pre-post-order
    sxml
-   `((xhtml:a     . ,(lambda x (or (a-href-change-lang-from-en-to-ja x "en" "ja") x)))
+   `((xhtml:a     . ,(lambda x (or (ahref x) x)))
      (*text*      . ,(lambda (tag text) text))
      (*default*   . ,(lambda x x)))))
 
@@ -35,7 +36,7 @@
        . restargs)
     (for-each (lambda (path)
                 (and-let* (((file-is-regular? path))
-                           (dest-path (change-path path "en" "ja"))
+                           (dest-path (change-lang-from-en-to-ja path))
                            ((not (file-exists? dest-path)))
                            (sxml  (load-xml path)))
                   (when verbose (print path))
