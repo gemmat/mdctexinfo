@@ -13,9 +13,9 @@
 (load "./common.scm")
 
 (define (change-lang-from-en-to-ja str)
-  (rxmatch-if (#/(.*)\/developer\.mozilla\.org\/en\/(.*)/ str)
+  (rxmatch-if (#/(.*\/developer\.mozilla\.org\/)en(\/.*)/ str)
       (#f before after)
-      (string-append before "/developer.mozilla.org/ja/" after)
+      (string-append before "ja" after)
       #f))
 
 (define (ahref node)
@@ -46,6 +46,7 @@
                       (call-with-input-string (format-sxml-to-string (convert sxml))
                         (lambda (in)
                           (copy-port in out)
-                          (display "\n<!-- not_yet_translated -->\n" out)))))))
+                          (display "\n<!-- not_yet_translated -->\n" out))))
+                    :encoding 'utf-8)))
               restargs))
   0)

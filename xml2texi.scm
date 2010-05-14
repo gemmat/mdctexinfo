@@ -38,7 +38,8 @@
   `(texinfo ,(sxml:string-value node)))
 
 (define (bold node)
-  `(texinfo "@strong{" ,(sxml:string-value node) "}"))
+  `(texinfo ,(sxml:string-value node)))
+  ;;`(texinfo "@strong{" ,(sxml:string-value node) "}"))
 
 (define (pre node)
   `(texinfo
@@ -155,21 +156,25 @@
 
 (define (file-path->texinfo-node path)
   (define (check str)
-    (if (hash-table-exists? notfound str)
-      (hash-table-get notfound str)
-      str))
-  (define (cache node)
-    (hash-table-put! cache-table path node)
-    node)
-  (or (hash-table-get cache-table path #f)
-      (rxmatch-cond
-        ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
-         (#f node)
-         (cache (check node)))
-        ((#/developer\.mozilla\.org\/(.*)/ path)
-         (#f node)
-         (cache (check node)))
-        (else #f))))
+    (hash-table-get notfound str str))
+  (define (cache result)
+    (hash-table-put! cache-table path result)
+    result)
+
+  (if (hash-table-exists? cache-table path)
+    (hash-table-get cache-table path)
+    (cache
+     (rxmatch-cond
+       ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
+        (#f node)
+        (check node))
+       ((#/developer\.mozilla\.org\/(.*)/ path)
+        (#f node)
+        (error "hoge" path)
+        (check node))
+       (else
+        (error "huga" path)
+        #f)))))
 
 (define-class <texinfo-node> ()
   (self next prev up (children :init-value ())))
@@ -211,16 +216,48 @@
           "@end menu"))
       ()))
 
+(define (sxml->texinfo-like-sxml sxml)
+  (pre-post-order
+   (getElementById "pageText" sxml)
+   `((*text*      . ,(lambda (tag text) (escape-text text)))
+     (xhtml:a     . ,(lambda x (ahref x)))
+     (xhtml:b     . ,(lambda x (bold  x)))
+     (xhtml:code  . ,(lambda x (code  x)))
+     (xhtml:pre   . ,(lambda x (pre   x)))
+     (xhtml:img   . ,(lambda x (img   x)))
+     (xhtml:h2    . ,(lambda x (h2    x)))
+     (xhtml:h3    . ,(lambda x (h3    x)))
+     (xhtml:h4    . ,(lambda x (h4    x)))
+     (xhtml:h5    . ,(lambda x (h5    x)))
+     (xhtml:p     . ,(lambda x (para  x)))
+     (xhtml:dl    . ,(lambda x (dl    x)))
+     (xhtml:ul    . ,(lambda x (ul    x)))
+     (xhtml:ol    . ,(lambda x (ol    x)))
+     (xhtml:table . ,(lambda x (table x)))
+     (xhtml:div   . ,(lambda x (div   x)))
+     (*default*   . ,(lambda x x)))))
+
+(define (print-texinfo-like-sxml sxml)
+  (pre-post-order sxml
+   `((texinfo   . ,(lambda x (print (sxml:string-value x)) ()))
+     (*default* . ,(lambda x x)))))
+
 (define (process path)
+;;   (define (save-to path)
+;;     (define aaa (rxmatch-if (#/(developer\.mozilla\.org\/.*)/ path)
+;;                     (#f x)
+;;                     x
+;;                     #f))
+;;     (receive (dir _ _) (decompose-path aaa)
+;;       (values (build-path prefix dir)
+;;               (build-path prefix (path-swap-extension aaa "texi")))))
   (define (save-to path)
-    (define aaa (rxmatch-if (#/(developer\.mozilla\.org\/.*)/ path)
-                    (#f x)
-                    x
-                    #f))
-    (receive (dir _ _) (decompose-path aaa)
-      (values (build-path prefix dir)
-              (build-path prefix (path-swap-extension aaa "texi"))
-              (build-path prefix (path-swap-extension aaa "scm")))))
+    (rxmatch-if (#/(developer\.mozilla\.org\/.*)/ path)
+        (#f x)
+        (let1 y (build-path prefix (path-swap-extension x "texi"))
+          (values (sys-dirname y) y))
+        (error "oops." path)))
+
   (define (path->node path)
     (let1 node (hash-table-get texinfo-nodes-table (file-path->texinfo-node path))
       (string-join (map (cut slot-ref node <>)
@@ -231,7 +268,7 @@
     (when verbose
       (display path (current-error-port))
       (newline (current-error-port)))
-    (receive (save-dir save-file debug-file) (save-to path)
+    (receive (save-dir save-file) (save-to path)
       (create-directory* save-dir)
       (unless (and debug (file-exists? save-file))
         (with-output-to-file save-file
@@ -241,53 +278,24 @@
               (print "@section " (escape-text (sxml:string-value (getElementById "title" sxml))))
               (print "@findex " (escape-text (sxml:string-value (getElementById "title" sxml))))
               (for-each print (texinfo-menu path))
-              (let1 debug-sxml
-                  (pre-post-order
-                   (pre-post-order
-                    (getElementById "pageText" sxml)
-                    `((*text*      . ,(lambda (tag text) (escape-text text)))
-                      (xhtml:a     . ,(lambda x (ahref x)))
-                      (xhtml:b     . ,(lambda x (bold  x)))
-                      (xhtml:code  . ,(lambda x (code  x)))
-                      (xhtml:pre   . ,(lambda x (pre   x)))
-                      (xhtml:img   . ,(lambda x (img   x)))
-                      (xhtml:h2    . ,(lambda x (h2    x)))
-                      (xhtml:h3    . ,(lambda x (h3    x)))
-                      (xhtml:h4    . ,(lambda x (h4    x)))
-                      (xhtml:h5    . ,(lambda x (h5    x)))
-                      (xhtml:p     . ,(lambda x (para  x)))
-                      (xhtml:dl    . ,(lambda x (dl    x)))
-                      (xhtml:ul    . ,(lambda x (ul    x)))
-                      (xhtml:ol    . ,(lambda x (ol    x)))
-                      (xhtml:table . ,(lambda x (table x)))
-                      (xhtml:div   . ,(lambda x (div   x)))
-                      (*default*   . ,(lambda x x))))
-                   `((texinfo   . ,(lambda x (print (sxml:string-value x)) ()))
-                     (*default* . ,(lambda x x))))
-                (when vverbose
-                  (call-with-output-file debug-file
-                    (lambda (out)
-                      (write debug-sxml out))))))))))))
+              (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml))))
+          :encoding 'euc-jp)))))
 
 (define prefix #f)
 (define verbose #f)
-(define vverbose #f)
 (define debug #f)
 (define notfound (alist->hash-table (car (file->sexp-list "./notfound.scm")) 'string=?))
 (define texinfo-nodes-table (make-texinfo-nodes-table))
 
-
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
-       (vv     "vv|vverbose")
        (d      "debug")
        (p      "p|prefix=s" (build-path (current-directory) "texi"))
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! prefix p)
     (set! verbose v)
-    (set! vverbose vv)
     (set! debug d)
     (if debug
       (let1 sxml (car (file->sexp-list "./order.scm"))

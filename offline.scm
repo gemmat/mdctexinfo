@@ -3,6 +3,7 @@
 (use file.util)
 (use rfc.uri)
 (use gauche.parseopt)
+(use gauche.charconv)
 (use sxml.sxpath)
 (use sxml.ssax)
 (use sxml.tools)
@@ -267,7 +268,8 @@
           ,@ssax:predefined-parsed-entities)))
 
 (define verbose  #f)
-(define prefix   #f)
+(define prefix   "/hoge/out")
+(define debug    #f)
 
 (define (remove-useless-elements! sxml)
   (for-each (lambda (obj)
@@ -345,44 +347,123 @@
                 (sxml:change-content! obj '(""))))
             ((sxpath '(// xhtml:div)) sxml)))
 
-;;downcase and replace characters which confuse the texinfo system.
-(define (path-filter path)
-  (regexp-replace-all* (string-downcase path)
-                       #/@|,|:|\'|\"|%3a/ "_"))
+(define resolve-uri-cache (make-hash-table 'string=?))
 
 (define (resolve-uri base uri)
-  (receive (scheme _ host _ path query fragment) (uri-parse uri)
-    (and path
-         (uri-compose
-          :scheme   (or scheme "https")
-          :host     (or host "developer.mozilla.org")
-          :path     (path-filter (if (relative-path? path)
-                                   (simplify-path (build-path base path))
-                                   path))
-          :query    query
-          :fragment fragment))))
+  (define key (string-append base uri))
+  (define (cache result)
+    (hash-table-put! offline-uri-cache key result)
+    result)
+
+  ;;Test1   "window.html"
+  ;;Expect1 "https://developer.mozilla.org/en/DOM/window"
+  ;;Test2   "https://developer.mozilla.org/en/About"
+  ;;Expect2 "https://developer.mozilla.org/en/About"
+
+  (if (hash-table-exists? resolve-uri-cache key)
+    (hash-table-get resolve-uri-cache key)
+    (cache
+     (receive (scheme _ host _ path query fragment) (uri-parse uri)
+       (and path
+            (uri-compose
+             :scheme   (or scheme "https")
+             :host     (or host "developer.mozilla.org")
+             :path     (if (relative-path? path)
+                         (let* ((r (simplify-path (build-path base path)))
+                                (ext (path-extension r)))
+                           (if (string=? ext "html")
+                             (path-sans-extension r)
+                             r))
+                         path)
+             :query    query
+             :fragment fragment))))))
+
+(define (path-filter path)
+  ;;downcase and replace characters which confuse the texinfo system.
+  ;;A period can confuse the Texinfo but we are going to work it at replace-period-except-html-extension
+  (define (replace str)
+    (regexp-replace-all #/@|,|:|\'|\"|%3a/ str "_"))
+
+  (replace (string-downcase path)))
+
+(define offline-uri-cache (make-hash-table 'string=?))
+
+(define (offline-uri uri)
+  (define (cache result)
+    (hash-table-put! offline-uri-cache uri result)
+    result)
+  ;;Test   "http://developer.mozilla.org/en/DOM/window.returnValue"
+  ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/en/dom/window.returnvalue.html"
+  ;;Test   "http://developer.mozilla.org/en/DOM/About"
+  ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/en/dom/about.html"
+  ;;Test   "http://developer.mozilla.org/en/HTML"
+  ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/en/html.html"
+  ;;Test   "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/en/DOM/Window.html"
+  ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/en/dom/window.html"
+  ;;Test   "http://developer.mozilla.org/"
+  ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/"
+  ;;Test   "http://developer.mozilla.org/skins/common/css.php"
+  ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/skins/common/css.php"
+  (if (hash-table-exists? offline-uri-cache uri)
+    (hash-table-get offline-uri-cache uri)
+    (cache
+     (receive (scheme _ host _ path query fragment) (uri-parse uri)
+       (if (and scheme host path)
+         (if (and (string=? scheme "https")
+                  (string=? host   "developer.mozilla.org"))
+           (uri-compose
+            :scheme   "file"
+            :host     (build-path prefix "developer.mozilla.org")
+            :path     (rxmatch-cond
+                        ((#/^\/skins|deki\// path)
+                         (#f)
+                         path)
+                        ((#/^\/$/ path)
+                         (#f)
+                         path)
+                        (else
+                         (string-append (path-filter path) ".html")))
+            :query    query
+            :fragment fragment)
+           (uri-compose
+            :scheme   scheme
+            :host     host
+            :path     (rxmatch-cond
+                        ((#/(.*\/)developer\.mozilla\.org(\/.*)/ path)
+                         (#f before after)
+                         (string-append before "developer.mozilla.org" (path-filter after)))
+                        (else
+                         (path-filter path)))
+            :query    query
+            :fragment fragment))
+         #f)))))
+
+
+(define replace-period-except-html-extension-cache (make-hash-table 'string=?))
+
+(define (replace-period-except-html-extension uri)
+  (define (cache result)
+    (hash-table-put! replace-period-except-html-extension-cache uri result)
+    result)
+
+  (if (hash-table-exists? replace-period-except-html-extension-cache uri)
+    (hash-table-get replace-period-except-html-extension-cache uri)
+    (cache (rxmatch-cond
+             ((#/(.*\/)developer\.mozilla\.org(\/.*)\.html$/ uri)
+              (#f before after)
+              (string-append before "developer.mozilla.org" (regexp-replace-all #/\./ after "_") ".html"))
+             ((#/(.*)\.html$/ uri)
+              (#f after)
+              (string-append (regexp-replace-all #/\./ after "_") ".html"))
+             (else
+               uri)))))
 
 (define (process-links! base sxml)
-  (define (append-extension path)
-    (if (path-extension path)
-      path
-      (path-swap-extension path "html")))
-
-  (define myhost (build-path prefix "developer.mozilla.org"))
   (for-each (lambda (obj)
-              (and-let* ((rslv-uri (resolve-uri base (sxml:string-value obj))))
-                (receive (scheme _ host _ path query fragment) (uri-parse rslv-uri)
-                  (and-let* (((and scheme host path))
-                             ((string=? scheme "https"))
-                             ((string=? host   "developer.mozilla.org")))
-                    (sxml:change-content!
-                     obj
-                     `(,(uri-compose
-                         :scheme   "file"
-                         :host     myhost
-                         :path     (append-extension path)
-                         :query    query
-                         :fragment fragment)))))))
+              (and-let* ((uria (resolve-uri base (sxml:string-value obj)))
+                         (urib (offline-uri uria))
+                         (uri  (replace-period-except-html-extension urib)))
+                (sxml:change-content! obj `(,uri))))
             ((sxpath '(// @ href)) sxml)))
 
 (define (MDC-xhtml->sxml path)
@@ -401,37 +482,47 @@
         (ssax:xml->sxml in '((xhtml . "http://www.w3.org/1999/xhtml")))))))
 
 (define (process! path)
-  (define (save-to path)
-    (let1 save-path (build-path prefix (path-filter path))
-      (receive (save-dir _ _) (decompose-path save-path)
-        (values save-dir save-path))))
-  (define base (rxmatch-if (#/developer\.mozilla\.org(.*)/ path)
-                   (#f x)
-                   (sys-dirname x)
-                   #f))
+  (define (solve path)
+    (rxmatch-cond 
+      ((#/developer\.mozilla\.org\/(.*)\/(.*)$/ path)
+       (#f base after)
+       (values base
+               (build-path prefix "developer.mozilla.org" (regexp-replace-all #/\./ (path-filter base) "_")
+                           (replace-period-except-html-extension (path-filter after)))))
+      ((#/developer\.mozilla\.org\/(.*)$/ path)
+       (#f after)
+       (values "/"
+               (build-path prefix "developer.mozilla.org"
+                           (replace-period-except-html-extension (path-filter after)))))
+      (else
+       (error "oops." path))))
 
-  (when verbose (print path))
-  (let1 sxml (MDC-xhtml->sxml path)
-    (remove-useless-elements! sxml)
-    (remove-elements-confuse-serializer! sxml)
-    (process-links! base sxml)
-    (expand-div! sxml)
-    (receive (save-dir save-path) (save-to path)
-      (create-directory* save-dir)
-      (call-with-output-file save-path
-        (lambda (out)
-          (call-with-input-string (format-sxml-to-string sxml)
-            (lambda (in)
-              (copy-port in out))))))))
+  (receive (base save-path) (solve path)
+    (unless (and debug (file-exists? save-path))
+      (when verbose (print save-path))
+      (let1 sxml (MDC-xhtml->sxml path)
+        (remove-useless-elements! sxml)
+        (remove-elements-confuse-serializer! sxml)
+        (process-links! base sxml)
+        (expand-div! sxml)
+        (create-directory* (sys-dirname save-path))
+        (call-with-output-file save-path
+          (lambda (out)
+            (call-with-input-string (format-sxml-to-string sxml)
+              (lambda (in)
+                (copy-port in out))))
+          :encoding 'utf-8)))))
 
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
        (p      "p|prefix=s" (build-path (current-directory) "out"))
+       (d      "d|debug")
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! verbose v)
     (set! prefix  p)
+    (set! debug   d)
     (for-each process! (filter file-is-regular? restargs)))
   0)
 
