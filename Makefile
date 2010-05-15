@@ -35,31 +35,31 @@ includes :
 	$(GOSH) $(INCLUDES_SCM) -t ./order.scm > includes.texi
 
 info:
-	$(MAKEINFO) --error-limit=3000 ultima.texi 2> err
+	$(MAKEINFO) --error-limit=3000 ultimate.texi 2> err
 
 htmls:
-	$(TEXI2HTML) --init-file ja-init.pl --split=section ultima.texi
+	$(TEXI2HTML) --init-file ja-init.pl --split=section ultimate.texi
 
 euc_jp_texi:
-	find includes.texi ultima.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp
+	find includes.texi ultimate.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp
 	@echo "Successfully converted character encodings from utf8 to euc_jp."
-	@echo "Please edit euc_jp_ultima.texi to write @documentencoding euc-jp and @includes euc_jp_includes.texi"
+	@echo "Please edit euc_jp_ultimate.texi to write @documentencoding euc-jp and @includes euc_jp_includes.texi"
 	@echo "Please edit euc_jp_includes.texi to replace @includes file paths"
 
 sjis_texi:
-	find includes.texi ultima.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=sjis
+	find includes.texi ultimate.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=sjis
 	@echo "Successfully converted character encodings from utf8 to euc_jp."
-	@echo "Please edit sjis_ultima.texi to write @documentencoding sjis and @includes sjis_includes.texi"
+	@echo "Please edit sjis_ultimate.texi to write @documentencoding sjis and @includes sjis_includes.texi"
 	@echo "Please edit sjis_includes.texi to replace @includes file paths"
 
 dvi:
-	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" euc_jp_ultima.texi
+	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" euc_jp_ultimate.texi
 
 pdf: dvi
 	dvipdfmx euc_jp_ultima.dvi
 
 chm:
-	$(TEXI2HTML) --init-file chm.init sjis_ultima.texi
+	$(TEXI2HTML) --init-file chm.init sjis_ultimate.texi
 
 .PHONY: clean
 clean:
