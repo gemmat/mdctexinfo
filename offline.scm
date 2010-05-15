@@ -380,7 +380,7 @@
 
 (define (path-filter path)
   ;;downcase and replace characters which confuse the texinfo system.
-  ;;A period can confuse the Texinfo but we are going to work it at replace-period-except-html-extension
+  ;;A period can confuse the Texinfo but we are going to work it at xml2texi.scm
   (define (replace str)
     (regexp-replace-all #/@|,|:|\'|\"|%3a/ str "_"))
 
@@ -418,51 +418,21 @@
                         ((#/^\/skins|deki\// path)
                          (#f)
                          path)
-                        ((#/^\/$/ path)
-                         (#f)
-                         path)
-                        (else
-                         (string-append (path-filter path) ".html")))
+                        (else (string-append (path-filter path) ".html")))
             :query    query
             :fragment fragment)
            (uri-compose
             :scheme   scheme
             :host     host
-            :path     (rxmatch-cond
-                        ((#/(.*\/)developer\.mozilla\.org(\/.*)/ path)
-                         (#f before after)
-                         (string-append before "developer.mozilla.org" (path-filter after)))
-                        (else
-                         (path-filter path)))
+            :path     (path-filter path)
             :query    query
             :fragment fragment))
          #f)))))
 
-
-(define replace-period-except-html-extension-cache (make-hash-table 'string=?))
-
-(define (replace-period-except-html-extension uri)
-  (define (cache result)
-    (hash-table-put! replace-period-except-html-extension-cache uri result)
-    result)
-
-  (if (hash-table-exists? replace-period-except-html-extension-cache uri)
-    (hash-table-get replace-period-except-html-extension-cache uri)
-    (cache (rxmatch-cond
-             ((#/(.*\/)developer\.mozilla\.org(\/.*)\.html$/ uri)
-              (#f before after)
-              (string-append before "developer.mozilla.org" (regexp-replace-all #/\./ after "_") ".html"))
-             ((#/(.*)\.html$/ uri)
-              (#f after)
-              (string-append (regexp-replace-all #/\./ after "_") ".html"))
-             (else
-               uri)))))
-
 (define (process-links! base sxml)
   (for-each (lambda (obj)
-              (and-let* ((uria (resolve-uri base (sxml:string-value obj)))
-                         (urib (offline-uri uria))
-                         (uri  (replace-period-except-html-extension urib)))
+              (and-let* ((uri (resolve-uri base (sxml:string-value obj)))
+                         (uri (offline-uri uri)))
                 (sxml:change-content! obj `(,uri))))
             ((sxpath '(// @ href)) sxml)))
 
@@ -483,17 +453,16 @@
 
 (define (process! path)
   (define (solve path)
-    (rxmatch-cond 
+    (rxmatch-cond
       ((#/developer\.mozilla\.org\/(.*)\/(.*)$/ path)
        (#f base after)
        (values base
-               (build-path prefix "developer.mozilla.org" (regexp-replace-all #/\./ (path-filter base) "_")
-                           (replace-period-except-html-extension (path-filter after)))))
+               (build-path prefix "developer.mozilla.org" (path-filter base) (path-filter after))))
       ((#/developer\.mozilla\.org\/(.*)$/ path)
        (#f after)
+       ;;just for "developer.mozilla.org/En.html"
        (values "/"
-               (build-path prefix "developer.mozilla.org"
-                           (replace-period-except-html-extension (path-filter after)))))
+               (build-path prefix "developer.mozilla.org" (path-filter after))))
       (else
        (error "oops." path))))
 

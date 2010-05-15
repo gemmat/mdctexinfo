@@ -27,12 +27,13 @@
             ((sxpath '(// chapter item *text*)) sxml)))
 
 (define (main args)
-  (define sxml (car (file->sexp-list "./order.scm")))
   (let-args (cdr args)
       ((t      "t|texi")
        (m      "m|menu")
        . restargs)
-    (cond
-     (t (print-ultimate-include sxml))
-     (m (print-ultimate-menu sxml))
-     (else (print-target-files sxml)))))
+    (let* ((path (car restargs))
+           (sxml (car (file->sexp-list path))))
+      (cond
+       (t (print-ultimate-include sxml))
+       (m (print-ultimate-menu sxml))
+       (else (print-target-files sxml))))))
