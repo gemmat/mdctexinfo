@@ -284,31 +284,29 @@
             (newline (current-error-port)))
           (create-directory* (sys-dirname save-path))
           (with-output-to-file save-path proc :encoding 'utf-8)))))
+  (define (needbrowser)
+    (let1 title (path-sans-extension (sys-basename path))
+      (print "@node " (at-node path))
+      (print "@chapter " title)
+      (print-cindex title)
+      (for-each print (texinfo-menu path))
+      (print "This page requires an Web browser. Please visit "
+             "@uref{"
+             (uri-compose
+              :scheme "file"
+              :path   (build-path (current-directory) path))
+             "," title "," title "}.")))
+  (define (normal)
+    (let ((sxml (load-xml path)))
+      (print "@node "    (at-node path))
+      (print "@chapter " (escape-text (sxml:string-value (getElementById "title" sxml))))
+      (print-cindex (sxml:string-value (getElementById "title" sxml)))
+      (for-each print (texinfo-menu path))
+      (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml))))
 
   (if (hash-table-exists? needbrowser-table (file-path->texinfo-node path))
-    (inner-func
-     path
-     (lambda ()
-       (let1 title (path-sans-extension (sys-basename path))
-         (print "@node " (at-node path))
-         (print "@chapter " title)
-         (print-cindex title)
-         (for-each print (texinfo-menu path))
-         (print "This page requires an Web browser. Please visit "
-                "@uref{"
-                (uri-compose
-                 :scheme "file"
-                 :path   (build-path (current-directory) path))
-                "," title "," title "}."))))
-    (inner-func
-     path
-     (lambda ()
-       (let ((sxml (load-xml path)))
-         (print "@node "    (at-node path))
-         (print "@chapter " (escape-text (sxml:string-value (getElementById "title" sxml))))
-         (print-cindex (sxml:string-value (getElementById "title" sxml)))
-         (for-each print (texinfo-menu path))
-         (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml)))))))
+    (inner-func path needbrowser)
+    (inner-func path normal)))
 
 (define prefix #f)
 (define verbose #f)

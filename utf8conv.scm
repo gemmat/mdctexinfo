@@ -5,6 +5,7 @@
 (define (main args)
   (let-args (cdr args)
       ((encoding "e|encoding=s")
+       (inplace  "i|inplace")
        . restargs)
     (cond
      ((not encoding)
@@ -23,6 +24,8 @@
                         (call-with-output-file dest
                           (lambda (out)
                             (copy-port in out))
-                          :encoding encoding)))))
+                          :encoding encoding)
+                        (when inplace
+                          (move-file dest path :if-exists :supersede))))))
                 restargs)
       0))))

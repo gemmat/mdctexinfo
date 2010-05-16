@@ -26,10 +26,10 @@ order:
 	$(GOSH) $(DOCORDER_SCM) out/developer.mozilla.org/ja > order.scm
 
 xml2texi:
-	$(GOSH) $(INCLUDES_SCM) ./order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./order.scm --notfound=./notfound.scm -v
+	$(GOSH) $(INCLUDES_SCM) ./order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./order.scm --notfound=./notfound.scm --needbrowser=./needbrowser.scm -v
 
 xml2texi-debug:
-	$(GOSH) $(XML2TEXI_SCM) -v  --order=./order.scm --notfound=./notfound.scm --debug
+	$(GOSH) $(XML2TEXI_SCM) -v  --order=./order.scm --notfound=./notfound.scm --needbrowser=./needbrowser.scm --debug
 
 includes :
 	$(GOSH) $(INCLUDES_SCM) -t ./order.scm > includes.texi
@@ -41,29 +41,19 @@ htmls:
 	$(TEXI2HTML) --split=section ultimate.texi
 
 euc_jp_texi:
-	find includes.texi ultimate.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp
+	mkdir euc_jp
+	cp -r includes.texi ultimate.texi texi/ euc_jp/
+	find euc_jp/includes.texi euc_jp/ultimate.texi euc_jp/texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp --inplace
 	@echo "Successfully converted character encodings from utf8 to euc_jp."
-	@echo "Please edit euc_jp_ultimate.texi to write @setfilename,"
-	@echo " @documentencoding euc-jp, and @includes euc_jp_includes.texi"
-	@echo "Please edit euc_jp_includes.texi to replace @includes file paths"
-
-euc_jp_info:
-	$(MAKEINFO) --error-limit=3000 euc_jp_ultimate.texi 2> err
-
-sjis_texi:
-	find includes.texi ultimate.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=sjis
-	@echo "Successfully converted character encodings from utf8 to euc_jp."
-	@echo "Please edit sjis_ultimate.texi to write @documentencoding sjis and @includes sjis_includes.texi"
-	@echo "Please edit sjis_includes.texi to replace @includes file paths"
 
 dvi:
-	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" euc_jp_ultimate.texi
+	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" ultimate.texi
 
 pdf: dvi
-	dvipdfmx euc_jp_ultimate.dvi
+	dvipdfmx ultimate.dvi
 
 chm:
-	$(TEXI2HTML) --init-file chm.init sjis_ultimate.texi
+	$(TEXI2HTML) --init-file chm.init ultimate.texi
 
 test-xml2texi:
 	$(GOSH) $(INCLUDES_SCM) ./core_order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./core_order.scm --notfound=./core_notfound.scm --prefix=/home/teruaki/mdctexinfo/core -v
