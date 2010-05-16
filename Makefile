@@ -29,13 +29,13 @@ xml2texi:
 	$(GOSH) $(INCLUDES_SCM) ./order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./order.scm --notfound=./notfound.scm -v
 
 xml2texi-debug:
-	$(GOSH) $(XML2TEXI_SCM) -v --debug
+	$(GOSH) $(XML2TEXI_SCM) -v  --order=./order.scm --notfound=./notfound.scm --debug
 
 includes :
 	$(GOSH) $(INCLUDES_SCM) -t ./order.scm > includes.texi
 
 info:
-	$(MAKEINFO) --error-limit=3000 ultimate.texi 2> err
+	$(MAKEINFO) --error-limit=50000 ultimate.texi 2> err
 
 htmls:
 	$(TEXI2HTML) --split=section ultimate.texi

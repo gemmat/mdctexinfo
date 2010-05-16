@@ -132,11 +132,12 @@
                      href)))
         (cond
          ((and body (proper-for-cindex? body))
-          `(texinfo (@ (cindex ,body)) ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "}"))
+          `(texinfo (@ (cindex ,body))
+                    ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "," ,body "}."))
          (body
-          `(texinfo ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "}"))
+          `(texinfo ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "," ,body "}."))
          (else
-          `(texinfo ,cmd "{" ,(or link "Top") "}"))))
+          `(texinfo ,cmd "{" ,(or link "Top") "}."))))
       ())))
 
 (define (div node)
@@ -272,7 +273,9 @@
 
   (when (file-is-regular? path)
     (let1 save-path (save-to path)
-      (unless (and debug (file-exists? save-path))
+      (unless (and debug
+                   (file-exists? save-path)
+                   (not (zero? (file-size save-path))))
         (when verbose
           (display path (current-error-port))
           (newline (current-error-port)))
@@ -299,7 +302,7 @@
       ((v      "v|verbose")
        (d      "debug")
        (p      "p|prefix=s" (build-path (current-directory) "texi"))
-       (order  "o|order=s" "./order.scm")
+       (order  "o|order=s"    "./order.scm")
        (notf   "n|notfound=s" "./notfound.scm")
        (help   "h|help" => (cut show-help (car args)))
        . restargs)

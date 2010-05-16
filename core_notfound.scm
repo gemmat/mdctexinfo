@@ -11,6 +11,12 @@
   #f)
  ("ja/components_stack" .
   #f)
+ ("ja/core_javascript_1_5_guide_about" .
+  #f)
+ ("ja/core_javascript_1_5_guide_block_statement" .
+  #f)
+ ("ja/core_javascript_1_5_guide_calling_functions" .
+  #f)
  ("ja/core_javascript_1_5_guide/about/core_language_features" .
   #f)
  ("ja/core_javascript_1_5_guide/eventexception" .
@@ -24,12 +30,6 @@
  ("ja/core_javascript_1_5_guide/referenceerror" .
   #f)
  ("ja/core_javascript_1_5_guide/urierror" .
-  #f)
- ("ja/core_javascript_1_5_guide_about" .
-  #f)
- ("ja/core_javascript_1_5_guide_block_statement" .
-  #f)
- ("ja/core_javascript_1_5_guide_calling_functions" .
   #f)
  ("ja/core_javascript_1_5_guide_class-based_vs__prototype-based_languages" .
   #f)
@@ -1190,8 +1190,6 @@
  ("user_nickolay" .
   #f)
  ("xul" .
-  #f)
- ("ja/core_javascript_1_5_guide_about" .
   #f)
  ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments" .
   #f)
