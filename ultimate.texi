@@ -676,6 +676,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/microsummary_topics ::
 * ja/microsummary_xml_grammar_reference ::
 * ja/midas ::
+* ja/migrate_apps_from_internet_explorer_to_mozilla ::
 * ja/migrating_from_internal_linkage_to_frozen_linkage ::
 * ja/migrating_raw_components_to_add-ons ::
 * ja/migration_plan ::
@@ -762,6 +763,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/multi-process_architecture ::
 * ja/multiple_item_packaging ::
 * ja/multithreading_in_necko ::
+* ja/my_chrome_oven ::
 * ja/myrules_mk ::
 * ja/namespaces ::
 * ja/nanojit ::
@@ -1022,6 +1024,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/nsidomfilelist ::
 * ja/nsidomfilereader ::
 * ja/nsidomgeopositionaddress ::
+* ja/nsidomhtmlmediaelement ::
 * ja/nsidommousescrollevent ::
 * ja/nsidomofflineresourcelist ::
 * ja/nsidomsimplegestureevent ::
@@ -1690,6 +1693,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/table_layout_regression_tests ::
 * ja/table_layout_strategy ::
 * ja/table_of_errors ::
+* ja/table_reflow_internals ::
 * ja/tamarin ::
 * ja/tamarin_build_documentation ::
 * ja/tamarin_tracing_build_documentation ::

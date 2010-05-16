@@ -1,7 +1,7 @@
 (use srfi-1)
 (use srfi-13)
-(use util.list) ;;alist->hash-table
 (use file.util)
+(use rfc.uri)
 (use gauche.parseopt)
 (use sxml.ssax)
 (use sxml.sxpath)
@@ -257,8 +257,6 @@
      (*text*    . ,(lambda (tag text) text))
      (*default* . ,(lambda x x)))))
 
-(use rfc.uri)
-
 (define (process path)
   (define (print-cindex str)
     (when (proper-for-cindex? str)
@@ -296,7 +294,7 @@
          (print "@chapter " title)
          (print-cindex title)
          (for-each print (texinfo-menu path))
-         (print "This page requires an WWW browser. Please visit "
+         (print "This page requires an Web browser. Please visit "
                 "@uref{"
                 (uri-compose
                  :scheme "file"

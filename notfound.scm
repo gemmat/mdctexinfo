@@ -6560,7 +6560,6 @@
  ("ja/svg_attribute_y1" . #f)
  ("ja/svg_attribute_y2" . #f)
  ("ja/tabbox" . #f)
- ("ja/table_reflow_internals" . #f)
  ("ja/tamarin/tamarin_releases/tamarin-central_rev_703_2cee46be9ce0" . #f)
  ("ja/the_data_url_scheme" . #f)
  ("ja/the_importance_of_correct_commenting" . #f)
@@ -6997,4 +6996,30 @@
  ("web-tech/2008/08/20/css-21-generated-content" . #f)
  ("web-tech/2008/08/20/word-wrap-break-word" . #f)
  ("ja/devnews/20090120" . #f)
+ ("ja/css/getting_started/what_is_css%3f" .
+  "ja/css/getting_started/what_is_css")
+ ("ja/css/getting_started/why_use_css%3f" .
+  "ja/css/getting_started/why_use_css")
+ ("ja/devnews/20080812/about_/devnews/index_php/2008/08/10/aboutmobile-fennec-m6-windows-mobile-and-more" .
+  #f)
+ ("ja/devnews_20060627" .
+  #f)
+ ("ja/devnews_20060831" .
+  #f)
+ ("ja/devnews_20060926" .
+  #f)
+ ("ja/devnews_20061006" .
+  #f)
+ ("ja/devnews_20061016" .
+  #f)
+ ("ja/devnews_20071022" .
+  #f)
+ ("ja/devnews_20071107" .
+  #f)
+ ("ja/devnews_20071119" .
+  #f)
+ ("ja/devnews/20071126-2" .
+  "ja/devnews/20071126")
+ ("ja/devnews_20071126-2" .
+  "ja/devnews/20071126")
 )
