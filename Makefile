@@ -26,7 +26,7 @@ order:
 	$(GOSH) $(DOCORDER_SCM) out/developer.mozilla.org/ja > order.scm
 
 xml2texi:
-	$(GOSH) $(INCLUDES_SCM) | xargs $(GOSH) $(XML2TEXI_SCM) --order=./order.scm --notfound=./notfound.scm -v
+	$(GOSH) $(INCLUDES_SCM) ./order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./order.scm --notfound=./notfound.scm -v
 
 xml2texi-debug:
 	$(GOSH) $(XML2TEXI_SCM) -v --debug
@@ -38,13 +38,17 @@ info:
 	$(MAKEINFO) --error-limit=3000 ultimate.texi 2> err
 
 htmls:
-	$(TEXI2HTML) --init-file ja-init.pl --split=section ultimate.texi
+	$(TEXI2HTML) --split=section ultimate.texi
 
 euc_jp_texi:
 	find includes.texi ultimate.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp
 	@echo "Successfully converted character encodings from utf8 to euc_jp."
-	@echo "Please edit euc_jp_ultimate.texi to write @documentencoding euc-jp and @includes euc_jp_includes.texi"
+	@echo "Please edit euc_jp_ultimate.texi to write @setfilename,"
+	@echo " @documentencoding euc-jp, and @includes euc_jp_includes.texi"
 	@echo "Please edit euc_jp_includes.texi to replace @includes file paths"
+
+euc_jp_info:
+	$(MAKEINFO) --error-limit=3000 euc_jp_ultimate.texi 2> err
 
 sjis_texi:
 	find includes.texi ultimate.texi texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=sjis
@@ -56,7 +60,7 @@ dvi:
 	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" euc_jp_ultimate.texi
 
 pdf: dvi
-	dvipdfmx euc_jp_ultima.dvi
+	dvipdfmx euc_jp_ultimate.dvi
 
 chm:
 	$(TEXI2HTML) --init-file chm.init sjis_ultimate.texi
@@ -66,7 +70,7 @@ clean:
 	rm -rf out/developer.mozilla.org/en/
 	rm -rf out/developer.mozilla.org/ja/
 	rm -rf texi/
-	rm -f  ultima.info*
+	rm -f  ultimate.info*
 
 clean-merge:
 	find out/developer.mozilla.org/ja -name "*.html" -print0 | xargs -0 fgrep -l "not_yet_translated" | xargs rm

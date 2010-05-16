@@ -1,22 +1,19 @@
-(use srfi-1)
-(use srfi-13)
 (use file.util)
-(use rfc.uri)
 (use gauche.parseopt)
-(use sxml.ssax)
 (use sxml.sxpath)
 (use sxml.tools)
 (use sxml.tree-trans)
 (use sxml.serializer)
-(use text.html-lite)
 
 (load "./common.scm")
 
-(define (change-lang-from-en-to-ja str)
+(define (***change-lang-from-en-to-ja str)
   (rxmatch-if (#/(.*\/developer\.mozilla\.org\/)en(\/.*)/ str)
       (#f before after)
       (string-append before "ja" after)
       #f))
+
+(define change-lang-from-en-to-ja (memoize ***change-lang-from-en-to-ja))
 
 (define (ahref node)
   (and-let* ((href (sxml:attr node 'href))

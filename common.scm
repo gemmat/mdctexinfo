@@ -1,5 +1,4 @@
-(use text.html-lite)
-(use sxml.tree-trans)
+(use sxml.ssax)
 
 (define (load-xml path)
   (call-with-input-file path
@@ -18,3 +17,16 @@
    #/xmlns:xhtml/
    "xmlns"
    ))
+
+(define (replace-all-period-to-underscore str)
+  (regexp-replace-all #/\./ str "_"))
+
+(define-syntax memoize
+  (syntax-rules ()
+    ((_ fn)
+     (let1 ht (make-hash-table 'equal?)
+       (lambda args
+         (if (hash-table-exists? ht args)
+           (hash-table-get ht args)
+           (rlet1 result (apply fn args)
+             (hash-table-put! ht args result))))))))

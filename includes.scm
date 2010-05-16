@@ -3,11 +3,15 @@
 (use sxml.sxpath)
 (use gauche.parseopt)
 
+(load "./common.scm")
+
 (define (print-ultimate-include sxml)
   (define (traverse l)
     (for-each (lambda (x)
                 (if (eq? 'item (sxml:name x))
-                  (print "@include texi/developer.mozilla.org/" (sxml:string-value x) ".texi")
+                  (print "@include texi/developer.mozilla.org/"
+                         (replace-all-period-to-underscore (sxml:string-value x))
+                         ".texi")
                   (begin
                     (print "@lowersections")
                     (traverse (sxml:child-nodes x))
@@ -36,4 +40,5 @@
       (cond
        (t (print-ultimate-include sxml))
        (m (print-ultimate-menu sxml))
-       (else (print-target-files sxml))))))
+       (else (print-target-files sxml)))))
+  0)
