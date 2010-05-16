@@ -129,15 +129,20 @@
              (cmd  (if internal? "@ref" "@uref"))
              (link (if internal?
                      (file-path->texinfo-node (trim-fragment href))
-                     href)))
+                     href))
+             (aux  (if link "" "(404)"))
+             (link (cond
+                    ((not link) "Top")
+                    ((string=? "" link) "Top")
+                    (else link))))
         (cond
          ((and body (proper-for-cindex? body))
           `(texinfo (@ (cindex ,body))
-                    ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "," ,body "}."))
+                    ,cmd "{" ,link "," ,body ,aux "," ,body "}."))
          (body
-          `(texinfo ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "," ,body "}."))
+          `(texinfo ,cmd "{" ,link "," ,body ,aux "," ,body "}."))
          (else
-          `(texinfo ,cmd "{" ,(or link "Top") "}."))))
+          `(texinfo ,cmd "{" ,link "}."))))
       ())))
 
 (define (div node)
@@ -176,7 +181,7 @@
 (define-class <texinfo-node> ()
   (self next prev up (children :init-value ())))
 
-(define (make-texinfo-nodes-table)
+(define (make-texinfo-nodes-table order-scm)
   (define (replace-all-period-to-underscore-of-items sxml)
     (pre-post-order
      sxml
@@ -252,49 +257,67 @@
      (*text*    . ,(lambda (tag text) text))
      (*default* . ,(lambda x x)))))
 
+(use rfc.uri)
+
 (define (process path)
+  (define (print-cindex str)
+    (when (proper-for-cindex? str)
+      (print "@cindex " (escape-text str))))
   (define (save-to path)
     (rxmatch-if (#/developer\.mozilla\.org\/(.*)\.html$/ path)
         (#f x)
         (build-path prefix "developer.mozilla.org"
                     (string-append (replace-all-period-to-underscore x) ".texi"))
         (error "oops." path)))
-
   (define (at-node path)
     (let* ((node (file-path->texinfo-node path))
            (obj (hash-table-get texinfo-nodes-table node)))
       (string-join (map (cut slot-ref obj <>)
                         '(self next prev up))
                    ",")))
+  (define (inner-func path proc)
+    (when (file-is-regular? path)
+      (let1 save-path (save-to path)
+        (unless (and debug
+                     (file-exists? save-path)
+                     (not (zero? (file-size save-path))))
+          (when verbose
+            (display path (current-error-port))
+            (newline (current-error-port)))
+          (create-directory* (sys-dirname save-path))
+          (with-output-to-file save-path proc :encoding 'utf-8)))))
 
-  (define (print-cindex str)
-    (when (proper-for-cindex? str)
-      (print "@cindex " (escape-text str))))
-
-  (when (file-is-regular? path)
-    (let1 save-path (save-to path)
-      (unless (and debug
-                   (file-exists? save-path)
-                   (not (zero? (file-size save-path))))
-        (when verbose
-          (display path (current-error-port))
-          (newline (current-error-port)))
-        (create-directory* (sys-dirname save-path))
-        (with-output-to-file save-path
-          (lambda ()
-            (let ((sxml (load-xml path)))
-              (print "@node " (at-node path))
-              (print "@chapter " (escape-text (sxml:string-value (getElementById "title" sxml))))
-              (print-cindex (sxml:string-value (getElementById "title" sxml)))
-              (for-each print (texinfo-menu path))
-              (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml))))
-          :encoding 'utf-8)))))
+  (if (hash-table-exists? needbrowser-table (file-path->texinfo-node path))
+    (inner-func
+     path
+     (lambda ()
+       (let1 title (path-sans-extension (sys-basename path))
+         (print "@node " (at-node path))
+         (print "@chapter " title)
+         (print-cindex title)
+         (for-each print (texinfo-menu path))
+         (print "This page requires an WWW browser. Please visit "
+                "@uref{"
+                (uri-compose
+                 :scheme "file"
+                 :path   (build-path (current-directory) path))
+                "," title "," title "}."))))
+    (inner-func
+     path
+     (lambda ()
+       (let ((sxml (load-xml path)))
+         (print "@node "    (at-node path))
+         (print "@chapter " (escape-text (sxml:string-value (getElementById "title" sxml))))
+         (print-cindex (sxml:string-value (getElementById "title" sxml)))
+         (for-each print (texinfo-menu path))
+         (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml)))))))
 
 (define prefix #f)
 (define verbose #f)
 (define debug #f)
 (define order-scm #f)
-(define notfound-table #f)
+(define notfound-table    (make-hash-table 'string=?))
+(define needbrowser-table (make-hash-table 'string=?))
 (define texinfo-nodes-table #f)
 
 (define (main args)
@@ -304,18 +327,23 @@
        (p      "p|prefix=s" (build-path (current-directory) "texi"))
        (order  "o|order=s"    "./order.scm")
        (notf   "n|notfound=s" "./notfound.scm")
+       (brow   "b|needbrowser=s" "./needbrowser.scm")
        (help   "h|help" => (cut show-help (car args)))
        . restargs)
     (set! prefix p)
     (set! verbose v)
     (set! debug d)
     (set! order-scm (car (file->sexp-list order)))
-    (set! notfound-table (alist->hash-table (car (file->sexp-list notf)) 'string=?))
-    (set! texinfo-nodes-table (make-texinfo-nodes-table))
+    (for-each (lambda (x)
+                (hash-table-put! notfound-table (car x) (cdr x)))
+              (car (file->sexp-list notf)))
+    (for-each (lambda (x)
+                (hash-table-put! needbrowser-table x #t))
+              (car (file->sexp-list brow)))
+    (set! texinfo-nodes-table (make-texinfo-nodes-table order-scm))
     (if debug
       (for-each (lambda (text)
-                  (let1 src (string-append "out/developer.mozilla.org/" text ".html") 
-                    (process src)))
+                  (process (string-append "out/developer.mozilla.org/" text ".html")))
                 ((sxpath '(// item *text*)) order-scm))
       (for-each process restargs)))
   0)

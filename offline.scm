@@ -148,20 +148,24 @@
   ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/"
   ;;Test   "http://developer.mozilla.org/skins/common/css.php"
   ;;Expect "file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/skins/common/css.php"
+  ;;Test   "http://developer.mozilla.org/#hoge"
+  ;;Expect "#hoge"
   (receive (scheme _ host _ path query fragment) (uri-parse uri)
     (if (and scheme host path)
       (if (and (string=? scheme "https")
                (string=? host   "developer.mozilla.org"))
-        (uri-compose
-         :scheme   "file"
-         :host     (build-path prefix "developer.mozilla.org")
-         :path     (rxmatch-cond
-                     ((#/^\/skins|deki\// path)
-                      (#f)
-                      path)
-                     (else (string-append (path-filter path) ".html")))
-         :query    query
-         :fragment fragment)
+        (if (string=? path "/")
+          (and fragment (string-append "#" fragment))
+          (uri-compose
+           :scheme   "file"
+           :host     (build-path prefix "developer.mozilla.org")
+           :path     (rxmatch-cond
+                       ((#/^\/skins|deki\// path)
+                        (#f)
+                        path)
+                       (else (string-append (path-filter path) ".html")))
+           :query    query
+           :fragment fragment))
         (uri-compose
          :scheme   scheme
          :host     host

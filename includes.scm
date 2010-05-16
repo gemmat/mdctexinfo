@@ -27,7 +27,7 @@
 
 (define (print-ultimate-menu sxml)
   (for-each (lambda (text)
-              (print "* " text " ::"))
+              (print "* " (replace-all-period-to-underscore text) " ::"))
             ((sxpath '(// chapter item *text*)) sxml)))
 
 (define (main args)

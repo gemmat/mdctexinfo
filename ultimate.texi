@@ -517,6 +517,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/how_to_update_extensions_for_firefox_1_5 ::
 * ja/html ::
 * ja/html_element_cross_reference ::
+* ja/http_access_control ::
 * ja/http_caching_faq ::
 * ja/http_class_overview ::
 * ja/http_delegation ::
@@ -1054,6 +1055,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/nsifileoutputstream ::
 * ja/nsiglobalhistory2 ::
 * ja/nsiglobalhistory3 ::
+* ja/nsihttpactivitydistributor ::
 * ja/nsihttpactivityobserver ::
 * ja/nsihttpheadervisitor ::
 * ja/nsiidleservice ::
@@ -1079,6 +1081,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/nsinavhistoryresult ::
 * ja/nsinavhistoryresultnode ::
 * ja/nsinavhistoryresulttreeviewer ::
+* ja/nsinavhistoryresultviewer ::
 * ja/nsinavhistoryresultviewobserver ::
 * ja/nsinavhistoryservice ::
 * ja/nsinavhistoryvisitresultnode ::
