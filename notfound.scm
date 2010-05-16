@@ -1,270 +1,243 @@
 (
- ("ja" .
-  "Top")
- ("en/new_in_javascript_1_6" .
-  "ja/new_in_javascript_1_6")
- ("en/new_in_javascript_1_8" .
-  "ja/new_in_javascript_1_8")
- ("en/gecko_dom_reference/examples" .
-  "ja/gecko_dom_reference/examples")
- ("jadom/attr" .
-  "ja/dom/attr")
- ("jadom/cdatasection" .
-  "ja/dom/cdatasection")
- ("jadom/characterdata" .
-  "ja/dom/characterdata")
- ("jadom/comment" .
-  "ja/dom/comment")
- ("jadom/documentfragment" .
-  "ja/dom/documentfragment")
- ("jadom/documenttype" .
-  "ja/dom/documenttype")
- ("jadom/domconfiguration" .
-  "ja/dom/domconfiguration")
- ("jadom/domerror" .
-  "ja/dom/domerror")
- ("jadom/domerrorhandler" .
-  "ja/dom/domerrorhandler")
- ("jadom/domexception" .
-  "ja/dom/domexception")
- ("jadom/domimplementation" .
-  "ja/dom/domimplementation")
- ("jadom/domimplementationlist" .
-  "ja/dom/domimplementationlist")
- ("jadom/domimplementationregistry" .
-  "ja/dom/domimplementationregistry")
- ("jadom/domimplementationsource" .
-  "ja/dom/domimplementationsource")
- ("jadom/domlocator" .
-  "ja/dom/domlocator")
- ("jadom/domobject" .
-  "ja/dom/domobject")
- ("jadom/domstring" .
-  "ja/dom/domstring")
- ("jadom/domstringlist" .
-  "ja/dom/domstringlist")
- ("jadom/domtimestamp" .
-  "ja/dom/domtimestamp")
- ("jadom/domuserdata" .
-  "ja/dom/domuserdata")
- ("jadom/entity" .
-  "ja/dom/entity")
- ("jadom/entityreference" .
-  "ja/dom/entityreference")
- ("jadom/namednodemap" .
-  "ja/dom/namednodemap")
- ("jadom/namelist" .
-  "ja/dom/namelist")
- ("jadom/node" .
-  "ja/dom/node")
- ("jadom/nodelist" .
-  "ja/dom/nodelist")
- ("jadom/notation" .
-  "ja/dom/notation")
- ("jadom/processinginstruction" .
-  "ja/dom/processinginstruction")
- ("jadom/sharedworker" .
-  "ja/dom/sharedworker")
- ("jadom/text" .
-  "ja/dom/text")
- ("jadom/typeinfo" .
-  "ja/dom/typeinfo")
- ("jadom/userdatahandler" .
-  "ja/dom/userdatahandler")
- ("jadom/worker" .
-  "ja/dom/worker")
- ("ja/core_javascript_1_5_reference/global_objects/object/__definegetter" .
-  "ja/core_javascript_1_5_reference/global_objects/object/definegetter")
- ("ja/core_javascript_1_5_reference/global_objects/object/__definesetter" .
-  "ja/core_javascript_1_5_reference/global_objects/object/definesetter")
- ("ja/core_javascript_1_5_reference/global_objects/object/__lookupgetter" .
-  "ja/core_javascript_1_5_reference/global_objects/object/lookupgetter")
- ("ja/core_javascript_1_5_reference/global_objects/object/__lookupsetter" .
-  "ja/core_javascript_1_5_reference/global_objects/object/lookupsetter")
- ("ja/core_javascript_1_5_reference/global_objects/object/__nosuchmethod" .
-  "ja/core_javascript_1_5_reference/global_objects/object/nosuchmethod")
- ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments" .
-  "ja/core_javascript_1_5_reference/functions/arguments")
- ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/length" .
-  "ja/core_javascript_1_5_reference/functions/arguments/length")
- ("ja/core_javascript_1_5_reference/global_functions/array" .
-  "ja/core_javascript_1_5_reference/global_objects/array")
- ("ja/core_javascript_1_5_reference/global_functions/boolean" .
-  "ja/core_javascript_1_5_reference/global_objects/boolean")
- ("ja/core_javascript_1_5_reference/global_functions/date" .
-  "ja/core_javascript_1_5_reference/global_objects/date")
- ("ja/core_javascript_1_5_reference/global_functions/error" .
-  "ja/core_javascript_1_5_reference/global_objects/error")
- ("ja/core_javascript_1_5_reference/global_functions/evalerror" .
-  "ja/core_javascript_1_5_reference/global_objects/evalerror")
- ("ja/core_javascript_1_5_reference/global_functions/function" .
-  "ja/core_javascript_1_5_reference/global_objects/function")
- ("ja/core_javascript_1_5_reference/global_functions/number" .
-  "ja/core_javascript_1_5_reference/global_objects/number")
- ("ja/core_javascript_1_5_reference/global_functions/object" .
-  "ja/core_javascript_1_5_reference/global_objects/object")
- ("ja/core_javascript_1_5_reference/global_functions/rangeerror" .
-  "ja/core_javascript_1_5_reference/global_objects/rangeerror")
- ("ja/core_javascript_1_5_reference/global_functions/referenceerror" .
-  "ja/core_javascript_1_5_reference/global_objects/referenceerror")
- ("ja/core_javascript_1_5_reference/global_functions/regexp" .
-  "ja/core_javascript_1_5_reference/global_objects/regexp")
- ("ja/core_javascript_1_5_reference/global_functions/string" .
-  "ja/core_javascript_1_5_reference/global_objects/string")
- ("ja/core_javascript_1_5_reference/global_functions/syntaxerror" .
-  "ja/core_javascript_1_5_reference/global_objects/syntaxerror")
- ("ja/core_javascript_1_5_reference/global_functions/typeerror" .
-  "ja/core_javascript_1_5_reference/global_objects/typeerror")
- ("ja/core_javascript_1_5_reference/global_functions/urierror" .
-  "ja/core_javascript_1_5_reference/global_objects/urierror")
- ("ja/core_javascript_1_5_reference/objects/array/length" .
-  "ja/core_javascript_1_5_reference/global_objects/array/length")
- ("ja/core_javascript_1_5_reference/objects/date" .
-  "ja/core_javascript_1_5_reference/global_objects/date")
- ("ja/core_javascript_1_5_reference/objects/date/getdate" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getdate")
- ("ja/core_javascript_1_5_reference/objects/date/getday" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getday")
- ("ja/core_javascript_1_5_reference/objects/date/getfullyear" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getfullyear")
- ("ja/core_javascript_1_5_reference/objects/date/gethours" .
-  "ja/core_javascript_1_5_reference/global_objects/date/gethours")
- ("ja/core_javascript_1_5_reference/objects/date/getmilliseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getmilliseconds")
- ("ja/core_javascript_1_5_reference/objects/date/getminutes" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getminutes")
- ("ja/core_javascript_1_5_reference/objects/date/getmonth" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getmonth")
- ("ja/core_javascript_1_5_reference/objects/date/getseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getseconds")
- ("ja/core_javascript_1_5_reference/objects/date/gettime" .
-  "ja/core_javascript_1_5_reference/global_objects/date/gettime")
- ("ja/core_javascript_1_5_reference/objects/date/getutcdate" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcdate")
- ("ja/core_javascript_1_5_reference/objects/date/getutcday" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcday")
- ("ja/core_javascript_1_5_reference/objects/date/getutcfullyear" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcfullyear")
- ("ja/core_javascript_1_5_reference/objects/date/getutchours" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutchours")
- ("ja/core_javascript_1_5_reference/objects/date/getutcmilliseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcmilliseconds")
- ("ja/core_javascript_1_5_reference/objects/date/getutcminutes" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcminutes")
- ("ja/core_javascript_1_5_reference/objects/date/getutcmonth" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcmonth")
- ("ja/core_javascript_1_5_reference/objects/date/getutcseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getutcseconds")
- ("ja/core_javascript_1_5_reference/objects/date/getyear" .
-  "ja/core_javascript_1_5_reference/global_objects/date/getyear")
- ("ja/core_javascript_1_5_reference/objects/date/setdate" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setdate")
- ("ja/core_javascript_1_5_reference/objects/date/setfullyear" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setfullyear")
- ("ja/core_javascript_1_5_reference/objects/date/sethours" .
-  "ja/core_javascript_1_5_reference/global_objects/date/sethours")
- ("ja/core_javascript_1_5_reference/objects/date/setmilliseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setmilliseconds")
- ("ja/core_javascript_1_5_reference/objects/date/setminutes" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setminutes")
- ("ja/core_javascript_1_5_reference/objects/date/setmonth" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setmonth")
- ("ja/core_javascript_1_5_reference/objects/date/setseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setseconds")
- ("ja/core_javascript_1_5_reference/objects/date/setutcdate" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutcdate")
- ("ja/core_javascript_1_5_reference/objects/date/setutcfullyear" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutcfullyear")
- ("ja/core_javascript_1_5_reference/objects/date/setutchours" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutchours")
- ("ja/core_javascript_1_5_reference/objects/date/setutcmilliseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutcmilliseconds")
- ("ja/core_javascript_1_5_reference/objects/date/setutcminutes" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutcminutes")
- ("ja/core_javascript_1_5_reference/objects/date/setutcmonth" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutcmonth")
- ("ja/core_javascript_1_5_reference/objects/date/setutcseconds" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setutcseconds")
- ("ja/core_javascript_1_5_reference/objects/date/setyear" .
-  "ja/core_javascript_1_5_reference/global_objects/date/setyear")
- ("ja/core_javascript_1_5_reference/objects/function" .
-  "ja/core_javascript_1_5_reference/global_objects/function")
- ("ja/core_javascript_1_5_reference/objects/function/apply" .
-  "ja/core_javascript_1_5_reference/global_objects/function/apply")
- ("ja/core_javascript_1_5_reference/objects/function/arguments/length" .
-  "ja/core_javascript_1_5_reference/functions/arguments/length")
- ("ja/core_javascript_1_5_reference/objects/function/call" .
-  "ja/core_javascript_1_5_reference/global_objects/function/call")
- ("ja/core_javascript_1_5_reference/objects/function/length" .
-  "ja/core_javascript_1_5_reference/global_objects/function/length")
- ("ja/core_javascript_1_5_reference/objects/function/tostring" .
-  "ja/core_javascript_1_5_reference/global_objects/function/tostring")
- ("ja/core_javascript_1_5_reference/objects/java" .
-  "ja/core_javascript_1_5_reference/global_objects/java")
- ("ja/core_javascript_1_5_reference/objects/javaarray" .
-  "ja/core_javascript_1_5_reference/global_objects/javaarray")
- ("ja/core_javascript_1_5_reference/objects/object/constructor" .
-  "ja/core_javascript_1_5_reference/global_objects/object/constructor")
- ("ja/core_javascript_1_5_reference/objects/object/tosource" .
-  "ja/core_javascript_1_5_reference/global_objects/object/tosource")
- ("ja/core_javascript_1_5_reference/objects/object/tostring" .
-  "ja/core_javascript_1_5_reference/global_objects/object/tostring")
- ("ja/core_javascript_1_5_reference/objects/object/valueof" .
-  "ja/core_javascript_1_5_reference/global_objects/object/valueof")
- ("ja/core_javascript_1_5_reference/objects/packages" .
-  "ja/core_javascript_1_5_reference/global_objects/packages")
- ("ja/core_javascript_1_5_reference/properties/infinity" .
-  "ja/core_javascript_1_5_reference/global_properties/infinity")
- ("ja/core_javascript_1_5_reference/properties/nan" .
-  "ja/core_javascript_1_5_reference/global_properties/nan")
- ("ja/core_javascript_1_5_reference/properties/undefined" .
-  "ja/core_javascript_1_5_reference/global_properties/undefined")
- ("ja/core_javascript_1_5_reference/global_objects/function/arguments/length" .
-  "ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/length")
- ("en/css/cursor" .
-  "ja/css/cursor")
- ("en/css/using_css_transforms" .
-  "ja/css/using_css_transforms")
- ("en/css_reference" .
-  "ja/css_reference")
- ("en/html/element/canvas" .
-  "ja/html/element/canvas")
- ("en/html/element/video" .
-  "ja/html/element/video")
-
-
-
-
-
-
-
-
-
- ("__/__/__/__/_api/deki/files/4232/%3dhelloworld3_zip" .
+ ("1" .
+  #f)
+ ("4_3_1_release_notes" .
+  #f)
+ ("@@api/deki/files/2861/=example1" .
+  #f)
+ ("@@api/deki/files/2864/=table" .
+  #f)
+ ("@@api/deki/files/2877/=MXX_Info_(3)" .
+  #f)
+ ("@@api/deki/files/2906/=shadowed-text" .
+  #f)
+ ("@@api/deki/files/2921/=rotated-google-sample" .
+  #f)
+ ("@@api/deki/files/2922/=skewed-google-sample" .
+  #f)
+ ("@@api/deki/files/2935/=webfont-sample" .
+  #f)
+ ("__/__/__/__/devnews/index_php/2008/09/13/aboutaddons-survey-roadmap-mobile-add-ons-devday-more" .
   #f)
  ("__/__/__/__/en/build/text_preprocessor" .
   #f)
- ("_api/deki/files/4225/=xulschoolhello1_xpi" .
+ ("__/__/__/__/en/force_static_lib" .
   #f)
- ("_api/deki/files/4227/=xulschoolhello2_xpi" .
+ ("__/__/__/__/en/javascript_style_guide" .
   #f)
- ("_api/deki/files/4229/=helloworld2_zip" .
+ ("__/__/__/__/en/nsiaccessible/parent" .
   #f)
- ("_api/deki/files/4263/=helloworld6_zip" .
+ ("__/__/__/__/en/publishing_mercurial_clones" .
   #f)
- ("_api/deki/files/4264/=helloworld5_zip" .
+ ("__/__/__/__/en/spidermonkey" .
   #f)
- ("_api/deki/files/4265/=helloworld4_zip" .
+ ("__/__/__/__/ja/core_javascript_1_5_reference/global_objects/regexp" .
+  #f)
+ ("__/__/__/__/web-tech" .
+  #f)
+ ("__/__/__/__/web-tech/2008/09/12/css-transforms" .
+  #f)
+ ("__/__/__/__/web-tech/2008/09/15/svg-effects-for-html-content" .
+  #f)
+ ("a/b/c" .
+  #f)
+ ("browser/prescreening_html" .
+  #f)
+ ("build_documentation" .
   #f)
  ("button" .
   #f)
+ ("category_junk" .
+  #f)
+ ("cn/core_javascript_1_5_reference/global_objects/number" .
+  #f)
+ ("components_returncode" .
+  #f)
+ ("content_tabs" .
+  #f)
+ ("d/e/c" .
+  #f)
+ ("devnews" .
+  #f)
+ ("devnews/index_php/2008/09/05/firefox-31-alpha-2-now-available-for-download" .
+  #f)
+ ("devnews/index_php/2008/10/21/aboutmozilla-firefox-31-thunderbird-mobile-firefox-impact-mozilla-localization-2010-goals-ubiquity-and-more" .
+  #f)
+ ("devnews/index_php/2008/10/28/aboutmozilla-2010-goals-camino-firefox-ui-localizations-ubiquity-security-metrics-and-more" .
+  #f)
+ ("devnews/index_php/2008/11/04/aboutmozilla-firefox-at-20-market-share-add-ons-for-fennec-private-browsing-for-firefox-31-and-more" .
+  #f)
+ ("devnews/index_php/2008/11/11/aboutmozilla-firefox-turns-4-impact-mozilla-finalists-announced-developers-conference-in-tokyo-and-more" .
+  #f)
+ ("devnews/index_php/2008/11/18/aboutmozilla-fashion-your-firefox-firefox-china-edition-aboutlabs-and-more" .
+  #f)
+ ("devnews/index_php/2008/11/25/aboutmozilla-financials-logos-add-ons-foundation-report-2010-goals-and-more" .
+  #f)
+ ("devnews/index_php/2008/12/02/aboutmozilla-add-on-con-tree-logistics-updating-add-ons-mozilla-manifesto-bugzilla-firefox-thunderbird-and-more" .
+  #f)
+ ("devnews/index_php/2008/12/08/firefox-31-beta-2-now-available-for-download/" .
+  #f)
+ ("devnews/index_php/2008/12/09/aboutmozilla-beta-2-community-store-major-update-malware-info-goals-mission-financials-market-share-awards-and-more" .
+  #f)
+ ("devnews/index_php/2008/12/16/aboutmozilla-2010-goals-thunderbird-3-labs-meetup-updating-add-ons-foundation-report-impact-mozilla-and-more" .
+  #f)
+ ("devnews/index_php/2008/12/23/aboutmozilla-fennec-firefox-impact-mozilla-camino-firebug-qmo-videos-design-community-and-more" .
+  #f)
+ ("devnews/index_php/2009/01/13/aboutmozilla-final-2010-goals-firebug-add-ons-labs-snowl-community-theme-camino-and-more" .
+  #f)
+ ("devnews/index_php/2009/03/04/firefox-307-security-and-stability-release-now-available/" .
+  #f)
+ ("devnews/index_php/2009/03/10/aboutmozilla-firefox-security-metrics-trademarks-shiretoko-localization-prototypes-ubiquity-bespin-weave-and-more" .
+  #f)
+ ("devnews/index_php/2009/03/24/aboutmozilla-firefox-mobile-mozilla-foundation-amo-bespin-video-tutorials-labs-metrics-and-more" .
+  #f)
+ ("devnews/index_php/2009/09/04/helping-users-keep-plugins-updated" .
+  #f)
+ ("devnews/index_php/categories/about-addons" .
+  #f)
+ ("devnews/index_php/categories/about-mobile/feed" .
+  #f)
+ ("domstring" .
+  #f)
+ ("e4x" .
+  #f)
+ ("e4x_for_templating" .
+  #f)
  ("en" .
+  #f)
+ ("en/acstring" .
+  #f)
+ ("en/autf8string" .
+  #f)
+ ("en/building_an_extension" .
+  #f)
+ ("en/code_snippets/modules" .
+  #f)
+ ("en/configuring_build_options" .
+  #f)
+ ("en/core_javascript_1_5_reference/global_objects/function/prototype" .
+  #f)
+ ("en/core_javascript_1_5_reference/global_objects/regexp/sticky" .
+  #f)
+ ("en/core_javascript_1_5_reference/statements/for___in" .
+  #f)
+ ("en/css" .
+  #f)
+ ("en/developer_guide/build_instructions" .
+  #f)
+ ("en/displaying_web_content_in_an_extension_without_security_issues" .
+  #f)
+ ("en/docs/canvas_tutorial" .
+  #f)
+ ("en/docs/reducing_testcases" .
+  #f)
+ ("en/dom" .
+  #f)
+ ("en/dom/document_implementation" .
+  #f)
+ ("en/domstring" .
+  #f)
+ ("en/domstringlist" .
+  #f)
+ ("en/dragdrop" .
+  #f)
+ ("en/dragdrop/drag_and_drop" .
+  #f)
+ ("en/drawing_text_using_a_canvas" .
+  #f)
+ ("en/extensions/thunderbird/useful_newsgroups_discussions" .
+  #f)
+ ("en/firefox_3_1_for_developers" .
+  #f)
+ ("en/firefox_3_5_for_developers" .
+  #f)
+ ("en/firefox_3_for_developers" .
+  #f)
+ ("en/html/canvas" .
+  #f)
+ ("en/html/element/link" .
+  #f)
+ ("en/javascript_code_modules" .
+  #f)
+ ("en/javascript_code_modules/netutil_jsm" .
+  #f)
+ ("en/javascript_code_modules/openlocationlasturl_jsm" .
+  #f)
+ ("en/jetpack/meta/first_run" .
+  #f)
+ ("en/jetpack/ui/selection" .
+  #f)
+ ("en/json/jsonpath" .
+  #f)
+ ("en/mathml" .
+  #f)
+ ("en/mobile" .
+  #f)
+ ("en/monitoring_http_activity" .
+  #f)
+ ("en/mozilla_mathml_project" .
+  #f)
+ ("en/mozilla_mathml_project/authoring" .
+  #f)
+ ("en/mozilla_mathml_project/fonts" .
+  #f)
+ ("en/mozistorageconnection" .
+  #f)
+ ("en/new_in_javascript_1_6" .
+  #f)
+ ("en/new_in_javascript_1_8" .
+  #f)
+ ("en/nsiannotationservice" .
+  #f)
+ ("en/nsidomelement" .
+  #f)
+ ("en/nsihttpactivityobserver" .
+  #f)
+ ("en/nsinavhistorycontainerresultnode" .
+  #f)
+ ("en/nsinavhistoryqueryoptions" .
+  #f)
+ ("en/nsisupports" .
+  #f)
+ ("en/nsitreecolumn" .
+  #f)
+ ("en/nsivariant" .
+  #f)
+ ("en/observer_notifications" .
+  #f)
+ ("en/pruint32" .
+  #f)
+ ("en/screening_duplicate_bugs" .
+  #f)
+ ("en/storage" .
+  #f)
+ ("en/string" .
+  #f)
+ ("en/stringlist" .
+  #f)
+ ("en/svg" .
+  #f)
+ ("en/thunderbird" .
+  #f)
+ ("en/toolkit_api/steel" .
+  #f)
+ ("en/using_native_json" .
+  #f)
+ ("en/using_the_places_favicon_service" .
+  #f)
+ ("en/xmlhttprequest" .
+  #f)
+ ("en/xpcom_interface_reference/nsiuri" .
+  #f)
+ ("en/xpcom_interface_reference/nsivariant" .
   #f)
  ("en/xul" .
   #f)
  ("en/xul/action" .
   #f)
  ("en/xul/assign" .
+  #f)
+ ("en/xul/attribute/textbox_type" .
   #f)
  ("en/xul/bbox" .
   #f)
@@ -510,1337 +483,9 @@
   #f)
  ("en/xul/wizardpage" .
   #f)
- ("en/xulrunner_1_9_1_release_notes" .
-  #f)
- ("http_%2f%2fkb_mozillazine_org/assistive_technology_compatibility%7cassistive" .
-  #f)
- ("image" .
-  #f)
- ("ja/accessible_dhtml" .
-  #f)
- ("ja/build_documentation" .
-  #f)
- ("ja/building_javaxpcom" .
-  #f)
- ("ja/code_snippets/file_i%252f%252fo" .
-  #f)
- ("ja/document_loadoverlay" .
-  #f)
- ("ja/dom/element_clonenode" .
-  #f)
- ("ja/dom/node_getfeature" .
-  #f)
- ("ja/dom/node_isequalnode" .
-  #f)
- ("ja/dom/node_issamenode" .
-  #f)
- ("ja/dom_element_addeventlistener" .
-  #f)
- ("ja/dom_element_appendchild" .
-  #f)
- ("ja/dom_element_attributes" .
-  #f)
- ("ja/dom_element_baseuri" .
-  #f)
- ("ja/dom_element_childelementcount" .
-  #f)
- ("ja/dom_element_childnodes" .
-  #f)
- ("ja/dom_element_children" .
-  #f)
- ("ja/dom_element_clientheight" .
-  #f)
- ("ja/dom_element_clientleft" .
-  #f)
- ("ja/dom_element_clienttop" .
-  #f)
- ("ja/dom_element_clientwidth" .
-  #f)
- ("ja/dom_element_dispatchevent" .
-  #f)
- ("ja/dom_element_firstchild" .
-  #f)
- ("ja/dom_element_firstelementchild" .
-  #f)
- ("ja/dom_element_getattribute" .
-  #f)
- ("ja/dom_element_getattributenode" .
-  #f)
- ("ja/dom_element_getattributenodens" .
-  #f)
- ("ja/dom_element_getattributens" .
-  #f)
- ("ja/dom_element_getelementsbytagname" .
-  #f)
- ("ja/dom_element_getelementsbytagnamens" .
-  #f)
- ("ja/dom_element_hasattribute" .
-  #f)
- ("ja/dom_element_hasattributens" .
-  #f)
- ("ja/dom_element_hasattributes" .
-  #f)
- ("ja/dom_element_haschildnodes" .
-  #f)
- ("ja/dom_element_insertbefore" .
-  #f)
- ("ja/dom_element_issupported" .
-  #f)
- ("ja/dom_element_lastchild" .
-  #f)
- ("ja/dom_element_lastelementchild" .
-  #f)
- ("ja/dom_element_localname" .
-  #f)
- ("ja/dom_element_namespaceuri" .
-  #f)
- ("ja/dom_element_nextelementsibling" .
-  #f)
- ("ja/dom_element_nextsibling" .
-  #f)
- ("ja/dom_element_nodename" .
-  #f)
- ("ja/dom_element_nodetype" .
-  #f)
- ("ja/dom_element_nodevalue" .
-  #f)
- ("ja/dom_element_normalize" .
-  #f)
- ("ja/dom_element_ownerdocument" .
-  #f)
- ("ja/dom_element_parentnode" .
-  #f)
- ("ja/dom_element_prefix" .
-  #f)
- ("ja/dom_element_previouselementsibling" .
-  #f)
- ("ja/dom_element_previoussibling" .
-  #f)
- ("ja/dom_element_removeattribute" .
-  #f)
- ("ja/dom_element_removeattributenode" .
-  #f)
- ("ja/dom_element_removeattributens" .
-  #f)
- ("ja/dom_element_removechild" .
-  #f)
- ("ja/dom_element_removeeventlistener" .
-  #f)
- ("ja/dom_element_replacechild" .
-  #f)
- ("ja/dom_element_scrollheight" .
-  #f)
- ("ja/dom_element_scrollleft" .
-  #f)
- ("ja/dom_element_scrolltop" .
-  #f)
- ("ja/dom_element_scrollwidth" .
-  #f)
- ("ja/dom_element_setattribute" .
-  #f)
- ("ja/dom_element_setattributenode" .
-  #f)
- ("ja/dom_element_setattributenodens" .
-  #f)
- ("ja/dom_element_setattributens" .
-  #f)
- ("ja/dom_element_tagname" .
-  #f)
- ("ja/dom_element_textcontent" .
-  #f)
- ("ja/extension_faq" .
-  #f)
- ("ja/firefox_1_5" .
-  #f)
- ("ja/firefox_for_developers" .
-  #f)
- ("ja/http_access_control" .
-  #f)
- ("ja/mozilla_css_extensions" .
-  #f)
- ("ja/newsgroup_summaries/mozilla-dev-tech-xul" .
-  #f)
- ("ja/nsicommandline" .
-  #f)
- ("ja/nsieditor" .
-  #f)
- ("ja/nsifilepicker" .
-  #f)
- ("ja/nsitreeview" .
-  #f)
- ("ja/overlay" .
-  #f)
- ("ja/xbl_xbl_1_0_reference_dom_interfaces" .
-  #f)
- ("ja/xbl_xbl_1_0_reference_elements" .
-  #f)
- ("ja/xul_action" .
-  #f)
- ("ja/xul_arrowscrollbox" .
-  #f)
- ("ja/xul_attribute_acceltext" .
-  #f)
- ("ja/xul_attribute_accesskey" .
-  #f)
- ("ja/xul_attribute_activetitlebarcolor" .
-  #f)
- ("ja/xul_attribute_align" .
-  #f)
- ("ja/xul_attribute_allowevents" .
-  #f)
- ("ja/xul_attribute_allownegativeassertions" .
-  #f)
- ("ja/xul_attribute_attribute" .
-  #f)
- ("ja/xul_attribute_buttonaccesskeyaccept" .
-  #f)
- ("ja/xul_attribute_buttonlabelaccept" .
-  #f)
- ("ja/xul_attribute_buttons" .
-  #f)
- ("ja/xul_attribute_checked" .
-  #f)
- ("ja/xul_attribute_class" .
-  #f)
- ("ja/xul_attribute_coalesceduplicatearcs" .
-  #f)
- ("ja/xul_attribute_collapse" .
-  #f)
- ("ja/xul_attribute_collapsed" .
-  #f)
- ("ja/xul_attribute_command" .
-  #f)
- ("ja/xul_attribute_commandupdater" .
-  #f)
- ("ja/xul_attribute_container" .
-  #f)
- ("ja/xul_attribute_containment" .
-  #f)
- ("ja/xul_attribute_context" .
-  #f)
- ("ja/xul_attribute_contextmenu" .
-  #f)
- ("ja/xul_attribute_control" .
-  #f)
- ("ja/xul_attribute_crop" .
-  #f)
- ("ja/xul_attribute_curpos" .
-  #f)
- ("ja/xul_attribute_datasources" .
-  #f)
- ("ja/xul_attribute_decimalplaces" .
-  #f)
- ("ja/xul_attribute_defaultbutton" .
-  #f)
- ("ja/xul_attribute_description" .
-  #f)
- ("ja/xul_attribute_dir" .
-  #f)
- ("ja/xul_attribute_disabled" .
-  #f)
- ("ja/xul_attribute_editable" .
-  #f)
- ("ja/xul_attribute_element" .
-  #f)
- ("ja/xul_attribute_empty" .
-  #f)
- ("ja/xul_attribute_equalsize" .
-  #f)
- ("ja/xul_attribute_events" .
-  #f)
- ("ja/xul_attribute_firstpage" .
-  #f)
- ("ja/xul_attribute_flags" .
-  #f)
- ("ja/xul_attribute_flex" .
-  #f)
- ("ja/xul_attribute_height" .
-  #f)
- ("ja/xul_attribute_hidden" .
-  #f)
- ("ja/xul_attribute_hidechrome" .
-  #f)
- ("ja/xul_attribute_hidecolumnpicker" .
-  #f)
- ("ja/xul_attribute_id" .
-  #f)
- ("ja/xul_attribute_ignorecase" .
-  #f)
- ("ja/xul_attribute_image" .
-  #f)
- ("ja/xul_attribute_inactivetitlebarcolor" .
-  #f)
- ("ja/xul_attribute_increment" .
-  #f)
- ("ja/xul_attribute_insertafter" .
-  #f)
- ("ja/xul_attribute_insertbefore" .
-  #f)
- ("ja/xul_attribute_key" .
-  #f)
- ("ja/xul_attribute_keycode" .
-  #f)
- ("ja/xul_attribute_label" .
-  #f)
- ("ja/xul_attribute_lastpage" .
-  #f)
- ("ja/xul_attribute_left" .
-  #f)
- ("ja/xul_attribute_max" .
-  #f)
- ("ja/xul_attribute_maxheight" .
-  #f)
- ("ja/xul_attribute_maxlength" .
-  #f)
- ("ja/xul_attribute_maxpos" .
-  #f)
- ("ja/xul_attribute_maxwidth" .
-  #f)
- ("ja/xul_attribute_menu" .
-  #f)
- ("ja/xul_attribute_menubar" .
-  #f)
- ("ja/xul_attribute_menuitem" .
-  #f)
- ("ja/xul_attribute_menupopup" .
-  #f)
- ("ja/xul_attribute_menuseparator" .
-  #f)
- ("ja/xul_attribute_min" .
-  #f)
- ("ja/xul_attribute_minheight" .
-  #f)
- ("ja/xul_attribute_minwidth" .
-  #f)
- ("ja/xul_attribute_modifiers" .
-  #f)
- ("ja/xul_attribute_mousethrough" .
-  #f)
- ("ja/xul_attribute_multiline" .
-  #f)
- ("ja/xul_attribute_multiple" .
-  #f)
- ("ja/xul_attribute_negate" .
-  #f)
- ("ja/xul_attribute_next" .
-  #f)
- ("ja/xul_attribute_object" .
-  #f)
- ("ja/xul_attribute_observes" .
-  #f)
- ("ja/xul_attribute_oncommand" .
-  #f)
- ("ja/xul_attribute_oncommandupdate" .
-  #f)
- ("ja/xul_attribute_ondialogaccept" .
-  #f)
- ("ja/xul_attribute_ondialogcancel" .
-  #f)
- ("ja/xul_attribute_ondialogdisclosure" .
-  #f)
- ("ja/xul_attribute_ondialoghelp" .
-  #f)
- ("ja/xul_attribute_onextra1" .
-  #f)
- ("ja/xul_attribute_onextra2" .
-  #f)
- ("ja/xul_attribute_onload" .
-  #f)
- ("ja/xul_attribute_onpageadvanced" .
-  #f)
- ("ja/xul_attribute_onpagehide" .
-  #f)
- ("ja/xul_attribute_onpagerewound" .
-  #f)
- ("ja/xul_attribute_onpageshow" .
-  #f)
- ("ja/xul_attribute_onpopupshowing" .
-  #f)
- ("ja/xul_attribute_onwizardback" .
-  #f)
- ("ja/xul_attribute_onwizardcancel" .
-  #f)
- ("ja/xul_attribute_onwizardfinish" .
-  #f)
- ("ja/xul_attribute_onwizardnext" .
-  #f)
- ("ja/xul_attribute_open" .
-  #f)
- ("ja/xul_attribute_ordinal" .
-  #f)
- ("ja/xul_attribute_orient" .
-  #f)
- ("ja/xul_attribute_pack" .
-  #f)
- ("ja/xul_attribute_pageid" .
-  #f)
- ("ja/xul_attribute_pageincrement" .
-  #f)
- ("ja/xul_attribute_pagestep" .
-  #f)
- ("ja/xul_attribute_persist" .
-  #f)
- ("ja/xul_attribute_popup" .
-  #f)
- ("ja/xul_attribute_position" .
-  #f)
- ("ja/xul_attribute_predicate" .
-  #f)
- ("ja/xul_attribute_preference" .
-  #f)
- ("ja/xul_attribute_preference-editable" .
-  #f)
- ("ja/xul_attribute_primary" .
-  #f)
- ("ja/xul_attribute_properties" .
-  #f)
- ("ja/xul_attribute_querytype" .
-  #f)
- ("ja/xul_attribute_ref" .
-  #f)
- ("ja/xul_attribute_rel" .
-  #f)
- ("ja/xul_attribute_removeelement" .
-  #f)
- ("ja/xul_attribute_resizeafter" .
-  #f)
- ("ja/xul_attribute_resizebefore" .
-  #f)
- ("ja/xul_attribute_rows" .
-  #f)
- ("ja/xul_attribute_screenx" .
-  #f)
- ("ja/xul_attribute_screeny" .
-  #f)
- ("ja/xul_attribute_selected" .
-  #f)
- ("ja/xul_attribute_selectedindex" .
-  #f)
- ("ja/xul_attribute_seltype" .
-  #f)
- ("ja/xul_attribute_sizemode" .
-  #f)
- ("ja/xul_attribute_sortdirection" .
-  #f)
- ("ja/xul_attribute_sortresource" .
-  #f)
- ("ja/xul_attribute_sortresource2" .
-  #f)
- ("ja/xul_attribute_src" .
-  #f)
- ("ja/xul_attribute_state" .
-  #f)
- ("ja/xul_attribute_statustext" .
-  #f)
- ("ja/xul_attribute_style" .
-  #f)
- ("ja/xul_attribute_subject" .
-  #f)
- ("ja/xul_attribute_tabindex" .
-  #f)
- ("ja/xul_attribute_template" .
-  #f)
- ("ja/xul_attribute_title" .
-  #f)
- ("ja/xul_attribute_tooltip" .
-  #f)
- ("ja/xul_attribute_tooltiptext" .
-  #f)
- ("ja/xul_attribute_top" .
-  #f)
- ("ja/xul_attribute_type" .
-  #f)
- ("ja/xul_attribute_uri" .
-  #f)
- ("ja/xul_attribute_value" .
-  #f)
- ("ja/xul_attribute_wait-cursor" .
-  #f)
- ("ja/xul_attribute_where_subject" .
-  #f)
- ("ja/xul_attribute_where_value" .
-  #f)
- ("ja/xul_attribute_width" .
-  #f)
- ("ja/xul_attribute_windowtype" .
-  #f)
- ("ja/xul_binding" .
-  #f)
- ("ja/xul_bindings" .
-  #f)
- ("ja/xul_box" .
-  #f)
- ("ja/xul_broadcaster" .
-  #f)
- ("ja/xul_broadcasterset" .
-  #f)
- ("ja/xul_browser" .
-  #f)
- ("ja/xul_button" .
-  #f)
- ("ja/xul_caption" .
-  #f)
- ("ja/xul_checkbox" .
-  #f)
- ("ja/xul_column" .
-  #f)
- ("ja/xul_columns" .
-  #f)
- ("ja/xul_command" .
-  #f)
- ("ja/xul_commandset" .
-  #f)
- ("ja/xul_conditions" .
-  #f)
- ("ja/xul_content" .
-  #f)
- ("ja/xul_datepicker" .
-  #f)
- ("ja/xul_deck" .
-  #f)
- ("ja/xul_description" .
-  #f)
- ("ja/xul_dialog" .
-  #f)
- ("ja/xul_dialogheader" .
-  #f)
- ("ja/xul_grid" .
-  #f)
- ("ja/xul_grippy" .
-  #f)
- ("ja/xul_groupbox" .
-  #f)
- ("ja/xul_hbox" .
-  #f)
- ("ja/xul_iframe" .
-  #f)
- ("ja/xul_image" .
-  #f)
- ("ja/xul_insertafter" .
-  #f)
- ("ja/xul_insertbefore" .
-  #f)
- ("ja/xul_key" .
-  #f)
- ("ja/xul_keyset" .
-  #f)
- ("ja/xul_label" .
-  #f)
- ("ja/xul_listbox" .
-  #f)
- ("ja/xul_listcell" .
-  #f)
- ("ja/xul_listcol" .
-  #f)
- ("ja/xul_listcols" .
-  #f)
- ("ja/xul_listhead" .
-  #f)
- ("ja/xul_listheader" .
-  #f)
- ("ja/xul_listitem" .
-  #f)
- ("ja/xul_member" .
-  #f)
- ("ja/xul_menu" .
-  #f)
- ("ja/xul_menubar" .
-  #f)
- ("ja/xul_menuitem" .
-  #f)
- ("ja/xul_menulist" .
-  #f)
- ("ja/xul_menupopup" .
-  #f)
- ("ja/xul_menuseparator" .
-  #f)
- ("ja/xul_method_additemtoselection" .
-  #f)
- ("ja/xul_method_advance" .
-  #f)
- ("ja/xul_method_appenditem" .
-  #f)
- ("ja/xul_method_blur" .
-  #f)
- ("ja/xul_method_cancel" .
-  #f)
- ("ja/xul_method_click" .
-  #f)
- ("ja/xul_method_docommand" .
-  #f)
- ("ja/xul_method_ensureindexisvisible" .
-  #f)
- ("ja/xul_method_ensureitemisvisible" .
-  #f)
- ("ja/xul_method_extra1" .
-  #f)
- ("ja/xul_method_extra2" .
-  #f)
- ("ja/xul_method_focus" .
-  #f)
- ("ja/xul_method_getbutton" .
-  #f)
- ("ja/xul_method_getelementsbyattribute" .
-  #f)
- ("ja/xul_method_getelementsbyattributens" .
-  #f)
- ("ja/xul_method_getindexofitem" .
-  #f)
- ("ja/xul_method_getitematindex" .
-  #f)
- ("ja/xul_method_getpagebyid" .
-  #f)
- ("ja/xul_method_goto" .
-  #f)
- ("ja/xul_method_insertitemat" .
-  #f)
- ("ja/xul_method_removeitemat" .
-  #f)
- ("ja/xul_method_removeitemfromselection" .
-  #f)
- ("ja/xul_method_rewind" .
-  #f)
- ("ja/xul_method_scrolltoindex" .
-  #f)
- ("ja/xul_method_select" .
-  #f)
- ("ja/xul_method_setselectionrange" .
-  #f)
- ("ja/xul_observes" .
-  #f)
- ("ja/xul_overlay" .
-  #f)
- ("ja/xul_parser_in_python%252f%252fsource" .
-  #f)
- ("ja/xul_popup" .
-  #f)
- ("ja/xul_popupset" .
-  #f)
- ("ja/xul_position" .
-  #f)
- ("ja/xul_preference" .
-  #f)
- ("ja/xul_prefpane" .
-  #f)
- ("ja/xul_prefwindow" .
-  #f)
- ("ja/xul_progressmeter" .
-  #f)
- ("ja/xul_property_accesskey" .
-  #f)
- ("ja/xul_property_align" .
-  #f)
- ("ja/xul_property_allowevents" .
-  #f)
- ("ja/xul_property_boxobject" .
-  #f)
- ("ja/xul_property_builder" .
-  #f)
- ("ja/xul_property_canadvance" .
-  #f)
- ("ja/xul_property_canrewind" .
-  #f)
- ("ja/xul_property_checked" .
-  #f)
- ("ja/xul_property_classname" .
-  #f)
- ("ja/xul_property_collapsed" .
-  #f)
- ("ja/xul_property_contextmenu" .
-  #f)
- ("ja/xul_property_controllers" .
-  #f)
- ("ja/xul_property_currentindex" .
-  #f)
- ("ja/xul_property_currentpage" .
-  #f)
- ("ja/xul_property_database" .
-  #f)
- ("ja/xul_property_datasources" .
-  #f)
- ("ja/xul_property_dir" .
-  #f)
- ("ja/xul_property_disabled" .
-  #f)
- ("ja/xul_property_flex" .
-  #f)
- ("ja/xul_property_height" .
-  #f)
- ("ja/xul_property_hidden" .
-  #f)
- ("ja/xul_property_id" .
-  #f)
- ("ja/xul_property_label" .
-  #f)
- ("ja/xul_property_left" .
-  #f)
- ("ja/xul_property_maxheight" .
-  #f)
- ("ja/xul_property_maxwidth" .
-  #f)
- ("ja/xul_property_menu" .
-  #f)
- ("ja/xul_property_minheight" .
-  #f)
- ("ja/xul_property_minwidth" .
-  #f)
- ("ja/xul_property_next" .
-  #f)
- ("ja/xul_property_observes" .
-  #f)
- ("ja/xul_property_onfirstpage" .
-  #f)
- ("ja/xul_property_onlastpage" .
-  #f)
- ("ja/xul_property_ordinal" .
-  #f)
- ("ja/xul_property_orient" .
-  #f)
- ("ja/xul_property_pack" .
-  #f)
- ("ja/xul_property_pagecount" .
-  #f)
- ("ja/xul_property_pageid" .
-  #f)
- ("ja/xul_property_pageindex" .
-  #f)
- ("ja/xul_property_pagestep" .
-  #f)
- ("ja/xul_property_persist" .
-  #f)
- ("ja/xul_property_ref" .
-  #f)
- ("ja/xul_property_resource" .
-  #f)
- ("ja/xul_property_selectedcount" .
-  #f)
- ("ja/xul_property_selectedindex" .
-  #f)
- ("ja/xul_property_selecteditem" .
-  #f)
- ("ja/xul_property_selecteditems" .
-  #f)
- ("ja/xul_property_selectedpanel" .
-  #f)
- ("ja/xul_property_selectedtab" .
-  #f)
- ("ja/xul_property_selectionend" .
-  #f)
- ("ja/xul_property_selectionstart" .
-  #f)
- ("ja/xul_property_statustext" .
-  #f)
- ("ja/xul_property_style" .
-  #f)
- ("ja/xul_property_textlength" .
-  #f)
- ("ja/xul_property_title" .
-  #f)
- ("ja/xul_property_tooltip" .
-  #f)
- ("ja/xul_property_tooltiptext" .
-  #f)
- ("ja/xul_property_top" .
-  #f)
- ("ja/xul_property_value" .
-  #f)
- ("ja/xul_property_width" .
-  #f)
- ("ja/xul_property_wizardpages" .
-  #f)
- ("ja/xul_radio" .
-  #f)
- ("ja/xul_radiogroup" .
-  #f)
- ("ja/xul_resizer" .
-  #f)
- ("ja/xul_richlistitem" .
-  #f)
- ("ja/xul_row" .
-  #f)
- ("ja/xul_rows" .
-  #f)
- ("ja/xul_rule" .
-  #f)
- ("ja/xul_scale" .
-  #f)
- ("ja/xul_script" .
-  #f)
- ("ja/xul_scrollbar" .
-  #f)
- ("ja/xul_spacer" .
-  #f)
- ("ja/xul_splitter" .
-  #f)
- ("ja/xul_stack" .
-  #f)
- ("ja/xul_statusbar" .
-  #f)
- ("ja/xul_stringbundle" .
-  #f)
- ("ja/xul_stringbundleset" .
-  #f)
- ("ja/xul_tab" .
-  #f)
- ("ja/xul_tabbox" .
-  #f)
- ("ja/xul_tabbrowser" .
-  #f)
- ("ja/xul_tabpanel" .
-  #f)
- ("ja/xul_tabpanels" .
-  #f)
- ("ja/xul_tabs" .
-  #f)
- ("ja/xul_template" .
-  #f)
- ("ja/xul_textbox" .
-  #f)
- ("ja/xul_timepicker" .
-  #f)
- ("ja/xul_title" .
-  #f)
- ("ja/xul_toolbar" .
-  #f)
- ("ja/xul_toolbarbutton" .
-  #f)
- ("ja/xul_toolbox" .
-  #f)
- ("ja/xul_tooltip" .
-  #f)
- ("ja/xul_tree" .
-  #f)
- ("ja/xul_treecell" .
-  #f)
- ("ja/xul_treechildren" .
-  #f)
- ("ja/xul_treecol" .
-  #f)
- ("ja/xul_treecols" .
-  #f)
- ("ja/xul_treeitem" .
-  #f)
- ("ja/xul_treerow" .
-  #f)
- ("ja/xul_triple" .
-  #f)
- ("ja/xul_tutorial_adding_buttons" .
-  #f)
- ("ja/xul_tutorial_adding_event_handlers" .
-  #f)
- ("ja/xul_tutorial_adding_event_handlers_to_xbl-defined_elements" .
-  #f)
- ("ja/xul_tutorial_adding_html_elements" .
-  #f)
- ("ja/xul_tutorial_adding_labels_and_images" .
-  #f)
- ("ja/xul_tutorial_adding_methods_to_xbl-defined_elements" .
-  #f)
- ("ja/xul_tutorial_adding_more_elements" .
-  #f)
- ("ja/xul_tutorial_adding_properties_to_xbl-defined_elements" .
-  #f)
- ("ja/xul_tutorial_adding_style_sheets" .
-  #f)
- ("ja/xul_tutorial_additional_install_features" .
-  #f)
- ("ja/xul_tutorial_advanced_rules" .
-  #f)
- ("ja/xul_tutorial_anonymous_content" .
-  #f)
- ("ja/xul_tutorial_box_model_details" .
-  #f)
- ("ja/xul_tutorial_box_objects" .
-  #f)
- ("ja/xul_tutorial_broadcasters_and_observers" .
-  #f)
- ("ja/xul_tutorial_commands" .
-  #f)
- ("ja/xul_tutorial_content_panels" .
-  #f)
- ("ja/xul_tutorial_creating_a_skin" .
-  #f)
- ("ja/xul_tutorial_creating_a_window" .
-  #f)
- ("ja/xul_tutorial_creating_a_wizard" .
-  #f)
- ("ja/xul_tutorial_creating_an_installer" .
-  #f)
- ("ja/xul_tutorial_creating_dialogs" .
-  #f)
- ("ja/xul_tutorial_cross_package_overlays" .
-  #f)
- ("ja/xul_tutorial_custom_tree_views" .
-  #f)
- ("ja/xul_tutorial_document_object_model" .
-  #f)
- ("ja/xul_tutorial_element_positioning" .
-  #f)
- ("ja/xul_tutorial_features_of_a_window" .
-  #f)
- ("ja/xul_tutorial_focus_and_selection" .
-  #f)
- ("ja/xul_tutorial_grids" .
-  #f)
- ("ja/xul_tutorial_groupboxes" .
-  #f)
- ("ja/xul_tutorial_input_controls" .
-  #f)
- ("ja/xul_tutorial_install_scripts" .
-  #f)
- ("ja/xul_tutorial_introduction" .
-  #f)
- ("ja/xul_tutorial_introduction_to_rdf" .
-  #f)
- ("ja/xul_tutorial_introduction_to_xbl" .
-  #f)
- ("ja/xul_tutorial_keyboard_shortcuts" .
-  #f)
- ("ja/xul_tutorial_list_controls" .
-  #f)
- ("ja/xul_tutorial_localization" .
-  #f)
- ("ja/xul_tutorial_manifest_files" .
-  #f)
- ("ja/xul_tutorial_manipulating_lists" .
-  #f)
- ("ja/xul_tutorial_modifying_a_xul_interface" .
-  #f)
- ("ja/xul_tutorial_modifying_the_default_skin" .
-  #f)
- ("ja/xul_tutorial_more_button_features" .
-  #f)
- ("ja/xul_tutorial_more_event_handlers" .
-  #f)
- ("ja/xul_tutorial_more_menu_features" .
-  #f)
- ("ja/xul_tutorial_more_tree_features" .
-  #f)
- ("ja/xul_tutorial_more_wizards" .
-  #f)
- ("ja/xul_tutorial_numeric_controls" .
-  #f)
- ("ja/xul_tutorial_open_and_save_dialogs" .
-  #f)
- ("ja/xul_tutorial_overlays" .
-  #f)
- ("ja/xul_tutorial_persistent_data" .
-  #f)
- ("ja/xul_tutorial_popup_menus" .
-  #f)
- ("ja/xul_tutorial_progress_meters" .
-  #f)
- ("ja/xul_tutorial_property_files" .
-  #f)
- ("ja/xul_tutorial_rdf_datasources" .
-  #f)
- ("ja/xul_tutorial_scrolling_menus" .
-  #f)
- ("ja/xul_tutorial_simple_menu_bars" .
-  #f)
- ("ja/xul_tutorial_splitters" .
-  #f)
- ("ja/xul_tutorial_stack_positioning" .
-  #f)
- ("ja/xul_tutorial_stacks_and_decks" .
-  #f)
- ("ja/xul_tutorial_styling_a_tree" .
-  #f)
- ("ja/xul_tutorial_tabboxes" .
-  #f)
- ("ja/xul_tutorial_templates" .
-  #f)
- ("ja/xul_tutorial_the_box_model" .
-  #f)
- ("ja/xul_tutorial_the_chrome_url" .
-  #f)
- ("ja/xul_tutorial_toolbars" .
-  #f)
- ("ja/xul_tutorial_tree_box_objects" .
-  #f)
- ("ja/xul_tutorial_tree_selection" .
-  #f)
- ("ja/xul_tutorial_tree_view_details" .
-  #f)
- ("ja/xul_tutorial_trees" .
-  #f)
- ("ja/xul_tutorial_trees_and_templates" .
-  #f)
- ("ja/xul_tutorial_updating_commands" .
-  #f)
- ("ja/xul_tutorial_using_spacers" .
-  #f)
- ("ja/xul_tutorial_xbl_attribute_inheritance" .
-  #f)
- ("ja/xul_tutorial_xbl_example" .
-  #f)
- ("ja/xul_tutorial_xbl_inheritance" .
-  #f)
- ("ja/xul_tutorial_xpcom_examples" .
-  #f)
- ("ja/xul_tutorial_xpcom_interfaces" .
-  #f)
- ("ja/xul_tutorial_xul_structure" .
-  #f)
- ("ja/xul_vbox" .
-  #f)
- ("ja/xul_where" .
-  #f)
- ("ja/xul_window" .
-  #f)
- ("ja/xul_wizard" .
-  #f)
- ("ja/xul_wizardpage" .
-  #f)
- ("ja/xulrunner%252f%252fold_releases" .
-  #f)
- ("mailto_(hyatt_netscape_com)" .
-  #f)
- ("mailto_(rjc_netscape_com)" .
-  #f)
- ("mailto_(waterson_netscape_com)" .
-  #f)
- ("php_html?title=Special:Booksources" .
-  #f)
- ("project_copyrights" .
-  #f)
- ("project_ja/about" .
-  #f)
- ("samples/xultu/examples/aligner_xul" .
-  #f)
- ("special_tags_html?tag=DOM_0&language=ja" .
-  #f)
- ("special_tags_html?tag=Search_plugins&language=en" .
-  #f)
- ("special_tags_html?tag=XULRunner&language=ja" .
-  #f)
- ("special_tags_html?tag=XULRunner:Examples&language=en" .
-  #f)
- ("special_tags_html?tag=XULRunner:Examples&language=ja" .
-  #f)
- ("special_tags_html?tag=移行&language=ja" .
-  #f)
- ("template_tip_irc_html?action=edit" .
-  #f)
- ("template_tip_newsgroups_html?action=edit" .
-  #f)
- ("user_benjamin_smedberg" .
-  #f)
- ("user_tlaurenzo" .
-  #f)
- ("__/__/__/__/devnews/index_php/2008/09/13/aboutaddons-survey-roadmap-mobile-add-ons-devday-more" .
-  #f)
- ("__/__/__/__/en/force_static_lib" .
-  #f)
- ("__/__/__/__/en/javascript_style_guide" .
-  #f)
- ("__/__/__/__/en/nsiaccessible/parent" .
-  #f)
- ("__/__/__/__/en/publishing_mercurial_clones" .
-  #f)
- ("__/__/__/__/en/spidermonkey" .
-  #f)
- ("__/__/__/__/ja/core_javascript_1_5_reference/global_objects/regexp" .
-  #f)
- ("__/__/__/__/web-tech" .
-  #f)
- ("__/__/__/__/web-tech/2008/09/12/css-transforms" .
-  #f)
- ("__/__/__/__/web-tech/2008/09/15/svg-effects-for-html-content" .
-  #f)
- ("4_3_1_release_notes" .
-  #f)
- ("En/CSS/Media_queries" .
-  #f)
- ("En/HTML/Element/Audio" .
-  #f)
- ("En/HTML/Element/Video" .
-  #f)
- ("En/Using_geolocation" .
-  #f)
- ("_api/deki/files/16/=ajax_test_kit_tar_gz" .
-  #f)
- ("_api/deki/files/1623/=bugzilla-jp-guide-addingcc_png" .
-  #f)
- ("_api/deki/files/1634/=bugzilla-jp-guide-removingcc_png" .
-  #f)
- ("_api/deki/files/1723/=example-isp_xpi" .
-  #f)
- ("_api/deki/files/2861/=example1" .
-  #f)
- ("_api/deki/files/2864/=table" .
-  #f)
- ("_api/deki/files/2877/=mxx_info_(3)" .
-  #f)
- ("_api/deki/files/2906/=shadowed-text" .
-  #f)
- ("_api/deki/files/2920/=google-rotated_png" .
-  #f)
- ("_api/deki/files/2921/=rotated-google-sample" .
-  #f)
- ("_api/deki/files/2922/=skewed-google-sample" .
-  #f)
- ("_api/deki/files/2923/=skewed-google_png" .
-  #f)
- ("_api/deki/files/2935/=webfont-sample" .
-  #f)
- ("_api/deki/files/3042/=sasoapclient_js" .
-  #f)
- ("_api/deki/files/3043/=saxmlutils_js" .
-  #f)
- ("_api/deki/files/3081/=localeswitchexample_zip" .
-  #f)
- ("_api/deki/files/3145/=stockwatcher2%2540example_com_zip" .
-  #f)
- ("_api/deki/files/3213/=maskdemo_xhtml" .
-  #f)
- ("_api/deki/files/3214/=clipdemo_xhtml" .
-  #f)
- ("_api/deki/files/3217/=filterdemo_xhtml" .
-  #f)
- ("_api/deki/files/322/=profiling-ammo_zip" .
-  #f)
- ("_api/deki/files/3386/=extension_bootcamp_pdf" .
-  #f)
- ("_api/deki/files/3387/=extension_bootcamp_tutorial_zip" .
-  #f)
- ("_api/deki/files/3579/=messagerepresentations_png" .
-  #f)
- ("_api/deki/files/3590/=gmail_webapp" .
-  #f)
- ("_api/deki/files/3813/=tut_headerimage_jpg" .
-  #f)
- ("_api/deki/files/3861/=mercurial_installer_png" .
-  #f)
- ("_api/deki/files/3862/=path_jpg" .
-  #f)
- ("_api/deki/files/3863/=tortoisehg_png" .
-  #f)
- ("_api/deki/files/394/=template-guide-p2_png" .
-  #f)
- ("_api/deki/files/4017/=add_code_js" .
-  #f)
- ("_api/deki/files/4240/=mail_client_blog_png" .
-  #f)
- ("_api/deki/files/4241/=view_mathml_source_png" .
-  #f)
- ("_api/deki/files/4242/=view_selection_source_png" .
-  #f)
- ("_api/deki/files/4248/=amaya_png" .
-  #f)
- ("_api/deki/files/4250/=blahtex_xml" .
-  #f)
- ("_api/deki/files/4251/=itex2mml_txt" .
-  #f)
- ("_api/deki/files/4256/=amaya_xml" .
-  #f)
- ("_api/deki/files/4257/=itex2mml_xml" .
-  #f)
- ("_api/deki/files/4260/=mathml_in_html4_zip" .
-  #f)
- ("_api/deki/files/4261/=openoffice_png" .
-  #f)
- ("_api/deki/files/4262/=openoffice_xml" .
-  #f)
- ("_api/deki/files/4273/=beta-license_txt" .
-  #f)
- ("_api/deki/files/4274/=stixbeta_zip" .
-  #f)
- ("_api/deki/files/4282/=firemath_png" .
-  #f)
- ("_api/deki/files/4283/=firemath_xml" .
-  #f)
- ("_api/deki/files/4285/=screenshot-introduction_to_dom_inspector_-_mdc_-_mozilla_firefox_-_dom_inspector-1_png" .
-  #f)
- ("browser/prescreening" .
-  #f)
- ("build_documentation" .
-  #f)
- ("category_junk" .
-  #f)
- ("cn/core_javascript_1_5_reference/global_objects/number" .
-  #f)
- ("components_returncode" .
-  #f)
- ("content_tabs" .
-  #f)
- ("devnews" .
-  #f)
- ("devnews/index_php/2008/09/05/firefox-31-alpha-2-now-available-for-download" .
-  #f)
- ("devnews/index_php/2008/10/21/aboutmozilla-firefox-31-thunderbird-mobile-firefox-impact-mozilla-localization-2010-goals-ubiquity-and-more" .
-  #f)
- ("devnews/index_php/2008/10/28/aboutmozilla-2010-goals-camino-firefox-ui-localizations-ubiquity-security-metrics-and-more" .
-  #f)
- ("devnews/index_php/2008/11/04/aboutmozilla-firefox-at-20-market-share-add-ons-for-fennec-private-browsing-for-firefox-31-and-more" .
-  #f)
- ("devnews/index_php/2008/11/11/aboutmozilla-firefox-turns-4-impact-mozilla-finalists-announced-developers-conference-in-tokyo-and-more" .
-  #f)
- ("devnews/index_php/2008/11/18/aboutmozilla-fashion-your-firefox-firefox-china-edition-aboutlabs-and-more" .
-  #f)
- ("devnews/index_php/2008/11/25/aboutmozilla-financials-logos-add-ons-foundation-report-2010-goals-and-more" .
-  #f)
- ("devnews/index_php/2008/12/01/tree-logistics-migrations-and-checkin-rules-oh-my/" .
-  #f)
- ("devnews/index_php/2008/12/02/aboutmozilla-add-on-con-tree-logistics-updating-add-ons-mozilla-manifesto-bugzilla-firefox-thunderbird-and-more" .
-  #f)
- ("devnews/index_php/2008/12/04/firefox-20018-users-to-be-offered-a-free-upgrade/" .
-  #f)
- ("devnews/index_php/2008/12/08/firefox-31-beta-2-now-available-for-download/" .
-  #f)
- ("devnews/index_php/2008/12/09/aboutmozilla-beta-2-community-store-major-update-malware-info-goals-mission-financials-market-share-awards-and-more" .
-  #f)
- ("devnews/index_php/2008/12/16/aboutmozilla-2010-goals-thunderbird-3-labs-meetup-updating-add-ons-foundation-report-impact-mozilla-and-more" .
-  #f)
- ("devnews/index_php/2008/12/23/aboutmozilla-fennec-firefox-impact-mozilla-camino-firebug-qmo-videos-design-community-and-more" .
-  #f)
- ("devnews/index_php/2009/01/13/aboutmozilla-final-2010-goals-firebug-add-ons-labs-snowl-community-theme-camino-and-more" .
-  #f)
- ("devnews/index_php/2009/03/04/firefox-307-security-and-stability-release-now-available/" .
-  #f)
- ("devnews/index_php/2009/03/06/shiretoko-to-be-named-firefox-35/" .
-  #f)
- ("devnews/index_php/2009/03/10/aboutmozilla-firefox-security-metrics-trademarks-shiretoko-localization-prototypes-ubiquity-bespin-weave-and-more" .
-  #f)
- ("devnews/index_php/2009/03/24/aboutmozilla-firefox-mobile-mozilla-foundation-amo-bespin-video-tutorials-labs-metrics-and-more" .
-  #f)
- ("devnews/index_php/2009/09/04/helping-users-keep-plugins-updated" .
-  #f)
- ("devnews/index_php/categories/about-addons" .
-  #f)
- ("devnews/index_php/categories/about-mobile/feed" .
-  #f)
- ("domstring" .
-  #f)
- ("e4x" .
-  #f)
- ("e4x_for_templating" .
-  #f)
- ("en/acstring" .
-  #f)
- ("en/autf8string" .
-  #f)
- ("en/building_an_extension" .
-  #f)
- ("en/code_snippets/modules" .
-  #f)
- ("en/configuring_build_options" .
-  #f)
- ("en/core_javascript_1_5_reference/global_objects/function/prototype" .
-  #f)
- ("en/core_javascript_1_5_reference/global_objects/regexp/sticky" .
-  #f)
- ("en/core_javascript_1_5_reference/statements/for___in" .
-  #f)
- ("en/css" .
-  #f)
- ("en/developer_guide/build_instructions" .
-  #f)
- ("en/displaying_web_content_in_an_extension_without_security_issues" .
-  #f)
- ("en/docs/canvas_tutorial" .
-  #f)
- ("en/docs/reducing_testcases" .
-  #f)
- ("en/dom" .
-  #f)
- ("en/dom/document_implementation" .
-  #f)
- ("en/domstring" .
-  #f)
- ("en/domstringlist" .
-  #f)
- ("en/dragdrop" .
-  #f)
- ("en/dragdrop/drag_and_drop" .
-  #f)
- ("en/drawing_text_using_a_canvas" .
-  #f)
- ("en/extensions/thunderbird/useful_newsgroups_discussions" .
-  #f)
- ("en/firefox_3_1_for_developers" .
-  #f)
- ("en/firefox_3_5_for_developers" .
-  #f)
- ("en/firefox_3_for_developers" .
-  #f)
- ("en/html/canvas" .
-  #f)
- ("en/html/element/link" .
-  #f)
- ("en/javascript_code_modules" .
-  #f)
- ("en/javascript_code_modules/netutil_jsm" .
-  #f)
- ("en/javascript_code_modules/openlocationlasturl_jsm" .
-  #f)
- ("en/jetpack/meta/first_run" .
-  #f)
- ("en/jetpack/ui/selection" .
-  #f)
- ("en/json/jsonpath" .
-  #f)
- ("en/mathml" .
-  #f)
- ("en/mobile" .
-  #f)
- ("en/monitoring_http_activity" .
-  #f)
- ("en/mozilla_mathml_project" .
-  #f)
- ("en/mozilla_mathml_project/authoring" .
-  #f)
- ("en/mozilla_mathml_project/fonts" .
-  #f)
- ("en/mozistorageconnection" .
-  #f)
- ("en/nsiannotationservice" .
-  #f)
- ("en/nsidomelement" .
-  #f)
- ("en/nsihttpactivityobserver" .
-  #f)
- ("en/nsinavhistorycontainerresultnode" .
-  #f)
- ("en/nsinavhistoryqueryoptions" .
-  #f)
- ("en/nsisupports" .
-  #f)
- ("en/nsitreecolumn" .
-  #f)
- ("en/nsivariant" .
-  #f)
- ("en/observer_notifications" .
-  #f)
- ("en/pruint32" .
-  #f)
- ("en/screening_duplicate_bugs" .
-  #f)
- ("en/storage" .
-  #f)
- ("en/string" .
-  #f)
- ("en/stringlist" .
-  #f)
- ("en/svg" .
-  #f)
- ("en/thunderbird" .
-  #f)
- ("en/toolkit_api/steel" .
-  #f)
- ("en/using_native_json" .
-  #f)
- ("en/using_the_places_favicon_service" .
-  #f)
- ("en/xmlhttprequest" .
-  #f)
- ("en/xpcom_interface_reference/nsiuri" .
-  #f)
- ("en/xpcom_interface_reference/nsivariant" .
-  #f)
- ("en/xul/attribute/textbox_type" .
-  #f)
  ("en/xulrunner" .
+  #f)
+ ("en/xulrunner_1_9_1_release_notes" .
   #f)
  ("es/css/inheritance" .
   #f)
@@ -1866,25 +511,23 @@
   #f)
  ("http_%2f%2faddons_mozilla_org/developers/%7chttp_%2f%2faddons_mozilla_org/developers" .
   #f)
- ("http_%2f%2fbooks_google_com/books_html?id=WXcHwzaUd4MC&pg=PA122&lpg=PA122&dq=processing+vs+"emergency+scanning"&source=bl&ots=_wtIWaAV8j&sig=e-3-QLfeM2iN29aPEb01J-I1GcY&hl=en&ei=0AZHSp-oJYjENoyojbgB&sa=X&oi=book_result&ct=result&resnum=1" .
-  #f)
  ("http_%2f%2fdeveloper_mozilla_org/en/docs/xul_tutorial_keyboard_shortcuts%7cxul" .
   #f)
  ("http_%2f%2fgreen_goo_ne_jp/index_en%e2%80%9cgoo" .
   #f)
- ("http_%2f%2fhttp_%2f%2ftamarin-builds_mozilla_org/performance/weekly" .
+ ("http_%2f%2fhttp_%2f%2ftamarin-builds_mozilla_org/performance/weekly_html" .
   #f)
  ("http_%2f%2fhttp_%2f%2fwww_mozilla_org/projects/nspr" .
   #f)
  ("http_%2f%2fhttp_%2f%2fwww_w3_org/wai" .
   #f)
+ ("http_%2f%2fkb_mozillazine_org/assistive_technology_compatibility%7cassistive" .
+  #f)
  ("http_%2f%2fwiki_mozilla_org/community_communityprogram%e3%80%80community" .
   #f)
- ("https_%2f%2fbugzilla_mozilla_org/enter_bug_cgi?product=Calendar&rep_platform=All&op_sys=All&component=General&short_desc=New%20localization:%20&lt;your%20language>" .
+ ("image" .
   #f)
- ("index_php?title=en/Windows_Build_Prerequisites_(1_7_%26_1_8_Branches)" .
-  #f)
- ("index_php?title=ja/C%2b%2b_Portability_Guide" .
+ ("ja" .
   #f)
  ("ja/%3cb%3efigure_2_%3c%2f%2fb%3e_authentication_of_a_client_certificate" .
   #f)
@@ -2168,6 +811,8 @@
   #f)
  ("ja/accessibility_xforms" .
   #f)
+ ("ja/accessible_dhtml" .
+  #f)
  ("ja/accessible_xul_authoring_guidelines" .
   #f)
  ("ja/acstring" .
@@ -2212,6 +857,10 @@
   #f)
  ("ja/booleanvalue" .
   #f)
+ ("ja/bugzilla-jp/guide/search/simple" .
+  #f)
+ ("ja/build_documentation" .
+  #f)
  ("ja/build_opt" .
   #f)
  ("ja/building_a_dynamic_library" .
@@ -2219,6 +868,8 @@
  ("ja/building_a_static_library" .
   #f)
  ("ja/building_a_thunderbird_extension" .
+  #f)
+ ("ja/building_javaxpcom" .
   #f)
  ("ja/building_on_windows_using_the_msvc_toolkit" .
   #f)
@@ -2318,8 +969,6 @@
   #f)
  ("ja/chrome_manifest" .
   #f)
- ("ja/chrome_manifest" .
-  #f)
  ("ja/cid" .
   #f)
  ("ja/cipher_suites_with_rsa_key_exchange" .
@@ -2380,9 +1029,15 @@
   #f)
  ("ja/code_snippets/dialogs" .
   #f)
+ ("ja/code_snippets/file_i%252f%252fo" .
+  #f)
  ("ja/code_snippets/file_i%2f%2fo_file" .
   #f)
  ("ja/code_snippets/signing_a_xpi" .
+  #f)
+ ("ja/code_snippets/xml/base_function" .
+  #f)
+ ("ja/code_snippets/xpath" .
   #f)
  ("ja/comm-central_source_code_(mercurial)" .
   #f)
@@ -2399,6 +1054,8 @@
  ("ja/contractid" .
   #f)
  ("ja/conversion_operators" .
+  #f)
+ ("ja/cookies_preferences_in_mozilla" .
   #f)
  ("ja/core_javascript_1_5_guide/about/core_language_features" .
   #f)
@@ -2606,15 +1263,39 @@
   #f)
  ("ja/core_javascript_1_5_reference/functions/parseint" .
   #f)
- ("ja/core_javascript_1_5_reference/functions_and_function_scope" .
-  #f)
- ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments" .
-  #f)
  ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/callee" .
   #f)
  ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/caller" .
   #f)
- ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/length" .
+ ("ja/core_javascript_1_5_reference/global_functions/array" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/boolean" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/date" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/error" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/evalerror" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/function" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/number" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/object" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/rangeerror" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/referenceerror" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/regexp" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/string" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/syntaxerror" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/typeerror" .
+  #f)
+ ("ja/core_javascript_1_5_reference/global_functions/urierror" .
   #f)
  ("ja/core_javascript_1_5_reference/global_objects/array/valueof" .
   #f)
@@ -2638,13 +1319,85 @@
   #f)
  ("ja/core_javascript_1_5_reference/objects/boolean/constructor" .
   #f)
+ ("ja/core_javascript_1_5_reference/objects/date" .
+  #f)
  ("ja/core_javascript_1_5_reference/objects/date/constructor" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getdate" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getday" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getfullyear" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/gethours" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getmilliseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getminutes" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getmonth" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/gettime" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcdate" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcday" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcfullyear" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutchours" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcmilliseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcminutes" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcmonth" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getutcseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/getyear" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setdate" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setfullyear" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/sethours" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setmilliseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setminutes" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setmonth" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutcdate" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutcfullyear" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutchours" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutcmilliseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutcminutes" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutcmonth" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setutcseconds" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/date/setyear" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/function" .
   #f)
  ("ja/core_javascript_1_5_reference/objects/function/arguments/callee" .
   #f)
  ("ja/core_javascript_1_5_reference/objects/function/caller" .
   #f)
  ("ja/core_javascript_1_5_reference/objects/function/constructor" .
+  #f)
+ ("ja/core_javascript_1_5_reference/objects/function/length" .
   #f)
  ("ja/core_javascript_1_5_reference/objects/javaarray/length" .
   #f)
@@ -2733,6 +1486,10 @@
  ("ja/core_javascript_1_5_reference_global_objects_object_valueof" .
   #f)
  ("ja/core_javascript_1_5_reference_global_objects_object_watch" .
+  #f)
+ ("ja/correct_object_oriented_programming_for_javascript_(external)" .
+  #f)
+ ("ja/creating_a_mozilla_extension/adding_the_structure" .
   #f)
  ("ja/creating_a_mozilla_extension_adding_the_structure" .
   #f)
@@ -3170,8 +1927,6 @@
   #f)
  ("ja/css/getting_started/why_use_css%3f" .
   #f)
- ("ja/css/getting_started/xul_user_interfaces" .
-  #f)
  ("ja/css/horizontal" .
   #f)
  ("ja/css/inherited_and_non-inherited_properties" .
@@ -3183,6 +1938,8 @@
  ("ja/css/marker-offset" .
   #f)
  ("ja/css/marks" .
+  #f)
+ ("ja/css/media/bitmap" .
   #f)
  ("ja/css/media_bitmap" .
   #f)
@@ -3478,6 +2235,8 @@
   #f)
  ("ja/document_height" .
   #f)
+ ("ja/document_loadoverlay" .
+  #f)
  ("ja/document_querycommandenabled" .
   #f)
  ("ja/document_querycommandindeterm" .
@@ -3664,6 +2423,10 @@
   #f)
  ("ja/dom/domtokenlist_toggle" .
   #f)
+ ("ja/dom/element/keypress" .
+  #f)
+ ("ja/dom/element_clonenode" .
+  #f)
  ("ja/dom/element_nodeprincipal" .
   #f)
  ("ja/dom/element_nodevalue" .
@@ -3671,8 +2434,6 @@
  ("ja/dom/element_oncontextmenu" .
   #f)
  ("ja/dom/element_textcontent" .
-  #f)
- ("ja/dom/element/keypress" .
   #f)
  ("ja/dom/entity_inputencoding" .
   #f)
@@ -3685,6 +2446,14 @@
  ("ja/dom/entity_xmlencoding" .
   #f)
  ("ja/dom/entity_xmlversion" .
+  #f)
+ ("ja/dom/event/keydown" .
+  #f)
+ ("ja/dom/event/keypress" .
+  #f)
+ ("ja/dom/event/keyup" .
+  #f)
+ ("ja/dom/event/uievent/mouseevent" .
   #f)
  ("ja/dom/event_initcommandevent" .
   #f)
@@ -3701,14 +2470,6 @@
  ("ja/dom/event_preventbubble" .
   #f)
  ("ja/dom/event_preventcapture" .
-  #f)
- ("ja/dom/event/keydown" .
-  #f)
- ("ja/dom/event/keypress" .
-  #f)
- ("ja/dom/event/keyup" .
-  #f)
- ("ja/dom/event/uievent/mouseevent" .
   #f)
  ("ja/dom/event_retargeting" .
   #f)
@@ -3842,6 +2603,12 @@
   #f)
  ("ja/dom/node_baseuri" .
   #f)
+ ("ja/dom/node_getfeature" .
+  #f)
+ ("ja/dom/node_isequalnode" .
+  #f)
+ ("ja/dom/node_issamenode" .
+  #f)
  ("ja/dom/node_issupported" .
   #f)
  ("ja/dom/node_renamenode" .
@@ -3910,9 +2677,9 @@
   #f)
  ("ja/dom/style_disabled" .
   #f)
- ("ja/dom/table_cells" .
-  #f)
  ("ja/dom/table/row_insertcell" .
+  #f)
+ ("ja/dom/table_cells" .
   #f)
  ("ja/dom/tablecaption" .
   #f)
@@ -4038,7 +2805,43 @@
   #f)
  ("ja/dom_element" .
   #f)
+ ("ja/dom_element_addeventlistener" .
+  #f)
+ ("ja/dom_element_appendchild" .
+  #f)
+ ("ja/dom_element_attributes" .
+  #f)
+ ("ja/dom_element_baseuri" .
+  #f)
+ ("ja/dom_element_childelementcount" .
+  #f)
+ ("ja/dom_element_childnodes" .
+  #f)
+ ("ja/dom_element_children" .
+  #f)
+ ("ja/dom_element_clientheight" .
+  #f)
+ ("ja/dom_element_clientleft" .
+  #f)
+ ("ja/dom_element_clienttop" .
+  #f)
+ ("ja/dom_element_clientwidth" .
+  #f)
  ("ja/dom_element_clonenode" .
+  #f)
+ ("ja/dom_element_dispatchevent" .
+  #f)
+ ("ja/dom_element_firstchild" .
+  #f)
+ ("ja/dom_element_firstelementchild" .
+  #f)
+ ("ja/dom_element_getattribute" .
+  #f)
+ ("ja/dom_element_getattributenode" .
+  #f)
+ ("ja/dom_element_getattributenodens" .
+  #f)
+ ("ja/dom_element_getattributens" .
   #f)
  ("ja/dom_element_getboundingclientrect" .
   #f)
@@ -4046,17 +2849,95 @@
   #f)
  ("ja/dom_element_getelementsbyclassname" .
   #f)
+ ("ja/dom_element_getelementsbytagname" .
+  #f)
+ ("ja/dom_element_getelementsbytagnamens" .
+  #f)
  ("ja/dom_element_getfeature" .
+  #f)
+ ("ja/dom_element_hasattribute" .
+  #f)
+ ("ja/dom_element_hasattributens" .
+  #f)
+ ("ja/dom_element_hasattributes" .
+  #f)
+ ("ja/dom_element_haschildnodes" .
   #f)
  ("ja/dom_element_innerhtml" .
   #f)
+ ("ja/dom_element_insertbefore" .
+  #f)
  ("ja/dom_element_isdefaultnamespace" .
   #f)
+ ("ja/dom_element_issupported" .
+  #f)
  ("ja/dom_element_item" .
+  #f)
+ ("ja/dom_element_lastchild" .
+  #f)
+ ("ja/dom_element_lastelementchild" .
+  #f)
+ ("ja/dom_element_localname" .
+  #f)
+ ("ja/dom_element_namespaceuri" .
+  #f)
+ ("ja/dom_element_nextelementsibling" .
+  #f)
+ ("ja/dom_element_nextsibling" .
+  #f)
+ ("ja/dom_element_nodename" .
+  #f)
+ ("ja/dom_element_nodetype" .
+  #f)
+ ("ja/dom_element_nodevalue" .
+  #f)
+ ("ja/dom_element_normalize" .
+  #f)
+ ("ja/dom_element_ownerdocument" .
+  #f)
+ ("ja/dom_element_parentnode" .
+  #f)
+ ("ja/dom_element_prefix" .
+  #f)
+ ("ja/dom_element_previouselementsibling" .
+  #f)
+ ("ja/dom_element_previoussibling" .
   #f)
  ("ja/dom_element_queryselector" .
   #f)
  ("ja/dom_element_queryselectorall" .
+  #f)
+ ("ja/dom_element_removeattribute" .
+  #f)
+ ("ja/dom_element_removeattributenode" .
+  #f)
+ ("ja/dom_element_removeattributens" .
+  #f)
+ ("ja/dom_element_removechild" .
+  #f)
+ ("ja/dom_element_removeeventlistener" .
+  #f)
+ ("ja/dom_element_replacechild" .
+  #f)
+ ("ja/dom_element_scrollheight" .
+  #f)
+ ("ja/dom_element_scrollleft" .
+  #f)
+ ("ja/dom_element_scrolltop" .
+  #f)
+ ("ja/dom_element_scrollwidth" .
+  #f)
+ ("ja/dom_element_setattribute" .
+  #f)
+ ("ja/dom_element_setattributenode" .
+  #f)
+ ("ja/dom_element_setattributenodens" .
+  #f)
+ ("ja/dom_element_setattributens" .
+  #f)
+ ("ja/dom_element_tagname" .
+  #f)
+ ("ja/dom_element_textcontent" .
   #f)
  ("ja/dom_event_initevent" .
   #f)
@@ -4166,31 +3047,11 @@
   #f)
  ("ja/extension" .
   #f)
+ ("ja/extension_faq" .
+  #f)
  ("ja/extension_versioning%2c_update_and_compatibility" .
   #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_09_29" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_10_06" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_10_13" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_10_20" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_10_27" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_11_03" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_11_10" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_11_17" .
-  #f)
  ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_11_24" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_12_01" .
-  #f)
- ("ja/extensions/questions_and_answers_from_the_newsgroups_2006_12_08" .
   #f)
  ("ja/extensions/thunderbird/adding_items_to_the_folder_pane/code" .
   #f)
@@ -4222,6 +3083,8 @@
   #f)
  ("ja/fileguide/streams" .
   #f)
+ ("ja/firefox_1_5" .
+  #f)
  ("ja/firefox_2" .
   #f)
  ("ja/firefox_3" .
@@ -4231,8 +3094,6 @@
  ("ja/firefox_addons_developer_guide/introduction_to_xul%e2%80%94how_to_build_a_more_intuitive_ui" .
   #f)
  ("ja/firefox_addons_developer_guide/using_xpcom%e2%80%94implementing_advanced_processes" .
-  #f)
- ("ja/firefox_for_developers" .
   #f)
  ("ja/firstchild" .
   #f)
@@ -4574,9 +3435,9 @@
   #f)
  ("ja/invokedragsession" .
   #f)
- ("ja/io_js" .
-  #f)
  ("ja/io_guide%252f%252fdirectory_keys" .
+  #f)
+ ("ja/io_js" .
   #f)
  ("ja/ipciclientobserver" .
   #f)
@@ -4646,11 +3507,13 @@
   #f)
  ("ja/js-ctypes/using_js-ctypes" .
   #f)
- ("ja/js_number_prototype_constructor" .
-  #f)
  ("ja/js/arithmetic_operators" .
   #f)
  ("ja/js/array" .
+  #f)
+ ("ja/js/array/index" .
+  #f)
+ ("ja/js/array/input" .
   #f)
  ("ja/js/array_prototype" .
   #f)
@@ -4697,10 +3560,6 @@
  ("ja/js/array_prototype_unshift" .
   #f)
  ("ja/js/array_prototype_valueof" .
-  #f)
- ("ja/js/array/index" .
-  #f)
- ("ja/js/array/input" .
   #f)
  ("ja/js/assignment_operators" .
   #f)
@@ -4854,6 +3713,14 @@
   #f)
  ("ja/js/function" .
   #f)
+ ("ja/js/function/arguments" .
+  #f)
+ ("ja/js/function/arguments_callee" .
+  #f)
+ ("ja/js/function/arguments_length" .
+  #f)
+ ("ja/js/function_operator" .
+  #f)
  ("ja/js/function_prototype" .
   #f)
  ("ja/js/function_prototype_apply" .
@@ -4875,14 +3742,6 @@
  ("ja/js/function_prototype_tostring" .
   #f)
  ("ja/js/function_prototype_valueof" .
-  #f)
- ("ja/js/function/arguments" .
-  #f)
- ("ja/js/function/arguments_callee" .
-  #f)
- ("ja/js/function/arguments_length" .
-  #f)
- ("ja/js/function_operator" .
   #f)
  ("ja/js/functions" .
   #f)
@@ -5258,6 +4117,8 @@
   #f)
  ("ja/js/string" .
   #f)
+ ("ja/js/string_operators" .
+  #f)
  ("ja/js/string_prototype" .
   #f)
  ("ja/js/string_prototype_anchor" .
@@ -5325,8 +4186,6 @@
  ("ja/js/string_prototype_touppercase" .
   #f)
  ("ja/js/string_prototype_valueof" .
-  #f)
- ("ja/js/string_operators" .
   #f)
  ("ja/js/sun" .
   #f)
@@ -5888,6 +4747,8 @@
   #f)
  ("ja/js_now" .
   #f)
+ ("ja/js_number_prototype_constructor" .
+  #f)
  ("ja/js_objectisfunction" .
   #f)
  ("ja/js_operation_weight_base" .
@@ -6184,17 +5045,13 @@
   #f)
  ("ja/jsclass_construct" .
   #f)
+ ("ja/jsclass_constuct_prototype" .
+  #f)
  ("ja/jsclass_enumerate" .
   #f)
  ("ja/jsclass_flags" .
   #f)
  ("ja/jsclass_getobjectops" .
-  #f)
- ("ja/jsclass_mark" .
-  #f)
- ("ja/jsclass_resolve" .
-  #f)
- ("ja/jsclass_constuct_prototype" .
   #f)
  ("ja/jsclass_global_flags" .
   #f)
@@ -6203,6 +5060,8 @@
  ("ja/jsclass_has_reserved_slots" .
   #f)
  ("ja/jsclass_is_extended" .
+  #f)
+ ("ja/jsclass_mark" .
   #f)
  ("ja/jsclass_mark_is_trace" .
   #f)
@@ -6215,6 +5074,8 @@
  ("ja/jsclass_private_is_nsisupports" .
   #f)
  ("ja/jsclass_reserved_slots" .
+  #f)
+ ("ja/jsclass_resolve" .
   #f)
  ("ja/jsclass_share_all_properties" .
   #f)
@@ -6700,8 +5561,6 @@
   #f)
  ("ja/migrate_apps_from_internet_explorer_to_mozilla" .
   #f)
- ("ja/mobile/challenge" .
-  #f)
  ("ja/mobile/designing_web_content_for_mobile_devices" .
   #f)
  ("ja/module_name" .
@@ -6717,6 +5576,8 @@
  ("ja/mozilinetermaux" .
   #f)
  ("ja/mozilla_coding_style_guide" .
+  #f)
+ ("ja/mozilla_css_extensions" .
   #f)
  ("ja/mozilla_developer_center" .
   #f)
@@ -6798,8 +5659,6 @@
   #f)
  ("ja/mxr" .
   #f)
- ("ja/my_chrome_oven/generating_xul_with_python" .
-  #f)
  ("ja/namespace/mozilla/condvar" .
   #f)
  ("ja/namespace/mozilla/monitor" .
@@ -6817,6 +5676,8 @@
  ("ja/newsgroup_summaries/mozilla-dev-apps-firefox" .
   #f)
  ("ja/newsgroup_summaries/mozilla-dev-platform" .
+  #f)
+ ("ja/newsgroup_summaries/mozilla-dev-tech-xul" .
   #f)
  ("ja/newstream" .
   #f)
@@ -7495,6 +6356,8 @@
  ("ja/nsicommandhandler" .
   #f)
  ("ja/nsicommandhandlerinit" .
+  #f)
+ ("ja/nsicommandline" .
   #f)
  ("ja/nsicommandlinehandler" .
   #f)
@@ -8474,6 +7337,8 @@
   #f)
  ("ja/nsieditingshell" .
   #f)
+ ("ja/nsieditor" .
+  #f)
  ("ja/nsieditorboxobject" .
   #f)
  ("ja/nsieditordocshell" .
@@ -8649,6 +7514,8 @@
  ("ja/nsifilelocator" .
   #f)
  ("ja/nsifilepath" .
+  #f)
+ ("ja/nsifilepicker" .
   #f)
  ("ja/nsifileprotocolhandler" .
   #f)
@@ -10222,6 +9089,8 @@
   #f)
  ("ja/nsitreeselection" .
   #f)
+ ("ja/nsitreeview" .
+  #f)
  ("ja/nsitridentprofilemigrator" .
   #f)
  ("ja/nsitruetypefontcatalogentry" .
@@ -10925,6 +9794,8 @@
  ("ja/origin" .
   #f)
  ("ja/os%2f%2f2_build_prerequisites" .
+  #f)
+ ("ja/overlay" .
   #f)
  ("ja/ownernode" .
   #f)
@@ -12128,6 +10999,10 @@
   #f)
  ("ja/wstring" .
   #f)
+ ("ja/xbl_xbl_1_0_reference_dom_interfaces" .
+  #f)
+ ("ja/xbl_xbl_1_0_reference_elements" .
+  #f)
  ("ja/xdr" .
   #f)
  ("ja/xforms/rfe/xforms_elements" .
@@ -12187,8 +11062,6 @@
  ("ja/xpcom_interface_reference/nsicontrollers" .
   #f)
  ("ja/xpcom_interface_reference/nsilivemarkservice" .
-  #f)
- ("ja/xpcom_interface_reference/nsimsgaccountmanagerextension" .
   #f)
  ("ja/xpcom_interface_reference/nsimsgdbhdr" .
   #f)
@@ -12338,8 +11211,6 @@
   #f)
  ("ja/xul/attribute_width" .
   #f)
- ("ja/xul/attribute/treelines" .
-  #f)
  ("ja/xul/element_button" .
   #f)
  ("ja/xul/element_checkbox" .
@@ -12387,6 +11258,14 @@
  ("ja/xul/element_tooltip" .
   #f)
  ("ja/xul/elements_quick_ref" .
+  #f)
+ ("ja/xul/property/clientheight" .
+  #f)
+ ("ja/xul/property/clientwidth" .
+  #f)
+ ("ja/xul/property/scrollheight" .
+  #f)
+ ("ja/xul/property/scrollwidth" .
   #f)
  ("ja/xul/property_align" .
   #f)
@@ -12451,40 +11330,6 @@
  ("ja/xul/property_maxwidth" .
   #f)
  ("ja/xul/property_menu" .
-  #f)
- ("ja/xul/property_minheight" .
-  #f)
- ("ja/xul/property_minwidth" .
-  #f)
- ("ja/xul/property_observes" .
-  #f)
- ("ja/xul/property_ordinal" .
-  #f)
- ("ja/xul/property_orient" .
-  #f)
- ("ja/xul/property_pack" .
-  #f)
- ("ja/xul/property_persist" .
-  #f)
- ("ja/xul/property_ref" .
-  #f)
- ("ja/xul/property_resource" .
-  #f)
- ("ja/xul/property_statustext" .
-  #f)
- ("ja/xul/property_style" .
-  #f)
- ("ja/xul/property_tooltip" .
-  #f)
- ("ja/xul/property_tooltiptext" .
-  #f)
- ("ja/xul/property/clientheight" .
-  #f)
- ("ja/xul/property/clientwidth" .
-  #f)
- ("ja/xul/property/scrollheight" .
-  #f)
- ("ja/xul/property/scrollwidth" .
   #f)
  ("ja/xul/property_method_appendchild" .
   #f)
@@ -12568,6 +11413,32 @@
   #f)
  ("ja/xul/property_method_tagname" .
   #f)
+ ("ja/xul/property_minheight" .
+  #f)
+ ("ja/xul/property_minwidth" .
+  #f)
+ ("ja/xul/property_observes" .
+  #f)
+ ("ja/xul/property_ordinal" .
+  #f)
+ ("ja/xul/property_orient" .
+  #f)
+ ("ja/xul/property_pack" .
+  #f)
+ ("ja/xul/property_persist" .
+  #f)
+ ("ja/xul/property_ref" .
+  #f)
+ ("ja/xul/property_resource" .
+  #f)
+ ("ja/xul/property_statustext" .
+  #f)
+ ("ja/xul/property_style" .
+  #f)
+ ("ja/xul/property_tooltip" .
+  #f)
+ ("ja/xul/property_tooltiptext" .
+  #f)
  ("ja/xul/style_box-inset" .
   #f)
  ("ja/xul/style_box-padded" .
@@ -12588,15 +11459,33 @@
   #f)
  ("ja/xul/template_guide/simple_rule_syntax" .
   #f)
+ ("ja/xul_action" .
+  #f)
+ ("ja/xul_arrowscrollbox" .
+  #f)
  ("ja/xul_assign" .
+  #f)
+ ("ja/xul_attribute_acceltext" .
   #f)
  ("ja/xul_attribute_accessible" .
   #f)
+ ("ja/xul_attribute_accesskey" .
+  #f)
+ ("ja/xul_attribute_activetitlebarcolor" .
+  #f)
  ("ja/xul_attribute_afterselected" .
+  #f)
+ ("ja/xul_attribute_align" .
+  #f)
+ ("ja/xul_attribute_allowevents" .
+  #f)
+ ("ja/xul_attribute_allownegativeassertions" .
   #f)
  ("ja/xul_attribute_alternatingbackground" .
   #f)
  ("ja/xul_attribute_alwaysopenpopup" .
+  #f)
+ ("ja/xul_attribute_attribute" .
   #f)
  ("ja/xul_attribute_autocheck" .
   #f)
@@ -12624,6 +11513,8 @@
   #f)
  ("ja/xul_attribute_button_type" .
   #f)
+ ("ja/xul_attribute_buttonaccesskeyaccept" .
+  #f)
  ("ja/xul_attribute_buttonaccesskeycancel" .
   #f)
  ("ja/xul_attribute_buttonaccesskeydisclosure" .
@@ -12640,6 +11531,8 @@
   #f)
  ("ja/xul_attribute_buttondisabledaccept" .
   #f)
+ ("ja/xul_attribute_buttonlabelaccept" .
+  #f)
  ("ja/xul_attribute_buttonlabelcancel" .
   #f)
  ("ja/xul_attribute_buttonlabeldisclosure" .
@@ -12654,13 +11547,25 @@
   #f)
  ("ja/xul_attribute_buttonpack" .
   #f)
+ ("ja/xul_attribute_buttons" .
+  #f)
  ("ja/xul_attribute_checkbox_src" .
   #f)
+ ("ja/xul_attribute_checked" .
+  #f)
  ("ja/xul_attribute_checkstate" .
+  #f)
+ ("ja/xul_attribute_class" .
   #f)
  ("ja/xul_attribute_closebutton" .
   #f)
  ("ja/xul_attribute_closemenu" .
+  #f)
+ ("ja/xul_attribute_coalesceduplicatearcs" .
+  #f)
+ ("ja/xul_attribute_collapse" .
+  #f)
+ ("ja/xul_attribute_collapsed" .
   #f)
  ("ja/xul_attribute_color" .
   #f)
@@ -12668,11 +11573,29 @@
   #f)
  ("ja/xul_attribute_cols" .
   #f)
+ ("ja/xul_attribute_command" .
+  #f)
+ ("ja/xul_attribute_commandupdater" .
+  #f)
  ("ja/xul_attribute_completedefaultindex" .
+  #f)
+ ("ja/xul_attribute_container" .
+  #f)
+ ("ja/xul_attribute_containment" .
   #f)
  ("ja/xul_attribute_contentcontextmenu" .
   #f)
  ("ja/xul_attribute_contenttooltip" .
+  #f)
+ ("ja/xul_attribute_context" .
+  #f)
+ ("ja/xul_attribute_contextmenu" .
+  #f)
+ ("ja/xul_attribute_control" .
+  #f)
+ ("ja/xul_attribute_crop" .
+  #f)
+ ("ja/xul_attribute_curpos" .
   #f)
  ("ja/xul_attribute_current" .
   #f)
@@ -12684,19 +11607,31 @@
   #f)
  ("ja/xul_attribute_cycler" .
   #f)
+ ("ja/xul_attribute_datasources" .
+  #f)
  ("ja/xul_attribute_datepicker_type" .
   #f)
  ("ja/xul_attribute_datepicker_value" .
   #f)
+ ("ja/xul_attribute_decimalplaces" .
+  #f)
  ("ja/xul_attribute_default" .
   #f)
+ ("ja/xul_attribute_defaultbutton" .
+  #f)
  ("ja/xul_attribute_defaultset" .
+  #f)
+ ("ja/xul_attribute_description" .
+  #f)
+ ("ja/xul_attribute_dir" .
   #f)
  ("ja/xul_attribute_disableautocomplete" .
   #f)
  ("ja/xul_attribute_disableautoselect" .
   #f)
  ("ja/xul_attribute_disableclose" .
+  #f)
+ ("ja/xul_attribute_disabled" .
   #f)
  ("ja/xul_attribute_disablehistory" .
   #f)
@@ -12708,9 +11643,15 @@
   #f)
  ("ja/xul_attribute_dragging" .
   #f)
+ ("ja/xul_attribute_editable" .
+  #f)
  ("ja/xul_attribute_editor_type" .
   #f)
  ("ja/xul_attribute_editortype" .
+  #f)
+ ("ja/xul_attribute_element" .
+  #f)
+ ("ja/xul_attribute_empty" .
   #f)
  ("ja/xul_attribute_emptytext" .
   #f)
@@ -12718,7 +11659,11 @@
   #f)
  ("ja/xul_attribute_enablehistory" .
   #f)
+ ("ja/xul_attribute_equalsize" .
+  #f)
  ("ja/xul_attribute_eventnode" .
+  #f)
+ ("ja/xul_attribute_events" .
   #f)
  ("ja/xul_attribute_expr" .
   #f)
@@ -12730,7 +11675,13 @@
   #f)
  ("ja/xul_attribute_firstdayofweek" .
   #f)
+ ("ja/xul_attribute_firstpage" .
+  #f)
  ("ja/xul_attribute_fixed" .
+  #f)
+ ("ja/xul_attribute_flags" .
+  #f)
+ ("ja/xul_attribute_flex" .
   #f)
  ("ja/xul_attribute_focused" .
   #f)
@@ -12746,7 +11697,15 @@
   #f)
  ("ja/xul_attribute_handlectrltab" .
   #f)
+ ("ja/xul_attribute_height" .
+  #f)
  ("ja/xul_attribute_helpuri" .
+  #f)
+ ("ja/xul_attribute_hidden" .
+  #f)
+ ("ja/xul_attribute_hidechrome" .
+  #f)
+ ("ja/xul_attribute_hidecolumnpicker" .
   #f)
  ("ja/xul_attribute_hideheader" .
   #f)
@@ -12764,17 +11723,31 @@
   #f)
  ("ja/xul_attribute_icon" .
   #f)
+ ("ja/xul_attribute_id" .
+  #f)
  ("ja/xul_attribute_iframe_transparent" .
   #f)
  ("ja/xul_attribute_ignoreblurwhilesearching" .
+  #f)
+ ("ja/xul_attribute_ignorecase" .
   #f)
  ("ja/xul_attribute_ignoreincolumnpicker" .
   #f)
  ("ja/xul_attribute_ignorekeys" .
   #f)
+ ("ja/xul_attribute_image" .
+  #f)
+ ("ja/xul_attribute_inactivetitlebarcolor" .
+  #f)
+ ("ja/xul_attribute_increment" .
+  #f)
  ("ja/xul_attribute_index" .
   #f)
  ("ja/xul_attribute_inputtooltiptext" .
+  #f)
+ ("ja/xul_attribute_insertafter" .
+  #f)
+ ("ja/xul_attribute_insertbefore" .
   #f)
  ("ja/xul_attribute_instantapply" .
   #f)
@@ -12784,13 +11757,23 @@
   #f)
  ("ja/xul_attribute_isempty" .
   #f)
+ ("ja/xul_attribute_key" .
+  #f)
+ ("ja/xul_attribute_keycode" .
+  #f)
  ("ja/xul_attribute_keytext" .
+  #f)
+ ("ja/xul_attribute_label" .
   #f)
  ("ja/xul_attribute_label_value" .
   #f)
  ("ja/xul_attribute_last-tab" .
   #f)
+ ("ja/xul_attribute_lastpage" .
+  #f)
  ("ja/xul_attribute_lastselected" .
+  #f)
+ ("ja/xul_attribute_left" .
   #f)
  ("ja/xul_attribute_lightweightthemes" .
   #f)
@@ -12804,11 +11787,27 @@
   #f)
  ("ja/xul_attribute_matchcaseaccesskey" .
   #f)
+ ("ja/xul_attribute_max" .
+  #f)
+ ("ja/xul_attribute_maxheight" .
+  #f)
+ ("ja/xul_attribute_maxlength" .
+  #f)
+ ("ja/xul_attribute_maxpos" .
+  #f)
  ("ja/xul_attribute_maxrows" .
+  #f)
+ ("ja/xul_attribute_maxwidth" .
   #f)
  ("ja/xul_attribute_member" .
   #f)
+ ("ja/xul_attribute_menu" .
+  #f)
  ("ja/xul_attribute_menuactive" .
+  #f)
+ ("ja/xul_attribute_menubar" .
+  #f)
+ ("ja/xul_attribute_menuitem" .
   #f)
  ("ja/xul_attribute_menuitem_key" .
   #f)
@@ -12816,15 +11815,37 @@
   #f)
  ("ja/xul_attribute_menuitem_type" .
   #f)
+ ("ja/xul_attribute_menupopup" .
+  #f)
+ ("ja/xul_attribute_menuseparator" .
+  #f)
+ ("ja/xul_attribute_min" .
+  #f)
+ ("ja/xul_attribute_minheight" .
+  #f)
  ("ja/xul_attribute_minresultsforpopup" .
+  #f)
+ ("ja/xul_attribute_minwidth" .
   #f)
  ("ja/xul_attribute_mode" .
   #f)
+ ("ja/xul_attribute_modifiers" .
+  #f)
+ ("ja/xul_attribute_mousethrough" .
+  #f)
  ("ja/xul_attribute_movetoclick" .
+  #f)
+ ("ja/xul_attribute_multiline" .
+  #f)
+ ("ja/xul_attribute_multiple" .
   #f)
  ("ja/xul_attribute_name" .
   #f)
+ ("ja/xul_attribute_negate" .
+  #f)
  ("ja/xul_attribute_newlines" .
+  #f)
+ ("ja/xul_attribute_next" .
   #f)
  ("ja/xul_attribute_noautofocus" .
   #f)
@@ -12836,6 +11857,10 @@
   #f)
  ("ja/xul_attribute_notification_type" .
   #f)
+ ("ja/xul_attribute_object" .
+  #f)
+ ("ja/xul_attribute_observes" .
+  #f)
  ("ja/xul_attribute_onbeforeaccept" .
   #f)
  ("ja/xul_attribute_onbookmarkgroup" .
@@ -12846,25 +11871,53 @@
   #f)
  ("ja/xul_attribute_onclosetab" .
   #f)
+ ("ja/xul_attribute_oncommand" .
+  #f)
+ ("ja/xul_attribute_oncommandupdate" .
+  #f)
  ("ja/xul_attribute_oncontextmenu" .
+  #f)
+ ("ja/xul_attribute_ondialogaccept" .
+  #f)
+ ("ja/xul_attribute_ondialogcancel" .
+  #f)
+ ("ja/xul_attribute_ondialogdisclosure" .
   #f)
  ("ja/xul_attribute_ondialogextra1" .
   #f)
  ("ja/xul_attribute_ondialogextra2" .
   #f)
+ ("ja/xul_attribute_ondialoghelp" .
+  #f)
  ("ja/xul_attribute_onerror" .
   #f)
  ("ja/xul_attribute_onerrorcommand" .
   #f)
+ ("ja/xul_attribute_onextra1" .
+  #f)
+ ("ja/xul_attribute_onextra2" .
+  #f)
  ("ja/xul_attribute_oninput" .
   #f)
+ ("ja/xul_attribute_onload" .
+  #f)
  ("ja/xul_attribute_onnewtab" .
+  #f)
+ ("ja/xul_attribute_onpageadvanced" .
+  #f)
+ ("ja/xul_attribute_onpagehide" .
+  #f)
+ ("ja/xul_attribute_onpagerewound" .
+  #f)
+ ("ja/xul_attribute_onpageshow" .
   #f)
  ("ja/xul_attribute_onpaneload" .
   #f)
  ("ja/xul_attribute_onpopuphidden" .
   #f)
  ("ja/xul_attribute_onpopuphiding" .
+  #f)
+ ("ja/xul_attribute_onpopupshowing" .
   #f)
  ("ja/xul_attribute_onpopupshown" .
   #f)
@@ -12880,6 +11933,28 @@
   #f)
  ("ja/xul_attribute_ontextreverted" .
   #f)
+ ("ja/xul_attribute_onwizardback" .
+  #f)
+ ("ja/xul_attribute_onwizardcancel" .
+  #f)
+ ("ja/xul_attribute_onwizardfinish" .
+  #f)
+ ("ja/xul_attribute_onwizardnext" .
+  #f)
+ ("ja/xul_attribute_open" .
+  #f)
+ ("ja/xul_attribute_ordinal" .
+  #f)
+ ("ja/xul_attribute_orient" .
+  #f)
+ ("ja/xul_attribute_pack" .
+  #f)
+ ("ja/xul_attribute_pageid" .
+  #f)
+ ("ja/xul_attribute_pageincrement" .
+  #f)
+ ("ja/xul_attribute_pagestep" .
+  #f)
  ("ja/xul_attribute_panel_ignorekeys" .
   #f)
  ("ja/xul_attribute_panel_level" .
@@ -12890,11 +11965,15 @@
   #f)
  ("ja/xul_attribute_parsetype" .
   #f)
+ ("ja/xul_attribute_persist" .
+  #f)
  ("ja/xul_attribute_persistence" .
   #f)
  ("ja/xul_attribute_phase" .
   #f)
  ("ja/xul_attribute_pickertooltiptext" .
+  #f)
+ ("ja/xul_attribute_popup" .
   #f)
  ("ja/xul_attribute_popup_left" .
   #f)
@@ -12906,6 +11985,14 @@
   #f)
  ("ja/xul_attribute_popupanchor" .
   #f)
+ ("ja/xul_attribute_position" .
+  #f)
+ ("ja/xul_attribute_predicate" .
+  #f)
+ ("ja/xul_attribute_preference" .
+  #f)
+ ("ja/xul_attribute_preference-editable" .
+  #f)
  ("ja/xul_attribute_preference_name" .
   #f)
  ("ja/xul_attribute_preference_type" .
@@ -12916,6 +12003,8 @@
   #f)
  ("ja/xul_attribute_prefwindow_type" .
   #f)
+ ("ja/xul_attribute_primary" .
+  #f)
  ("ja/xul_attribute_priority" .
   #f)
  ("ja/xul_attribute_progressmeter_max" .
@@ -12924,13 +12013,33 @@
   #f)
  ("ja/xul_attribute_progressmeter_value" .
   #f)
+ ("ja/xul_attribute_properties" .
+  #f)
  ("ja/xul_attribute_query_name" .
   #f)
  ("ja/xul_attribute_query_type" .
   #f)
+ ("ja/xul_attribute_querytype" .
+  #f)
  ("ja/xul_attribute_readonly" .
   #f)
+ ("ja/xul_attribute_ref" .
+  #f)
+ ("ja/xul_attribute_rel" .
+  #f)
+ ("ja/xul_attribute_removeelement" .
+  #f)
+ ("ja/xul_attribute_resizeafter" .
+  #f)
+ ("ja/xul_attribute_resizebefore" .
+  #f)
  ("ja/xul_attribute_resizer_dir" .
+  #f)
+ ("ja/xul_attribute_rows" .
+  #f)
+ ("ja/xul_attribute_screenx" .
+  #f)
+ ("ja/xul_attribute_screeny" .
   #f)
  ("ja/xul_attribute_script_src" .
   #f)
@@ -12941,6 +12050,12 @@
  ("ja/xul_attribute_searchlabel" .
   #f)
  ("ja/xul_attribute_searchsessions" .
+  #f)
+ ("ja/xul_attribute_selected" .
+  #f)
+ ("ja/xul_attribute_selectedindex" .
+  #f)
+ ("ja/xul_attribute_seltype" .
   #f)
  ("ja/xul_attribute_separator_orient" .
   #f)
@@ -12954,6 +12069,8 @@
   #f)
  ("ja/xul_attribute_size" .
   #f)
+ ("ja/xul_attribute_sizemode" .
+  #f)
  ("ja/xul_attribute_sizetopopup" .
   #f)
  ("ja/xul_attribute_smoothscroll" .
@@ -12962,13 +12079,29 @@
   #f)
  ("ja/xul_attribute_sortactive" .
   #f)
+ ("ja/xul_attribute_sortdirection" .
+  #f)
+ ("ja/xul_attribute_sortresource" .
+  #f)
+ ("ja/xul_attribute_sortresource2" .
+  #f)
  ("ja/xul_attribute_spellcheck" .
+  #f)
+ ("ja/xul_attribute_src" .
+  #f)
+ ("ja/xul_attribute_state" .
   #f)
  ("ja/xul_attribute_statedatasource" .
   #f)
  ("ja/xul_attribute_statusbar" .
   #f)
+ ("ja/xul_attribute_statustext" .
+  #f)
  ("ja/xul_attribute_stringbundle_src" .
+  #f)
+ ("ja/xul_attribute_style" .
+  #f)
+ ("ja/xul_attribute_subject" .
   #f)
  ("ja/xul_attribute_substate" .
   #f)
@@ -12976,11 +12109,15 @@
   #f)
  ("ja/xul_attribute_tab_selected" .
   #f)
+ ("ja/xul_attribute_tabindex" .
+  #f)
  ("ja/xul_attribute_tabs_onselect" .
   #f)
  ("ja/xul_attribute_tabscrolling" .
   #f)
  ("ja/xul_attribute_targets" .
+  #f)
+ ("ja/xul_attribute_template" .
   #f)
  ("ja/xul_attribute_template_container" .
   #f)
@@ -13002,13 +12139,21 @@
   #f)
  ("ja/xul_attribute_timepicker_value" .
   #f)
+ ("ja/xul_attribute_title" .
+  #f)
  ("ja/xul_attribute_toolbar_mode" .
   #f)
  ("ja/xul_attribute_toolbarbutton_type" .
   #f)
  ("ja/xul_attribute_toolbarname" .
   #f)
+ ("ja/xul_attribute_tooltip" .
+  #f)
+ ("ja/xul_attribute_tooltiptext" .
+  #f)
  ("ja/xul_attribute_tooltiptextnew" .
+  #f)
+ ("ja/xul_attribute_top" .
   #f)
  ("ja/xul_attribute_tree_editable" .
   #f)
@@ -13030,23 +12175,131 @@
   #f)
  ("ja/xul_attribute_treeitem_label" .
   #f)
+ ("ja/xul_attribute_type" .
+  #f)
+ ("ja/xul_attribute_uri" .
+  #f)
  ("ja/xul_attribute_useraction" .
   #f)
  ("ja/xul_attribute_validate" .
   #f)
+ ("ja/xul_attribute_value" .
+  #f)
  ("ja/xul_attribute_var" .
+  #f)
+ ("ja/xul_attribute_wait-cursor" .
+  #f)
+ ("ja/xul_attribute_where_subject" .
+  #f)
+ ("ja/xul_attribute_where_value" .
+  #f)
+ ("ja/xul_attribute_width" .
+  #f)
+ ("ja/xul_attribute_windowtype" .
   #f)
  ("ja/xul_attribute_wrap" .
   #f)
  ("ja/xul_attribute_wraparound" .
   #f)
+ ("ja/xul_binding" .
+  #f)
+ ("ja/xul_bindings" .
+  #f)
+ ("ja/xul_box" .
+  #f)
+ ("ja/xul_broadcaster" .
+  #f)
+ ("ja/xul_broadcasterset" .
+  #f)
+ ("ja/xul_browser" .
+  #f)
+ ("ja/xul_button" .
+  #f)
+ ("ja/xul_caption" .
+  #f)
+ ("ja/xul_checkbox" .
+  #f)
  ("ja/xul_click" .
   #f)
  ("ja/xul_colorpicker" .
   #f)
+ ("ja/xul_column" .
+  #f)
+ ("ja/xul_columns" .
+  #f)
+ ("ja/xul_command" .
+  #f)
+ ("ja/xul_commandset" .
+  #f)
+ ("ja/xul_conditions" .
+  #f)
+ ("ja/xul_content" .
+  #f)
+ ("ja/xul_datepicker" .
+  #f)
+ ("ja/xul_deck" .
+  #f)
+ ("ja/xul_description" .
+  #f)
+ ("ja/xul_dialog" .
+  #f)
+ ("ja/xul_dialogheader" .
+  #f)
  ("ja/xul_findbar" .
   #f)
+ ("ja/xul_grid" .
+  #f)
+ ("ja/xul_grippy" .
+  #f)
+ ("ja/xul_groupbox" .
+  #f)
+ ("ja/xul_hbox" .
+  #f)
+ ("ja/xul_iframe" .
+  #f)
+ ("ja/xul_image" .
+  #f)
+ ("ja/xul_insertafter" .
+  #f)
+ ("ja/xul_insertbefore" .
+  #f)
+ ("ja/xul_key" .
+  #f)
+ ("ja/xul_keyset" .
+  #f)
+ ("ja/xul_label" .
+  #f)
+ ("ja/xul_listbox" .
+  #f)
+ ("ja/xul_listcell" .
+  #f)
+ ("ja/xul_listcol" .
+  #f)
+ ("ja/xul_listcols" .
+  #f)
+ ("ja/xul_listhead" .
+  #f)
+ ("ja/xul_listheader" .
+  #f)
+ ("ja/xul_listitem" .
+  #f)
+ ("ja/xul_member" .
+  #f)
+ ("ja/xul_menu" .
+  #f)
+ ("ja/xul_menubar" .
+  #f)
+ ("ja/xul_menuitem" .
+  #f)
+ ("ja/xul_menulist" .
+  #f)
+ ("ja/xul_menupopup" .
+  #f)
+ ("ja/xul_menuseparator" .
+  #f)
  ("ja/xul_method_acceptdialog" .
+  #f)
+ ("ja/xul_method_additemtoselection" .
   #f)
  ("ja/xul_method_addpane" .
   #f)
@@ -13058,13 +12311,21 @@
   #f)
  ("ja/xul_method_addtabsprogresslistener" .
   #f)
+ ("ja/xul_method_advance" .
+  #f)
  ("ja/xul_method_advanceselectedtab" .
   #f)
  ("ja/xul_method_appendcustomtoolbar" .
   #f)
  ("ja/xul_method_appendgroup" .
   #f)
+ ("ja/xul_method_appenditem" .
+  #f)
  ("ja/xul_method_appendnotification" .
+  #f)
+ ("ja/xul_method_blur" .
+  #f)
+ ("ja/xul_method_cancel" .
   #f)
  ("ja/xul_method_canceldialog" .
   #f)
@@ -13076,6 +12337,8 @@
   #f)
  ("ja/xul_method_clearselection" .
   #f)
+ ("ja/xul_method_click" .
+  #f)
  ("ja/xul_method_close" .
   #f)
  ("ja/xul_method_collapsetoolbar" .
@@ -13086,11 +12349,23 @@
   #f)
  ("ja/xul_method_decreasepage" .
   #f)
+ ("ja/xul_method_docommand" .
+  #f)
  ("ja/xul_method_ensureelementisvisible" .
+  #f)
+ ("ja/xul_method_ensureindexisvisible" .
+  #f)
+ ("ja/xul_method_ensureitemisvisible" .
   #f)
  ("ja/xul_method_ensureselectedelementisvisible" .
   #f)
  ("ja/xul_method_expandtoolbar" .
+  #f)
+ ("ja/xul_method_extra1" .
+  #f)
+ ("ja/xul_method_extra2" .
+  #f)
+ ("ja/xul_method_focus" .
   #f)
  ("ja/xul_method_getbrowseratindex" .
   #f)
@@ -13100,15 +12375,25 @@
   #f)
  ("ja/xul_method_getbrowserindexfordocument" .
   #f)
+ ("ja/xul_method_getbutton" .
+  #f)
  ("ja/xul_method_getdefaultsession" .
   #f)
  ("ja/xul_method_geteditor" .
+  #f)
+ ("ja/xul_method_getelementsbyattribute" .
+  #f)
+ ("ja/xul_method_getelementsbyattributens" .
   #f)
  ("ja/xul_method_getformattedstring" .
   #f)
  ("ja/xul_method_gethtmleditor" .
   #f)
  ("ja/xul_method_getindexoffirstvisiblerow" .
+  #f)
+ ("ja/xul_method_getindexofitem" .
+  #f)
+ ("ja/xul_method_getitematindex" .
   #f)
  ("ja/xul_method_getnextitem" .
   #f)
@@ -13117,6 +12402,8 @@
  ("ja/xul_method_getnotificationwithvalue" .
   #f)
  ("ja/xul_method_getnumberofvisiblerows" .
+  #f)
+ ("ja/xul_method_getpagebyid" .
   #f)
  ("ja/xul_method_getpreviousitem" .
   #f)
@@ -13156,6 +12443,8 @@
   #f)
  ("ja/xul_method_gohome" .
   #f)
+ ("ja/xul_method_goto" .
+  #f)
  ("ja/xul_method_gotoindex" .
   #f)
  ("ja/xul_method_goup" .
@@ -13169,6 +12458,8 @@
  ("ja/xul_method_increasepage" .
   #f)
  ("ja/xul_method_insertitem" .
+  #f)
+ ("ja/xul_method_insertitemat" .
   #f)
  ("ja/xul_method_invertselection" .
   #f)
@@ -13218,6 +12509,10 @@
   #f)
  ("ja/xul_method_removecurrenttab" .
   #f)
+ ("ja/xul_method_removeitemat" .
+  #f)
+ ("ja/xul_method_removeitemfromselection" .
+  #f)
  ("ja/xul_method_removenotification" .
   #f)
  ("ja/xul_method_removeprogresslistener" .
@@ -13234,9 +12529,15 @@
   #f)
  ("ja/xul_method_reset" .
   #f)
+ ("ja/xul_method_rewind" .
+  #f)
  ("ja/xul_method_scrollbyindex" .
   #f)
  ("ja/xul_method_scrollbypixels" .
+  #f)
+ ("ja/xul_method_scrolltoindex" .
+  #f)
+ ("ja/xul_method_select" .
   #f)
  ("ja/xul_method_selectall" .
   #f)
@@ -13245,6 +12546,8 @@
  ("ja/xul_method_selectitemrange" .
   #f)
  ("ja/xul_method_selecttabatindex" .
+  #f)
+ ("ja/xul_method_setselectionrange" .
   #f)
  ("ja/xul_method_showpane" .
   #f)
@@ -13272,17 +12575,43 @@
   #f)
  ("ja/xul_notificationbox" .
   #f)
+ ("ja/xul_observes" .
+  #f)
+ ("ja/xul_overlay" .
+  #f)
  ("ja/xul_panel" .
   #f)
  ("ja/xul_param" .
   #f)
+ ("ja/xul_parser_in_python%252f%252fsource" .
+  #f)
+ ("ja/xul_popup" .
+  #f)
+ ("ja/xul_popupset" .
+  #f)
+ ("ja/xul_position" .
+  #f)
+ ("ja/xul_preference" .
+  #f)
  ("ja/xul_preferences" .
+  #f)
+ ("ja/xul_prefpane" .
+  #f)
+ ("ja/xul_prefwindow" .
+  #f)
+ ("ja/xul_progressmeter" .
   #f)
  ("ja/xul_property_accessible" .
   #f)
  ("ja/xul_property_accessibletype" .
   #f)
+ ("ja/xul_property_accesskey" .
+  #f)
+ ("ja/xul_property_align" .
+  #f)
  ("ja/xul_property_allnotifications" .
+  #f)
+ ("ja/xul_property_allowevents" .
   #f)
  ("ja/xul_property_alwaysopenpopup" .
   #f)
@@ -13296,19 +12625,29 @@
   #f)
  ("ja/xul_property_autofillaftermatch" .
   #f)
+ ("ja/xul_property_boxobject" .
+  #f)
  ("ja/xul_property_browser" .
   #f)
  ("ja/xul_property_browser_preferences" .
   #f)
  ("ja/xul_property_browsers" .
   #f)
+ ("ja/xul_property_builder" .
+  #f)
  ("ja/xul_property_builderview" .
   #f)
  ("ja/xul_property_buttons" .
   #f)
+ ("ja/xul_property_canadvance" .
+  #f)
  ("ja/xul_property_cangoback" .
   #f)
  ("ja/xul_property_cangoforward" .
+  #f)
+ ("ja/xul_property_canrewind" .
+  #f)
+ ("ja/xul_property_checked" .
   #f)
  ("ja/xul_property_checkstate" .
   #f)
@@ -13316,7 +12655,11 @@
   #f)
  ("ja/xul_property_children" .
   #f)
+ ("ja/xul_property_classname" .
+  #f)
  ("ja/xul_property_clickselectsall" .
+  #f)
+ ("ja/xul_property_collapsed" .
   #f)
  ("ja/xul_property_color" .
   #f)
@@ -13346,17 +12689,25 @@
   #f)
  ("ja/xul_property_contentwindow" .
   #f)
+ ("ja/xul_property_contextmenu" .
+  #f)
  ("ja/xul_property_control" .
   #f)
  ("ja/xul_property_controller" .
+  #f)
+ ("ja/xul_property_controllers" .
   #f)
  ("ja/xul_property_crop" .
   #f)
  ("ja/xul_property_current" .
   #f)
+ ("ja/xul_property_currentindex" .
+  #f)
  ("ja/xul_property_currentitem" .
   #f)
  ("ja/xul_property_currentnotification" .
+  #f)
+ ("ja/xul_property_currentpage" .
   #f)
  ("ja/xul_property_currentpane" .
   #f)
@@ -13365,6 +12716,10 @@
  ("ja/xul_property_currenturi" .
   #f)
  ("ja/xul_property_customtoolbarcount" .
+  #f)
+ ("ja/xul_property_database" .
+  #f)
+ ("ja/xul_property_datasources" .
   #f)
  ("ja/xul_property_date" .
   #f)
@@ -13388,9 +12743,13 @@
   #f)
  ("ja/xul_property_description" .
   #f)
+ ("ja/xul_property_dir" .
+  #f)
  ("ja/xul_property_disableautocomplete" .
   #f)
  ("ja/xul_property_disableautoselect" .
+  #f)
+ ("ja/xul_property_disabled" .
   #f)
  ("ja/xul_property_disablekeynavigation" .
   #f)
@@ -13424,6 +12783,8 @@
   #f)
  ("ja/xul_property_firstpermanentchild" .
   #f)
+ ("ja/xul_property_flex" .
+  #f)
  ("ja/xul_property_focused" .
   #f)
  ("ja/xul_property_focuseditem" .
@@ -13438,6 +12799,10 @@
   #f)
  ("ja/xul_property_hasuservalue" .
   #f)
+ ("ja/xul_property_height" .
+  #f)
+ ("ja/xul_property_hidden" .
+  #f)
  ("ja/xul_property_hideseconds" .
   #f)
  ("ja/xul_property_highlightnonmatches" .
@@ -13447,6 +12812,8 @@
  ("ja/xul_property_hour" .
   #f)
  ("ja/xul_property_hourleadingzero" .
+  #f)
+ ("ja/xul_property_id" .
   #f)
  ("ja/xul_property_ignoreblurwhilesearching" .
   #f)
@@ -13468,11 +12835,15 @@
   #f)
  ("ja/xul_property_itemcount" .
   #f)
+ ("ja/xul_property_label" .
+  #f)
  ("ja/xul_property_labelelement" .
   #f)
  ("ja/xul_property_lastpermanentchild" .
   #f)
  ("ja/xul_property_lastselected" .
+  #f)
+ ("ja/xul_property_left" .
   #f)
  ("ja/xul_property_linkedpanel" .
   #f)
@@ -13486,9 +12857,15 @@
   #f)
  ("ja/xul_property_max" .
   #f)
+ ("ja/xul_property_maxheight" .
+  #f)
  ("ja/xul_property_maxlength" .
   #f)
  ("ja/xul_property_maxrows" .
+  #f)
+ ("ja/xul_property_maxwidth" .
+  #f)
+ ("ja/xul_property_menu" .
   #f)
  ("ja/xul_property_menu_open" .
   #f)
@@ -13504,11 +12881,15 @@
   #f)
  ("ja/xul_property_min" .
   #f)
+ ("ja/xul_property_minheight" .
+  #f)
  ("ja/xul_property_minresultsforpopup" .
   #f)
  ("ja/xul_property_minute" .
   #f)
  ("ja/xul_property_minuteleadingzero" .
+  #f)
+ ("ja/xul_property_minwidth" .
   #f)
  ("ja/xul_property_mode" .
   #f)
@@ -13518,19 +12899,43 @@
   #f)
  ("ja/xul_property_name" .
   #f)
+ ("ja/xul_property_next" .
+  #f)
  ("ja/xul_property_nomatch" .
   #f)
  ("ja/xul_property_notificationshidden" .
   #f)
  ("ja/xul_property_object" .
   #f)
+ ("ja/xul_property_observes" .
+  #f)
+ ("ja/xul_property_onfirstpage" .
+  #f)
+ ("ja/xul_property_onlastpage" .
+  #f)
  ("ja/xul_property_open" .
   #f)
+ ("ja/xul_property_ordinal" .
+  #f)
+ ("ja/xul_property_orient" .
+  #f)
+ ("ja/xul_property_pack" .
+  #f)
+ ("ja/xul_property_pagecount" .
+  #f)
+ ("ja/xul_property_pageid" .
+  #f)
  ("ja/xul_property_pageincrement" .
+  #f)
+ ("ja/xul_property_pageindex" .
+  #f)
+ ("ja/xul_property_pagestep" .
   #f)
  ("ja/xul_property_palette" .
   #f)
  ("ja/xul_property_parentcontainer" .
+  #f)
+ ("ja/xul_property_persist" .
   #f)
  ("ja/xul_property_persistence" .
   #f)
@@ -13562,6 +12967,10 @@
   #f)
  ("ja/xul_property_readonly" .
   #f)
+ ("ja/xul_property_ref" .
+  #f)
+ ("ja/xul_property_resource" .
+  #f)
  ("ja/xul_property_resultspopup" .
   #f)
  ("ja/xul_property_richlistitem_label" .
@@ -13590,6 +12999,22 @@
   #f)
  ("ja/xul_property_selectedbrowser" .
   #f)
+ ("ja/xul_property_selectedcount" .
+  #f)
+ ("ja/xul_property_selectedindex" .
+  #f)
+ ("ja/xul_property_selecteditem" .
+  #f)
+ ("ja/xul_property_selecteditems" .
+  #f)
+ ("ja/xul_property_selectedpanel" .
+  #f)
+ ("ja/xul_property_selectedtab" .
+  #f)
+ ("ja/xul_property_selectionend" .
+  #f)
+ ("ja/xul_property_selectionstart" .
+  #f)
  ("ja/xul_property_selstyle" .
   #f)
  ("ja/xul_property_seltype" .
@@ -13616,9 +13041,13 @@
   #f)
  ("ja/xul_property_statusbar" .
   #f)
+ ("ja/xul_property_statustext" .
+  #f)
  ("ja/xul_property_stringbundle" .
   #f)
  ("ja/xul_property_strings" .
+  #f)
+ ("ja/xul_property_style" .
   #f)
  ("ja/xul_property_subject" .
   #f)
@@ -13646,17 +13075,27 @@
   #f)
  ("ja/xul_property_textbox_value" .
   #f)
+ ("ja/xul_property_textlength" .
+  #f)
  ("ja/xul_property_textvalue" .
   #f)
  ("ja/xul_property_timeout" .
   #f)
  ("ja/xul_property_timepicker_value" .
   #f)
+ ("ja/xul_property_title" .
+  #f)
  ("ja/xul_property_toolbarname" .
   #f)
  ("ja/xul_property_toolbarset" .
   #f)
+ ("ja/xul_property_tooltip" .
+  #f)
  ("ja/xul_property_tooltipnode" .
+  #f)
+ ("ja/xul_property_tooltiptext" .
+  #f)
+ ("ja/xul_property_top" .
   #f)
  ("ja/xul_property_tree_inputfield" .
   #f)
@@ -13668,6 +13107,8 @@
   #f)
  ("ja/xul_property_useraction" .
   #f)
+ ("ja/xul_property_value" .
+  #f)
  ("ja/xul_property_valuenumber" .
   #f)
  ("ja/xul_property_view" .
@@ -13677,6 +13118,10 @@
  ("ja/xul_property_webnavigation" .
   #f)
  ("ja/xul_property_webprogress" .
+  #f)
+ ("ja/xul_property_width" .
+  #f)
+ ("ja/xul_property_wizardpages" .
   #f)
  ("ja/xul_property_wraparound" .
   #f)
@@ -13688,13 +13133,45 @@
   #f)
  ("ja/xul_queryset" .
   #f)
+ ("ja/xul_radio" .
+  #f)
+ ("ja/xul_radiogroup" .
+  #f)
+ ("ja/xul_resizer" .
+  #f)
  ("ja/xul_richlistbox" .
+  #f)
+ ("ja/xul_richlistitem" .
+  #f)
+ ("ja/xul_row" .
+  #f)
+ ("ja/xul_rows" .
+  #f)
+ ("ja/xul_rule" .
+  #f)
+ ("ja/xul_scale" .
+  #f)
+ ("ja/xul_script" .
+  #f)
+ ("ja/xul_scrollbar" .
   #f)
  ("ja/xul_separator" .
   #f)
+ ("ja/xul_spacer" .
+  #f)
  ("ja/xul_spinbuttons" .
   #f)
+ ("ja/xul_splitter" .
+  #f)
+ ("ja/xul_stack" .
+  #f)
+ ("ja/xul_statusbar" .
+  #f)
  ("ja/xul_statusbarpanel" .
+  #f)
+ ("ja/xul_stringbundle" .
+  #f)
+ ("ja/xul_stringbundleset" .
   #f)
  ("ja/xul_style_alert-icon" .
   #f)
@@ -13745,6 +13222,20 @@
  ("ja/xul_style_tree-splitter" .
   #f)
  ("ja/xul_style_treecol-image" .
+  #f)
+ ("ja/xul_tab" .
+  #f)
+ ("ja/xul_tabbox" .
+  #f)
+ ("ja/xul_tabbrowser" .
+  #f)
+ ("ja/xul_tabpanel" .
+  #f)
+ ("ja/xul_tabpanels" .
+  #f)
+ ("ja/xul_tabs" .
+  #f)
+ ("ja/xul_template" .
   #f)
  ("ja/xul_template_guide_actions" .
   #f)
@@ -13808,11 +13299,21 @@
   #f)
  ("ja/xul_template_guide_xml_templates" .
   #f)
+ ("ja/xul_textbox" .
+  #f)
  ("ja/xul_textbox_(firefox_autocomplete)" .
   #f)
  ("ja/xul_textnode" .
   #f)
+ ("ja/xul_timepicker" .
+  #f)
+ ("ja/xul_title" .
+  #f)
  ("ja/xul_titlebar" .
+  #f)
+ ("ja/xul_toolbar" .
+  #f)
+ ("ja/xul_toolbarbutton" .
   #f)
  ("ja/xul_toolbargrippy" .
   #f)
@@ -13828,9 +13329,199 @@
   #f)
  ("ja/xul_toolbarspring" .
   #f)
+ ("ja/xul_toolbox" .
+  #f)
+ ("ja/xul_tooltip" .
+  #f)
+ ("ja/xul_tree" .
+  #f)
+ ("ja/xul_treecell" .
+  #f)
+ ("ja/xul_treechildren" .
+  #f)
+ ("ja/xul_treecol" .
+  #f)
+ ("ja/xul_treecols" .
+  #f)
+ ("ja/xul_treeitem" .
+  #f)
+ ("ja/xul_treerow" .
+  #f)
  ("ja/xul_treeseparator" .
   #f)
+ ("ja/xul_triple" .
+  #f)
+ ("ja/xul_tutorial_adding_buttons" .
+  #f)
+ ("ja/xul_tutorial_adding_event_handlers" .
+  #f)
+ ("ja/xul_tutorial_adding_event_handlers_to_xbl-defined_elements" .
+  #f)
+ ("ja/xul_tutorial_adding_html_elements" .
+  #f)
+ ("ja/xul_tutorial_adding_labels_and_images" .
+  #f)
+ ("ja/xul_tutorial_adding_methods_to_xbl-defined_elements" .
+  #f)
+ ("ja/xul_tutorial_adding_more_elements" .
+  #f)
+ ("ja/xul_tutorial_adding_properties_to_xbl-defined_elements" .
+  #f)
+ ("ja/xul_tutorial_adding_style_sheets" .
+  #f)
+ ("ja/xul_tutorial_additional_install_features" .
+  #f)
+ ("ja/xul_tutorial_advanced_rules" .
+  #f)
+ ("ja/xul_tutorial_anonymous_content" .
+  #f)
+ ("ja/xul_tutorial_box_model_details" .
+  #f)
+ ("ja/xul_tutorial_box_objects" .
+  #f)
+ ("ja/xul_tutorial_broadcasters_and_observers" .
+  #f)
+ ("ja/xul_tutorial_commands" .
+  #f)
+ ("ja/xul_tutorial_content_panels" .
+  #f)
+ ("ja/xul_tutorial_creating_a_skin" .
+  #f)
+ ("ja/xul_tutorial_creating_a_window" .
+  #f)
+ ("ja/xul_tutorial_creating_a_wizard" .
+  #f)
+ ("ja/xul_tutorial_creating_an_installer" .
+  #f)
+ ("ja/xul_tutorial_creating_dialogs" .
+  #f)
+ ("ja/xul_tutorial_cross_package_overlays" .
+  #f)
+ ("ja/xul_tutorial_custom_tree_views" .
+  #f)
+ ("ja/xul_tutorial_document_object_model" .
+  #f)
+ ("ja/xul_tutorial_element_positioning" .
+  #f)
+ ("ja/xul_tutorial_features_of_a_window" .
+  #f)
+ ("ja/xul_tutorial_focus_and_selection" .
+  #f)
+ ("ja/xul_tutorial_grids" .
+  #f)
+ ("ja/xul_tutorial_groupboxes" .
+  #f)
+ ("ja/xul_tutorial_input_controls" .
+  #f)
+ ("ja/xul_tutorial_install_scripts" .
+  #f)
+ ("ja/xul_tutorial_introduction" .
+  #f)
+ ("ja/xul_tutorial_introduction_to_rdf" .
+  #f)
+ ("ja/xul_tutorial_introduction_to_xbl" .
+  #f)
+ ("ja/xul_tutorial_keyboard_shortcuts" .
+  #f)
+ ("ja/xul_tutorial_list_controls" .
+  #f)
+ ("ja/xul_tutorial_localization" .
+  #f)
+ ("ja/xul_tutorial_manifest_files" .
+  #f)
+ ("ja/xul_tutorial_manipulating_lists" .
+  #f)
+ ("ja/xul_tutorial_modifying_a_xul_interface" .
+  #f)
+ ("ja/xul_tutorial_modifying_the_default_skin" .
+  #f)
+ ("ja/xul_tutorial_more_button_features" .
+  #f)
+ ("ja/xul_tutorial_more_event_handlers" .
+  #f)
+ ("ja/xul_tutorial_more_menu_features" .
+  #f)
+ ("ja/xul_tutorial_more_tree_features" .
+  #f)
+ ("ja/xul_tutorial_more_wizards" .
+  #f)
+ ("ja/xul_tutorial_numeric_controls" .
+  #f)
+ ("ja/xul_tutorial_open_and_save_dialogs" .
+  #f)
+ ("ja/xul_tutorial_overlays" .
+  #f)
+ ("ja/xul_tutorial_persistent_data" .
+  #f)
+ ("ja/xul_tutorial_popup_menus" .
+  #f)
+ ("ja/xul_tutorial_progress_meters" .
+  #f)
+ ("ja/xul_tutorial_property_files" .
+  #f)
+ ("ja/xul_tutorial_rdf_datasources" .
+  #f)
+ ("ja/xul_tutorial_scrolling_menus" .
+  #f)
+ ("ja/xul_tutorial_simple_menu_bars" .
+  #f)
+ ("ja/xul_tutorial_splitters" .
+  #f)
+ ("ja/xul_tutorial_stack_positioning" .
+  #f)
+ ("ja/xul_tutorial_stacks_and_decks" .
+  #f)
+ ("ja/xul_tutorial_styling_a_tree" .
+  #f)
+ ("ja/xul_tutorial_tabboxes" .
+  #f)
+ ("ja/xul_tutorial_templates" .
+  #f)
+ ("ja/xul_tutorial_the_box_model" .
+  #f)
+ ("ja/xul_tutorial_the_chrome_url" .
+  #f)
+ ("ja/xul_tutorial_toolbars" .
+  #f)
+ ("ja/xul_tutorial_tree_box_objects" .
+  #f)
+ ("ja/xul_tutorial_tree_selection" .
+  #f)
+ ("ja/xul_tutorial_tree_view_details" .
+  #f)
+ ("ja/xul_tutorial_trees" .
+  #f)
+ ("ja/xul_tutorial_trees_and_templates" .
+  #f)
+ ("ja/xul_tutorial_updating_commands" .
+  #f)
+ ("ja/xul_tutorial_using_spacers" .
+  #f)
+ ("ja/xul_tutorial_xbl_attribute_inheritance" .
+  #f)
+ ("ja/xul_tutorial_xbl_example" .
+  #f)
+ ("ja/xul_tutorial_xbl_inheritance" .
+  #f)
+ ("ja/xul_tutorial_xpcom_examples" .
+  #f)
+ ("ja/xul_tutorial_xpcom_interfaces" .
+  #f)
+ ("ja/xul_tutorial_xul_structure" .
+  #f)
+ ("ja/xul_vbox" .
+  #f)
+ ("ja/xul_where" .
+  #f)
+ ("ja/xul_window" .
+  #f)
+ ("ja/xul_wizard" .
+  #f)
+ ("ja/xul_wizardpage" .
+  #f)
  ("ja/xulcontrollers" .
+  #f)
+ ("ja/xulrunner%252f%252fold_releases" .
   #f)
  ("ja/xulrunner_sdk" .
   #f)
@@ -13852,13 +13543,19 @@
   #f)
  ("jsid" .
   #f)
- ("jss_build_4_3" .
+ ("jss_build_4_3_html" .
   #f)
  ("jsval_null" .
   #f)
  ("mailto_(akkana_netscape_com" .
   #f)
+ ("mailto_(hyatt_netscape_com)" .
+  #f)
+ ("mailto_(rjc_netscape_com)" .
+  #f)
  ("mailto_(wai-pf-call_w3_org)" .
+  #f)
+ ("mailto_(waterson_netscape_com)" .
   #f)
  ("mailto__pserver_anonymous_cvs-mirror_mozilla_org" .
   #f)
@@ -13892,11 +13589,11 @@
   #f)
  ("news_mozilla_dev_tech_xpcom" .
   #f)
- ("news_news_mozilla_org/mozilla_dev_tech" .
-  #f)
  ("news_news_mozilla_org/mozilla_dev_tech_css" .
   #f)
  ("news_news_mozilla_org/mozilla_dev_tech_dom" .
+  #f)
+ ("news_news_mozilla_org/mozilla_dev_tech_html" .
   #f)
  ("news_news_mozilla_org/mozilla_dev_tech_plugins" .
   #f)
@@ -13928,7 +13625,7 @@
   #f)
  ("nsieditorobserver" .
   #f)
- ("nsieventtarget" .
+ ("nsieventtarget_html" .
   #f)
  ("nsihttpchannel" .
   #f)
@@ -13957,6 +13654,8 @@
  ("nsiuri" .
   #f)
  ("presentations/xtech2005/e4x" .
+  #f)
+ ("project_copyrights" .
   #f)
  ("project_en/1_0_launch_roadmap" .
   #f)
@@ -14030,6 +13729,8 @@
   #f)
  ("project_ja/%e7%bf%bb%e8%a8%b3" .
   #f)
+ ("project_ja/about" .
+  #f)
  ("project_ja/disambiguation" .
   #f)
  ("project_ja/how_to_help" .
@@ -14040,7 +13741,7 @@
   #f)
  ("pylons" .
   #f)
- ("samples/cssref/template" .
+ ("samples/cssref/template_html" .
   #f)
  ("samples/cssref/transitions/sample1" .
   #f)
@@ -14048,243 +13749,37 @@
   #f)
  ("samples/cssref/transitions/sample2" .
   #f)
- ("samples/raycaster/raycaster" .
+ ("samples/raycaster/raycaster_html" .
   #f)
  ("samples/video/chroma-key/index_xhtml" .
   #f)
- ("samples/webgl/sample1/index" .
+ ("samples/webgl/sample1/index_html" .
   #f)
- ("samples/webgl/sample2/index" .
+ ("samples/webgl/sample2/index_html" .
   #f)
- ("samples/webgl/sample3/index" .
+ ("samples/webgl/sample3/index_html" .
   #f)
- ("samples/webgl/sample4/index" .
+ ("samples/webgl/sample4/index_html" .
   #f)
- ("samples/webgl/sample5/index" .
+ ("samples/webgl/sample5/index_html" .
   #f)
- ("samples/webgl/sample6/index" .
+ ("samples/webgl/sample6/index_html" .
   #f)
- ("samples/webgl/sample7/index" .
+ ("samples/webgl/sample7/index_html" .
   #f)
- ("samples/webgl/sample8/index" .
+ ("samples/webgl/sample8/index_html" .
   #f)
- ("screening_duplicate_bugs/pick-a-component-for-crashers" .
+ ("samples/xultu/examples/aligner_xul" .
   #f)
- ("screening_duplicate_bugs/unconfirmed" .
+ ("screening_duplicate_bugs/pick-a-component-for-crashers_html" .
+  #f)
+ ("screening_duplicate_bugs/unconfirmed_html" .
   #f)
  ("serverjs" .
   #f)
  ("special_categories" .
   #f)
  ("special_tags" .
-  #f)
- ("special_tags_html?tag=AJAX&language=ja" .
-  #f)
- ("special_tags_html?tag=AJAX:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Accessibility&language=ja" .
-  #f)
- ("special_tags_html?tag=Accessibility:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Build_Documentation&language=en" .
-  #f)
- ("special_tags_html?tag=Build_Documentation&language=ja" .
-  #f)
- ("special_tags_html?tag=Build_Glossary&language=ja" .
-  #f)
- ("special_tags_html?tag=CSS&language=ja" .
-  #f)
- ("special_tags_html?tag=CSS:Mozilla+Extensions" .
-  #f)
- ("special_tags_html?tag=CSS:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Canvas_examples&language=en" .
-  #f)
- ("special_tags_html?tag=Canvas_examples&language=ja" .
-  #f)
- ("special_tags_html?tag=DHTML&language=ja" .
-  #f)
- ("special_tags_html?tag=DOM%203&language=en" .
-  #f)
- ("special_tags_html?tag=DOM&language=ja" .
-  #f)
- ("special_tags_html?tag=DOM:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=DOM_Inspector&language=ja" .
-  #f)
- ("special_tags_html?tag=DTrace&language=en" .
-  #f)
- ("special_tags_html?tag=Dehydra&language=en" .
-  #f)
- ("special_tags_html?tag=Developing_Mozilla&language=ja" .
-  #f)
- ("special_tags_html?tag=Developing_Mozilla:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Disambiguation&language=en" .
-  #f)
- ("special_tags_html?tag=E4X&language=en" .
-  #f)
- ("special_tags_html?tag=Embedding_Mozilla&language=ja" .
-  #f)
- ("special_tags_html?tag=Extensions&language=ja" .
-  #f)
- ("special_tags_html?tag=Extensions:Articles&language=ja" .
-  #f)
- ("special_tags_html?tag=Extensions:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Gecko&language=ja" .
-  #f)
- ("special_tags_html?tag=HTML&language=en" .
-  #f)
- ("special_tags_html?tag=HTML:Canvas&language=en" .
-  #f)
- ("special_tags_html?tag=HTML:Canvas&language=ja" .
-  #f)
- ("special_tags_html?tag=HTML:Tools&language=en" .
-  #f)
- ("special_tags_html?tag=Help_for_MDC_editors&language=en" .
-  #f)
- ("special_tags_html?tag=JSAPI_Reference&language=en" .
-  #f)
- ("special_tags_html?tag=JSAPI_Reference&language=ja" .
-  #f)
- ("special_tags_html?tag=JSHydra" .
-  #f)
- ("special_tags_html?tag=JavaScript&language=ja" .
-  #f)
- ("special_tags_html?tag=JavaScript:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=JavaXPCOM&language=ja" .
-  #f)
- ("special_tags_html?tag=Junk&language=en" .
-  #f)
- ("special_tags_html?tag=Liveconnect&language=ja" .
-  #f)
- ("special_tags_html?tag=Localization&language=en" .
-  #f)
- ("special_tags_html?tag=Localization:Articles&language=ja" .
-  #f)
- ("special_tags_html?tag=Localization:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=MDC_Guidelines&language=en" .
-  #f)
- ("special_tags_html?tag=MDC_Project&language=en" .
-  #f)
- ("special_tags_html?tag=MailNews" .
-  #f)
- ("special_tags_html?tag=Mercurial&language=ja" .
-  #f)
- ("special_tags_html?tag=Mobile&language=ja" .
-  #f)
- ("special_tags_html?tag=Mork&language=en" .
-  #f)
- ("special_tags_html?tag=NSPR&language=ja" .
-  #f)
- ("special_tags_html?tag=NSS&language=en" .
-  #f)
- ("special_tags_html?tag=NSS&language=ja" .
-  #f)
- ("special_tags_html?tag=Necko&language=ja" .
-  #f)
- ("special_tags_html?tag=NeedsContent&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsEditorialReview&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsExample&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsImageCleanup&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsMarkupWork&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsMigration&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsRewrite&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsTechnicalReview&language=en" .
-  #f)
- ("special_tags_html?tag=NeedsUpdate&language=en" .
-  #f)
- ("special_tags_html?tag=Places&language=ja" .
-  #f)
- ("special_tags_html?tag=Plugins&language=ja" .
-  #f)
- ("special_tags_html?tag=Pork&language=en" .
-  #f)
- ("special_tags_html?tag=Prism&language=en" .
-  #f)
- ("special_tags_html?tag=PyXPCOM&language=ja" .
-  #f)
- ("special_tags_html?tag=QA&language=ja" .
-  #f)
- ("special_tags_html?tag=QA:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=RDF&language=ja" .
-  #f)
- ("special_tags_html?tag=RSS&language=ja" .
-  #f)
- ("special_tags_html?tag=SVG&language=ja" .
-  #f)
- ("special_tags_html?tag=SVG:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Security&language=ja" .
-  #f)
- ("special_tags_html?tag=SpiderMonkey&language=ja" .
-  #f)
- ("special_tags_html?tag=TOPIC&language=en" .
-  #f)
- ("special_tags_html?tag=TOPIC:Tools&language=en" .
-  #f)
- ("special_tags_html?tag=Tamarin&language=ja" .
-  #f)
- ("special_tags_html?tag=Themes&language=ja" .
-  #f)
- ("special_tags_html?tag=Themes:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=Treehydra&language=en" .
-  #f)
- ("special_tags_html?tag=Venkman&language=ja" .
-  #f)
- ("special_tags_html?tag=Web%20Development&language=ja" .
-  #f)
- ("special_tags_html?tag=Web_Development:Tools&language=en" .
-  #f)
- ("special_tags_html?tag=Web_Standards&language=ja" .
-  #f)
- ("special_tags_html?tag=Web_Standards:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=XBL&language=ja" .
-  #f)
- ("special_tags_html?tag=XForms&language=ja" .
-  #f)
- ("special_tags_html?tag=XForms:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=XHTML:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=XML&language=ja" .
-  #f)
- ("special_tags_html?tag=XML:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=XML_Web_Services&language=ja" .
-  #f)
- ("special_tags_html?tag=XPCOM&language=ja" .
-  #f)
- ("special_tags_html?tag=XPConnect&language=ja" .
-  #f)
- ("special_tags_html?tag=XPInstall&language=ja" .
-  #f)
- ("special_tags_html?tag=XPath&language=ja" .
-  #f)
- ("special_tags_html?tag=XSLT&language=ja" .
-  #f)
- ("special_tags_html?tag=XTF&language=en" .
-  #f)
- ("special_tags_html?tag=XUL&language=ja" .
-  #f)
- ("special_tags_html?tag=XUL:Tools&language=ja" .
-  #f)
- ("special_tags_html?tag=js-ctypes&language=en" .
-  #f)
- ("special_tags_html?tag=移行予定&language=ja" .
   #f)
  ("talk_en/core_javascript_1_5_guide/operators" .
   #f)
@@ -14350,6 +13845,8 @@
   #f)
  ("user_benb" .
   #f)
+ ("user_benjamin_smedberg" .
+  #f)
  ("user_citizenk" .
   #f)
  ("user_dherman" .
@@ -14404,27 +13901,27 @@
   #f)
  ("user_test9999" .
   #f)
+ ("user_tlaurenzo" .
+  #f)
  ("user_tuqui" .
   #f)
  ("user_xmlguru" .
   #f)
  ("user_zachlipton" .
   #f)
- ("using_jss" .
+ ("users/ray/mo/spaces1" .
+  #f)
+ ("users/ray/mo/spaces3" .
+  #f)
+ ("users/ray/moz/reftest0001" .
+  #f)
+ ("using_jss_html" .
   #f)
  ("web-tech" .
   #f)
  ("web-tech/2008/09/15/svg-effects-for-html-content" .
   #f)
- ("web-tech/2008/09/15/svg-effects-for-html-content/" .
-  #f)
  ("web-tech/2008/10/10/svg-external-document-references" .
-  #f)
- ("web-tech/2008/10/10/svg-external-document-references/" .
-  #f)
- ("web-tech/2008/10/13/mozafterpaint/" .
-  #f)
- ("web-tech/2008/10/14/firefox-31-beta-1-an-overview-of-features-for-web-developers/" .
   #f)
  ("web-tech/2008/12/08/firefox-31-beta-2-whats-new/" .
   #f)
@@ -14442,68 +13939,239 @@
   #f)
  ("zh_tw/css/ime-mode" .
   #f)
- ("http_%2f%2fbooks_google_com/books_html?id=WXcHwzaUd4MC&pg=PA122&lpg=PA122&dq=processing+vs+\"emergency+scanning\"&source=bl&ots=_wtIWaAV8j&sig=e-3-QLfeM2iN29aPEb01J-I1GcY&hl=en&ei=0AZHSp-oJYjENoyojbgB&sa=X&oi=book_result&ct=result&resnum=1" .
-  #f)
- ("1" .
-  #f)
- ("@@api/deki/files/2861/=example1" .
-  #f)
- ("@@api/deki/files/2864/=table" .
-  #f)
- ("@@api/deki/files/2877/=MXX_Info_(3)" .
-  #f)
- ("@@api/deki/files/2906/=shadowed-text" .
-  #f)
- ("@@api/deki/files/2921/=rotated-google-sample" .
-  #f)
- ("@@api/deki/files/2922/=skewed-google-sample" .
-  #f)
- ("@@api/deki/files/2935/=webfont-sample" .
-  #f)
- ("a/b/c" .
-  #f)
- ("browser/prescreening_html" .
-  #f)
- ("d/e/c" .
-  #f)
- ("http_%2f%2fhttp_%2f%2ftamarin-builds_mozilla_org/performance/weekly_html" .
-  #f)
- ("jss_build_4_3_html" .
-  #f)
- ("news_news_mozilla_org/mozilla_dev_tech_html" .
-  #f)
- ("nsieventtarget_html" .
-  #f)
- ("samples/cssref/template_html" .
-  #f)
- ("samples/raycaster/raycaster_html" .
-  #f)
- ("samples/webgl/sample1/index_html" .
-  #f)
- ("samples/webgl/sample2/index_html" .
-  #f)
- ("samples/webgl/sample3/index_html" .
-  #f)
- ("samples/webgl/sample4/index_html" .
-  #f)
- ("samples/webgl/sample5/index_html" .
-  #f)
- ("samples/webgl/sample6/index_html" .
-  #f)
- ("samples/webgl/sample7/index_html" .
-  #f)
- ("samples/webgl/sample8/index_html" .
-  #f)
- ("screening_duplicate_bugs/pick-a-component-for-crashers_html" .
-  #f)
- ("screening_duplicate_bugs/unconfirmed_html" .
-  #f)
- ("users/ray/mo/spaces1" .
-  #f)
- ("users/ray/mo/spaces3" .
-  #f)
- ("users/ray/moz/reftest0001" .
-  #f)
- ("using_jss_html" .
-  #f)
+
+
+
+
+
+ ("en/new_in_javascript_1_6" .
+  "ja/new_in_javascript_1_6")
+ ("en/new_in_javascript_1_8" .
+  "ja/new_in_javascript_1_8")
+ ("en/gecko_dom_reference/examples" .
+  "ja/gecko_dom_reference/examples")
+ ("jadom/attr" .
+  "ja/dom/attr")
+ ("jadom/cdatasection" .
+  "ja/dom/cdatasection")
+ ("jadom/characterdata" .
+  "ja/dom/characterdata")
+ ("jadom/comment" .
+  "ja/dom/comment")
+ ("jadom/documentfragment" .
+  "ja/dom/documentfragment")
+ ("jadom/documenttype" .
+  "ja/dom/documenttype")
+ ("jadom/domconfiguration" .
+  "ja/dom/domconfiguration")
+ ("jadom/domerror" .
+  "ja/dom/domerror")
+ ("jadom/domerrorhandler" .
+  "ja/dom/domerrorhandler")
+ ("jadom/domexception" .
+  "ja/dom/domexception")
+ ("jadom/domimplementation" .
+  "ja/dom/domimplementation")
+ ("jadom/domimplementationlist" .
+  "ja/dom/domimplementationlist")
+ ("jadom/domimplementationregistry" .
+  "ja/dom/domimplementationregistry")
+ ("jadom/domimplementationsource" .
+  "ja/dom/domimplementationsource")
+ ("jadom/domlocator" .
+  "ja/dom/domlocator")
+ ("jadom/domobject" .
+  "ja/dom/domobject")
+ ("jadom/domstring" .
+  "ja/dom/domstring")
+ ("jadom/domstringlist" .
+  "ja/dom/domstringlist")
+ ("jadom/domtimestamp" .
+  "ja/dom/domtimestamp")
+ ("jadom/domuserdata" .
+  "ja/dom/domuserdata")
+ ("jadom/entity" .
+  "ja/dom/entity")
+ ("jadom/entityreference" .
+  "ja/dom/entityreference")
+ ("jadom/namednodemap" .
+  "ja/dom/namednodemap")
+ ("jadom/namelist" .
+  "ja/dom/namelist")
+ ("jadom/node" .
+  "ja/dom/node")
+ ("jadom/nodelist" .
+  "ja/dom/nodelist")
+ ("jadom/notation" .
+  "ja/dom/notation")
+ ("jadom/processinginstruction" .
+  "ja/dom/processinginstruction")
+ ("jadom/sharedworker" .
+  "ja/dom/sharedworker")
+ ("jadom/text" .
+  "ja/dom/text")
+ ("jadom/typeinfo" .
+  "ja/dom/typeinfo")
+ ("jadom/userdatahandler" .
+  "ja/dom/userdatahandler")
+ ("jadom/worker" .
+  "ja/dom/worker")
+ ("ja/core_javascript_1_5_reference/global_objects/object/__definegetter" .
+  "ja/core_javascript_1_5_reference/global_objects/object/definegetter")
+ ("ja/core_javascript_1_5_reference/global_objects/object/__definesetter" .
+  "ja/core_javascript_1_5_reference/global_objects/object/definesetter")
+ ("ja/core_javascript_1_5_reference/global_objects/object/__lookupgetter" .
+  "ja/core_javascript_1_5_reference/global_objects/object/lookupgetter")
+ ("ja/core_javascript_1_5_reference/global_objects/object/__lookupsetter" .
+  "ja/core_javascript_1_5_reference/global_objects/object/lookupsetter")
+ ("ja/core_javascript_1_5_reference/global_objects/object/__nosuchmethod" .
+  "ja/core_javascript_1_5_reference/global_objects/object/nosuchmethod")
+ ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments" .
+  "ja/core_javascript_1_5_reference/functions/arguments")
+ ("ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/length" .
+  "ja/core_javascript_1_5_reference/functions/arguments/length")
+ ("ja/core_javascript_1_5_reference/global_functions/array" .
+  "ja/core_javascript_1_5_reference/global_objects/array")
+ ("ja/core_javascript_1_5_reference/global_functions/boolean" .
+  "ja/core_javascript_1_5_reference/global_objects/boolean")
+ ("ja/core_javascript_1_5_reference/global_functions/date" .
+  "ja/core_javascript_1_5_reference/global_objects/date")
+ ("ja/core_javascript_1_5_reference/global_functions/error" .
+  "ja/core_javascript_1_5_reference/global_objects/error")
+ ("ja/core_javascript_1_5_reference/global_functions/evalerror" .
+  "ja/core_javascript_1_5_reference/global_objects/evalerror")
+ ("ja/core_javascript_1_5_reference/global_functions/function" .
+  "ja/core_javascript_1_5_reference/global_objects/function")
+ ("ja/core_javascript_1_5_reference/global_functions/number" .
+  "ja/core_javascript_1_5_reference/global_objects/number")
+ ("ja/core_javascript_1_5_reference/global_functions/object" .
+  "ja/core_javascript_1_5_reference/global_objects/object")
+ ("ja/core_javascript_1_5_reference/global_functions/rangeerror" .
+  "ja/core_javascript_1_5_reference/global_objects/rangeerror")
+ ("ja/core_javascript_1_5_reference/global_functions/referenceerror" .
+  "ja/core_javascript_1_5_reference/global_objects/referenceerror")
+ ("ja/core_javascript_1_5_reference/global_functions/regexp" .
+  "ja/core_javascript_1_5_reference/global_objects/regexp")
+ ("ja/core_javascript_1_5_reference/global_functions/string" .
+  "ja/core_javascript_1_5_reference/global_objects/string")
+ ("ja/core_javascript_1_5_reference/global_functions/syntaxerror" .
+  "ja/core_javascript_1_5_reference/global_objects/syntaxerror")
+ ("ja/core_javascript_1_5_reference/global_functions/typeerror" .
+  "ja/core_javascript_1_5_reference/global_objects/typeerror")
+ ("ja/core_javascript_1_5_reference/global_functions/urierror" .
+  "ja/core_javascript_1_5_reference/global_objects/urierror")
+ ("ja/core_javascript_1_5_reference/objects/array/length" .
+  "ja/core_javascript_1_5_reference/global_objects/array/length")
+ ("ja/core_javascript_1_5_reference/objects/date" .
+  "ja/core_javascript_1_5_reference/global_objects/date")
+ ("ja/core_javascript_1_5_reference/objects/date/getdate" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getdate")
+ ("ja/core_javascript_1_5_reference/objects/date/getday" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getday")
+ ("ja/core_javascript_1_5_reference/objects/date/getfullyear" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getfullyear")
+ ("ja/core_javascript_1_5_reference/objects/date/gethours" .
+  "ja/core_javascript_1_5_reference/global_objects/date/gethours")
+ ("ja/core_javascript_1_5_reference/objects/date/getmilliseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getmilliseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/getminutes" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getminutes")
+ ("ja/core_javascript_1_5_reference/objects/date/getmonth" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getmonth")
+ ("ja/core_javascript_1_5_reference/objects/date/getseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/gettime" .
+  "ja/core_javascript_1_5_reference/global_objects/date/gettime")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcdate" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcdate")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcday" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcday")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcfullyear" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcfullyear")
+ ("ja/core_javascript_1_5_reference/objects/date/getutchours" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutchours")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcmilliseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcmilliseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcminutes" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcminutes")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcmonth" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcmonth")
+ ("ja/core_javascript_1_5_reference/objects/date/getutcseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getutcseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/getyear" .
+  "ja/core_javascript_1_5_reference/global_objects/date/getyear")
+ ("ja/core_javascript_1_5_reference/objects/date/setdate" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setdate")
+ ("ja/core_javascript_1_5_reference/objects/date/setfullyear" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setfullyear")
+ ("ja/core_javascript_1_5_reference/objects/date/sethours" .
+  "ja/core_javascript_1_5_reference/global_objects/date/sethours")
+ ("ja/core_javascript_1_5_reference/objects/date/setmilliseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setmilliseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/setminutes" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setminutes")
+ ("ja/core_javascript_1_5_reference/objects/date/setmonth" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setmonth")
+ ("ja/core_javascript_1_5_reference/objects/date/setseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/setutcdate" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutcdate")
+ ("ja/core_javascript_1_5_reference/objects/date/setutcfullyear" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutcfullyear")
+ ("ja/core_javascript_1_5_reference/objects/date/setutchours" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutchours")
+ ("ja/core_javascript_1_5_reference/objects/date/setutcmilliseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutcmilliseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/setutcminutes" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutcminutes")
+ ("ja/core_javascript_1_5_reference/objects/date/setutcmonth" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutcmonth")
+ ("ja/core_javascript_1_5_reference/objects/date/setutcseconds" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setutcseconds")
+ ("ja/core_javascript_1_5_reference/objects/date/setyear" .
+  "ja/core_javascript_1_5_reference/global_objects/date/setyear")
+ ("ja/core_javascript_1_5_reference/objects/function" .
+  "ja/core_javascript_1_5_reference/global_objects/function")
+ ("ja/core_javascript_1_5_reference/objects/function/apply" .
+  "ja/core_javascript_1_5_reference/global_objects/function/apply")
+ ("ja/core_javascript_1_5_reference/objects/function/arguments/length" .
+  "ja/core_javascript_1_5_reference/functions/arguments/length")
+ ("ja/core_javascript_1_5_reference/objects/function/call" .
+  "ja/core_javascript_1_5_reference/global_objects/function/call")
+ ("ja/core_javascript_1_5_reference/objects/function/length" .
+  "ja/core_javascript_1_5_reference/global_objects/function/length")
+ ("ja/core_javascript_1_5_reference/objects/function/tostring" .
+  "ja/core_javascript_1_5_reference/global_objects/function/tostring")
+ ("ja/core_javascript_1_5_reference/objects/java" .
+  "ja/core_javascript_1_5_reference/global_objects/java")
+ ("ja/core_javascript_1_5_reference/objects/javaarray" .
+  "ja/core_javascript_1_5_reference/global_objects/javaarray")
+ ("ja/core_javascript_1_5_reference/objects/object/constructor" .
+  "ja/core_javascript_1_5_reference/global_objects/object/constructor")
+ ("ja/core_javascript_1_5_reference/objects/object/tosource" .
+  "ja/core_javascript_1_5_reference/global_objects/object/tosource")
+ ("ja/core_javascript_1_5_reference/objects/object/tostring" .
+  "ja/core_javascript_1_5_reference/global_objects/object/tostring")
+ ("ja/core_javascript_1_5_reference/objects/object/valueof" .
+  "ja/core_javascript_1_5_reference/global_objects/object/valueof")
+ ("ja/core_javascript_1_5_reference/objects/packages" .
+  "ja/core_javascript_1_5_reference/global_objects/packages")
+ ("ja/core_javascript_1_5_reference/properties/infinity" .
+  "ja/core_javascript_1_5_reference/global_properties/infinity")
+ ("ja/core_javascript_1_5_reference/properties/nan" .
+  "ja/core_javascript_1_5_reference/global_properties/nan")
+ ("ja/core_javascript_1_5_reference/properties/undefined" .
+  "ja/core_javascript_1_5_reference/global_properties/undefined")
+ ("ja/core_javascript_1_5_reference/global_objects/function/arguments/length" .
+  "ja/core_javascript_1_5_reference/functions_and_function_scope/arguments/length")
+ ("en/css/cursor" .
+  "ja/css/cursor")
+ ("en/css/using_css_transforms" .
+  "ja/css/using_css_transforms")
+ ("en/css_reference" .
+  "ja/css_reference")
+ ("en/html/element/canvas" .
+  "ja/html/element/canvas")
+ ("en/html/element/video" .
+  "ja/html/element/video")
  )

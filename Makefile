@@ -65,6 +65,12 @@ pdf: dvi
 chm:
 	$(TEXI2HTML) --init-file chm.init sjis_ultimate.texi
 
+test-xml2texi:
+	$(GOSH) $(INCLUDES_SCM) ./core_order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./core_order.scm --notfound=./core_notfound.scm --prefix=/home/teruaki/mdctexinfo/core -v
+
+test-info:
+	$(MAKEINFO) --error-limit=3000 core.texi 2> core_err
+
 .PHONY: clean
 clean:
 	rm -rf out/developer.mozilla.org/en/

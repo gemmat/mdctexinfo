@@ -26,10 +26,10 @@
   `(texinfo "\n@heading " ,(sxml:string-value node) "\n"))
 
 (define (h3 node)
-  `(texinfo "\n@subheading " ,(sxml:string-value node) "\n"))
+  `(texinfo "\n@heading " ,(sxml:string-value node) "\n"))
 
 (define (h4 node)
-  `(texinfo "\n@subsubheading " ,(sxml:string-value node) "\n"))
+  `(texinfo "\n@subheading " ,(sxml:string-value node) "\n"))
 
 (define (h5 node)
   `(texinfo "\n@subsubheading " ,(sxml:string-value node) "\n"))
@@ -47,11 +47,10 @@
     ,(sxml:string-value node)
     "@end example\n"))
 
+;;TODO @image
 (define (img node)
-  (or (and-let* ((src (sxml:attr node 'src))
-                 ((not (string-scan src "@@api")))
-                 (file (path-sans-extension (sxml:string-value src))))
-        `(texinfo "@image{" ,file  "}"))
+  (or (and-let* ((src (sxml:attr node 'src)))
+        `(texinfo "@uref{" ,src "," (sys-basename src) "}"))
       ()))
 
 (define (dl node)
@@ -112,7 +111,9 @@
     "\n@end multitable\n"))
 
 (define (code node)
-  `(texinfo "@code{" ,(sxml:string-value node) "}"))
+  (if-let1 cindex ((if-car-sxpath '(texinfo @ cindex *text*)) node)
+           `(texinfo "@code{" ,(sxml:string-value node) "}" "\n@cindex " ,cindex "\n")
+           `(texinfo "@code{" ,(sxml:string-value node) "}")))
 
 (define (ahref node)
   (define (trim-fragment path)
@@ -120,32 +121,22 @@
 
   (let1 href ((if-car-sxpath '(@ href *text*)) node)
     (if href
-      (let ((body ((if-car-sxpath '(*text*)) node))
-            (rel  (or ((if-car-sxpath '(@ rel *text*)) node) "external")))
-        (let* ((bound (rxmatch-cond
-                        ((#/^file:/ href)
-                         (#f)
-                         'internal)
-                        ((#/internal/ rel)
-                         (#f)
-                         'internal)
-                        ((#/external/ rel)
-                         (#f)
-                         'external)
-                        ((#/custom nofollow/ rel)
-                         (#f)
-                         'internal)
-                        (else
-                         'external)))
-               (cmd (case bound
-                      ((internal) "@ref")
-                      ((external) "@uref")))
-               (link (case bound
-                       ((internal) (file-path->texinfo-node (trim-fragment href)))
-                       ((external) href))))
-          (if body
-            `(texinfo ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "}")
-            `(texinfo ,cmd "{" ,(or link "Top") "}"))))
+      (let* ((body ((if-car-sxpath '(*text*)) node))
+             (internal? (rxmatch-if (#/^file:\/\// href)
+                            (#f)
+                            #t
+                            #f))
+             (cmd  (if internal? "@ref" "@uref"))
+             (link (if internal?
+                     (file-path->texinfo-node (trim-fragment href))
+                     href)))
+        (cond
+         ((and body (proper-for-cindex? body))
+          `(texinfo (@ (cindex ,body)) ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "}"))
+         (body
+          `(texinfo ,cmd "{" ,(or link "Top") "," ,body ,(if link "" "(404)") "}"))
+         (else
+          `(texinfo ,cmd "{" ,(or link "Top") "}"))))
       ())))
 
 (define (div node)
@@ -177,6 +168,9 @@
      #f)))
 
 (define file-path->texinfo-node (memoize ***file-path->texinfo-node))
+
+(define (proper-for-cindex? str)
+  (boolean (#/^\w+$/ str)))
 
 (define-class <texinfo-node> ()
   (self next prev up (children :init-value ())))
@@ -272,11 +266,9 @@
                         '(self next prev up))
                    ",")))
 
-  (define (print-findex str)
-    (rxmatch-if (#/^\w+$/ str)
-        (#f)
-        (print "@findex " (escape-text str))
-        #f))
+  (define (print-cindex str)
+    (when (proper-for-cindex? str)
+      (print "@cindex " (escape-text str))))
 
   (when (file-is-regular? path)
     (let1 save-path (save-to path)
@@ -289,8 +281,8 @@
           (lambda ()
             (let ((sxml (load-xml path)))
               (print "@node " (at-node path))
-              (print "@section " (escape-text (sxml:string-value (getElementById "title" sxml))))
-              (print-findex (sxml:string-value (getElementById "title" sxml)))
+              (print "@chapter " (escape-text (sxml:string-value (getElementById "title" sxml))))
+              (print-cindex (sxml:string-value (getElementById "title" sxml)))
               (for-each print (texinfo-menu path))
               (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml))))
           :encoding 'utf-8)))))
