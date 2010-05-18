@@ -116,7 +116,7 @@
           :path     (if (relative-path? path)
                       (let* ((r (simplify-path (build-path base path)))
                              (ext (path-extension r)))
-                        (if (string=? ext "html")
+                        (if (and ext (string=? ext "html"))
                           (path-sans-extension r)
                           r))
                       path)
@@ -181,7 +181,7 @@
               (and-let* ((uri (resolve-uri base (sxml:string-value obj)))
                          (uri (offline-uri uri)))
                 (sxml:change-content! obj `(,uri))))
-            ((sxpath '(// @ href)) sxml)))
+            ((sxpath '(// @ (or@ href src))) sxml)))
 
 (define (MDC-xhtml->sxml path)
   (and-let* ((source (file->string path))
