@@ -44,3 +44,9 @@ dvipdfmx eucjp_ultimate.dvi
 
 #output chm
 texi2html --init-file chm.init ultimate.texi
+
+#replace links
+find . -name "*.html" -type f -print0 | xargs -0 sed 's/file:\/\/\/home\/teruaki/http:\/\/eva-lu-ator.net\/~gemma/g' -i
+
+#replace charset
+find . -name "*.html" | xargs sed -i "s/<meta http-equiv=\"Content-Type\" content=\"text\/html\; charset=utf-8\">/<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=Shift_JIS\">/g"

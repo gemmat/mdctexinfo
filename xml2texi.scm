@@ -176,7 +176,7 @@
 (define file-path->texinfo-node (memoize ***file-path->texinfo-node))
 
 (define (proper-for-cindex? str)
-  (boolean (#/^\w+$/ str)))
+  (boolean (#/^[\w\.]+$/ str)))
 
 (define-class <texinfo-node> ()
   (self next prev up (children :init-value ())))
