@@ -83,11 +83,9 @@
   `(texinfo
     "\n@table @code\n"
     ,@(append-map (lambda (elt)
-                    (case (sxml:name elt)
-                      ((texinfo) elt)
-                      (else
-                       (warning node)
-                       ())))
+                    (if (eq? 'texinfo (sxml:name elt))
+                      elt
+                      ()))
                   (sxml:child-elements node))
     "\n@end table\n"))
 
@@ -95,11 +93,9 @@
   `(texinfo
     "\n@itemize @bullet\n"
     ,@(append-map (lambda (elt)
-                    (case (sxml:name elt)
-                      ((texinfo) elt)
-                      (else
-                       (warning node)
-                       ())))
+                    (if (eq? 'texinfo (sxml:name elt))
+                      elt
+                      ()))
                   (sxml:child-elements node))
     "\n@end itemize\n"))
 
@@ -107,11 +103,9 @@
   `(texinfo
     "\n@enumerate\n"
     ,@(append-map (lambda (elt)
-                    (case (sxml:name elt)
-                      ((texinfo) elt)
-                      (else
-                       (warning node)
-                       ())))
+                    (if (eq? 'texinfo (sxml:name elt))
+                      elt
+                      ()))
            (sxml:child-elements node))
     "\n@end enumerate\n"))
 
@@ -140,6 +134,7 @@
     "\n@end multitable\n"))
 
 (define (code node)
+  ;;ahref can produce elements like (texinfo (@ cindex "window.alert") "@ref{...}").
   (if-let1 cindex ((if-car-sxpath '(texinfo @ cindex *text*)) node)
            `(texinfo "@code{" ,(sxml:string-value node) "}" "\n@cindex " ,cindex "\n")
            `(texinfo "@code{" ,(sxml:string-value node) "}")))
@@ -182,6 +177,34 @@
         `(texinfo "@footnote{" ,(sxml:string-value node) "}\n"))
       `(texinfo ,(sxml:string-value node))))
 
+(define (sxml->texinfo-like-sxml sxml)
+  (pre-post-order
+   (getElementById "pageText" sxml)
+   `((xhtml:a      . ,(lambda x (ahref x)))
+     (xhtml:br     . ,(lambda x (br    x)))
+     (xhtml:strong . ,(lambda x (strong x)))
+     (xhtml:del    . ,(lambda x (del x)))
+     (xhtml:b      . ,(lambda x (bold  x)))
+     (xhtml:code   . ,(lambda x (code  x)))
+     (xhtml:pre    . ,(lambda x (pre   x)))
+     (xhtml:img    . ,(lambda x (img   x)))
+     (xhtml:h2     . ,(lambda x (h2    x)))
+     (xhtml:h3     . ,(lambda x (h3    x)))
+     (xhtml:h4     . ,(lambda x (h4    x)))
+     (xhtml:h5     . ,(lambda x (h5    x)))
+     (xhtml:p      . ,(lambda x (para  x)))
+     (xhtml:span   . ,(lambda x (span  x)))
+     (xhtml:div    . ,(lambda x (div   x)))
+     (xhtml:li     . ,(lambda x (li    x)))
+     (xhtml:dd     . ,(lambda x (dd    x)))
+     (xhtml:dt     . ,(lambda x (dt    x)))
+     (xhtml:dl     . ,(lambda x (dl    x)))
+     (xhtml:ul     . ,(lambda x (ul    x)))
+     (xhtml:ol     . ,(lambda x (ol    x)))
+     (xhtml:table  . ,(lambda x (table x)))
+     (*text*       . ,(lambda (tag text) (escape-text text)))
+     (*default*    . ,(lambda x x)))))
+
 (define (check-not-found str)
   (hash-table-get notfound-table str str))
 
@@ -189,7 +212,7 @@
   (check-not-found (texi-node (make-place-from-file-path path))))
 
 (define (proper-for-cindex? str)
-  (boolean (#/^[\w\.]+$/ str)))
+  (boolean (#/^[\w\.\(\)]+$/ str)))
 
 (define-class <texinfo-node> ()
   ((self :init-keyword :self)
@@ -234,34 +257,6 @@
     (traverser sxml "Top")
     ht))
 
-(define (sxml->texinfo-like-sxml sxml)
-  (pre-post-order
-   (getElementById "pageText" sxml)
-   `((xhtml:a     . ,(lambda x (ahref x)))
-     (xhtml:br    . ,(lambda x (br    x)))
-     (xhtml:strong . ,(lambda x (strong x)))
-     (xhtml:del   . ,(lambda x (del x)))
-     (xhtml:b     . ,(lambda x (bold  x)))
-     (xhtml:code  . ,(lambda x (code  x)))
-     (xhtml:pre   . ,(lambda x (pre   x)))
-     (xhtml:img   . ,(lambda x (img   x)))
-     (xhtml:h2    . ,(lambda x (h2    x)))
-     (xhtml:h3    . ,(lambda x (h3    x)))
-     (xhtml:h4    . ,(lambda x (h4    x)))
-     (xhtml:h5    . ,(lambda x (h5    x)))
-     (xhtml:p     . ,(lambda x (para  x)))
-     (xhtml:span  . ,(lambda x (span  x)))
-     (xhtml:div   . ,(lambda x (div   x)))
-     (xhtml:li    . ,(lambda x (li    x)))
-     (xhtml:dd    . ,(lambda x (dd    x)))
-     (xhtml:dt    . ,(lambda x (dt    x)))
-     (xhtml:dl    . ,(lambda x (dl    x)))
-     (xhtml:ul    . ,(lambda x (ul    x)))
-     (xhtml:ol    . ,(lambda x (ol    x)))
-     (xhtml:table . ,(lambda x (table x)))
-     (*text*      . ,(lambda (tag text) (escape-text text)))
-     (*default*   . ,(lambda x x)))))
-
 (define (print-texinfo-menu path)
   (and-let* ((node (file-path->texinfo-node path))
              (obj (hash-table-get texinfo-nodes-table node))
@@ -272,8 +267,6 @@
                     (print (string-append "* " x " ::")))
                   children)
         (print "@end menu")))
-
-((sxpath '(// texinfo)) '(*TOP* (texinfo "hoge")))
 
 (define (print-texinfo-like-sxml sxml)
   (for-each (lambda (x)
@@ -338,14 +331,6 @@
 (define needbrowser-table (make-hash-table 'string=?))
 (define texinfo-nodes-table #f)
 
-(define warning-path "")
-(define (warning node)
-  (when debug
-    (call-with-output-file "hoge"
-      (lambda (out)
-        (format out "~a\n~a\n\n" warning-path node))
-      :if-exists :append)))
-
 (define (main args)
   (let-args (cdr args)
       ((v      "v|verbose")
@@ -369,7 +354,6 @@
     (set! texinfo-nodes-table (make-texinfo-nodes-table order-scm))
     (if debug
       (for-each (lambda (text)
-                  (set! warning-path text)
                   (process (string-append "out/developer.mozilla.org/" text ".html")))
                 ((sxpath '(// item *text*)) order-scm))
       (for-each process restargs)))

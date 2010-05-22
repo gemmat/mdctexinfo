@@ -1,5 +1,6 @@
 *~
-cgi-bin/ktkr2/dat
-cgi-bin/ktkr2/db
-cgi-bin/ktkr2/log
-ktkr2/yui
+*.info*
+developer.mozilla.org/
+out/
+texi/
+ultimate/
