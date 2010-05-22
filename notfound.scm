@@ -1996,7 +1996,6 @@
  ("http_%2f%2fkb_mozillazine_org/assistive_technology_compatibility%7cassistive" . #f)
  ("http_%2f%2fwiki_mozilla_org/community_communityprogram%e3%80%80community" . #f)
  ("image" . #f)
- ("ja" . #f)
  ("ja/%3cb%3efigure_2_%3c%2f%2fb%3e_authentication_of_a_client_certificate" . #f)
  ("ja/%3cb%3efigure_3_%3c%2f%2fb%3e_authentication_and_verification_of_a_client_certificate" . #f)
  ("ja/%3cb%3etable_1_%3c%2f%2fb%3e_cipher_suites_supported_by_the_ssl_protocol_that_use_the_rsa_key-exchange_algorithm" . #f)
