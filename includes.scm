@@ -1,3 +1,4 @@
+(use srfi-1)
 (use file.util)
 (use sxml.tools)
 (use sxml.sxpath)
@@ -21,9 +22,9 @@
   (traverse ((sxpath '(chapter *)) sxml)))
 
 (define (print-target-files sxml)
-  (for-each (lambda (text)
-              (print "out/developer.mozilla.org/" text ".html"))
-            ((sxpath '(// item *text*)) sxml)))
+  (for-each (lambda (x)
+              (print "out/developer.mozilla.org/" (sxml:string-value x) ".html"))
+            (getElementsByTagName sxml 'item)))
 
 (define (print-ultimate-menu sxml)
   (for-each (lambda (text)

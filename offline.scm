@@ -12,52 +12,39 @@
 (load "./common.scm")
 (load "./xhtml_entity.scm")
 
-(with-module sxml.ssax
-  (set! ssax:predefined-parsed-entities
-        `(,@(with-module user xhtml-entity)
-          ,@ssax:predefined-parsed-entities)))
-
 (define verbose  #f)
 (define prefix   "/hoge/out")
 (define debug    #f)
 
 (define (remove-useless-elements! sxml)
-  (for-each (lambda (obj)
-              (sxml:change-name! obj 'useless)
-              (sxml:change-content!  obj `())
-              (sxml:change-attrlist! obj `()))
-            (append
-             ((sxpath '(// (or@ xhtml:script xhtml:iframe))) sxml)
-             ((sxpath '(// (xhtml:link (@ type  (equal? "application/rss+xml"))))) sxml)
-             (filter (lambda (obj)
-                       (or (and-let* ((id (sxml:attr obj 'id))
-                                      (id (sxml:string-value id)))
-                             (or (equal? id "nav-access")
-                                 (equal? id "sitetools")))
-                           (and-let* ((class (sxml:attr obj 'class))
-                                      (class (sxml:string-value class)))
-                             (equal? class "page-anchors"))))
-                     ((sxpath '(// xhtml:ul)) sxml))
-             (filter (lambda (obj)
-                       (or (and-let* ((id (sxml:attr obj 'id))
-                                      (id (sxml:string-value id)))
-                             (or (equal? id "deki-page-alerts")
-                                 (equal? id "popupMessage")
-                                 (equal? id "popupMask")
-                                 (equal? id "popupContainer")
-                                 (equal? id "page-tags")
-                                 (equal? id "page-files")
-                                 (equal? id "MTMessage")))
-                           (and-let* ((class (sxml:attr obj 'class))
-                                      (class (sxml:string-value class)))
-                             (or (equal? class "siteNav")
-                                 (equal? class "siteSearch")
-                                 (equal? class "pageBar")
-                                 (equal? class "suggestchannels")))
-                           (and-let* ((style (sxml:attr obj 'style))
-                                      (style (sxml:string-value style)))
-                             (equal? style "background-color:red; color:white; text-align:center;"))))
-                     ((sxpath '(// xhtml:div)) sxml)))))
+  (define (f l)
+    (for-each (lambda (obj)
+                (sxml:change-name! obj 'useless)
+                (sxml:change-content!  obj `())
+                (sxml:change-attrlist! obj `()))
+              l))
+  (f ((sxpath '(// (or@ xhtml:script xhtml:iframe))) sxml))
+  (f ((sxpath '(// (xhtml:link (@ type  (equal? "application/rss+xml"))))) sxml))
+  (f (filter (lambda (obj)
+               (or (and-let* ((id (sxml:attr obj 'id))
+                              (id (sxml:string-value id)))
+                     (member id '("nav-access" "sitetools" "menuPageOptions")))
+                   (and-let* ((class (sxml:attr obj 'class))
+                              (class (sxml:string-value class)))
+                     (equal? class "page-anchors"))))
+             ((sxpath '(// xhtml:ul)) sxml)))
+  (f (filter (lambda (obj)
+               (or (and-let* ((id (sxml:attr obj 'id))
+                              (id (sxml:string-value id)))
+                     (member id '("deki-page-alerts" "popupMessage" "popupMask" "popupContainer"
+                                  "page-tags" "page-files" "MTMessage" "languages" "siteFooter" "printfooter")))
+                   (and-let* ((class (sxml:attr obj 'class))
+                              (class (sxml:string-value class)))
+                     (member class '("siteNav" "siteSearch" "pageBar" "suggestchannels")))
+                   (and-let* ((style (sxml:attr obj 'style))
+                              (style (sxml:string-value style)))
+                     (equal? style "background-color:red; color:white; text-align:center;"))))
+             ((sxpath '(// xhtml:div)) sxml))))
 
 (define (remove-elements-confuse-serializer! sxml)
   (for-each (lambda (obj)
@@ -66,8 +53,8 @@
                (map (lambda (x)
                       (case (car x)
                         ((id href title)
-                         (list (car x) (regexp-replace-all* (sxml:string-value x)
-                                                            #/</
+                         (list (car x) (regexp-replace-all #/</
+                                                           (sxml:string-value x)
                                                             "&lt;")))
                         (else x)))
                     (sxml:attr-list obj))))
@@ -76,9 +63,7 @@
               (sxml:change-attrlist!
                obj
                (remove (lambda (x)
-                         (case (car x)
-                           ((nowrap border) #t)
-                           (else #f)))
+                         (memq (car x) '(nowrap border)))
                        (sxml:attr-list obj))))
             ((sxpath '(// (or@ xhtml:td xhtml:table (@ (or@ border nowrap))))) sxml))
   (for-each (lambda (obj)
@@ -94,12 +79,22 @@
                (remove (lambda (x)
                          (eq? (car x) 'id))
                        (sxml:attr-list obj))))
-            ((sxpath '(// (xhtml:span (@ id (equal? "id"))))) sxml)))
+            ((sxpath '(// (xhtml:span (@ id (equal? "id"))))) sxml))
+  (for-each (lambda (obj)
+              (for-each (lambda (obj)
+                          (sxml:change-name! obj 'xhtml:span)
+                          (sxml:change-attrlist!
+                           obj
+                           (remove (lambda (x)
+                                     (eq? (car x) 'href))
+                                   (sxml:attr-list obj))))
+                        ((sxpath '(xhtml:a)) obj)))
+            ((sxpath '(// (xhtml:p (@ class (equal? "pageLastchange"))))) sxml)))
 
 (define (expand-div! sxml)
   (for-each (lambda (obj)
               (when (and (string=? "" (sxml:string-value obj))
-                         (zero? (length (sxml:child-elements obj))))
+                         (null? (sxml:child-elements obj)))
                 (sxml:change-content! obj '(""))))
             ((sxpath '(// xhtml:div)) sxml)))
 
@@ -124,16 +119,6 @@
           :fragment fragment))))
 
 (define resolve-uri (memoize ***resolve-uri))
-
-(define (***path-filter path)
-  ;;downcase and replace characters which confuse the texinfo system.
-  ;;A period can confuse the Texinfo but we are going to work it at xml2texi.scm
-  (define (replace str)
-    (regexp-replace-all #/@|,|:|\'|\"|%3a/ str "_"))
-
-  (replace (string-downcase path)))
-
-(define path-filter (memoize ***path-filter))
 
 (define (***offline-uri uri)
   ;;Test   "http://developer.mozilla.org/en/DOM/window.returnValue"
@@ -177,10 +162,25 @@
 (define offline-uri (memoize ***offline-uri))
 
 (define (process-links! base sxml)
+  (define (f base uri)
+    (receive (scheme _ host _ path _ _) (uri-parse uri)
+      (and
+       path
+       (cond
+        ((and scheme host
+              (string=? scheme "https")
+              (string=? host   "developer.mozilla.org"))
+         (make-place-from-uri-http uri))
+        ((and scheme (string=? scheme "file"))
+         (make-place-from-uri-file uri))
+        ((and (not scheme) (not host))
+         (make-place-from-uri-resolve base uri))
+        (else
+         #f)))))
   (for-each (lambda (obj)
-              (and-let* ((uri (resolve-uri base (sxml:string-value obj)))
-                         (uri (offline-uri uri)))
-                (sxml:change-content! obj `(,uri))))
+              (and-let* ((uri (sxml:string-value obj))
+                         (place (f base uri)))
+                (sxml:change-content! obj `(,(uri-file place)))))
             ((sxpath '(// @ (or@ href src))) sxml)))
 
 (define (MDC-xhtml->sxml path)
@@ -199,35 +199,25 @@
         (ssax:xml->sxml in '((xhtml . "http://www.w3.org/1999/xhtml")))))))
 
 (define (process! path)
-  (define (solve path)
-    (rxmatch-cond
-      ((#/developer\.mozilla\.org\/(.*)\/(.*)$/ path)
-       (#f base after)
-       (values base
-               (build-path prefix "developer.mozilla.org" (path-filter base) (path-filter after))))
-      ((#/developer\.mozilla\.org\/(.*)$/ path)
-       (#f after)
-       ;;just for "developer.mozilla.org/En.html"
-       (values "/"
-               (build-path prefix "developer.mozilla.org" (path-filter after))))
-      (else
-       (error "oops." path))))
-
-  (receive (base save-path) (solve path)
-    (unless (and debug (file-exists? save-path))
-      (when verbose (print save-path))
-      (let1 sxml (MDC-xhtml->sxml path)
-        (remove-useless-elements! sxml)
-        (remove-elements-confuse-serializer! sxml)
-        (process-links! base sxml)
-        (expand-div! sxml)
-        (create-directory* (sys-dirname save-path))
-        (call-with-output-file save-path
-          (lambda (out)
-            (call-with-input-string (format-sxml-to-string sxml)
-              (lambda (in)
-                (copy-port in out))))
-          :encoding 'utf-8)))))
+  (or (and-let* ((place (make-place-from-file-path path))
+                 (save-path (file-path place))
+                 (base (sys-dirname (path-filter (slot-ref place 'path)))))
+        (unless (and debug (file-exists? save-path))
+          (when verbose (print path))
+          (let1 sxml (MDC-xhtml->sxml path)
+            (remove-useless-elements! sxml)
+            (remove-elements-confuse-serializer! sxml)
+            (process-links! base sxml)
+            (expand-div! sxml)
+            (create-directory* (sys-dirname save-path))
+            (call-with-output-file save-path
+              (lambda (out)
+                (call-with-input-string (format-sxml-to-string sxml)
+                  (lambda (in)
+                    (copy-port in out))))
+              :encoding 'utf-8)))
+        #t)
+      (error "oops. " path)))
 
 (define (main args)
   (let-args (cdr args)

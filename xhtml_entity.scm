@@ -248,3 +248,8 @@
     (hearts . "\u2665")
     (diams . "\u2666")
     ))
+
+(with-module sxml.ssax
+  (set! ssax:predefined-parsed-entities
+        `(,@(with-module user xhtml-entity)
+          ,@ssax:predefined-parsed-entities)))

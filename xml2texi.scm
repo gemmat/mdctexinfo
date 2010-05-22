@@ -41,6 +41,12 @@
   `(texinfo ,(sxml:string-value node)))
   ;;`(texinfo "@strong{" ,(sxml:string-value node) "}"))
 
+(define (strong node)
+  `(texinfo ,(sxml:string-value node)))
+
+(define (del node)
+  `(texinfo ,(sxml:string-value node)))
+
 (define (pre node)
   `(texinfo
     "\n@example\n"
@@ -53,16 +59,35 @@
         `(texinfo "@uref{" ,src "," (sys-basename src) "}"))
       ()))
 
+(define (br node)
+  `(texinfo "\n"))
+
+(define (li node)
+  `(texinfo
+    "@item "
+    ,(sxml:string-value node)
+    "\n"))
+
+(define (dd node)
+  `(texinfo
+    ,(sxml:string-value node)
+    "\n"))
+
+(define (dt node)
+  `(texinfo
+    "@item "
+    ,(sxml:string-value node)
+    "\n"))
+
 (define (dl node)
   `(texinfo
     "\n@table @code\n"
     ,@(append-map (lambda (elt)
                     (case (sxml:name elt)
-                      ((xhtml:dt) `("@item " ,(sxml:string-value elt) "\n"))
-                      ((xhtml:dd) `(,(sxml:string-value elt) "\n"))
+                      ((texinfo) elt)
                       (else
-                       ;;(format (current-error-port) "warning:~a\n" (sxml:string-value elt))
-                       `("warning:" ,(sxml:string-value elt)))))
+                       (warning node)
+                       ())))
                   (sxml:child-elements node))
     "\n@end table\n"))
 
@@ -71,8 +96,10 @@
     "\n@itemize @bullet\n"
     ,@(append-map (lambda (elt)
                     (case (sxml:name elt)
-                      ((xhtml:li) `("@item " ,(sxml:string-value elt) "\n"))
-                      (else       `("warning:" ,(sxml:string-value elt)))))
+                      ((texinfo) elt)
+                      (else
+                       (warning node)
+                       ())))
                   (sxml:child-elements node))
     "\n@end itemize\n"))
 
@@ -81,8 +108,10 @@
     "\n@enumerate\n"
     ,@(append-map (lambda (elt)
                     (case (sxml:name elt)
-                      ((xhtml:li) `("@item " ,(sxml:string-value elt) "\n"))
-                      (else       `("warning:" ,(sxml:string-value elt)))))
+                      ((texinfo) elt)
+                      (else
+                       (warning node)
+                       ())))
            (sxml:child-elements node))
     "\n@end enumerate\n"))
 
@@ -116,9 +145,6 @@
            `(texinfo "@code{" ,(sxml:string-value node) "}")))
 
 (define (ahref node)
-  (define (trim-fragment path)
-    (or (string-scan path "#" 'before) path))
-
   (let1 href ((if-car-sxpath '(@ href *text*)) node)
     (if href
       (let* ((body ((if-car-sxpath '(*text*)) node))
@@ -128,7 +154,9 @@
                             #f))
              (cmd  (if internal? "@ref" "@uref"))
              (link (if internal?
-                     (file-path->texinfo-node (trim-fragment href))
+                     (and-let* ((place (make-place-from-uri-file href))
+                                (node (texi-node place)))
+                       (check-not-found node))
                      href))
              (aux  (if link "" "(404)"))
              (link (cond
@@ -145,41 +173,30 @@
           `(texinfo ,cmd "{" ,link "}."))))
       ())))
 
+(define (span node)
+  `(texinfo ,(sxml:string-value node)))
+
 (define (div node)
   (or (and-let* ((class (sxml:attr node 'class))
                  ((string=? class "note")))
         `(texinfo "@footnote{" ,(sxml:string-value node) "}\n"))
-      node))
+      `(texinfo ,(sxml:string-value node))))
 
-(define (***file-path->texinfo-node path)
-  (define (check str)
-    (hash-table-get notfound-table str str))
+(define (check-not-found str)
+  (hash-table-get notfound-table str str))
 
-  (rxmatch-cond
-    ((#/developer\.mozilla\.org\/(.*)\.html$/ path)
-     (#f node)
-     (check (replace-all-period-to-underscore node)))
-    ((#/developer\.mozilla\.org\/(.*)/ path)
-     (#f node)
-     (call-with-output-file "./hoge" (lambda (out)
-                                       (display path out)
-                                       (newline out))
-                            :if-exists :append)
-     #f)
-    (else
-     (call-with-output-file "./huga" (lambda (out)
-                                       (display path out)
-                                       (newline out))
-                            :if-exists :append)
-     #f)))
-
-(define file-path->texinfo-node (memoize ***file-path->texinfo-node))
+(define (file-path->texinfo-node path)
+  (check-not-found (texi-node (make-place-from-file-path path))))
 
 (define (proper-for-cindex? str)
   (boolean (#/^[\w\.]+$/ str)))
 
 (define-class <texinfo-node> ()
-  (self next prev up (children :init-value ())))
+  ((self :init-keyword :self)
+   (next :init-keyword :next)
+   (prev :init-keyword :prev)
+   (up   :init-keyword :up)
+   (children :init-value ())))
 
 (define (make-texinfo-nodes-table order-scm)
   (define (replace-all-period-to-underscore-of-items sxml)
@@ -188,53 +205,42 @@
      `((item        . ,(lambda (tag text) (list tag (replace-all-period-to-underscore text))))
        (*text*      . ,(lambda (tag text) text))
        (*default*   . ,(lambda x x)))))
+  (define ht (make-hash-table 'string=?))
+  (define (traverser l up)
+    (define p #f)
+    (let1 node (hash-table-get ht up)
+      (slot-set! node 'children
+                 (filter-map (lambda (x)
+                               (and (eq? (sxml:name x) 'item)
+                                    (sxml:string-value x)))
+                             l)))
+    (for-each (lambda (x)
+                (cond
+                 ((eq? (sxml:name x) 'item)
+                  (let* ((value (sxml:string-value x))
+                         (node (hash-table-get ht value)))
+                    (slot-set! node 'up up)
+                    (set! p value)))
+                 (else
+                  (traverser (cdr x) p))))
+              l))
 
-  (let* ((sxml (replace-all-period-to-underscore-of-items order-scm))
-         (ht (make-hash-table 'string=?)))
-    (let1 l ((sxpath '(// item *text*)) sxml)
+  (hash-table-put! ht "Top" (make <texinfo-node> :self "Top"))
+  (let1 sxml (replace-all-period-to-underscore-of-items order-scm)
+    (let1 l (map sxml:string-value (getElementsByTagName sxml 'item))
       (for-each (lambda (prev x next)
-                  (hash-table-update! ht x
-                                      (lambda (value)
-                                        (let1 node (or value (make <texinfo-node>))
-                                          (slot-set! node 'self x)
-                                          (slot-set! node 'next next)
-                                          (slot-set! node 'prev prev)
-                                          node))
-                                      #f))
+                  (hash-table-put! ht x (make <texinfo-node> :self x :next next :prev prev)))
                 l (cdr l) (append (cddr l) '(""))))
-    (let1 proc-brothers ((sxml:preceding-sibling (lambda (node)
-                                                   (eq? 'item (sxml:name node))))
-                         sxml)
-      (for-each (lambda (x)
-                  (let ((up (sxml:string-value (car (proc-brothers x))))
-                        (children ((sxpath '(item *text*)) x)))
-                    (for-each (lambda (item)
-                                (let1 node (hash-table-get ht item)
-                                  (slot-set! node 'up up)))
-                              children)
-                    (unless (string=? up "Top")
-                      (let1 node-up (hash-table-get ht up)
-                        (slot-set! node-up 'children children)))))
-                ((sxpath '(// (or@ chapter section subsection subsubsection subsubsubsection)))
-                 sxml)))
+    (traverser sxml "Top")
     ht))
-
-(define (texinfo-menu path)
-  (or (and-let* ((node (file-path->texinfo-node path))
-                 (parent (hash-table-get texinfo-nodes-table node))
-                 (children (slot-ref parent 'children))
-                 ((not (null? children))))
-        `("@menu"
-          ,@(map (cut string-append "* " <> " ::")
-                 children)
-          "@end menu"))
-      ()))
 
 (define (sxml->texinfo-like-sxml sxml)
   (pre-post-order
    (getElementById "pageText" sxml)
-   `((*text*      . ,(lambda (tag text) (escape-text text)))
-     (xhtml:a     . ,(lambda x (ahref x)))
+   `((xhtml:a     . ,(lambda x (ahref x)))
+     (xhtml:br    . ,(lambda x (br    x)))
+     (xhtml:strong . ,(lambda x (strong x)))
+     (xhtml:del   . ,(lambda x (del x)))
      (xhtml:b     . ,(lambda x (bold  x)))
      (xhtml:code  . ,(lambda x (code  x)))
      (xhtml:pre   . ,(lambda x (pre   x)))
@@ -244,29 +250,44 @@
      (xhtml:h4    . ,(lambda x (h4    x)))
      (xhtml:h5    . ,(lambda x (h5    x)))
      (xhtml:p     . ,(lambda x (para  x)))
+     (xhtml:span  . ,(lambda x (span  x)))
+     (xhtml:div   . ,(lambda x (div   x)))
+     (xhtml:li    . ,(lambda x (li    x)))
+     (xhtml:dd    . ,(lambda x (dd    x)))
+     (xhtml:dt    . ,(lambda x (dt    x)))
      (xhtml:dl    . ,(lambda x (dl    x)))
      (xhtml:ul    . ,(lambda x (ul    x)))
      (xhtml:ol    . ,(lambda x (ol    x)))
      (xhtml:table . ,(lambda x (table x)))
-     (xhtml:div   . ,(lambda x (div   x)))
+     (*text*      . ,(lambda (tag text) (escape-text text)))
      (*default*   . ,(lambda x x)))))
 
+(define (print-texinfo-menu path)
+  (and-let* ((node (file-path->texinfo-node path))
+             (obj (hash-table-get texinfo-nodes-table node))
+             (children (slot-ref obj 'children))
+             ((not (null? children))))
+        (print "@menu")
+        (for-each (lambda (x)
+                    (print (string-append "* " x " ::")))
+                  children)
+        (print "@end menu")))
+
+((sxpath '(// texinfo)) '(*TOP* (texinfo "hoge")))
+
 (define (print-texinfo-like-sxml sxml)
-  (pre-post-order sxml
-   `((texinfo   . ,(lambda x (print (sxml:string-value x)) ()))
-     (*text*    . ,(lambda (tag text) text))
-     (*default* . ,(lambda x x)))))
+  (for-each (lambda (x)
+              (print (sxml:string-value x)))
+            ((sxpath '(// texinfo)) `(*TOP* ,sxml))))
 
 (define (process path)
   (define (print-cindex str)
     (when (proper-for-cindex? str)
       (print "@cindex " (escape-text str))))
   (define (save-to path)
-    (rxmatch-if (#/developer\.mozilla\.org\/(.*)\.html$/ path)
-        (#f x)
-        (build-path prefix "developer.mozilla.org"
-                    (string-append (replace-all-period-to-underscore x) ".texi"))
-        (error "oops." path)))
+    (build-path prefix "developer.mozilla.org/"
+                (string-append (texi-node (make-place-from-file-path path))
+                               ".texi")))
   (define (at-node path)
     (let* ((node (file-path->texinfo-node path))
            (obj (hash-table-get texinfo-nodes-table node)))
@@ -289,7 +310,7 @@
       (print "@node " (at-node path))
       (print "@chapter " title)
       (print-cindex title)
-      (for-each print (texinfo-menu path))
+      (print-texinfo-menu path)
       (print "This page requires an Web browser. Please visit "
              "@uref{"
              (uri-compose
@@ -297,11 +318,12 @@
               :path   (build-path (current-directory) path))
              "," title "," title "}.")))
   (define (normal)
-    (let ((sxml (load-xml path)))
+    (let* ((sxml (load-xml path))
+           (title (escape-text (sxml:string-value (getElementById "title" sxml)))))
       (print "@node "    (at-node path))
-      (print "@chapter " (escape-text (sxml:string-value (getElementById "title" sxml))))
-      (print-cindex (sxml:string-value (getElementById "title" sxml)))
-      (for-each print (texinfo-menu path))
+      (print "@chapter " title)
+      (print-cindex title)
+      (print-texinfo-menu path)
       (print-texinfo-like-sxml (sxml->texinfo-like-sxml sxml))))
 
   (if (hash-table-exists? needbrowser-table (file-path->texinfo-node path))
@@ -315,6 +337,14 @@
 (define notfound-table    (make-hash-table 'string=?))
 (define needbrowser-table (make-hash-table 'string=?))
 (define texinfo-nodes-table #f)
+
+(define warning-path "")
+(define (warning node)
+  (when debug
+    (call-with-output-file "hoge"
+      (lambda (out)
+        (format out "~a\n~a\n\n" warning-path node))
+      :if-exists :append)))
 
 (define (main args)
   (let-args (cdr args)
@@ -339,6 +369,7 @@
     (set! texinfo-nodes-table (make-texinfo-nodes-table order-scm))
     (if debug
       (for-each (lambda (text)
+                  (set! warning-path text)
                   (process (string-append "out/developer.mozilla.org/" text ".html")))
                 ((sxpath '(// item *text*)) order-scm))
       (for-each process restargs)))

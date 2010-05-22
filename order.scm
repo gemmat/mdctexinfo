@@ -1,7 +1,6 @@
-(*TOP*
+(
  (item "Top")
  (chapter
-  (item "ja")
   (item "ja/a_basic_raycaster")
   (section
    (item "ja/a_basic_raycaster/input.js")

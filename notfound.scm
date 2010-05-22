@@ -6999,26 +6999,29 @@
   "ja/css/getting_started/what_is_css")
  ("ja/css/getting_started/why_use_css%3f" .
   "ja/css/getting_started/why_use_css")
- ("ja/devnews/20080812/about_/devnews/index_php/2008/08/10/aboutmobile-fennec-m6-windows-mobile-and-more" .
-  #f)
- ("ja/devnews_20060627" .
-  #f)
- ("ja/devnews_20060831" .
-  #f)
- ("ja/devnews_20060926" .
-  #f)
- ("ja/devnews_20061006" .
-  #f)
- ("ja/devnews_20061016" .
-  #f)
- ("ja/devnews_20071022" .
-  #f)
- ("ja/devnews_20071107" .
-  #f)
- ("ja/devnews_20071119" .
-  #f)
- ("ja/devnews/20071126-2" .
-  "ja/devnews/20071126")
- ("ja/devnews_20071126-2" .
-  "ja/devnews/20071126")
-)
+ ("ja/devnews/20080812/about_/devnews/index_php/2008/08/10/aboutmobile-fennec-m6-windows-mobile-and-more" . #f)
+ ("ja/devnews_20060627" . #f)
+ ("ja/devnews_20060831" . #f)
+ ("ja/devnews_20060926" . #f)
+ ("ja/devnews_20061006" . #f)
+ ("ja/devnews_20061016" . #f)
+ ("ja/devnews_20071022" . #f)
+ ("ja/devnews_20071107" . #f)
+ ("ja/devnews_20071119" . #f)
+ ("ja/devnews/20071126-2" . "ja/devnews/20071126")
+ ("ja/devnews_20071126-2" . "ja/devnews/20071126")
+ ("_api/deki/files/2861/=example1" . #f)
+ ("_api/deki/files/2864/=table" . #f)
+ ("_api/deki/files/2877/=mxx_info_(3)" . #f)
+ ("_api/deki/files/2906/=shadowed-text" . #f)
+ ("_api/deki/files/2921/=rotated-google-sample" . #f)
+ ("_api/deki/files/2922/=skewed-google-sample" . #f)
+ ("_api/deki/files/2935/=webfont-sample" . #f)
+ ("http_%2f%2fbooks_google_com/books" . #f)
+ ("https_%2f%2fbugzilla_mozilla_org/enter_bug_cgi" . #f)
+ ("index_php" . #f)
+ ("php" . #f)
+ ("template_tip_irc" . #f)
+ ("template_tip_newsgroups" . #f)
+ ("ja" . #f)
+ )
