@@ -43,7 +43,7 @@ htmls:
 euc_jp_texi:
 	mkdir euc_jp
 	cp -r includes.texi ultimate.texi texi/ euc_jp/
-	find euc_jp/includes.texi euc_jp/ultimate.texi euc_jp/texi/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp --inplace
+	find euc_jp/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp --inplace
 	@echo "Successfully converted character encodings from utf8 to euc_jp."
 
 dvi:

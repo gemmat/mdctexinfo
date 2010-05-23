@@ -1,5 +1,3 @@
-(use sxml.ssax)
-
 (define (load-xml path)
   (call-with-input-file path
     (cut ssax:xml->sxml <> '((xhtml . "http://www.w3.org/1999/xhtml")))

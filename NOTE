@@ -50,3 +50,9 @@ find . -name "*.html" -type f -print0 | xargs -0 sed 's/file:\/\/\/home\/teruaki
 
 #replace charset
 find . -name "*.html" | xargs sed -i "s/<meta http-equiv=\"Content-Type\" content=\"text\/html\; charset=utf-8\">/<meta http-equiv=\"Content-Type\" content=\"text\/html; charset=Shift_JIS\">/g"
+
+#absolute link to relative link
+upload to localhost.
+wget -p -nc -k -i localhost-list.
+remove 404s.
+find . -name "*.html" | xargs sed "s/ href=\"http:\/\/localhost\/mdczenbu\/[^\"]*\"/ /g" -i 

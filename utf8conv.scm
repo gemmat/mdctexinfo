@@ -19,7 +19,7 @@
       (for-each (lambda (path)
                   (call-with-input-file path
                     (lambda (in)
-                      (let1 dest (string-append encoding "_" path)
+                      (let1 dest (build-path (sys-dirname path) (string-append encoding "_" (sys-basename path)))
                         (create-directory* (sys-dirname dest))
                         (call-with-output-file dest
                           (lambda (out)
@@ -29,3 +29,4 @@
                           (move-file dest path :if-exists :supersede))))))
                 restargs)
       0))))
+
