@@ -1,5 +1,6 @@
 (use file.util)
 (use gauche.parseopt)
+(use sxml.ssax)
 (use sxml.sxpath)
 (use sxml.tools)
 (use sxml.tree-trans)

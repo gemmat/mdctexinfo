@@ -35,25 +35,25 @@ includes :
 	$(GOSH) $(INCLUDES_SCM) -t ./order.scm > includes.texi
 
 info:
-	$(MAKEINFO) --error-limit=50000 ultimate.texi 2> err
+	$(MAKEINFO) --error-limit=50000 localmdc.texi 2> err
 
 htmls:
-	$(TEXI2HTML) --split=section ultimate.texi
+	$(TEXI2HTML) --split=section localmdc.texi
 
 euc_jp_texi:
 	mkdir euc_jp
-	cp -r includes.texi ultimate.texi texi/ euc_jp/
+	cp -r includes.texi localmdc.texi texi/ euc_jp/
 	find euc_jp/ -name "*.texi" | xargs $(GOSH) $(UTF8_CONV_SCM) --encoding=euc_jp --inplace
 	@echo "Successfully converted character encodings from utf8 to euc_jp."
 
 dvi:
-	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" ultimate.texi
+	TEX=$(TEX) $(TEXI2DVI) -t "@afourpaper" localmdc.texi
 
 pdf: dvi
-	dvipdfmx ultimate.dvi
+	dvipdfmx localmdc.dvi
 
 chm:
-	$(TEXI2HTML) --init-file chm.init ultimate.texi
+	$(TEXI2HTML) --init-file chm.init localmdc.texi
 
 test-xml2texi:
 	$(GOSH) $(INCLUDES_SCM) ./core_order.scm | xargs $(GOSH) $(XML2TEXI_SCM) --order=./core_order.scm --notfound=./core_notfound.scm --prefix=/home/teruaki/mdctexinfo/core -v
@@ -66,7 +66,7 @@ clean:
 	rm -rf out/developer.mozilla.org/en/
 	rm -rf out/developer.mozilla.org/ja/
 	rm -rf texi/
-	rm -f  ultimate.info*
+	rm -f  localmdc.info*
 
 clean-merge:
 	find out/developer.mozilla.org/ja -name "*.html" -print0 | xargs -0 fgrep -l "not_yet_translated" | xargs rm

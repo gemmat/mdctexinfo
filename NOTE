@@ -25,7 +25,7 @@ gosh includes.scm | xargs -n 100 -P 0 gosh xml2texi.scm -v
 gosh includes.scm -t > includes.texi
 
 #process 5
-makeinfo ultimate.texi 2> err
+makeinfo localmdc.texi 2> err
 
 #process 6 (if an 'err' file has contents)
 Read an 'err' file and edit a notfound.scm.
@@ -35,17 +35,21 @@ Repeat from process 3.
 
 
 #output dvi
-find includes.texi ultimate.texi texi/ -name "*.texi" | xargs gosh utf8_to_eucjp.scm
-edit eucjp_ultimate.texi, eucjp_includes.texi
-TEX=ptex texi2dvi -t "@afourpaper" eucjp_ultimate.texi
+find includes.texi localmdc.texi texi/ -name "*.texi" | xargs gosh utf8_to_eucjp.scm
+edit eucjp_localmdc.texi, eucjp_includes.texi
+TEX=ptex texi2dvi -t "@afourpaper" eucjp_localmdc.texi
 
 #output pdf
-dvipdfmx eucjp_ultimate.dvi
+dvipdfmx eucjp_localmdc.dvi
 
 #output chm
-texi2html --init-file chm.init ultimate.texi
+texi2html --init-file chm.init localmdc.texi
+
+find . -type f | xargs gosh ../utf8conv.scm -i --encoding=sjis
 
 #replace links
+find . -name "*.html" | xargs sed "s/file:\/\/\/home\/teruaki\/mdctexinfo\/out\//http:\/\/localhost\/mdczenbu\//g" -i
+
 find . -name "*.html" -type f -print0 | xargs -0 sed 's/file:\/\/\/home\/teruaki/http:\/\/eva-lu-ator.net\/~gemma/g' -i
 
 #replace charset

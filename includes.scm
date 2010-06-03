@@ -6,7 +6,7 @@
 
 (load "./common.scm")
 
-(define (print-ultimate-include sxml)
+(define (print-localmdc-include sxml)
   (define (traverse l)
     (for-each (lambda (x)
                 (if (eq? 'item (sxml:name x))
@@ -26,7 +26,7 @@
               (print "out/developer.mozilla.org/" (sxml:string-value x) ".html"))
             (getElementsByTagName sxml 'item)))
 
-(define (print-ultimate-menu sxml)
+(define (print-localmdc-menu sxml)
   (for-each (lambda (text)
               (print "* " (replace-all-period-to-underscore text) " ::"))
             ((sxpath '(// chapter item *text*)) sxml)))
@@ -39,7 +39,7 @@
     (let* ((path (car restargs))
            (sxml (car (file->sexp-list path))))
       (cond
-       (t (print-ultimate-include sxml))
-       (m (print-ultimate-menu sxml))
+       (t (print-localmdc-include sxml))
+       (m (print-localmdc-menu sxml))
        (else (print-target-files sxml)))))
   0)

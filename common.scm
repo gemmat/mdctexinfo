@@ -28,11 +28,7 @@
                (hash-table-put! ht args result))))))
 
 (define (getElementsByTagName sxml name)
-  (append-map (lambda (x)
-                (if (eq? (car x) name)
-                  (list x)
-                  (getElementsByTagName (cdr x) name)))
-              sxml))
+  ((sxpath `(// ,name)) sxml))
 
 (define (***path-filter path)
   ;;downcase and replace characters which confuse the texinfo system.

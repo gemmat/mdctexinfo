@@ -1,7 +1,7 @@
 \input texinfo  @c -*-texinfo-*-
 @comment %**start of header
-@setfilename ultimate.info
-@settitle Mozilla Developer Center Ultimate Collection
+@setfilename localmdc.info
+@settitle Local Mozilla Developer Center
 @documentencoding utf-8
 
 @comment %**end of header
@@ -13,11 +13,11 @@
 
 @dircategory Mozilla
 @direntry
-* MDC: (ultimate). Mozilla Developer Center Ultimate Collection.
+* MDC: (localmdc). Local Mozilla Developer Center.
 @end direntry
 
 @titlepage
-@title Mozilla Developer Center Ultimate Collection
+@title Local Mozilla Developer Center
 @subtitle version 1.0
 @author Mozilla Developer Center (http://developer.mozilla.org/)
 
@@ -28,7 +28,7 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 
 @ifnottex
 @node Top, , (dir), (dir)
-@top Mozilla Developer Center Ultimate Collection
+@top Local Mozilla Developer Center
 @end ifnottex
 
 @menu
@@ -2000,13 +2000,13 @@ Copyright @copyright{} 2010 Mozilla Developer Center (http://developer.mozilla.o
 * ja/xulrunner_faq ::
 * ja/xulrunner_hall_of_fame ::
 * ja/xulrunner_tips ::
-* ja/Ultimate Index::
+* ja/localmdcindex::
 @end menu
 
 @lowersections
 @include includes.texi
 
-@node ja/Ultimate Index,,,Top
+@node ja/localmdcindex,,,Top
 @appendix 索引
 @printindex cp
 @contents

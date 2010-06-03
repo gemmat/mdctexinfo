@@ -232,13 +232,10 @@
   (define (traverser l up)
     (define p #f)
     (let1 node (hash-table-get ht up)
-      (slot-set! node 'children
-                 (filter-map (lambda (x)
-                               (and (eq? (sxml:name x) 'item)
-                                    (sxml:string-value x)))
-                             l)))
+      (slot-set! node 'children ((sxpath '(// item *text*)) l)))
     (for-each (lambda (x)
                 (cond
+                 ((not (pair? x)) #f)
                  ((eq? (sxml:name x) 'item)
                   (let* ((value (sxml:string-value x))
                          (node (hash-table-get ht value)))
@@ -250,7 +247,7 @@
 
   (hash-table-put! ht "Top" (make <texinfo-node> :self "Top"))
   (let1 sxml (replace-all-period-to-underscore-of-items order-scm)
-    (let1 l (map sxml:string-value (getElementsByTagName sxml 'item))
+    (let1 l ((sxpath '(// item *text*)) sxml)
       (for-each (lambda (prev x next)
                   (hash-table-put! ht x (make <texinfo-node> :self x :next next :prev prev)))
                 l (cdr l) (append (cddr l) '(""))))
@@ -309,7 +306,7 @@
              (uri-compose
               :scheme "file"
               :path   (build-path (current-directory) path))
-             "," title "," title "}.")))
+             "}.")))
   (define (normal)
     (let* ((sxml (load-xml path))
            (title (escape-text (sxml:string-value (getElementById "title" sxml)))))
