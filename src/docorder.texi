@@ -1,0 +1,135 @@
+@node docorder
+@chapter docorder
+
+@command{find} が出力するファイルシステムの階層構造を、S式の階層構造に変換する。
+つまり、ファイルパスにある"/"に応じて、リストの入れ子を作る。
+
+Texinfo で、正しく chapter, section, subsection, subsubsection と割りあてるために用いる。
+
+使い捨てのスクリプトである。
+
+
+@example
+find out/developer.mozilla.org/ -name "*.html" | sort | gosh docorder.scm > order.scm
+@end example
+
+@menu
+* docorder が使用するライブラリ::  
+* mapping-depth::               
+* directory-traverse::          
+* path-sans-html-extension::    
+* docorder の main::            
+@end menu
+
+@node  docorder が使用するライブラリ, mapping-depth, docorder, docorder
+@section docorder が使用するライブラリ
+
+@lisp
+(use srfi-1)
+(use file.util)
+@end lisp
+
+
+@node mapping-depth, directory-traverse, docorder が使用するライブラリ, docorder
+@section mapping-depth
+
+階層の深さと chapter, section, ... の対応のベクタ。
+
+@lisp
+(define (mapping-depth depth)
+  (vector-ref '#("(chapter" "(section" "(subsection" "(subsubsection" "(subsubsubsection"
+                 "(subsubsubsection" "(subsubsubsection" "(subsubsubsection"
+                 "(subsubsubsection" "(subsubsubsection" "(subsubsubsection") (- depth 1)))
+@end lisp
+
+@node directory-traverse, path-sans-html-extension, mapping-depth, docorder
+@section directory-traverse
+
+ディレクトリを再帰的に開いて、 proc をファイルパスと階層の深さを引数にして呼び出す。
+
+@lisp
+(define (directory-traverse path proc)
+  (let rec ((path path) (depth 0))
+    (when (and (proc path depth) (file-is-directory? path))
+      (for-each (cute rec <> (+ depth 1))
+                (directory-list path :add-path? #t :children? #t)))))
+@end lisp
+
+@node path-sans-html-extension, docorder の main, directory-traverse, docorder
+@section path-sans-html-extension
+
+html拡張子を取り除く。
+例えば、firefox3.html を firefox3 に、firefox3.5 を firefox3.5 にする。
+
+@footnote{path-sans-extension は、ファイル名が例えば firefox3.5 のとき、拡張子と小数点とで混乱してしまう。}
+
+@lisp
+(define (path-sans-html-extension path)
+  (regexp-replace #/\.html$/ path ""))
+@end lisp
+
+@node docorder の main,  , path-sans-html-extension, docorder
+@section docorder の main
+
+入力
+@example
+out/developer.mozilla.org/ja.html
+out/developer.mozilla.org/about.html
+out/developer.mozilla.org/about/foo.html
+out/developer.mozilla.org/about/foo/bar.html
+out/developer.mozilla.org/about/foo/car.html
+out/developer.mozilla.org/about/hoge.html
+@end example
+
+出力
+@example
+(*TOP*
+  (item "Top")
+  (chapter 
+    (item "about")
+    (section
+      (item "about/foo")
+      (subsection
+        (item "about/foo/bar")
+        (item "about/foo/car")))
+    (section
+      (item "about/hoge"))))
+@end example
+
+1行ずつファイルパスを読み込む。 FIXME <place> をつかえ
+
+前の行と比べてファイルパスの階層が１段階深かったら、 delta が 1 になり、 
+
+階層の深さに応じて、 開きカッコと、 section などを出力する。
+
+前の行と比べてファイルパスの階層が１段階浅かったら、 delta が -1 になり、 
+
+delta に応じた数の閉じカッコを出力する。
+
+最後に、ファイルパスに応じた Texinfo ノード名を (item "???") と出力する。
+
+/ja.html を、 Texinfo の "Top" ノードにするために、特別に扱う。
+
+@lisp
+(define (main args)
+  (define prev 0)
+  (print "(*TOP*")
+  (directory-traverse (cadr args)
+                      (lambda (path depth)
+                        (unless (and (file-is-regular? path) (file-is-directory? (path-sans-html-extension path)))
+                          (let1 delta (- depth prev)
+                            (cond
+                             ((zero? delta) #t)
+                             ((positive? delta)
+                              (print (mapping-depth depth)))
+                             ((negative? delta)
+                              (print (string-join (make-list (abs delta) ")") ""))))
+                            (let1 node (regexp-replace #/out\/developer\.mozilla\.org\// (path-sans-html-extension path) "")
+                              (if (string=? node "ja")
+                                (print "(item \"Top\")")
+                                (print "(item \"" node "\")")))
+                            (set! prev depth)))
+                        #t))
+  (print ")\n)")
+  0)
+@end lisp

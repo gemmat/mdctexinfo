@@ -1,0 +1,338 @@
+@node offline
+@chapter offline
+
+MDCのHTMLを処理して、リンクを張りなおし、不要なHTML要素を削除して、永久保存版にするスクリプトである。
+
+@menu
+* offline が使用するライブラリ::  
+* offline のグローバル変数::    
+* remove-useless-elements!::    
+* remove-elements-confuse-serializer!::  
+* expand-div!::                 
+* process-links!::              
+* MDC-xhtml->sxml::             
+* process!::                    
+* offline の main::             
+@end menu
+
+@node offline が使用するライブラリ, offline のグローバル変数, offline, offline
+@section offline が使用するライブラリ
+
+@lisp
+(use srfi-1)
+(use srfi-13)
+(use file.util)
+(use rfc.uri)
+(use gauche.parseopt)
+(use gauche.charconv)
+(use sxml.sxpath)
+(use sxml.ssax)
+(use sxml.tools)
+(use sxml.serializer)
+
+(load "./common.scm")
+(load "./xhtml_entity.scm")
+@end lisp
+
+@node  offline のグローバル変数, remove-useless-elements!, offline が使用するライブラリ, offline
+@section offline のグローバル変数
+
+verbose は、 コマンドラインで --verbose のとき #t になる。詳細に実行内容を出力する。
+
+prefix は、コマンドラインで --prefix で指定する。 出力先のファイルパスである。
+
+debug は、コマンドラインで --debug のとき #t になる。デバッグ時に使う。
+
+@lisp
+(define verbose  #f)
+(define prefix   "/hoge/out")
+(define debug    #f)
+@end lisp
+
+@node  remove-useless-elements!, remove-elements-confuse-serializer!, offline のグローバル変数, offline
+@section remove-useless-elements!
+
+私見では、以下のHTML要素は、永久保存版MDCには不要であると思うから、削除する。
+
+@itemize @bullet
+@item script, iframe
+@item <link type="application/rss+xml">
+@item <ul id="nav-access">,<ul id="sitetools">,<ul id="menuPageOptions">
+@item <ul class="page-anchors">
+@item <div id="deki-page-alerts">,<div id="popupMessage">,<div id="popupMask">,<div id="popupContainer">,
+      <div id="page-tags">, <div id="page-files">, <div id="MTMessage">, <div id="languages">, <div id="siteFooter">, <div id="printfooter">
+@item <div class="siteNav">, <div class="siteSearch">, <div class="pageBar">, <div class="suggestchannels">
+@item <div style="background-color:red; color:white; text-align:center;">
+@end itemize
+
+削除は、いったん <useless/> にしておき、 @ref{format-sxml-to-string} で、空白に文字列置換する。
+
+@lisp
+(define (remove-useless-elements! sxml)
+  (define (f l)
+    (for-each (lambda (obj)
+                (sxml:change-name! obj 'useless)
+                (sxml:change-content!  obj `())
+                (sxml:change-attrlist! obj `()))
+              l))
+  (f ((sxpath '(// (or@ xhtml:script xhtml:iframe))) sxml))
+  (f ((sxpath '(// (xhtml:link (@ type  (equal? "application/rss+xml"))))) sxml))
+  (f (filter (lambda (obj)
+               (or (and-let* ((id (sxml:attr obj 'id))
+                              (id (sxml:string-value id)))
+                     (member id '("nav-access" "sitetools" "menuPageOptions")))
+                   (and-let* ((class (sxml:attr obj 'class))
+                              (class (sxml:string-value class)))
+                     (equal? class "page-anchors"))))
+             ((sxpath '(// xhtml:ul)) sxml)))
+  (f (filter (lambda (obj)
+               (or (and-let* ((id (sxml:attr obj 'id))
+                              (id (sxml:string-value id)))
+                     (member id '("deki-page-alerts" "popupMessage" "popupMask" "popupContainer"
+                                  "page-tags" "page-files" "MTMessage" "languages" "siteFooter" "printfooter")))
+                   (and-let* ((class (sxml:attr obj 'class))
+                              (class (sxml:string-value class)))
+                     (member class '("siteNav" "siteSearch" "pageBar" "suggestchannels")))
+                   (and-let* ((style (sxml:attr obj 'style))
+                              (style (sxml:string-value style)))
+                     (equal? style "background-color:red; color:white; text-align:center;"))))
+             ((sxpath '(// xhtml:div)) sxml))))
+@end lisp
+
+
+@node remove-elements-confuse-serializer!, expand-div!, remove-useless-elements!, offline
+@section remove-elements-confuse-serializer!
+
+srl:sxml->html のバグを回避する。
+
+MDCには、 id="hoge<" のように不等号を含む HTMLが2,3ある。
+さらに、以下の事情がある。
+
+@itemize @bullet
+@item ssax:xml->sxml は id="hoge<" を読み込める。
+@item ssax:xml->sxml は id="hoge&lt;" を読み込めない。
+@item srl:sxml->html は id="hoge<" を id="hoge&lt;" と出力する。
+@item srl:sxml->html は id="hoge&lt;" を id="hoge<" と出力する。
+@end itemize
+
+つまり、 id="hoge<" を読み込んで、 id="hoge<" を出力するには、中間に id="hoge&lt;" をはさむ必要がある。
+
+MDCには、<table nowrap="nowrap"> や <table border="border"> がある。
+さらに、以下の事情がある。
+
+@itemize @bullet
+@item srl:sxml->html は <table nowrap="nowrap"> を <table nowrap> と出力する。
+@item ssax:xml->sxml は <table nowrap> を読み込めない。
+@end itemize
+
+自分が出力した結果を読み込めないのはバグだろう。
+
+しかたないので、 nowrap と border 属性を削除する。
+
+<video controls="controls"> も同様。
+
+<span id="id"> も同様。
+
+以下の処理は、他に適当な場所がなかったので、コードの字面が似ている本関数に置いた。
+
+@example
+<p class="pageLastchange">
+  <a href="...">someone</a>
+</p>
+@end example
+
+を以下に変換する。
+
+@example
+<p class="pageLastchange">
+  <span>someone</span>
+</p>
+@end example
+
+@lisp
+(define (remove-elements-confuse-serializer! sxml)
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (map (lambda (x)
+                      (case (car x)
+                        ((id href title)
+                         (list (car x) (regexp-replace-all #/</
+                                                           (sxml:string-value x)
+                                                            "&lt;")))
+                        (else x)))
+                    (sxml:attr-list obj))))
+            ((sxpath '(// (* (@ (or@ id href title))))) sxml))
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (remove (lambda (x)
+                         (memq (car x) '(nowrap border)))
+                       (sxml:attr-list obj))))
+            ((sxpath '(// (or@ xhtml:td xhtml:table (@ (or@ border nowrap))))) sxml))
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (remove (lambda (x)
+                         (eq? (car x) 'controls))
+                       (sxml:attr-list obj))))
+            ((sxpath '(// xhtml:video)) sxml))
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (remove (lambda (x)
+                         (eq? (car x) 'id))
+                       (sxml:attr-list obj))))
+            ((sxpath '(// (xhtml:span (@ id (equal? "id"))))) sxml))
+  (for-each (lambda (obj)
+              (for-each (lambda (obj)
+                          (sxml:change-name! obj 'xhtml:span)
+                          (sxml:change-attrlist!
+                           obj
+                           (remove (lambda (x)
+                                     (eq? (car x) 'href))
+                                   (sxml:attr-list obj))))
+                        ((sxpath '(xhtml:a)) obj)))
+            ((sxpath '(// (xhtml:p (@ class (equal? "pageLastchange"))))) sxml)))
+@end lisp
+
+@node  expand-div!, process-links!, remove-elements-confuse-serializer!, offline
+@section expand-div!
+
+srl:sxml->htmlのバグを回避する。
+srl:sxml->html は (xhtml:div) を <xhtml:div/> と出力するが、HTMLのdivの閉じタグを省略するのは不正である。
+しかし、(xhtml:div) を、 (xhtml:div "") にすれば、 <div></div>と出力するようになる。
+
+@lisp
+(define (expand-div! sxml)
+  (for-each (lambda (obj)
+              (when (and (string=? "" (sxml:string-value obj))
+                         (null? (sxml:child-elements obj)))
+                (sxml:change-content! obj '(""))))
+            ((sxpath '(// xhtml:div)) sxml)))
+@end lisp
+
+@node process-links!, MDC-xhtml->sxml, expand-div!, offline
+@section process-links!
+
+すべての HTML 要素の href 属性と src 属性 にたいして、
+リンクの種類に応じた <place> を作り、 URI file:// リンクの表現に置き換える。
+
+無関係の外部リンクまで処理しないように、ホスト名でチェックする。
+
+@lisp
+(define (process-links! base sxml)
+  (define (f base uri)
+    (receive (scheme _ host _ path _ _) (uri-parse uri)
+      (and
+       path
+       (cond
+        ((and scheme host
+              (string=? scheme "https")
+              (string=? host   "developer.mozilla.org"))
+         (make-place-from-uri-http uri))
+        ((and scheme (string=? scheme "file"))
+         (make-place-from-uri-file uri))
+        ((and (not scheme) (not host))
+         (make-place-from-uri-resolve base uri))
+        (else
+         #f)))))
+  (for-each (lambda (obj)
+              (and-let* ((uri (sxml:string-value obj))
+                         (place (f base uri)))
+                (sxml:change-content! obj `(,(uri-file place)))))
+            ((sxpath '(// @ (or@ href src))) sxml)))
+@end lisp
+
+@node MDC-xhtml->sxml, process!, process-links!, offline
+@section MDC-xhtml->sxml
+
+MDC の HTML には、以下の不正な記述があって ssax:xml->sxml で読み込めないことがある。
+
+@itemize @bullet
+@item return false;"" (意味不明の javascript コード)
+@item onclick="<や>を含む javascript コード"
+@item && (javascript の論理積演算子)
+@end itemize
+
+そこで、ファイルを文字列として読み込み、文字列置換で無害にしてから、ssax:xml->sxmlで読み込む。
+
+@lisp
+(define (MDC-xhtml->sxml path)
+  (and-let* ((source (file->string path))
+             (cleaned (regexp-replace-all*
+                       source
+                       #/\"return false\;\"\"/
+                       "\"return false;\""
+                       #/onclick=\"[^\"]+\"/
+                       ""
+                       #/&&/
+                       "&amp;&amp;"
+                       )))
+    (call-with-input-string cleaned
+      (lambda (in)
+        (ssax:xml->sxml in '((xhtml . "http://www.w3.org/1999/xhtml")))))))
+@end lisp
+
+@node process!, offline の main, MDC-xhtml->sxml, offline
+@section process!
+
+MDCのHTMLファイルを処理する。
+
+入力ファイルパスから、<place>を通して、出力先ファイルパスを生成する。
+
+@ref{make-place-from-uri-resolve} に渡すための base も生成する。
+
+デバッグ時は、出力先ファイルが存在しないものだけ処理する(つまり、上書きしない)。
+
+verbose オプションのときは、 処理中のファイルパスをプリントする。
+
+@lisp
+(define (process! path)
+  (or (and-let* ((place (make-place-from-file-path path))
+                 (save-path (file-path place))
+                 (base (sys-dirname (path-filter (slot-ref place 'path)))))
+        (unless (and debug (file-exists? save-path))
+          (when verbose (print path))
+          (let1 sxml (MDC-xhtml->sxml path)
+            (remove-useless-elements! sxml)
+            (remove-elements-confuse-serializer! sxml)
+            (process-links! base sxml)
+            (expand-div! sxml)
+            (create-directory* (sys-dirname save-path))
+            (call-with-output-file save-path
+              (lambda (out)
+                (call-with-input-string (format-sxml-to-string sxml)
+                  (lambda (in)
+                    (copy-port in out))))
+              :encoding 'utf-8)))
+        #t)
+      (error "oops. " path)))
+@end lisp
+
+@node offline の main,  , process!, offline
+@section offline の main
+
+メイン。
+
+@lisp
+(define (main args)
+  (let-args (cdr args)
+      ((v      "v|verbose")
+       (p      "p|prefix=s" (build-path (current-directory) "out"))
+       (d      "d|debug")
+       (help   "h|help" => (cut show-help (car args)))
+       . restargs)
+    (set! verbose v)
+    (set! prefix  p)
+    (set! debug   d)
+    (for-each process! (filter file-is-regular? restargs)))
+  0)
+
+(define (show-help prog-name)
+  (format #t "usage: gosh main.scm [OPTIONS]... \n")
+  (format #t " -v, --verbose     verbose.\n")
+  (format #t " -p, --prefix=s    save to.\n")
+  (format #t " -h, --help        print this documentation.\n")
+  #t)
+@end lisp

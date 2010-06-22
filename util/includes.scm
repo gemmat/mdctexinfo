@@ -24,7 +24,7 @@
 (define (print-target-files sxml)
   (for-each (lambda (x)
               (print "out/developer.mozilla.org/" (sxml:string-value x) ".html"))
-            (getElementsByTagName sxml 'item)))
+            ((sxpath '(// item)) sxml)))
 
 (define (print-localmdc-menu sxml)
   (for-each (lambda (text)

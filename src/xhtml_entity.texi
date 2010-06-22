@@ -1,3 +1,16 @@
+@node  xhtml_entity
+@chapter xhtml_entity
+
+@menu
+* xhtml-entity::                
+@end menu
+
+@node  xhtml-entity,  , xhtml_entity, xhtml_entity
+@section xhtml-entity
+
+XHTMLをSXMLに変換するときに、XHTMLの特殊文字を変換するための表。
+
+@lisp
 (define xhtml-entity
   '((nbsp . "\u00a0")
     (iexcl . "\u00a1")
@@ -251,5 +264,6 @@
 
 (with-module sxml.ssax
   (set! ssax:predefined-parsed-entities
-        `(,@(with-module user xhtml-entity)
-          ,@ssax:predefined-parsed-entities)))
+        `(,@@(with-module user xhtml-entity)
+          ,@@ssax:predefined-parsed-entities)))
+@end lisp

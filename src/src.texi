@@ -1,0 +1,46 @@
+\input texinfo  @c -*-texinfo-*-
+@comment %**start of header
+@setfilename srt.info
+@settitle mdctexinfo project
+@documentencoding utf-8
+
+@comment %**end of header
+
+@iftex
+@finalout
+@parskip 4pt plus 1pt
+@end iftex
+
+@titlepage
+@title mdctexinfo project
+@subtitle version 1.0
+@author Teruaki Gemma
+
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} Teruaki Gemma
+@end titlepage
+
+@ifnottex
+@node Top, , (dir), (dir)
+@top 
+@end ifnottex
+
+@menu
+* common ::
+* xhtml_entity ::
+* offline ::
+* docorder ::
+* mergelang ::
+* xml2texi ::
+@end menu
+
+@include common.texi
+@include xhtml_entity.texi
+@include offline.texi
+@include docorder.texi
+@include mergelang.texi
+@include xml2texi.texi
+
+@contents
+@bye

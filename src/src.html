@@ -1,0 +1,3460 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!-- Created on June, 22 2010 by texi2html 1.78 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people.
+Send bugs and suggestions to <texi2html-bug@nongnu.org>
+
+-->
+<head>
+<title>mdctexinfo project</title>
+
+<meta name="description" content="mdctexinfo project">
+<meta name="keywords" content="mdctexinfo project">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.78">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.roman {font-family:serif; font-weight:normal;}
+span.sansserif {font-family:sans-serif; font-weight:normal;}
+ul.toc {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="Top"></a>
+<a name="SEC_Top"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="settitle">mdctexinfo project
+</h1>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC1">1. common</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC17">2. xhtml_entity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC19">3. offline</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC29">4. docorder</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC35">5. mergelang</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC41">6. xml2texi</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr size="1">
+<a name="common"></a>
+<a name="SEC1"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 1. common </h1>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC2">1.1 load-xml</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC4">1.3 format-sxml-to-string</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC5">1.4 replace-all-period-to-underscore</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC7">1.6 path-filter</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC8">1.7 &lt;place&gt;</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC9">1.8 make-place-from-uri-http</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC10">1.9 make-place-from-uri-file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC11">1.10 make-place-from-uri-resolve</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC12">1.11 make-place-from-file-path</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC13">1.12 uri-http</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC14">1.13 uri-file</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC15">1.14 file-path</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                   
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="load_002dxml"></a>
+<a name="SEC2"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.1 load-xml </h2>
+<p>XMLファイルを読み込み、SXMLを返す。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (load-xml path)
+  (call-with-input-file path
+    (cut ssax:xml-&gt;sxml &lt;&gt; '((xhtml . &quot;http://www.w3.org/1999/xhtml&quot;)))
+    :encoding 'utf-8))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="SEC3"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC2" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.2 getElementById </h2>
+<p>DOMの同名の関数と同じ。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (getElementById id sxml)
+  ((if-car-sxpath `(// (* (&nbsp;id (equal? ,id))))) sxml))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="format_002dsxml_002dto_002dstring"></a>
+<a name="SEC4"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.3 format-sxml-to-string </h2>
+<p>SXMLを<code>srl:sxml-&gt;html</code>で文字列として出力した後で、以下の処理を行う。
+</p><ul>
+<li> &lt;useless/&gt;文字列を消す <a name="DOCF1" href="#FOOT1">(1)</a>
+</li><li> <a href="load-xml">load-xml</a>で付与したXML名前空間接頭辞のxhtml:を取り除く
+</li></ul>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (format-sxml-to-string sxml)
+  (regexp-replace-all*
+   (call-with-output-string (cut srl:sxml-&gt;html sxml &lt;&gt;))
+   #/&lt;useless\/&gt;/
+   &quot;&quot;
+   #/&lt;xhtml:/
+   &quot;&lt;&quot;
+   #/&lt;\/xhtml:/
+   &quot;&lt;/&quot;
+   #/xmlns:xhtml/
+   &quot;xmlns&quot;
+   ))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="replace_002dall_002dperiod_002dto_002dunderscore"></a>
+<a name="SEC5"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC6" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.4 replace-all-period-to-underscore </h2>
+
+<p>ピリオドをすべてアンダースコアに変換する。
+texinfoがノード名にピリオドを含むのを嫌うため必要。
+一般的に、ピリオドは、拡張子や、小数点にも使われ、意味が曖昧なので注意。
+例えば以下のときである。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">&lt;a href=&quot;firefox3.html&quot;/&gt;
+&lt;a href=&quot;firefox3.png&quot;/&gt;
+&lt;a href=&quot;firefox3.5&quot;/&gt;
+</pre></td></tr></table>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (replace-all-period-to-underscore str)
+  (regexp-replace-all #/\./ str &quot;_&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="SEC6"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC5" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC7" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.5 memoize </h2>
+
+<p>関数をメモ化した関数を返す。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (memoize fn)
+  (let1 ht (make-hash-table 'equal?)
+    (lambda args
+      (if (hash-table-exists? ht args)
+        (hash-table-get ht args)
+        (rlet1 result (apply fn args)
+               (hash-table-put! ht args result))))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="path_002dfilter"></a>
+<a name="SEC7"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC6" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.6 path-filter </h2>
+
+<p>URIには、以下の特徴がある。
+</p>
+<ul>
+<li> 大文字小文字の区別がない
+</li></ul>
+
+<p>MDCの MindTouch Wiki のリンクには、以下の特徴がある。
+</p>
+<ul>
+<li> 大文字小文字の区別がない
+</li><li> アットマーク、カンマ、コロン、クォート、ダブルクォートを含める
+</li><li> /ja/About:hoge は実は /ja/About/hoge である。
+</li><li> / は実は /en である。
+</li></ul>
+
+<p>Unix のファイルシステムには以下の特徴がある。
+</p><ul>
+<li> 大文字小文字の区別がある
+</li><li> ファイル名にクォート、ダブルクォートがあると、 <code>xargs</code>コマンドが混乱する。
+</li></ul>
+
+<p>Texinfo のノード名には以下の特徴がある。
+</p><ul>
+<li> 大文字小文字の区別がある
+</li><li> アットマーク、カンマ、コロンはエスケープが必要で面倒
+</li></ul>
+
+<p>そこで <a href="#SEC7">path-filter</a> は、全てを満足するため、以下の処理を行う。 
+</p>
+<ul>
+<li> すべて小文字にする
+</li><li> アットマーク、カンマ、コロン、クォート、ダブルクォートをアンダースコアに置換する。
+</li></ul>
+
+<p>性能のためメモ化した。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (***path-filter path)
+  (define (replace str)
+    (regexp-replace-all #/,|:|\'|\&quot;|%3a/ str &quot;_&quot;))
+
+  (replace (string-downcase path)))
+
+(define path-filter (memoize ***path-filter))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="g_t_003cplace_003e"></a>
+<a name="SEC8"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC7" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC9" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.7 &lt;place&gt; </h2>
+
+<p>概念的には、以下は&quot;場所&quot;として同一視できる。また、相互に変換できる。
+</p>
+<ul>
+<li> URI (https://developer.mozilla.org/ja/About#section.1?q=foo)
+</li><li> URI(ローカル) (file:///home/teruaki/mdctexinfo/developer.mozilla.org/ja/About.html#section.1?q=foo)
+</li><li> Texinfoノード (ja/about)
+</li><li> ファイルパス (/home/teruaki/mdctexinfo/developer.mozilla.org/ja/about.html)
+</li></ul>
+
+<p>&lt;place&gt;クラスは、&quot;場所&quot;を表現する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-class &lt;place&gt; ()
+  ((path     :init-keyword :path     :init-value #f)
+   (query    :init-keyword :query    :init-value #f)
+   (fragment :init-keyword :fragment :init-value #f)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="make_002dplace_002dfrom_002duri_002dhttp"></a>
+<a name="SEC9"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC8" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC10" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.8 make-place-from-uri-http </h2>
+
+<p>URI(http://...)から &lt;place&gt; のインスタンスを作る。
+以下のように、入力を想定し、出力を期待している。
+</p>
+<table>
+<tr><td><p> 入力 </p></td><td><p> 出力
+</p></td></tr>
+<tr><td><p> https://developer.mozilla.org/ja/About </p></td><td><p> /ja/About.html
+</p></td></tr>
+<tr><td><p> https://developer.mozilla.org/ja/About#section.1?q=foo&amp;a=bar </p></td><td><p> /ja/About.html section.1 q=foo&amp;a=bar
+</p></td></tr>
+<tr><td><p> https://developer.mozilla.org/ </p></td><td><p> /en.html
+</p></td></tr>
+<tr><td><p> https://developer.mozilla.org/skins/.../fox3.css </p></td><td><p> /skins/.../fox3.css
+</p></td></tr>
+<tr><td><p> https://developer.mozilla.org/deki/.../image.png </p></td><td><p> /deki/.../image.png
+</p></td></tr>
+</table>
+
+<p>性能のためメモ化している。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (***make-place-from-uri-http uri)
+  (receive (_ _ _ _ path query fragment) (uri-parse uri)
+    (let* ((path (if (string=? path &quot;/&quot;)
+                   &quot;/en&quot;
+                   path))
+           (path (rxmatch-if (#/^\/skins|deki\// path)
+                     (#f)
+                     path
+                     (string-append path &quot;.html&quot;))))
+      (make &lt;place&gt; :path path :query query :fragment fragment))))
+
+(define make-place-from-uri-http (memoize ***make-place-from-uri-http))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="make_002dplace_002dfrom_002duri_002dfile"></a>
+<a name="SEC10"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC9" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC11" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.9 make-place-from-uri-file </h2>
+
+<p>URI(file://...)から &lt;place&gt; のインスタンスを作る。
+</p>
+<p>file://のリンクを張ったのは、 <code>wget</code> の &ndash;convert-links である。
+<a name="DOCF2" href="#FOOT2">(2)</a>
+</p>
+<p>以下のように、入力を想定し、出力を期待している。
+</p>
+<table>
+<tr><td><p> 入力 </p></td><td><p> 出力
+</p></td></tr>
+<tr><td><p> file:///home/teruaki/mdctexinfo/developer.mozilla.org/ja/About.html </p></td><td><p> /ja/About.html
+</p></td></tr>
+<tr><td><p> file:///home/teruaki/mdctexinfo/developer.mozilla.org/ja/About#section.1?q=foo&amp;a=bar </p></td><td><p> /ja/About.html section.1 q=foo&amp;a=bar
+</p></td></tr>
+<tr><td><p> FIXME FIXME file:///home/teruaki/mdctexinfo/developer.mozilla.org/ </p></td><td><p> /en.html
+</p></td></tr>
+<tr><td><p> file:///home/teruaki/mdctexinfo/developer.mozilla.org/skins/.../fox3.css </p></td><td><p> /skins/.../fox3.css
+</p></td></tr>
+<tr><td><p> file:///home/teruaki/mdctexinfo/developer.mozilla.org/deki/.../image.png </p></td><td><p> /deki/.../image.png
+</p></td></tr>
+</table>
+
+<p>性能のためメモ化している。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (***make-place-from-uri-file uri)
+  (receive (_ _ _ _ path query fragment) (uri-parse uri)
+    (and path
+         (rxmatch-if (#/\/developer\.mozilla\.org(\/.*)/ path)
+             (#f path)
+             (make &lt;place&gt; :path path :query query :fragment fragment)
+             #f))))
+
+(define make-place-from-uri-file (memoize ***make-place-from-uri-file))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="make_002dplace_002dfrom_002duri_002dresolve"></a>
+<a name="SEC11"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC10" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC12" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.10 make-place-from-uri-resolve </h2>
+
+<p>URIの相対リンクから &lt;place&gt; のインスタンスを作る。
+相対リンクを絶対リンクに変換する。
+</p>
+<p>例えば /home/teruaki/mdctexinfo/developer.mozilla.org/ja/About/hoge.html ファイルを処理しているときに、base は /ja/About である。
+</p>
+<p>以下のように、入力を想定し、出力を期待している。
+</p>
+<table>
+<tr><td><p> 入力 </p></td><td><p> 出力
+</p></td></tr>
+<tr><td><p> ../About.html </p></td><td><p> /ja/About.html
+</p></td></tr>
+<tr><td><p> ../About.html#section.1?q=foo&amp;a=bar </p></td><td><p> /ja/About.html section.1 q=foo&amp;a=bar
+</p></td></tr>
+</table>
+
+<p>性能のためメモ化している。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (***make-place-from-uri-resolve base uri)
+  (receive (_ _ _ _ path query fragment) (uri-parse uri)
+    (and path
+         (let1 path (if (relative-path? path)
+                      (simplify-path (build-path base path))
+                      path)
+           (make &lt;place&gt; :path path :query query :fragment fragment)))))
+
+(define make-place-from-uri-resolve (memoize ***make-place-from-uri-resolve))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="make_002dplace_002dfrom_002dfile_002dpath"></a>
+<a name="SEC12"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC11" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC13" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.11 make-place-from-file-path </h2>
+
+<p>ファイルパスから &lt;place&gt; のインスタンスを作る。
+以下のように、入力を想定し、出力を期待している。
+</p>
+<table>
+<tr><td><p> 入力 </p></td><td><p> 出力
+</p></td></tr>
+<tr><td><p> /home/teruaki/mdctexinfo/developer.mozilla.org/ja/About.html </p></td><td><p> /ja/About.html
+</p></td></tr>
+</table>
+
+<p>性能のためメモ化している。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (***make-place-from-file-path path)
+  (rxmatch-if (#/developer\.mozilla\.org(\/.*)/ path)
+      (#f path)
+      (make &lt;place&gt; :path path)
+      #f))
+
+(define make-place-from-file-path (memoize ***make-place-from-file-path))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="uri_002dhttp"></a>
+<a name="SEC13"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC12" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC14" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.12 uri-http </h2>
+
+<p>&lt;place&gt;からURI(https://...)を出力する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-method uri-http ((p &lt;place&gt;))
+  (uri-compose :scheme   &quot;https&quot;
+               :host     &quot;developer.mozilla.org&quot;
+               :path     (slot-ref p 'path)
+               :query    (slot-ref p 'query)
+               :fragment (slot-ref p 'fragment)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="uri_002dfile"></a>
+<a name="SEC14"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC13" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC15" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.13 uri-file </h2>
+
+<p>&lt;place&gt;からURI(file://...)を出力する。
+FIXME FIXME path-filter で処理している。
+カレントディレクトリの情報と組み合わせて、
+例えば、 /ja/About から file:///home/teruaki/mdctexinfo/out/developer.mozilla.org/ja/about.html を出力する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-method uri-file ((p &lt;place&gt;))
+  (uri-compose :scheme   &quot;file&quot;
+               :path     (path-filter
+                          (string-append (current-directory)
+                                         &quot;/out/developer.mozilla.org&quot;
+                                         (slot-ref p 'path)))
+               :query    (slot-ref p 'query)
+               :fragment (slot-ref p 'fragment)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="file_002dpath"></a>
+<a name="SEC15"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC14" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC16" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.14 file-path </h2>
+
+<p>&lt;place&gt;からファイルパスを出力する。
+FIXME FIXME path-filter で処理している。
+例えば、 /ja/About から out/developer.mozilla.org/ja/about.html を出力する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-method file-path ((p &lt;place&gt;))
+  (string-append &quot;out/developer.mozilla.org&quot;
+                 (path-filter (slot-ref p 'path))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="SEC16"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC15" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 1.15 texi-node </h2>
+<p>&lt;place&gt;から Texinfo ノード名 を出力する。
+FIXME FIXME path-filter で処理している。
+FIXME FIXME 例えば、 /ja/Firefox3.5.html から ja/firefox3_5 を出力する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-method texi-node ((p &lt;place&gt;))
+  (rxmatch-if (#/^\/(.*)\.html$/ (slot-ref p 'path))
+      (#f x)
+      (replace-all-period-to-underscore x)
+      (begin
+        (when debug
+          (call-with-output-file &quot;./huga&quot; (lambda (out)
+                                            (display (slot-ref p 'path) out)
+                                            (newline out))
+                                 :if-exists :append))
+        #f)))
+</pre></td></tr></table>
+<hr size="6">
+<a name="xhtml_005fentity"></a>
+<a name="SEC17"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC16" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC18" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 2. xhtml_entity </h1>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC18">2.1 xhtml-entity</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="xhtml_002dentity"></a>
+<a name="SEC18"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC17" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 2.1 xhtml-entity </h2>
+
+<p>XHTMLをSXMLに変換するときに、XHTMLの特殊文字を変換するための表。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define xhtml-entity
+  '((nbsp . &quot;\u00a0&quot;)
+    (iexcl . &quot;\u00a1&quot;)
+    (cent . &quot;\u00a2&quot;)
+    (pound . &quot;\u00a3&quot;)
+    (curren . &quot;\u00a4&quot;)
+    (yen . &quot;\u00a5&quot;)
+    (brvbar . &quot;\u00a6&quot;)
+    (sect . &quot;\u00a7&quot;)
+    (uml . &quot;\u00a8&quot;)
+    (copy . &quot;\u00a9&quot;)
+    (ordf . &quot;\u00aa&quot;)
+    (laquo . &quot;\u00ab&quot;)
+    (not . &quot;\u00ac&quot;)
+    (shy . &quot;\u00ad&quot;)
+    (reg . &quot;\u00ae&quot;)
+    (macr . &quot;\u00af&quot;)
+    (deg . &quot;\u00b0&quot;)
+    (plusmn . &quot;\u00b1&quot;)
+    (sup2 . &quot;\u00b2&quot;)
+    (sup3 . &quot;\u00b3&quot;)
+    (acute . &quot;\u00b4&quot;)
+    (micro . &quot;\u00b5&quot;)
+    (para . &quot;\u00b6&quot;)
+    (middot . &quot;\u00b7&quot;)
+    (cedil . &quot;\u00b8&quot;)
+    (sup1 . &quot;\u00b9&quot;)
+    (ordm . &quot;\u00ba&quot;)
+    (raquo . &quot;\u00bb&quot;)
+    (frac14 . &quot;\u00bc&quot;)
+    (frac12 . &quot;\u00bd&quot;)
+    (frac34 . &quot;\u00be&quot;)
+    (iquest . &quot;\u00bf&quot;)
+    (Agrave . &quot;\u00c0&quot;)
+    (Aacute . &quot;\u00c1&quot;)
+    (Acirc . &quot;\u00c2&quot;)
+    (Atilde . &quot;\u00c3&quot;)
+    (Auml . &quot;\u00c4&quot;)
+    (Aring . &quot;\u00c5&quot;)
+    (AElig . &quot;\u00c6&quot;)
+    (Ccedil . &quot;\u00c7&quot;)
+    (Egrave . &quot;\u00c8&quot;)
+    (Eacute . &quot;\u00c9&quot;)
+    (Ecirc . &quot;\u00ca&quot;)
+    (Euml . &quot;\u00cb&quot;)
+    (Igrave . &quot;\u00cc&quot;)
+    (Iacute . &quot;\u00cd&quot;)
+    (Icirc . &quot;\u00ce&quot;)
+    (Iuml . &quot;\u00cf&quot;)
+    (ETH . &quot;\u00d0&quot;)
+    (Ntilde . &quot;\u00d1&quot;)
+    (Ograve . &quot;\u00d2&quot;)
+    (Oacute . &quot;\u00d3&quot;)
+    (Ocirc . &quot;\u00d4&quot;)
+    (Otilde . &quot;\u00d5&quot;)
+    (Ouml . &quot;\u00d6&quot;)
+    (times . &quot;\u00d7&quot;)
+    (Oslash . &quot;\u00d8&quot;)
+    (Ugrave . &quot;\u00d9&quot;)
+    (Uacute . &quot;\u00da&quot;)
+    (Ucirc . &quot;\u00db&quot;)
+    (Uuml . &quot;\u00dc&quot;)
+    (Yacute . &quot;\u00dd&quot;)
+    (THORN . &quot;\u00de&quot;)
+    (szlig . &quot;\u00df&quot;)
+    (agrave . &quot;\u00e0&quot;)
+    (aacute . &quot;\u00e1&quot;)
+    (acirc . &quot;\u00e2&quot;)
+    (atilde . &quot;\u00e3&quot;)
+    (auml . &quot;\u00e4&quot;)
+    (aring . &quot;\u00e5&quot;)
+    (aelig . &quot;\u00e6&quot;)
+    (ccedil . &quot;\u00e7&quot;)
+    (egrave . &quot;\u00e8&quot;)
+    (eacute . &quot;\u00e9&quot;)
+    (ecirc . &quot;\u00ea&quot;)
+    (euml . &quot;\u00eb&quot;)
+    (igrave . &quot;\u00ec&quot;)
+    (iacute . &quot;\u00ed&quot;)
+    (icirc . &quot;\u00ee&quot;)
+    (iuml . &quot;\u00ef&quot;)
+    (eth . &quot;\u00f0&quot;)
+    (ntilde . &quot;\u00f1&quot;)
+    (ograve . &quot;\u00f2&quot;)
+    (oacute . &quot;\u00f3&quot;)
+    (ocirc . &quot;\u00f4&quot;)
+    (otilde . &quot;\u00f5&quot;)
+    (ouml . &quot;\u00f6&quot;)
+    (divide . &quot;\u00f7&quot;)
+    (oslash . &quot;\u00f8&quot;)
+    (ugrave . &quot;\u00f9&quot;)
+    (uacute . &quot;\u00fa&quot;)
+    (ucirc . &quot;\u00fb&quot;)
+    (uuml . &quot;\u00fc&quot;)
+    (yacute . &quot;\u00fd&quot;)
+    (thorn . &quot;\u00fe&quot;)
+    (yuml . &quot;\u00ff&quot;)
+    (OElig . &quot;\u0152&quot;)
+    (oelig . &quot;\u0153&quot;)
+    (Scaron . &quot;\u0160&quot;)
+    (scaron . &quot;\u0161&quot;)
+    (Yuml . &quot;\u0178&quot;)
+    (circ . &quot;\u02c6&quot;)
+    (tilde . &quot;\u02dc&quot;)
+    (ensp . &quot;\u2002&quot;)
+    (emsp . &quot;\u2003&quot;)
+    (thinsp . &quot;\u2009&quot;)
+    (zwnj . &quot;\u200c&quot;)
+    (zwj . &quot;\u200d&quot;)
+    (lrm . &quot;\u200e&quot;)
+    (rlm . &quot;\u200f&quot;)
+    (ndash . &quot;\u2013&quot;)
+    (mdash . &quot;\u2014&quot;)
+    (lsquo . &quot;\u2018&quot;)
+    (rsquo . &quot;\u2019&quot;)
+    (sbquo . &quot;\u201a&quot;)
+    (ldquo . &quot;\u201c&quot;)
+    (rdquo . &quot;\u201d&quot;)
+    (bdquo . &quot;\u201e&quot;)
+    (dagger . &quot;\u2020&quot;)
+    (Dagger . &quot;\u2021&quot;)
+    (permil . &quot;\u2030&quot;)
+    (lsaquo . &quot;\u2039&quot;)
+    (rsaquo . &quot;\u203a&quot;)
+    (euro . &quot;\u20ac&quot;)
+    (fnof . &quot;\u0192&quot;)
+    (Alpha . &quot;\u0391&quot;)
+    (Beta . &quot;\u0392&quot;)
+    (Gamma . &quot;\u0393&quot;)
+    (Delta . &quot;\u0394&quot;)
+    (Epsilon . &quot;\u0395&quot;)
+    (Zeta . &quot;\u0396&quot;)
+    (Eta . &quot;\u0397&quot;)
+    (Theta . &quot;\u0398&quot;)
+    (Iota . &quot;\u0399&quot;)
+    (Kappa . &quot;\u039a&quot;)
+    (Lambda . &quot;\u039b&quot;)
+    (Mu . &quot;\u039c&quot;)
+    (Nu . &quot;\u039d&quot;)
+    (Xi . &quot;\u039e&quot;)
+    (Omicron . &quot;\u039f&quot;)
+    (Pi . &quot;\u03a0&quot;)
+    (Rho . &quot;\u03a1&quot;)
+    (Sigma . &quot;\u03a3&quot;)
+    (Tau . &quot;\u03a4&quot;)
+    (Upsilon . &quot;\u03a5&quot;)
+    (Phi . &quot;\u03a6&quot;)
+    (Chi . &quot;\u03a7&quot;)
+    (Psi . &quot;\u03a8&quot;)
+    (Omega . &quot;\u03a9&quot;)
+    (alpha . &quot;\u03b1&quot;)
+    (beta . &quot;\u03b2&quot;)
+    (gamma . &quot;\u03b3&quot;)
+    (delta . &quot;\u03b4&quot;)
+    (epsilon . &quot;\u03b5&quot;)
+    (zeta . &quot;\u03b6&quot;)
+    (eta . &quot;\u03b7&quot;)
+    (theta . &quot;\u03b8&quot;)
+    (iota . &quot;\u03b9&quot;)
+    (kappa . &quot;\u03ba&quot;)
+    (lambda . &quot;\u03bb&quot;)
+    (mu . &quot;\u03bc&quot;)
+    (nu . &quot;\u03bd&quot;)
+    (xi . &quot;\u03be&quot;)
+    (omicron . &quot;\u03bf&quot;)
+    (pi . &quot;\u03c0&quot;)
+    (rho . &quot;\u03c1&quot;)
+    (sigmaf . &quot;\u03c2&quot;)
+    (sigma . &quot;\u03c3&quot;)
+    (tau . &quot;\u03c4&quot;)
+    (upsilon . &quot;\u03c5&quot;)
+    (phi . &quot;\u03c6&quot;)
+    (chi . &quot;\u03c7&quot;)
+    (psi . &quot;\u03c8&quot;)
+    (omega . &quot;\u03c9&quot;)
+    (thetasym . &quot;\u03d1&quot;)
+    (upsih . &quot;\u03d2&quot;)
+    (piv . &quot;\u03d6&quot;)
+    (bull . &quot;\u2022&quot;)
+    (hellip . &quot;\u2026&quot;)
+    (prime . &quot;\u2032&quot;)
+    (Prime . &quot;\u2033&quot;)
+    (oline . &quot;\u203e&quot;)
+    (frasl . &quot;\u2044&quot;)
+    (weierp . &quot;\u2118&quot;)
+    (image . &quot;\u2111&quot;)
+    (real . &quot;\u211c&quot;)
+    (trade . &quot;\u2122&quot;)
+    (alefsym . &quot;\u2135&quot;)
+    (larr . &quot;\u2190&quot;)
+    (uarr . &quot;\u2191&quot;)
+    (rarr . &quot;\u2192&quot;)
+    (darr . &quot;\u2193&quot;)
+    (harr . &quot;\u2194&quot;)
+    (crarr . &quot;\u21b5&quot;)
+    (lArr . &quot;\u21d0&quot;)
+    (uArr . &quot;\u21d1&quot;)
+    (rArr . &quot;\u21d2&quot;)
+    (dArr . &quot;\u21d3&quot;)
+    (hArr . &quot;\u21d4&quot;)
+    (forall . &quot;\u2200&quot;)
+    (part . &quot;\u2202&quot;)
+    (exist . &quot;\u2203&quot;)
+    (empty . &quot;\u2205&quot;)
+    (nabla . &quot;\u2207&quot;)
+    (isin . &quot;\u2208&quot;)
+    (notin . &quot;\u2209&quot;)
+    (ni . &quot;\u220b&quot;)
+    (prod . &quot;\u220f&quot;)
+    (sum . &quot;\u2211&quot;)
+    (minus . &quot;\u2212&quot;)
+    (lowast . &quot;\u2217&quot;)
+    (radic . &quot;\u221a&quot;)
+    (prop . &quot;\u221d&quot;)
+    (infin . &quot;\u221e&quot;)
+    (ang . &quot;\u2220&quot;)
+    (and . &quot;\u2227&quot;)
+    (or . &quot;\u2228&quot;)
+    (cap . &quot;\u2229&quot;)
+    (cup . &quot;\u222a&quot;)
+    (int . &quot;\u222b&quot;)
+    (there4 . &quot;\u2234&quot;)
+    (sim . &quot;\u223c&quot;)
+    (cong . &quot;\u2245&quot;)
+    (asymp . &quot;\u2248&quot;)
+    (ne . &quot;\u2260&quot;)
+    (equiv . &quot;\u2261&quot;)
+    (le . &quot;\u2264&quot;)
+    (ge . &quot;\u2265&quot;)
+    (sub . &quot;\u2282&quot;)
+    (sup . &quot;\u2283&quot;)
+    (nsub . &quot;\u2284&quot;)
+    (sube . &quot;\u2286&quot;)
+    (supe . &quot;\u2287&quot;)
+    (oplus . &quot;\u2295&quot;)
+    (otimes . &quot;\u2297&quot;)
+    (perp . &quot;\u22a5&quot;)
+    (sdot . &quot;\u22c5&quot;)
+    (lceil . &quot;\u2308&quot;)
+    (rceil . &quot;\u2309&quot;)
+    (lfloor . &quot;\u230a&quot;)
+    (rfloor . &quot;\u230b&quot;)
+    (lang . &quot;\u2329&quot;)
+    (rang . &quot;\u232a&quot;)
+    (loz . &quot;\u25ca&quot;)
+    (spades . &quot;\u2660&quot;)
+    (clubs . &quot;\u2663&quot;)
+    (hearts . &quot;\u2665&quot;)
+    (diams . &quot;\u2666&quot;)
+    ))
+
+(with-module sxml.ssax
+  (set! ssax:predefined-parsed-entities
+        `(,@(with-module user xhtml-entity)
+          ,@ssax:predefined-parsed-entities)))
+</pre></td></tr></table>
+<hr size="6">
+<a name="offline"></a>
+<a name="SEC19"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC18" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC20" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC17" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 3. offline </h1>
+
+<p>MDCのHTMLを処理して、リンクを張りなおし、不要なHTML要素を削除して、永久保存版にするスクリプトである。
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC20">3.1 offline が使用するライブラリ</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC21">3.2 offline のグローバル変数</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC22">3.3 remove-useless-elements!</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC23">3.4 remove-elements-confuse-serializer!</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC24">3.5 expand-div!</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC25">3.6 process-links!</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">              
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC26">3.7 MDC-xhtml-&gt;sxml</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC27">3.8 process!</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC28">3.9 offline の main</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="offline-_304c_4f7f_7528_3059_308b_30e9_30a4_30d6_30e9_30ea"></a>
+<a name="SEC20"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC19" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC21" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.1 offline が使用するライブラリ </h2>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(use srfi-1)
+(use srfi-13)
+(use file.util)
+(use rfc.uri)
+(use gauche.parseopt)
+(use gauche.charconv)
+(use sxml.sxpath)
+(use sxml.ssax)
+(use sxml.tools)
+(use sxml.serializer)
+
+(load &quot;./common.scm&quot;)
+(load &quot;./xhtml_entity.scm&quot;)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="offline-_306e_30b0_30ed_30fc_30d0_30eb_5909_6570"></a>
+<a name="SEC21"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC20" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC22" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.2 offline のグローバル変数 </h2>
+
+<p>verbose は、 コマンドラインで &ndash;verbose のとき #t になる。詳細に実行内容を出力する。
+</p>
+<p>prefix は、コマンドラインで &ndash;prefix で指定する。 出力先のファイルパスである。
+</p>
+<p>debug は、コマンドラインで &ndash;debug のとき #t になる。デバッグ時に使う。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define verbose  #f)
+(define prefix   &quot;/hoge/out&quot;)
+(define debug    #f)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="remove_002duseless_002delements_0021"></a>
+<a name="SEC22"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC21" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC23" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.3 remove-useless-elements! </h2>
+
+<p>私見では、以下のHTML要素は、永久保存版MDCには不要であると思うから、削除する。
+</p>
+<ul>
+<li> script, iframe
+</li><li> &lt;link type=&quot;application/rss+xml&quot;&gt;
+</li><li> &lt;ul id=&quot;nav-access&quot;&gt;,&lt;ul id=&quot;sitetools&quot;&gt;,&lt;ul id=&quot;menuPageOptions&quot;&gt;
+</li><li> &lt;ul class=&quot;page-anchors&quot;&gt;
+</li><li> &lt;div id=&quot;deki-page-alerts&quot;&gt;,&lt;div id=&quot;popupMessage&quot;&gt;,&lt;div id=&quot;popupMask&quot;&gt;,&lt;div id=&quot;popupContainer&quot;&gt;,
+      &lt;div id=&quot;page-tags&quot;&gt;, &lt;div id=&quot;page-files&quot;&gt;, &lt;div id=&quot;MTMessage&quot;&gt;, &lt;div id=&quot;languages&quot;&gt;, &lt;div id=&quot;siteFooter&quot;&gt;, &lt;div id=&quot;printfooter&quot;&gt;
+</li><li> &lt;div class=&quot;siteNav&quot;&gt;, &lt;div class=&quot;siteSearch&quot;&gt;, &lt;div class=&quot;pageBar&quot;&gt;, &lt;div class=&quot;suggestchannels&quot;&gt;
+</li><li> &lt;div style=&quot;background-color:red; color:white; text-align:center;&quot;&gt;
+</li></ul>
+
+<p>削除は、いったん &lt;useless/&gt; にしておき、 <a href="#SEC4">format-sxml-to-string</a> で、空白に文字列置換する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (remove-useless-elements! sxml)
+  (define (f l)
+    (for-each (lambda (obj)
+                (sxml:change-name! obj 'useless)
+                (sxml:change-content!  obj `())
+                (sxml:change-attrlist! obj `()))
+              l))
+  (f ((sxpath '(// (or&nbsp;xhtml:script xhtml:iframe))) sxml))
+  (f ((sxpath '(// (xhtml:link (&nbsp;type  (equal? &quot;application/rss+xml&quot;))))) sxml))
+  (f (filter (lambda (obj)
+               (or (and-let* ((id (sxml:attr obj 'id))
+                              (id (sxml:string-value id)))
+                     (member id '(&quot;nav-access&quot; &quot;sitetools&quot; &quot;menuPageOptions&quot;)))
+                   (and-let* ((class (sxml:attr obj 'class))
+                              (class (sxml:string-value class)))
+                     (equal? class &quot;page-anchors&quot;))))
+             ((sxpath '(// xhtml:ul)) sxml)))
+  (f (filter (lambda (obj)
+               (or (and-let* ((id (sxml:attr obj 'id))
+                              (id (sxml:string-value id)))
+                     (member id '(&quot;deki-page-alerts&quot; &quot;popupMessage&quot; &quot;popupMask&quot; &quot;popupContainer&quot;
+                                  &quot;page-tags&quot; &quot;page-files&quot; &quot;MTMessage&quot; &quot;languages&quot; &quot;siteFooter&quot; &quot;printfooter&quot;)))
+                   (and-let* ((class (sxml:attr obj 'class))
+                              (class (sxml:string-value class)))
+                     (member class '(&quot;siteNav&quot; &quot;siteSearch&quot; &quot;pageBar&quot; &quot;suggestchannels&quot;)))
+                   (and-let* ((style (sxml:attr obj 'style))
+                              (style (sxml:string-value style)))
+                     (equal? style &quot;background-color:red; color:white; text-align:center;&quot;))))
+             ((sxpath '(// xhtml:div)) sxml))))
+</pre></td></tr></table>
+
+
+<hr size="6">
+<a name="remove_002delements_002dconfuse_002dserializer_0021"></a>
+<a name="SEC23"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC22" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC24" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.4 remove-elements-confuse-serializer! </h2>
+
+<p>srl:sxml-&gt;html のバグを回避する。
+</p>
+<p>MDCには、 id=&quot;hoge&lt;&quot; のように不等号を含む HTMLが2,3ある。
+さらに、以下の事情がある。
+</p>
+<ul>
+<li> ssax:xml-&gt;sxml は id=&quot;hoge&lt;&quot; を読み込める。
+</li><li> ssax:xml-&gt;sxml は id=&quot;hoge&amp;lt;&quot; を読み込めない。
+</li><li> srl:sxml-&gt;html は id=&quot;hoge&lt;&quot; を id=&quot;hoge&amp;lt;&quot; と出力する。
+</li><li> srl:sxml-&gt;html は id=&quot;hoge&amp;lt;&quot; を id=&quot;hoge&lt;&quot; と出力する。
+</li></ul>
+
+<p>つまり、 id=&quot;hoge&lt;&quot; を読み込んで、 id=&quot;hoge&lt;&quot; を出力するには、中間に id=&quot;hoge&amp;lt;&quot; をはさむ必要がある。
+</p>
+<p>MDCには、&lt;table nowrap=&quot;nowrap&quot;&gt; や &lt;table border=&quot;border&quot;&gt; がある。
+さらに、以下の事情がある。
+</p>
+<ul>
+<li> srl:sxml-&gt;html は &lt;table nowrap=&quot;nowrap&quot;&gt; を &lt;table nowrap&gt; と出力する。
+</li><li> ssax:xml-&gt;sxml は &lt;table nowrap&gt; を読み込めない。
+</li></ul>
+
+<p>自分が出力した結果を読み込めないのはバグだろう。
+</p>
+<p>しかたないので、 nowrap と border 属性を削除する。
+</p>
+<p>&lt;video controls=&quot;controls&quot;&gt; も同様。
+</p>
+<p>&lt;span id=&quot;id&quot;&gt; も同様。
+</p>
+<p>以下の処理は、他に適当な場所がなかったので、コードの字面が似ている本関数に置いた。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">&lt;p class=&quot;pageLastchange&quot;&gt;
+  &lt;a href=&quot;...&quot;&gt;someone&lt;/a&gt;
+&lt;/p&gt;
+</pre></td></tr></table>
+
+<p>を以下に変換する。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="example">&lt;p class=&quot;pageLastchange&quot;&gt;
+  &lt;span&gt;someone&lt;/span&gt;
+&lt;/p&gt;
+</pre></td></tr></table>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (remove-elements-confuse-serializer! sxml)
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (map (lambda (x)
+                      (case (car x)
+                        ((id href title)
+                         (list (car x) (regexp-replace-all #/&lt;/
+                                                           (sxml:string-value x)
+                                                            &quot;&amp;lt;&quot;)))
+                        (else x)))
+                    (sxml:attr-list obj))))
+            ((sxpath '(// (* (&nbsp;(or&nbsp;id href title))))) sxml))
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (remove (lambda (x)
+                         (memq (car x) '(nowrap border)))
+                       (sxml:attr-list obj))))
+            ((sxpath '(// (or&nbsp;xhtml:td xhtml:table (&nbsp;(or&nbsp;border nowrap))))) sxml))
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (remove (lambda (x)
+                         (eq? (car x) 'controls))
+                       (sxml:attr-list obj))))
+            ((sxpath '(// xhtml:video)) sxml))
+  (for-each (lambda (obj)
+              (sxml:change-attrlist!
+               obj
+               (remove (lambda (x)
+                         (eq? (car x) 'id))
+                       (sxml:attr-list obj))))
+            ((sxpath '(// (xhtml:span (&nbsp;id (equal? &quot;id&quot;))))) sxml))
+  (for-each (lambda (obj)
+              (for-each (lambda (obj)
+                          (sxml:change-name! obj 'xhtml:span)
+                          (sxml:change-attrlist!
+                           obj
+                           (remove (lambda (x)
+                                     (eq? (car x) 'href))
+                                   (sxml:attr-list obj))))
+                        ((sxpath '(xhtml:a)) obj)))
+            ((sxpath '(// (xhtml:p (&nbsp;class (equal? &quot;pageLastchange&quot;))))) sxml)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="expand_002ddiv_0021"></a>
+<a name="SEC24"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC23" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC25" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.5 expand-div! </h2>
+
+<p>srl:sxml-&gt;htmlのバグを回避する。
+srl:sxml-&gt;html は (xhtml:div) を &lt;xhtml:div/&gt; と出力するが、HTMLのdivの閉じタグを省略するのは不正である。
+しかし、(xhtml:div) を、 (xhtml:div &quot;&quot;) にすれば、 &lt;div&gt;&lt;/div&gt;と出力するようになる。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (expand-div! sxml)
+  (for-each (lambda (obj)
+              (when (and (string=? &quot;&quot; (sxml:string-value obj))
+                         (null? (sxml:child-elements obj)))
+                (sxml:change-content! obj '(&quot;&quot;))))
+            ((sxpath '(// xhtml:div)) sxml)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="process_002dlinks_0021"></a>
+<a name="SEC25"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC24" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC26" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.6 process-links! </h2>
+
+<p>すべての HTML 要素の href 属性と src 属性 にたいして、
+リンクの種類に応じた &lt;place&gt; を作り、 URI file:// リンクの表現に置き換える。
+</p>
+<p>無関係の外部リンクまで処理しないように、ホスト名でチェックする。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (process-links! base sxml)
+  (define (f base uri)
+    (receive (scheme _ host _ path _ _) (uri-parse uri)
+      (and
+       path
+       (cond
+        ((and scheme host
+              (string=? scheme &quot;https&quot;)
+              (string=? host   &quot;developer.mozilla.org&quot;))
+         (make-place-from-uri-http uri))
+        ((and scheme (string=? scheme &quot;file&quot;))
+         (make-place-from-uri-file uri))
+        ((and (not scheme) (not host))
+         (make-place-from-uri-resolve base uri))
+        (else
+         #f)))))
+  (for-each (lambda (obj)
+              (and-let* ((uri (sxml:string-value obj))
+                         (place (f base uri)))
+                (sxml:change-content! obj `(,(uri-file place)))))
+            ((sxpath '(// &nbsp;(or&nbsp;href src))) sxml)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="MDC_002dxhtml_002d_003esxml"></a>
+<a name="SEC26"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC25" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC27" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.7 MDC-xhtml-&gt;sxml </h2>
+
+<p>MDC の HTML には、以下の不正な記述があって ssax:xml-&gt;sxml で読み込めないことがある。
+</p>
+<ul>
+<li> return false;&quot;&quot; (意味不明の javascript コード)
+</li><li> onclick=&quot;&lt;や&gt;を含む javascript コード&quot;
+</li><li> &amp;&amp; (javascript の論理積演算子)
+</li></ul>
+
+<p>そこで、ファイルを文字列として読み込み、文字列置換で無害にしてから、ssax:xml-&gt;sxmlで読み込む。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (MDC-xhtml-&gt;sxml path)
+  (and-let* ((source (file-&gt;string path))
+             (cleaned (regexp-replace-all*
+                       source
+                       #/\&quot;return false\;\&quot;\&quot;/
+                       &quot;\&quot;return false;\&quot;&quot;
+                       #/onclick=\&quot;[^\&quot;]+\&quot;/
+                       &quot;&quot;
+                       #/&amp;&amp;/
+                       &quot;&amp;amp;&amp;amp;&quot;
+                       )))
+    (call-with-input-string cleaned
+      (lambda (in)
+        (ssax:xml-&gt;sxml in '((xhtml . &quot;http://www.w3.org/1999/xhtml&quot;)))))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="process_0021"></a>
+<a name="SEC27"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC26" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC28" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.8 process! </h2>
+
+<p>MDCのHTMLファイルを処理する。
+</p>
+<p>入力ファイルパスから、&lt;place&gt;を通して、出力先ファイルパスを生成する。
+</p>
+<p><a href="#SEC11">make-place-from-uri-resolve</a> に渡すための base も生成する。
+</p>
+<p>デバッグ時は、出力先ファイルが存在しないものだけ処理する(つまり、上書きしない)。
+</p>
+<p>verbose オプションのときは、 処理中のファイルパスをプリントする。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (process! path)
+  (or (and-let* ((place (make-place-from-file-path path))
+                 (save-path (file-path place))
+                 (base (sys-dirname (path-filter (slot-ref place 'path)))))
+        (unless (and debug (file-exists? save-path))
+          (when verbose (print path))
+          (let1 sxml (MDC-xhtml-&gt;sxml path)
+            (remove-useless-elements! sxml)
+            (remove-elements-confuse-serializer! sxml)
+            (process-links! base sxml)
+            (expand-div! sxml)
+            (create-directory* (sys-dirname save-path))
+            (call-with-output-file save-path
+              (lambda (out)
+                (call-with-input-string (format-sxml-to-string sxml)
+                  (lambda (in)
+                    (copy-port in out))))
+              :encoding 'utf-8)))
+        #t)
+      (error &quot;oops. &quot; path)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="offline-_306e-main"></a>
+<a name="SEC28"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC27" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.9 offline の main </h2>
+
+<p>メイン。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (main args)
+  (let-args (cdr args)
+      ((v      &quot;v|verbose&quot;)
+       (p      &quot;p|prefix=s&quot; (build-path (current-directory) &quot;out&quot;))
+       (d      &quot;d|debug&quot;)
+       (help   &quot;h|help&quot; =&gt; (cut show-help (car args)))
+       . restargs)
+    (set! verbose v)
+    (set! prefix  p)
+    (set! debug   d)
+    (for-each process! (filter file-is-regular? restargs)))
+  0)
+
+(define (show-help prog-name)
+  (format #t &quot;usage: gosh main.scm [OPTIONS]... \n&quot;)
+  (format #t &quot; -v, --verbose     verbose.\n&quot;)
+  (format #t &quot; -p, --prefix=s    save to.\n&quot;)
+  (format #t &quot; -h, --help        print this documentation.\n&quot;)
+  #t)
+</pre></td></tr></table>
+<hr size="6">
+<a name="docorder"></a>
+<a name="SEC29"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC28" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC30" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC19" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 4. docorder </h1>
+
+<p><code>find</code> が出力するファイルシステムの階層構造を、S式の階層構造に変換する。
+つまり、ファイルパスにある&quot;/&quot;に応じて、リストの入れ子を作る。
+</p>
+<p>Texinfo で、正しく chapter, section, subsection, subsubsection と割りあてるために用いる。
+</p>
+<p>使い捨てのスクリプトである。
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="example">find out/developer.mozilla.org/ -name &quot;*.html&quot; | sort | gosh docorder.scm &gt; order.scm
+</pre></td></tr></table>
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC30">4.1 docorder が使用するライブラリ</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC31">4.2 mapping-depth</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">               
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC32">4.3 directory-traverse</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC33">4.4 path-sans-html-extension</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC34">4.5 docorder の main</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">            
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="docorder-_304c_4f7f_7528_3059_308b_30e9_30a4_30d6_30e9_30ea"></a>
+<a name="SEC30"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC29" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC31" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 4.1 docorder が使用するライブラリ </h2>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(use srfi-1)
+(use file.util)
+</pre></td></tr></table>
+
+
+<hr size="6">
+<a name="mapping_002ddepth"></a>
+<a name="SEC31"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC30" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC32" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 4.2 mapping-depth </h2>
+
+<p>階層の深さと chapter, section, ... の対応のベクタ。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (mapping-depth depth)
+  (vector-ref '#(&quot;(chapter&quot; &quot;(section&quot; &quot;(subsection&quot; &quot;(subsubsection&quot; &quot;(subsubsubsection&quot;
+                 &quot;(subsubsubsection&quot; &quot;(subsubsubsection&quot; &quot;(subsubsubsection&quot;
+                 &quot;(subsubsubsection&quot; &quot;(subsubsubsection&quot; &quot;(subsubsubsection&quot;) (- depth 1)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="directory_002dtraverse"></a>
+<a name="SEC32"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC31" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC33" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 4.3 directory-traverse </h2>
+
+<p>ディレクトリを再帰的に開いて、 proc をファイルパスと階層の深さを引数にして呼び出す。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (directory-traverse path proc)
+  (let rec ((path path) (depth 0))
+    (when (and (proc path depth) (file-is-directory? path))
+      (for-each (cute rec &lt;&gt; (+ depth 1))
+                (directory-list path :add-path? #t :children? #t)))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="path_002dsans_002dhtml_002dextension"></a>
+<a name="SEC33"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC32" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC34" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 4.4 path-sans-html-extension </h2>
+
+<p>html拡張子を取り除く。
+例えば、firefox3.html を firefox3 に、firefox3.5 を firefox3.5 にする。
+</p>
+<p><a name="DOCF3" href="#FOOT3">(3)</a>
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (path-sans-html-extension path)
+  (regexp-replace #/\.html$/ path &quot;&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="docorder-_306e-main"></a>
+<a name="SEC34"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC33" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 4.5 docorder の main </h2>
+
+<p>入力
+</p><table><tr><td>&nbsp;</td><td><pre class="example">out/developer.mozilla.org/ja.html
+out/developer.mozilla.org/about.html
+out/developer.mozilla.org/about/foo.html
+out/developer.mozilla.org/about/foo/bar.html
+out/developer.mozilla.org/about/foo/car.html
+out/developer.mozilla.org/about/hoge.html
+</pre></td></tr></table>
+
+<p>出力
+</p><table><tr><td>&nbsp;</td><td><pre class="example">(*TOP*
+  (item &quot;Top&quot;)
+  (chapter 
+    (item &quot;about&quot;)
+    (section
+      (item &quot;about/foo&quot;)
+      (subsection
+        (item &quot;about/foo/bar&quot;)
+        (item &quot;about/foo/car&quot;)))
+    (section
+      (item &quot;about/hoge&quot;))))
+</pre></td></tr></table>
+
+<p>1行ずつファイルパスを読み込む。 FIXME &lt;place&gt; をつかえ
+</p>
+<p>前の行と比べてファイルパスの階層が１段階深かったら、 delta が 1 になり、 
+</p>
+<p>階層の深さに応じて、 開きカッコと、 section などを出力する。
+</p>
+<p>前の行と比べてファイルパスの階層が１段階浅かったら、 delta が -1 になり、 
+</p>
+<p>delta に応じた数の閉じカッコを出力する。
+</p>
+<p>最後に、ファイルパスに応じた Texinfo ノード名を (item &quot;???&quot;) と出力する。
+</p>
+<p>/ja.html を、 Texinfo の &quot;Top&quot; ノードにするために、特別に扱う。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (main args)
+  (define prev 0)
+  (print &quot;(*TOP*&quot;)
+  (directory-traverse (cadr args)
+                      (lambda (path depth)
+                        (unless (and (file-is-regular? path) (file-is-directory? (path-sans-html-extension path)))
+                          (let1 delta (- depth prev)
+                            (cond
+                             ((zero? delta) #t)
+                             ((positive? delta)
+                              (print (mapping-depth depth)))
+                             ((negative? delta)
+                              (print (string-join (make-list (abs delta) &quot;)&quot;) &quot;&quot;))))
+                            (let1 node (regexp-replace #/out\/developer\.mozilla\.org\// (path-sans-html-extension path) &quot;&quot;)
+                              (if (string=? node &quot;ja&quot;)
+                                (print &quot;(item \&quot;Top\&quot;)&quot;)
+                                (print &quot;(item \&quot;&quot; node &quot;\&quot;)&quot;)))
+                            (set! prev depth)))
+                        #t))
+  (print &quot;)\n)&quot;)
+  0)
+</pre></td></tr></table>
+<hr size="6">
+<a name="mergelang"></a>
+<a name="SEC35"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC34" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC36" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC29" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 5. mergelang </h1>
+
+<p>&lsquo;<tt>developer.mozilla.org/en/</tt>&rsquo; 以下と &lsquo;<tt>developer.mozilla.org/ja/</tt>&rsquo; 以下を
+比べると、未翻訳の分だけ、圧倒的に前者のファイルのほうが数が多いことがわかる。
+未翻訳の分は、英語版で代用する。
+&lsquo;<tt>/ja</tt>&rsquo;に欠けているファイルを見つけて、&lsquo;<tt>/en</tt>&rsquo;のファイルで埋め合わせるプログラムである。
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC36">5.1 mergelang が使用するライブラリ</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC37">5.2 change-lang-from-en-to-ja</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC38">5.3 replace-href</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC39">5.4 convert</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC40">5.5 mergelang の main</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">           
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="mergelang-_304c_4f7f_7528_3059_308b_30e9_30a4_30d6_30e9_30ea"></a>
+<a name="SEC36"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC35" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC37" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 5.1 mergelang が使用するライブラリ </h2>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(use file.util)
+(use gauche.parseopt)
+(use sxml.ssax)
+(use sxml.sxpath)
+(use sxml.tools)
+(use sxml.tree-trans)
+(use sxml.serializer)
+(load &quot;./common.scm&quot;)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="change_002dlang_002dfrom_002den_002dto_002dja"></a>
+<a name="SEC37"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC36" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC38" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 5.2 change-lang-from-en-to-ja </h2>
+<p>文字列の en の部分を ja に置換する関数。性能のためメモ化している。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (***change-lang-from-en-to-ja str)
+  (rxmatch-if (#/(.*\/developer\.mozilla\.org\/)en(\/.*)/ str)
+      (#f before after)
+      (string-append before &quot;ja&quot; after)
+      #f))
+
+(define change-lang-from-en-to-ja (memoize ***change-lang-from-en-to-ja))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="replace_002dhref"></a>
+<a name="SEC38"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC37" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC39" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 5.3 replace-href </h2>
+<p>HTML の A 要素の href 属性にある en の部分を ja に置換する関数。
+<a href="#SEC37">change-lang-from-en-to-ja</a> を用いる。
+</p>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (replace-href node)
+  (and-let* ((href (sxml:attr node 'href))
+             (href (change-lang-from-en-to-ja (sxml:string-value href))))
+    (sxml:change-attr node `(href ,href))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="convert"></a>
+<a name="SEC39"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC38" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC40" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 5.4 convert </h2>
+<p>HTML 中の全ての A 要素に対して <a href="#SEC38">replace-href</a> 関数を適用する関数。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (convert sxml)
+  (pre-post-order
+   sxml
+   `((xhtml:a     . ,(lambda x (or (replace-href x) x)))
+     (*text*      . ,(lambda (tag text) text))
+     (*default*   . ,(lambda x x)))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="mergelang-_306e-main"></a>
+<a name="SEC40"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC39" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 5.5 mergelang の main </h2>
+
+<dl compact="compact">
+<dt> <code>-v --verbose</code></dt>
+<dd><p>処理中のファイルのパスをプリントする。
+</p></dd>
+</dl>
+
+<p>&lsquo;<tt>developer.mozilla.org/en</tt>&rsquo;以下のファイルを処理することを想定している。
+パスを&lsquo;<tt>developer.mozilla.org/ja</tt>&rsquo;に置換して、そのパスのファイルが存在しなければ、英語版で埋め合わせる。
+パスの変更に追従して、HTML中のA要素の中身も書き換える。
+将来的に、埋め合わせたファイルだけを扱いたくなるかもしれないので、
+ファイルの末尾に無害なコメントをつけておく。
+</p>
+
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (main args)
+  (let-args (cdr args)
+      ((verbose &quot;v|verbose&quot;)
+       . restargs)
+    (for-each (lambda (path)
+                (and-let* (((file-is-regular? path))
+                           (dest-path (change-lang-from-en-to-ja path))
+                           ((not (file-exists? dest-path)))
+                           (sxml  (load-xml path)))
+                  (when verbose (print path))
+                  (create-directory* (sys-dirname dest-path))
+                  (call-with-output-file dest-path
+                    (lambda (out)
+                      (call-with-input-string (format-sxml-to-string (convert sxml))
+                        (lambda (in)
+                          (copy-port in out)
+                          (display &quot;\n&lt;!-- not_yet_translated --&gt;\n&quot; out))))
+                    :encoding 'utf-8)))
+              restargs))
+  0)
+</pre></td></tr></table>
+<hr size="6">
+<a name="xml2texi"></a>
+<a name="SEC41"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC40" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC42" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC35" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 6. xml2texi </h1>
+
+<p>XML(XHTML) を texinfo に変換する。
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC42">6.1 xml2texi が使用するライブラリ</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">  
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC43">6.2 escape-text</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC44">6.3 h2</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC45">6.4 h3</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC46">6.5 h4</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC47">6.6 h5</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC48">6.7 para</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                        
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC49">6.8 bold</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                        
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC50">6.9 strong</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                      
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC51">6.10 del</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                         
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC52">6.11 pre</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                         
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC53">6.12 img</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                         
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC54">6.13 br</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC55">6.14 ul</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC56">6.15 ol</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC57">6.16 li</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC58">6.17 dl</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC59">6.18 dt</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC60">6.19 dd</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC61">6.20 table</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC62">6.21 code</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                        
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC63">6.22 ahref</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                       
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC64">6.23 span</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                        
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC65">6.24 div</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                         
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC66">6.25 sxml-&gt;texinfo-like-sxml</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC67">6.26 check-not-found</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">             
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC68">6.27 file-path-&gt;texinfo-node</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC69">6.28 proper-for-cindex?</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC70">6.29 texinfo-node</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC71">6.30 make-texinfo-nodes-table</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">    
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC72">6.31 print-texinfo-menu</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">          
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC73">6.32 print-texinfo-like-sxml</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC74">6.33 process</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                     
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC75">6.34 xml2texi のグローバル変数</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">   
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC76">6.35 xml2texi の main</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">            
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC77">6.36 xml2texi の show-help</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">       
+</td></tr>
+</table>
+
+<hr size="6">
+<a name="xml2texi-_304c_4f7f_7528_3059_308b_30e9_30a4_30d6_30e9_30ea"></a>
+<a name="SEC42"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC41" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC43" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.1 xml2texi が使用するライブラリ </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(use srfi-1)
+(use srfi-13)
+(use file.util)
+(use rfc.uri)
+(use gauche.parseopt)
+(use sxml.ssax)
+(use sxml.sxpath)
+(use sxml.tools)
+(use sxml.tree-trans)
+(load &quot;./common.scm&quot;)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="escape_002dtext"></a>
+<a name="SEC43"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC42" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC44" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.2 escape-text </h2>
+<p>texinfo のために @, {, } をエスケープする。
+XMLのテキストノードに適用する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (escape-text string)
+  (regexp-replace-all* string
+                       #/@/
+                       &quot;@@&quot;
+                       #/\{/
+                       &quot;@{&quot;
+                       #/\}/
+                       &quot;@}&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="h2"></a>
+<a name="SEC44"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC43" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC45" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.3 h2 </h2>
+<p>XHTML の h2 要素を texinfo の @heading に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (h2 node)
+  `(texinfo &quot;\n@heading &quot; ,(sxml:string-value node) &quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="h3"></a>
+<a name="SEC45"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC44" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC46" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.4 h3 </h2>
+<p>XHTML の h3 要素を texinfo の @heading に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (h3 node)
+  `(texinfo &quot;\n@heading &quot; ,(sxml:string-value node) &quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="h4"></a>
+<a name="SEC46"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC45" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC47" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.5 h4 </h2>
+<p>XHTML の h4 要素を texinfo の @subheading に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (h4 node)
+  `(texinfo &quot;\n@subheading &quot; ,(sxml:string-value node) &quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="h5"></a>
+<a name="SEC47"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC46" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC48" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.6 h5 </h2>
+<p>XHTML の h5 要素を texinfo の @subsubheading に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (h5 node)
+  `(texinfo &quot;\n@subsubheading &quot; ,(sxml:string-value node) &quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="para"></a>
+<a name="SEC48"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC47" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC49" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.7 para </h2>
+<p>XHTML の p 要素を texinfo の 1行 に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (para node)
+  `(texinfo ,(sxml:string-value node) &quot;@*&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="bold"></a>
+<a name="SEC49"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC48" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC50" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.8 bold </h2>
+<p>(XHTML の bold 要素を texinfo の @strong に変換する。)
+XHTML の bold 要素を texinfo の 1行 に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (bold node)
+  `(texinfo ,(sxml:string-value node)))
+  ;;`(texinfo &quot;@strong{&quot; ,(sxml:string-value node) &quot;}&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="strong"></a>
+<a name="SEC50"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC49" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC51" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.9 strong </h2>
+<p>XHTML の strong 要素を texinfo の 1行 に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (strong node)
+  `(texinfo ,(sxml:string-value node)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="del"></a>
+<a name="SEC51"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC50" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC52" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.10 del </h2>
+<p>XHTML の del 要素を texinfo の 1行 に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (del node)
+  `(texinfo ,(sxml:string-value node)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="pre"></a>
+<a name="SEC52"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC51" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC53" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.11 pre </h2>
+<p>XHTML の pre 要素を texinfo の @example に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (pre node)
+  `(texinfo
+    &quot;\n@example\n&quot;
+    ,(sxml:string-value node)
+    &quot;@end example\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="img"></a>
+<a name="SEC53"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC52" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC54" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.12 img </h2>
+<p>XHTML の img 要素を texinfo の @uref に変換する。
+(TODO:XHTML の img 要素を texinfo の @image に変換する。)
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">;;TODO @image
+(define (img node)
+  (or (and-let* ((src (sxml:attr node 'src)))
+        `(texinfo &quot;@uref{&quot; ,src &quot;,&quot; (sys-basename src) &quot;}&quot;))
+      ()))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="br"></a>
+<a name="SEC54"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC53" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC55" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.13 br </h2>
+<p>XHTML の br 要素を texinfo の @* に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (br node)
+  `(texinfo &quot;@*&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="ul"></a>
+<a name="SEC55"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC54" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC56" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.14 ul </h2>
+<p>XHTML の ul 要素を texinfo の @itemize @bullet に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (ul node)
+  `(texinfo
+    &quot;\n@itemize @bullet\n&quot;
+    ,@(append-map (lambda (elt)
+                    (if (eq? 'texinfo (sxml:name elt))
+                      elt
+                      ()))
+                  (sxml:child-elements node))
+    &quot;\n@end itemize\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="ol"></a>
+<a name="SEC56"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC55" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC57" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.15 ol </h2>
+<p>XHTML の ol 要素を texinfo の @enumerate に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (ol node)
+  `(texinfo
+    &quot;\n@enumerate\n&quot;
+    ,@(append-map (lambda (elt)
+                    (if (eq? 'texinfo (sxml:name elt))
+                      elt
+                      ()))
+           (sxml:child-elements node))
+    &quot;\n@end enumerate\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="li"></a>
+<a name="SEC57"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC56" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC58" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.16 li </h2>
+<p>XHTML の li 要素を texinfo の @item に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (li node)
+  `(texinfo &quot;@item &quot; ,(sxml:string-value node)&quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="dl"></a>
+<a name="SEC58"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC57" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC59" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.17 dl </h2>
+<p>XHTML の dl 要素を texinfo の @table @code に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (dl node)
+  `(texinfo
+    &quot;\n@table @code\n&quot;
+    ,@(append-map (lambda (elt)
+                    (if (eq? 'texinfo (sxml:name elt))
+                      elt
+                      ()))
+                  (sxml:child-elements node))
+    &quot;\n@end table\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="dt"></a>
+<a name="SEC59"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC58" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC60" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.18 dt </h2>
+<p>XHTML の dt 要素を texinfo の @item に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (dt node)
+  `(texinfo &quot;@item &quot; ,(sxml:string-value node) &quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="dd"></a>
+<a name="SEC60"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC59" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC61" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.19 dd </h2>
+<p>XHTML の dd 要素を texinfo の 1行 に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (dd node)
+  `(texinfo ,(sxml:string-value node) &quot;\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="table"></a>
+<a name="SEC61"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC60" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC62" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.20 table </h2>
+<p>XHTML の table 要素を texinfo の @multitable @columnfractions に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (table node)
+  (define (calc-columnfractions node)
+    (define (column-length node)
+      (apply max (cons 1 (map (lambda (tr)
+                                (length ((sxpath '(// (or@ xhtml:th xhtml:td))) tr)))
+                              ((sxpath '(// xhtml:tr)) node)))))
+
+    (let1 col (column-length node)
+      (if (= col 1)
+        &quot;1&quot;
+        (string-join (make-list col (format #f &quot;.~d&quot; (quotient 100 col))) &quot; &quot;))))
+
+  `(texinfo
+    &quot;\n@multitable @columnfractions &quot; ,(calc-columnfractions node) &quot;\n&quot;
+    ,@(append-map (lambda (tr)
+                    (or (and-let* ((tdths ((if-sxpath '(// (or@ xhtml:td xhtml:th))) tr)))
+                          (cons &quot;@item &quot;
+                                (cdr (append-map (lambda (td)
+                                                   `(&quot;@tab &quot; ,(sxml:string-value td) &quot;\n&quot;))
+                                                 tdths))))
+                        ()))
+                  ((sxpath '(// xhtml:tr)) node))
+    &quot;\n@end multitable\n&quot;))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="code"></a>
+<a name="SEC62"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC61" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC63" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.21 code </h2>
+<p>XHTML の code 要素を texinfo の @code に変換する。必要なら @cindex も追加する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (code node)
+  ;;ahref can produce elements like (texinfo (@ cindex &quot;window.alert&quot;) &quot;@ref{...}&quot;).
+  (if-let1 cindex ((if-car-sxpath '(texinfo @ cindex *text*)) node)
+           `(texinfo &quot;@code{&quot; ,(sxml:string-value node) &quot;}&quot; &quot;\n@cindex &quot; ,cindex &quot;\n&quot;)
+           `(texinfo &quot;@code{&quot; ,(sxml:string-value node) &quot;}&quot;)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="ahref"></a>
+<a name="SEC63"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC62" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC64" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.22 ahref </h2>
+<p>XHTML の ahref 要素を texinfo の @ref または @uref に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (ahref node)
+  (let1 href ((if-car-sxpath '(@ href *text*)) node)
+    (if href
+      (let* ((body ((if-car-sxpath '(*text*)) node))
+             (internal? (rxmatch-if (#/^file:\/\// href)
+                            (#f)
+                            #t
+                            #f))
+             (cmd  (if internal? &quot;@ref&quot; &quot;@uref&quot;))
+             (link (if internal?
+                     (and-let* ((place (make-place-from-uri-file href))
+                                (node (texi-node place)))
+                       (check-not-found node))
+                     href))
+             (aux  (if link &quot;&quot; &quot;(404)&quot;))
+             (link (cond
+                    ((not link) &quot;Top&quot;)
+                    ((string=? &quot;&quot; link) &quot;Top&quot;)
+                    (else link))))
+        (cond
+         ((and body (proper-for-cindex? body))
+          `(texinfo (@ (cindex ,body))
+                    ,cmd &quot;{&quot; ,link &quot;,&quot; ,body ,aux &quot;,&quot; ,body &quot;}.&quot;))
+         (body
+          `(texinfo ,cmd &quot;{&quot; ,link &quot;,&quot; ,body ,aux &quot;,&quot; ,body &quot;}.&quot;))
+         (else
+          `(texinfo ,cmd &quot;{&quot; ,link &quot;}.&quot;))))
+      ())))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="span"></a>
+<a name="SEC64"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC63" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC65" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.23 span </h2>
+<p>XHTML の span 要素を texinfo の 1行 に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (span node)
+  `(texinfo ,(sxml:string-value node)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="div"></a>
+<a name="SEC65"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC64" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC66" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.24 div </h2>
+<p>XHTML の div 要素を texinfo の 1行 に変換する。
+div 要素の class 属性が note のときは、脚注として、 @footnote に変換する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (div node)
+  (or (and-let* ((class (sxml:attr node 'class))
+                 ((string=? class &quot;note&quot;)))
+        `(texinfo &quot;@footnote{&quot; ,(sxml:string-value node) &quot;}\n&quot;))
+      `(texinfo ,(sxml:string-value node))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="sxml_002d_003etexinfo_002dlike_002dsxml"></a>
+<a name="SEC66"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC65" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC67" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.25 sxml-&gt;texinfo-like-sxml </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (sxml-&gt;texinfo-like-sxml sxml)
+  (pre-post-order
+   (getElementById &quot;pageText&quot; sxml)
+   `((xhtml:a      . ,(lambda x (ahref x)))
+     (xhtml:br     . ,(lambda x (br    x)))
+     (xhtml:strong . ,(lambda x (strong x)))
+     (xhtml:del    . ,(lambda x (del x)))
+     (xhtml:b      . ,(lambda x (bold  x)))
+     (xhtml:code   . ,(lambda x (code  x)))
+     (xhtml:pre    . ,(lambda x (pre   x)))
+     (xhtml:img    . ,(lambda x (img   x)))
+     (xhtml:h2     . ,(lambda x (h2    x)))
+     (xhtml:h3     . ,(lambda x (h3    x)))
+     (xhtml:h4     . ,(lambda x (h4    x)))
+     (xhtml:h5     . ,(lambda x (h5    x)))
+     (xhtml:p      . ,(lambda x (para  x)))
+     (xhtml:span   . ,(lambda x (span  x)))
+     (xhtml:div    . ,(lambda x (div   x)))
+     (xhtml:li     . ,(lambda x (li    x)))
+     (xhtml:dd     . ,(lambda x (dd    x)))
+     (xhtml:dt     . ,(lambda x (dt    x)))
+     (xhtml:dl     . ,(lambda x (dl    x)))
+     (xhtml:ul     . ,(lambda x (ul    x)))
+     (xhtml:ol     . ,(lambda x (ol    x)))
+     (xhtml:table  . ,(lambda x (table x)))
+     (*text*       . ,(lambda (tag text) (escape-text text)))
+     (*default*    . ,(lambda x x)))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="check_002dnot_002dfound"></a>
+<a name="SEC67"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC66" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC68" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.26 check-not-found </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (check-not-found str)
+  (hash-table-get notfound-table str str))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="file_002dpath_002d_003etexinfo_002dnode"></a>
+<a name="SEC68"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC67" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC69" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.27 file-path-&gt;texinfo-node </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (file-path-&gt;texinfo-node path)
+  (check-not-found (texi-node (make-place-from-file-path path))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="proper_002dfor_002dcindex_003f"></a>
+<a name="SEC69"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC68" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC70" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.28 proper-for-cindex? </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (proper-for-cindex? str)
+  (boolean (#/^[\w\.\(\)]+$/ str)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="texinfo_002dnode"></a>
+<a name="SEC70"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC69" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC71" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.29 texinfo-node </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-class &lt;texinfo-node&gt; ()
+  ((self :init-keyword :self)
+   (next :init-keyword :next)
+   (prev :init-keyword :prev)
+   (up   :init-keyword :up)
+   (children :init-value ())))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="make_002dtexinfo_002dnodes_002dtable"></a>
+<a name="SEC71"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC70" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC72" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.30 make-texinfo-nodes-table </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (make-texinfo-nodes-table order-scm)
+  (define (replace-all-period-to-underscore-of-items sxml)
+    (pre-post-order
+     sxml
+     `((item        . ,(lambda (tag text) (list tag (replace-all-period-to-underscore text))))
+       (*text*      . ,(lambda (tag text) text))
+       (*default*   . ,(lambda x x)))))
+  (define ht (make-hash-table 'string=?))
+  (define (traverser l up)
+    (define p #f)
+    (let1 node (hash-table-get ht up)
+      (slot-set! node 'children ((sxpath '(// item *text*)) l)))
+    (for-each (lambda (x)
+                (cond
+                 ((not (pair? x)) #f)
+                 ((eq? (sxml:name x) 'item)
+                  (let* ((value (sxml:string-value x))
+                         (node (hash-table-get ht value)))
+                    (slot-set! node 'up up)
+                    (set! p value)))
+                 (else
+                  (traverser (cdr x) p))))
+              l))
+
+  (hash-table-put! ht &quot;Top&quot; (make &lt;texinfo-node&gt; :self &quot;Top&quot;))
+  (let1 sxml (replace-all-period-to-underscore-of-items order-scm)
+    (let1 l ((sxpath '(// item *text*)) sxml)
+      (for-each (lambda (prev x next)
+                  (hash-table-put! ht x (make &lt;texinfo-node&gt; :self x :next next :prev prev)))
+                l (cdr l) (append (cddr l) '(&quot;&quot;))))
+    (traverser sxml &quot;Top&quot;)
+    ht))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="print_002dtexinfo_002dmenu"></a>
+<a name="SEC72"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC71" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC73" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.31 print-texinfo-menu </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (print-texinfo-menu path)
+  (and-let* ((node (file-path-&gt;texinfo-node path))
+             (obj (hash-table-get texinfo-nodes-table node))
+             (children (slot-ref obj 'children))
+             ((not (null? children))))
+        (print &quot;@menu&quot;)
+        (for-each (lambda (x)
+                    (print (string-append &quot;* &quot; x &quot; ::&quot;)))
+                  children)
+        (print &quot;@end menu&quot;)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="print_002dtexinfo_002dlike_002dsxml"></a>
+<a name="SEC73"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC72" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC74" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.32 print-texinfo-like-sxml </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (print-texinfo-like-sxml sxml)
+  (for-each (lambda (x)
+              (print (sxml:string-value x)))
+            ((sxpath '(// texinfo)) `(*TOP* ,sxml))))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="process"></a>
+<a name="SEC74"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC73" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC75" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.33 process </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (process path)
+  (define (print-cindex str)
+    (when (proper-for-cindex? str)
+      (print &quot;@cindex &quot; (escape-text str))))
+  (define (save-to path)
+    (build-path prefix &quot;developer.mozilla.org/&quot;
+                (string-append (texi-node (make-place-from-file-path path))
+                               &quot;.texi&quot;)))
+  (define (at-node path)
+    (let* ((node (file-path-&gt;texinfo-node path))
+           (obj (hash-table-get texinfo-nodes-table node)))
+      (string-join (map (cut slot-ref obj &lt;&gt;)
+                        '(self next prev up))
+                   &quot;,&quot;)))
+  (define (inner-func path proc)
+    (when (file-is-regular? path)
+      (let1 save-path (save-to path)
+        (unless (and debug
+                     (file-exists? save-path)
+                     (not (zero? (file-size save-path))))
+          (when verbose
+            (display path (current-error-port))
+            (newline (current-error-port)))
+          (create-directory* (sys-dirname save-path))
+          (with-output-to-file save-path proc :encoding 'utf-8)))))
+  (define (needbrowser)
+    (let1 title (path-sans-extension (sys-basename path))
+      (print &quot;@node &quot; (at-node path))
+      (print &quot;@chapter &quot; title)
+      (print-cindex title)
+      (print-texinfo-menu path)
+      (print &quot;This page requires an Web browser. Please visit &quot;
+             &quot;@uref{&quot;
+             (uri-compose
+              :scheme &quot;file&quot;
+              :path   (build-path (current-directory) path))
+             &quot;}.&quot;)))
+  (define (normal)
+    (let* ((sxml (load-xml path))
+           (title (escape-text (sxml:string-value (getElementById &quot;title&quot; sxml)))))
+      (print &quot;@node &quot;    (at-node path))
+      (print &quot;@chapter &quot; title)
+      (print-cindex title)
+      (print-texinfo-menu path)
+      (print-texinfo-like-sxml (sxml-&gt;texinfo-like-sxml sxml))))
+
+  (if (hash-table-exists? needbrowser-table (file-path-&gt;texinfo-node path))
+    (inner-func path needbrowser)
+    (inner-func path normal)))
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="xml2texi-_306e_30b0_30ed_30fc_30d0_30eb_5909_6570"></a>
+<a name="SEC75"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC74" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC76" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.34 xml2texi のグローバル変数 </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define prefix #f)
+(define verbose #f)
+(define debug #f)
+(define order-scm #f)
+(define notfound-table    (make-hash-table 'string=?))
+(define needbrowser-table (make-hash-table 'string=?))
+(define texinfo-nodes-table #f)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="xml2texi-_306e-main"></a>
+<a name="SEC76"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC75" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC77" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.35 xml2texi の main </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (main args)
+  (let-args (cdr args)
+      ((v      &quot;v|verbose&quot;)
+       (d      &quot;debug&quot;)
+       (p      &quot;p|prefix=s&quot; (build-path (current-directory) &quot;texi&quot;))
+       (order  &quot;o|order=s&quot;    &quot;./order.scm&quot;)
+       (notf   &quot;n|notfound=s&quot; &quot;./notfound.scm&quot;)
+       (brow   &quot;b|needbrowser=s&quot; &quot;./needbrowser.scm&quot;)
+       (help   &quot;h|help&quot; =&gt; (cut show-help (car args)))
+       . restargs)
+    (set! prefix p)
+    (set! verbose v)
+    (set! debug d)
+    (set! order-scm (car (file-&gt;sexp-list order)))
+    (for-each (lambda (x)
+                (hash-table-put! notfound-table (car x) (cdr x)))
+              (car (file-&gt;sexp-list notf)))
+    (for-each (lambda (x)
+                (hash-table-put! needbrowser-table x #t))
+              (car (file-&gt;sexp-list brow)))
+    (set! texinfo-nodes-table (make-texinfo-nodes-table order-scm))
+    (if debug
+      (for-each (lambda (text)
+                  (process (string-append &quot;out/developer.mozilla.org/&quot; text &quot;.html&quot;)))
+                ((sxpath '(// item *text*)) order-scm))
+      (for-each process restargs)))
+  0)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="xml2texi-_306e-show_002dhelp"></a>
+<a name="SEC77"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC76" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC41" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 6.36 xml2texi の show-help </h2>
+<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (show-help prog-name)
+  (format #t &quot;usage: gosh main.scm [OPTIONS]... \n&quot;)
+  (format #t &quot; -v, --verbose     verbose.\n&quot;)
+  (format #t &quot; -p, --prefix=s    save to.\n&quot;)
+  (format #t &quot; -h, --help        print this documentation.\n&quot;)
+  #t)
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="SEC_Foot"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>Footnotes</h1>
+<h3><a name="FOOT1" href="#DOCF1">(1)</a></h3>
+<p>useless要素を削除するようなpre-post-orderでもよいだろう。実験した。速度が同等だった。
+</p><h3><a name="FOOT2" href="#DOCF2">(2)</a></h3>
+<p>今思えば、<code>wget</code> に &ndash;convert-links をつけないほうがよかったかも
+</p><h3><a name="FOOT3" href="#DOCF3">(3)</a></h3>
+<p>path-sans-extension は、ファイル名が例えば firefox3.5 のとき、拡張子と小数点とで混乱してしまう。
+</p><hr size="1">
+<a name="SEC_Contents"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>Table of Contents</h1>
+<div class="contents">
+
+<ul class="toc">
+  <li><a name="TOC1" href="#SEC1">1. common</a>
+  <ul class="toc">
+    <li><a name="TOC2" href="#SEC2">1.1 load-xml</a></li>
+    <li><a name="TOC3" href="#SEC3">1.2 getElementById</a></li>
+    <li><a name="TOC4" href="#SEC4">1.3 format-sxml-to-string</a></li>
+    <li><a name="TOC5" href="#SEC5">1.4 replace-all-period-to-underscore</a></li>
+    <li><a name="TOC6" href="#SEC6">1.5 memoize</a></li>
+    <li><a name="TOC7" href="#SEC7">1.6 path-filter</a></li>
+    <li><a name="TOC8" href="#SEC8">1.7 &lt;place&gt;</a></li>
+    <li><a name="TOC9" href="#SEC9">1.8 make-place-from-uri-http</a></li>
+    <li><a name="TOC10" href="#SEC10">1.9 make-place-from-uri-file</a></li>
+    <li><a name="TOC11" href="#SEC11">1.10 make-place-from-uri-resolve</a></li>
+    <li><a name="TOC12" href="#SEC12">1.11 make-place-from-file-path</a></li>
+    <li><a name="TOC13" href="#SEC13">1.12 uri-http</a></li>
+    <li><a name="TOC14" href="#SEC14">1.13 uri-file</a></li>
+    <li><a name="TOC15" href="#SEC15">1.14 file-path</a></li>
+    <li><a name="TOC16" href="#SEC16">1.15 texi-node</a></li>
+  </ul></li>
+  <li><a name="TOC17" href="#SEC17">2. xhtml_entity</a>
+  <ul class="toc">
+    <li><a name="TOC18" href="#SEC18">2.1 xhtml-entity</a></li>
+  </ul></li>
+  <li><a name="TOC19" href="#SEC19">3. offline</a>
+  <ul class="toc">
+    <li><a name="TOC20" href="#SEC20">3.1 offline が使用するライブラリ</a></li>
+    <li><a name="TOC21" href="#SEC21">3.2 offline のグローバル変数</a></li>
+    <li><a name="TOC22" href="#SEC22">3.3 remove-useless-elements!</a></li>
+    <li><a name="TOC23" href="#SEC23">3.4 remove-elements-confuse-serializer!</a></li>
+    <li><a name="TOC24" href="#SEC24">3.5 expand-div!</a></li>
+    <li><a name="TOC25" href="#SEC25">3.6 process-links!</a></li>
+    <li><a name="TOC26" href="#SEC26">3.7 MDC-xhtml-&gt;sxml</a></li>
+    <li><a name="TOC27" href="#SEC27">3.8 process!</a></li>
+    <li><a name="TOC28" href="#SEC28">3.9 offline の main</a></li>
+  </ul></li>
+  <li><a name="TOC29" href="#SEC29">4. docorder</a>
+  <ul class="toc">
+    <li><a name="TOC30" href="#SEC30">4.1 docorder が使用するライブラリ</a></li>
+    <li><a name="TOC31" href="#SEC31">4.2 mapping-depth</a></li>
+    <li><a name="TOC32" href="#SEC32">4.3 directory-traverse</a></li>
+    <li><a name="TOC33" href="#SEC33">4.4 path-sans-html-extension</a></li>
+    <li><a name="TOC34" href="#SEC34">4.5 docorder の main</a></li>
+  </ul></li>
+  <li><a name="TOC35" href="#SEC35">5. mergelang</a>
+  <ul class="toc">
+    <li><a name="TOC36" href="#SEC36">5.1 mergelang が使用するライブラリ</a></li>
+    <li><a name="TOC37" href="#SEC37">5.2 change-lang-from-en-to-ja</a></li>
+    <li><a name="TOC38" href="#SEC38">5.3 replace-href</a></li>
+    <li><a name="TOC39" href="#SEC39">5.4 convert</a></li>
+    <li><a name="TOC40" href="#SEC40">5.5 mergelang の main</a></li>
+  </ul></li>
+  <li><a name="TOC41" href="#SEC41">6. xml2texi</a>
+  <ul class="toc">
+    <li><a name="TOC42" href="#SEC42">6.1 xml2texi が使用するライブラリ</a></li>
+    <li><a name="TOC43" href="#SEC43">6.2 escape-text</a></li>
+    <li><a name="TOC44" href="#SEC44">6.3 h2</a></li>
+    <li><a name="TOC45" href="#SEC45">6.4 h3</a></li>
+    <li><a name="TOC46" href="#SEC46">6.5 h4</a></li>
+    <li><a name="TOC47" href="#SEC47">6.6 h5</a></li>
+    <li><a name="TOC48" href="#SEC48">6.7 para</a></li>
+    <li><a name="TOC49" href="#SEC49">6.8 bold</a></li>
+    <li><a name="TOC50" href="#SEC50">6.9 strong</a></li>
+    <li><a name="TOC51" href="#SEC51">6.10 del</a></li>
+    <li><a name="TOC52" href="#SEC52">6.11 pre</a></li>
+    <li><a name="TOC53" href="#SEC53">6.12 img</a></li>
+    <li><a name="TOC54" href="#SEC54">6.13 br</a></li>
+    <li><a name="TOC55" href="#SEC55">6.14 ul</a></li>
+    <li><a name="TOC56" href="#SEC56">6.15 ol</a></li>
+    <li><a name="TOC57" href="#SEC57">6.16 li</a></li>
+    <li><a name="TOC58" href="#SEC58">6.17 dl</a></li>
+    <li><a name="TOC59" href="#SEC59">6.18 dt</a></li>
+    <li><a name="TOC60" href="#SEC60">6.19 dd</a></li>
+    <li><a name="TOC61" href="#SEC61">6.20 table</a></li>
+    <li><a name="TOC62" href="#SEC62">6.21 code</a></li>
+    <li><a name="TOC63" href="#SEC63">6.22 ahref</a></li>
+    <li><a name="TOC64" href="#SEC64">6.23 span</a></li>
+    <li><a name="TOC65" href="#SEC65">6.24 div</a></li>
+    <li><a name="TOC66" href="#SEC66">6.25 sxml-&gt;texinfo-like-sxml</a></li>
+    <li><a name="TOC67" href="#SEC67">6.26 check-not-found</a></li>
+    <li><a name="TOC68" href="#SEC68">6.27 file-path-&gt;texinfo-node</a></li>
+    <li><a name="TOC69" href="#SEC69">6.28 proper-for-cindex?</a></li>
+    <li><a name="TOC70" href="#SEC70">6.29 texinfo-node</a></li>
+    <li><a name="TOC71" href="#SEC71">6.30 make-texinfo-nodes-table</a></li>
+    <li><a name="TOC72" href="#SEC72">6.31 print-texinfo-menu</a></li>
+    <li><a name="TOC73" href="#SEC73">6.32 print-texinfo-like-sxml</a></li>
+    <li><a name="TOC74" href="#SEC74">6.33 process</a></li>
+    <li><a name="TOC75" href="#SEC75">6.34 xml2texi のグローバル変数</a></li>
+    <li><a name="TOC76" href="#SEC76">6.35 xml2texi の main</a></li>
+    <li><a name="TOC77" href="#SEC77">6.36 xml2texi の show-help</a></li>
+  </ul>
+</li>
+</ul>
+</div>
+<hr size="1">
+<a name="SEC_About"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[Index]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>About This Document</h1>
+<p>
+  This document was generated by <em>Teruaki Gemma</em> on <em>June, 22 2010</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.78</em></a>.
+</p>
+<p>
+  The buttons in the navigation panels have the following meaning:
+</p>
+<table border="1">
+  <tr>
+    <th> Button </th>
+    <th> Name </th>
+    <th> Go to </th>
+    <th> From 1.2.3 go to</th>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt; ] </td>
+    <td align="center">Back</td>
+    <td>Previous section in reading order</td>
+    <td>1.2.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt; ] </td>
+    <td align="center">Forward</td>
+    <td>Next section in reading order</td>
+    <td>1.2.4</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt;&lt; ] </td>
+    <td align="center">FastBack</td>
+    <td>Beginning of this chapter or previous chapter</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td align="center"> [ Up ] </td>
+    <td align="center">Up</td>
+    <td>Up section</td>
+    <td>1.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt;&gt; ] </td>
+    <td align="center">FastForward</td>
+    <td>Next chapter</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Top] </td>
+    <td align="center">Top</td>
+    <td>Cover (top) of document</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Contents] </td>
+    <td align="center">Contents</td>
+    <td>Table of contents</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Index] </td>
+    <td align="center">Index</td>
+    <td>Index</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [ ? ] </td>
+    <td align="center">About</td>
+    <td>About (help)</td>
+    <td> &nbsp; </td>
+  </tr>
+</table>
+
+<p>
+  where the <strong> Example </strong> assumes that the current position is at <strong> Subsubsection One-Two-Three </strong> of a document of the following structure:
+</p>
+
+<ul>
+  <li> 1. Section One
+    <ul>
+      <li>1.1 Subsection One-One
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.2 Subsection One-Two
+        <ul>
+          <li>1.2.1 Subsubsection One-Two-One</li>
+          <li>1.2.2 Subsubsection One-Two-Two</li>
+          <li>1.2.3 Subsubsection One-Two-Three &nbsp; &nbsp;
+            <strong>&lt;== Current Position </strong></li>
+          <li>1.2.4 Subsubsection One-Two-Four</li>
+        </ul>
+      </li>
+      <li>1.3 Subsection One-Three
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.4 Subsection One-Four</li>
+    </ul>
+  </li>
+</ul>
+
+<hr size="1">
+<p>
+ <font size="-1">
+  This document was generated by <em>Teruaki Gemma</em> on <em>June, 22 2010</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.78</em></a>.
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

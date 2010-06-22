@@ -1,0 +1,105 @@
+@node mergelang
+@chapter mergelang
+
+@file{developer.mozilla.org/en/} 以下と @file{developer.mozilla.org/ja/} 以下を
+比べると、未翻訳の分だけ、圧倒的に前者のファイルのほうが数が多いことがわかる。
+未翻訳の分は、英語版で代用する。
+@file{/ja}に欠けているファイルを見つけて、@file{/en}のファイルで埋め合わせるプログラムである。
+
+@menu
+* mergelang が使用するライブラリ::  
+* change-lang-from-en-to-ja::   
+* replace-href::                
+* convert::                     
+* mergelang の main::           
+@end menu
+
+@node mergelang が使用するライブラリ, change-lang-from-en-to-ja, mergelang, mergelang
+@section mergelang が使用するライブラリ
+
+@lisp
+(use file.util)
+(use gauche.parseopt)
+(use sxml.ssax)
+(use sxml.sxpath)
+(use sxml.tools)
+(use sxml.tree-trans)
+(use sxml.serializer)
+(load "./common.scm")
+@end lisp
+
+@node change-lang-from-en-to-ja, , mergelang が使用するライブラリ, mergelang
+@section change-lang-from-en-to-ja
+文字列の en の部分を ja に置換する関数。性能のためメモ化している。
+
+@lisp
+(define (***change-lang-from-en-to-ja str)
+  (rxmatch-if (#/(.*\/developer\.mozilla\.org\/)en(\/.*)/ str)
+      (#f before after)
+      (string-append before "ja" after)
+      #f))
+
+(define change-lang-from-en-to-ja (memoize ***change-lang-from-en-to-ja))
+@end lisp
+
+@node  replace-href, convert, change-lang-from-en-to-ja, mergelang
+@section replace-href
+HTML の A 要素の href 属性にある en の部分を ja に置換する関数。
+@ref{change-lang-from-en-to-ja} を用いる。
+
+@lisp
+(define (replace-href node)
+  (and-let* ((href (sxml:attr node 'href))
+             (href (change-lang-from-en-to-ja (sxml:string-value href))))
+    (sxml:change-attr node `(href ,href))))
+@end lisp
+
+@node convert, mergelang の main, replace-href, mergelang
+@section convert
+HTML 中の全ての A 要素に対して @ref{replace-href} 関数を適用する関数。
+@lisp
+(define (convert sxml)
+  (pre-post-order
+   sxml
+   `((xhtml:a     . ,(lambda x (or (replace-href x) x)))
+     (*text*      . ,(lambda (tag text) text))
+     (*default*   . ,(lambda x x)))))
+@end lisp
+
+@node mergelang の main,  , convert, mergelang
+@section mergelang の main
+
+@table
+@item @command{-v --verbose}
+処理中のファイルのパスをプリントする。
+@end table
+
+@file{developer.mozilla.org/en}以下のファイルを処理することを想定している。
+パスを@file{developer.mozilla.org/ja}に置換して、そのパスのファイルが存在しなければ、英語版で埋め合わせる。
+パスの変更に追従して、HTML中のA要素の中身も書き換える。
+将来的に、埋め合わせたファイルだけを扱いたくなるかもしれないので、
+ファイルの末尾に無害なコメントをつけておく。
+
+
+@lisp
+(define (main args)
+  (let-args (cdr args)
+      ((verbose "v|verbose")
+       . restargs)
+    (for-each (lambda (path)
+                (and-let* (((file-is-regular? path))
+                           (dest-path (change-lang-from-en-to-ja path))
+                           ((not (file-exists? dest-path)))
+                           (sxml  (load-xml path)))
+                  (when verbose (print path))
+                  (create-directory* (sys-dirname dest-path))
+                  (call-with-output-file dest-path
+                    (lambda (out)
+                      (call-with-input-string (format-sxml-to-string (convert sxml))
+                        (lambda (in)
+                          (copy-port in out)
+                          (display "\n<!-- not_yet_translated -->\n" out))))
+                    :encoding 'utf-8)))
+              restargs))
+  0)
+@end lisp
