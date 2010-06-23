@@ -7,35 +7,30 @@
 (define (unescape-texinfo-text str)
   (regexp-replace-all* str
                        #/@@/ "@"
-                       #/@{/ "{"
-                       #/@}/ "}"))
+                       #/@\{/ "{"
+                       #/@\}/ "}"))
 
 (define (tangle src-path dst-path)
   (call-with-input-file src-path
     (lambda (in)
       (call-with-output-file dst-path
         (lambda (out)
-          (let loop ((inner-@lisp? #f)
-                     (buffer       '())
-                     (line         (read-line in)))
-            (print line)
-            (unless (eof-object? line)
-              (rxmatch-cond
-                ((#/^@lisp/ line)
-                 (#f)
-                 (loop #t buffer (read-line in)))
-                ((#/^@end lisp/ line)
-                 (#f)
-                 (for-each (lambda (x)
-                             (write x out)
-                             (newline out))
-                           (call-with-input-string (unescape-texinfo-text (string-concatenate buffer))
-                             port->sexp-list))
-                 (loop #f '() (read-line in)))
-                (else
-                 (if inner-@lisp?
-                   (loop #t (cons line buffer) (read-line in))
-                   (loop #f buffer (read-line in))))))))))))
+          (let loop ((inner-@lisp? #f))
+            (let1 line (read-line in)
+              (unless (eof-object? line)
+                (rxmatch-cond
+                  ((#/^@lisp$/ line)
+                   (#f)
+                   (loop #t))
+                  ((#/^@end lisp$/ line)
+                   (#f)
+                   (newline out)
+                   (loop #f))
+                  (else
+                   (when inner-@lisp?
+                     (display line out)
+                     (newline out))
+                   (loop inner-@lisp?)))))))))))
 
 (define (main args)
   (let-args (cdr args)
