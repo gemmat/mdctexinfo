@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
 <html>
-<!-- Created on June, 22 2010 by texi2html 1.78 -->
+<!-- Created on June, 23 2010 by texi2html 1.78 -->
 <!--
 Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
             Karl Berry  <karl@freefriends.org>
@@ -312,12 +312,14 @@ texinfoがノード名にピリオドを含むのを嫌うため必要。
 </p><ul>
 <li> 大文字小文字の区別がある
 </li><li> ファイル名にクォート、ダブルクォートがあると、 <code>xargs</code>コマンドが混乱する。
+</li><li> ピリオドが、拡張子や小数点などに曖昧に使われる。
 </li></ul>
 
 <p>Texinfo のノード名には以下の特徴がある。
 </p><ul>
 <li> 大文字小文字の区別がある
 </li><li> アットマーク、カンマ、コロンはエスケープが必要で面倒
+</li><li> ピリオドを含むと info のバージョンによってはおかしくなる
 </li></ul>
 
 <p>そこで <a href="#SEC7">path-filter</a> は、全てを満足するため、以下の処理を行う。 
@@ -325,6 +327,7 @@ texinfoがノード名にピリオドを含むのを嫌うため必要。
 <ul>
 <li> すべて小文字にする
 </li><li> アットマーク、カンマ、コロン、クォート、ダブルクォートをアンダースコアに置換する。
+</li><li> ピリオドは拡張子として重要なので、放っておく。
 </li></ul>
 
 <p>性能のためメモ化した。
@@ -1510,8 +1513,6 @@ srl:sxml-&gt;html は (xhtml:div) を &lt;xhtml:div/&gt; と出力するが、HT
 </tr></table>
 <h2 class="section"> 3.9 offline の main </h2>
 
-<p>メイン。
-</p>
 <table><tr><td>&nbsp;</td><td><pre class="lisp">(define (main args)
   (let-args (cdr args)
       ((v      &quot;v|verbose&quot;)
@@ -2802,7 +2803,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.25 sxml-&gt;texinfo-like-sxml </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (sxml-&gt;texinfo-like-sxml sxml)
+<p>pre-post-order でSXML変換を行う。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (sxml-&gt;texinfo-like-sxml sxml)
   (pre-post-order
    (getElementById &quot;pageText&quot; sxml)
    `((xhtml:a      . ,(lambda x (ahref x)))
@@ -2851,7 +2853,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.26 check-not-found </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (check-not-found str)
+<p>texinfo ノード名が notfound.scm にあるかどうかを判定する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (check-not-found str)
   (hash-table-get notfound-table str str))
 </pre></td></tr></table>
 
@@ -2875,7 +2878,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.27 file-path-&gt;texinfo-node </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (file-path-&gt;texinfo-node path)
+<p>必要性に乏しいので消す。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (file-path-&gt;texinfo-node path)
   (check-not-found (texi-node (make-place-from-file-path path))))
 </pre></td></tr></table>
 
@@ -2899,7 +2903,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.28 proper-for-cindex? </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (proper-for-cindex? str)
+<p>@cindex 索引のキーワードとして適当か判定する。英数字とカッコのみからなる文字列を適当とする。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (proper-for-cindex? str)
   (boolean (#/^[\w\.\(\)]+$/ str)))
 </pre></td></tr></table>
 
@@ -2923,7 +2928,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.29 texinfo-node </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define-class &lt;texinfo-node&gt; ()
+<p>@node のデータを格納するクラス
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define-class &lt;texinfo-node&gt; ()
   ((self :init-keyword :self)
    (next :init-keyword :next)
    (prev :init-keyword :prev)
@@ -2951,7 +2957,9 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.30 make-texinfo-nodes-table </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (make-texinfo-nodes-table order-scm)
+
+<p>@node のデータを計算する関数。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (make-texinfo-nodes-table order-scm)
   (define (replace-all-period-to-underscore-of-items sxml)
     (pre-post-order
      sxml
@@ -3005,7 +3013,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.31 print-texinfo-menu </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (print-texinfo-menu path)
+<p>@menu を出力する。texinfo-nodes-table のデータを用いる。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (print-texinfo-menu path)
   (and-let* ((node (file-path-&gt;texinfo-node path))
              (obj (hash-table-get texinfo-nodes-table node))
              (children (slot-ref obj 'children))
@@ -3037,7 +3046,8 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
 </tr></table>
 <h2 class="section"> 6.32 print-texinfo-like-sxml </h2>
-<table><tr><td>&nbsp;</td><td><pre class="lisp">(define (print-texinfo-like-sxml sxml)
+<p>texinfo に非常に近い形の sxml を texinfo として出力する。
+</p><table><tr><td>&nbsp;</td><td><pre class="lisp">(define (print-texinfo-like-sxml sxml)
   (for-each (lambda (x)
               (print (sxml:string-value x)))
             ((sxpath '(// texinfo)) `(*TOP* ,sxml))))
@@ -3349,7 +3359,7 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 </tr></table>
 <h1>About This Document</h1>
 <p>
-  This document was generated by <em>Teruaki Gemma</em> on <em>June, 22 2010</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.78</em></a>.
+  This document was generated by <em>Teruaki Gemma</em> on <em>June, 23 2010</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.78</em></a>.
 </p>
 <p>
   The buttons in the navigation panels have the following meaning:
@@ -3451,7 +3461,7 @@ div 要素の class 属性が note のときは、脚注として、 @footnote �
 <hr size="1">
 <p>
  <font size="-1">
-  This document was generated by <em>Teruaki Gemma</em> on <em>June, 22 2010</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.78</em></a>.
+  This document was generated by <em>Teruaki Gemma</em> on <em>June, 23 2010</em> using <a href="http://www.nongnu.org/texi2html/"><em>texi2html 1.78</em></a>.
  </font>
  <br>
 

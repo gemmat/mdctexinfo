@@ -334,6 +334,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node sxml->texinfo-like-sxml, check-not-found, div, xml2texi
 @section sxml->texinfo-like-sxml
+pre-post-order でSXML変換を行う。
 @lisp
 (define (sxml->texinfo-like-sxml sxml)
   (pre-post-order
@@ -366,6 +367,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node check-not-found, file-path->texinfo-node, sxml->texinfo-like-sxml, xml2texi
 @section check-not-found
+texinfo ノード名が notfound.scm にあるかどうかを判定する。
 @lisp
 (define (check-not-found str)
   (hash-table-get notfound-table str str))
@@ -373,6 +375,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node file-path->texinfo-node, proper-for-cindex?, check-not-found, xml2texi
 @section file-path->texinfo-node
+必要性に乏しいので消す。
 @lisp
 (define (file-path->texinfo-node path)
   (check-not-found (texi-node (make-place-from-file-path path))))
@@ -380,6 +383,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node proper-for-cindex?, texinfo-node, file-path->texinfo-node, xml2texi
 @section proper-for-cindex?
+@@cindex 索引のキーワードとして適当か判定する。英数字とカッコのみからなる文字列を適当とする。
 @lisp
 (define (proper-for-cindex? str)
   (boolean (#/^[\w\.\(\)]+$/ str)))
@@ -387,6 +391,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node texinfo-node, make-texinfo-nodes-table, proper-for-cindex?, xml2texi
 @section texinfo-node
+@@node のデータを格納するクラス
 @lisp
 (define-class <texinfo-node> ()
   ((self :init-keyword :self)
@@ -398,6 +403,8 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node make-texinfo-nodes-table, print-texinfo-menu, texinfo-node, xml2texi
 @section make-texinfo-nodes-table
+
+@@node のデータを計算する関数。
 @lisp
 (define (make-texinfo-nodes-table order-scm)
   (define (replace-all-period-to-underscore-of-items sxml)
@@ -435,6 +442,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node print-texinfo-menu, print-texinfo-like-sxml, make-texinfo-nodes-table, xml2texi
 @section print-texinfo-menu
+@@menu を出力する。texinfo-nodes-table のデータを用いる。
 @lisp
 (define (print-texinfo-menu path)
   (and-let* ((node (file-path->texinfo-node path))
@@ -450,6 +458,7 @@ div 要素の class 属性が note のときは、脚注として、 @@footnote 
 
 @node print-texinfo-like-sxml, process, print-texinfo-menu, xml2texi
 @section print-texinfo-like-sxml
+texinfo に非常に近い形の sxml を texinfo として出力する。
 @lisp
 (define (print-texinfo-like-sxml sxml)
   (for-each (lambda (x)

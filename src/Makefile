@@ -5,10 +5,13 @@ TEXI2DVI  = texi2dvi
 TEX = ptex
 
 .PHONY: all
-all: info html
+all: info html tangle
 
 info:
 	$(MAKEINFO) src.texi
 
 html:
 	$(TEXI2HTML) src.texi
+
+tangle:
+	$(GOSH) ./tangle.scm *.texi
